@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@plugin '../hero.ts';
+
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans: "Lexend", sans-serif;
+    --font-heading: "Friz Quadrata", serif;
+    --font-mono: "monospace", monospace;
+    --color-wow-gold: #c79c3e;
+    --color-wow-gold-light: #e0be6e;
+    --color-wow-gold-dark: #8a6b2a;
+    --color-wow-blue: #4fc3f7;
+    --color-wow-blue-ice: #7dd3fc;
+    --color-wow-blue-dark: #1a3a52;
+    --color-wow-dark: #0a0e14;
+    --color-wow-darker: #050810;
+    --color-wow-panel: #111827;
+    --color-wow-alliance: #0078ff;
+    --color-wow-horde: #b30000;
+}
+
+body {
+    background-color: var(--color-wow-darker) !important;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading), serif;
+}
+
+/* ── Gold gradient text ── */
+.wow-gradient-text {
+    background: linear-gradient(135deg, #c79c3e 0%, #f0d68a 50%, #c79c3e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Icy blue gradient text ── */
+.wow-ice-text {
+    background: linear-gradient(135deg, #4fc3f7 0%, #b3e5fc 50%, #4fc3f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Glassmorphism card ── */
+.glass {
+    background: rgba(10, 14, 20, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(199, 156, 62, 0.15);
+}
+
+.glass-light {
+    background: rgba(17, 24, 39, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-blue {
+    background: rgba(10, 20, 40, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(79, 195, 247, 0.15);
+}
+
+.glass-gold {
+    background: rgba(20, 16, 10, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(199, 156, 62, 0.2);
+}
+
+/* ── Glow effects ── */
+.glow-gold {
+    box-shadow: 0 0 30px rgba(199, 156, 62, 0.2), 0 0 60px rgba(199, 156, 62, 0.05);
+}
+
+.glow-blue {
+    box-shadow: 0 0 30px rgba(79, 195, 247, 0.2), 0 0 60px rgba(79, 195, 247, 0.05);
+}
+
+.glow-gold-strong {
+    box-shadow: 0 0 20px rgba(199, 156, 62, 0.3), 0 0 40px rgba(199, 156, 62, 0.15), 0 0 80px rgba(199, 156, 62, 0.05);
+}
+
+.glow-blue-strong {
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.3), 0 0 40px rgba(79, 195, 247, 0.15), 0 0 80px rgba(79, 195, 247, 0.05);
+}
+
+.glow-alliance {
+    box-shadow: 0 0 25px rgba(0, 120, 255, 0.3), 0 0 50px rgba(0, 120, 255, 0.1);
+}
+
+.glow-horde {
+    box-shadow: 0 0 25px rgba(179, 0, 0, 0.3), 0 0 50px rgba(179, 0, 0, 0.1);
+}
+
+/* ── Old border style (kept for compatibility) ── */
+.wow-border {
+    border: 1px solid rgba(199, 156, 62, 0.2);
+}
+
+/* ── Card with image background ── */
+.img-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: transform 0.6s ease;
+}
+
+.img-card:hover::before {
+    transform: scale(1.05);
+}
+
+.img-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Animated glow pulse ── */
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(79, 195, 247, 0.15); }
+    50% { box-shadow: 0 0 35px rgba(79, 195, 247, 0.3), 0 0 60px rgba(79, 195, 247, 0.1); }
+}
+
+.glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse-gold {
+    0%, 100% { box-shadow: 0 0 20px rgba(199, 156, 62, 0.15); }
+    50% { box-shadow: 0 0 35px rgba(199, 156, 62, 0.3), 0 0 60px rgba(199, 156, 62, 0.1); }
+}
+
+.glow-pulse-gold {
+    animation: glow-pulse-gold 3s ease-in-out infinite;
+}
+
+/* ── Shimmer line decoration ── */
+.shimmer-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(199, 156, 62, 0.5), transparent);
+}
+
+/* ── Floating particles background ── */
+@keyframes float-up {
+    0% { transform: translateY(100%) scale(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0e14;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(199, 156, 62, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(199, 156, 62, 0.5);
+}

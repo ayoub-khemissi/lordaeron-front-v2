@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS lordaeron_website;
+USE lordaeron_website;
+
+CREATE TABLE IF NOT EXISTS news (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  title_en VARCHAR(255) NOT NULL DEFAULT '',
+  title_fr VARCHAR(255) NOT NULL DEFAULT '',
+  title_es VARCHAR(255) NOT NULL DEFAULT '',
+  title_de VARCHAR(255) NOT NULL DEFAULT '',
+  title_it VARCHAR(255) NOT NULL DEFAULT '',
+  content_en TEXT,
+  content_fr TEXT,
+  content_es TEXT,
+  content_de TEXT,
+  content_it TEXT,
+  image_url VARCHAR(500) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

@@ -1,0 +1,92 @@
+"use client";
+
+import { Link } from "@heroui/link";
+import { useTranslations, useLocale } from "next-intl";
+import NextLink from "next/link";
+import { DiscordIcon } from "@/components/icons";
+import { useAuth } from "@/lib/auth-context";
+
+export const Footer = () => {
+  const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
+  const locale = useLocale();
+  const { user } = useAuth();
+
+  return (
+    <footer className="relative w-full mt-auto overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-15"
+        style={{
+          backgroundImage:
+            "url('/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Icecrown_008_1080p_png_jpgcopy.jpg')",
+        }}
+      />
+      {/* Top border glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-wow-gold/30 to-transparent" />
+
+      <div className="relative glass border-t-0 border-l-0 border-r-0 border-b-0">
+        <div className="container mx-auto max-w-7xl px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+              <h3 className="text-xl font-black wow-gradient-text mb-3 tracking-widest">
+                LORDAERON
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {t("description")}
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-wow-gold text-xs font-bold mb-4 uppercase tracking-[0.2em]">
+                {t("links")}
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  { label: tNav("home"), href: `/${locale}` },
+                  { label: tNav("howTo"), href: `/${locale}/how-to` },
+                  { label: tNav("features"), href: `/${locale}/features` },
+                  user
+                    ? { label: tNav("account"), href: `/${locale}/account` }
+                    : { label: tNav("register"), href: `/${locale}/register` },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <NextLink
+                      href={link.href}
+                      className="text-gray-400 hover:text-wow-gold text-sm transition-colors"
+                    >
+                      {link.label}
+                    </NextLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-wow-gold text-xs font-bold mb-4 uppercase tracking-[0.2em]">
+                {t("community")}
+              </h4>
+              <Link
+                isExternal
+                href="https://discord.gg/MqTzu6Qhn3"
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-[#5865F2] text-sm transition-colors"
+              >
+                <DiscordIcon className="w-5 h-5" />
+                Discord
+              </Link>
+            </div>
+          </div>
+
+          <div className="shimmer-line w-full mt-10 mb-6" />
+
+          <div className="text-center">
+            <p className="text-gray-400 text-xs">
+              &copy; {new Date().getFullYear()} Lordaeron. {t("rights")}
+            </p>
+            <p className="text-gray-500 text-xs mt-1">{t("disclaimer")}</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

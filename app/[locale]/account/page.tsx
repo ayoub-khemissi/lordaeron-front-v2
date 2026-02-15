@@ -1,0 +1,326 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { Spinner } from "@heroui/spinner";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@heroui/table";
+import { Chip } from "@heroui/chip";
+
+import type { Character, AccountInfo } from "@/types";
+import { useAuth } from "@/lib/auth-context";
+
+const RACE_NAMES: Record<number, string> = {
+  1: "Human", 2: "Orc", 3: "Dwarf", 4: "Night Elf",
+  5: "Undead", 6: "Tauren", 7: "Gnome", 8: "Troll",
+  10: "Blood Elf", 11: "Draenei",
+};
+
+const CLASS_NAMES: Record<number, string> = {
+  1: "Warrior", 2: "Paladin", 3: "Hunter", 4: "Rogue",
+  5: "Priest", 6: "Death Knight", 7: "Shaman", 8: "Mage",
+  9: "Warlock", 11: "Druid",
+};
+
+const CLASS_COLORS: Record<number, string> = {
+  1: "#C79C6E", 2: "#F58CBA", 3: "#ABD473", 4: "#FFF569",
+  5: "#FFFFFF", 6: "#C41F3B", 7: "#0070DE", 8: "#69CCF0",
+  9: "#9482C9", 11: "#FF7D0A",
+};
+
+const ALLIANCE_RACES = [1, 3, 4, 7, 11];
+
+function formatPlayTime(seconds: number): string {
+  const days = Math.floor(seconds / 86400);
+  const hours = Math.floor((seconds % 86400) / 3600);
+  if (days > 0) return `${days}d ${hours}h`;
+  const minutes = Math.floor((seconds % 3600) / 60);
+  return `${hours}h ${minutes}m`;
+}
+
+export default function AccountPage() {
+  const t = useTranslations("account");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
+  const router = useRouter();
+  const { user: authUser, loading: authLoading } = useAuth();
+
+  const [loading, setLoading] = useState(true);
+  const [account, setAccount] = useState<AccountInfo | null>(null);
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [realm, setRealm] = useState<{ online: boolean; name: string } | null>(null);
+
+  useEffect(() => {
+    if (authLoading) return;
+    if (!authUser) {
+      router.replace(`/${locale}/login`);
+      return;
+    }
+
+    const fetchAccount = async () => {
+      try {
+        const res = await fetch("/api/account");
+        if (res.status === 401) {
+          router.replace(`/${locale}/login`);
+          return;
+        }
+        const data = await res.json();
+        setAccount(data.account);
+        setCharacters(data.characters || []);
+        setRealm(data.realm);
+      } catch {
+        router.replace(`/${locale}/login`);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAccount();
+  }, [authUser, authLoading, locale, router]);
+
+  if (authLoading || loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Spinner size="lg" color="warning" />
+      </div>
+    );
+  }
+
+  if (!account) return null;
+
+  const expansionName = t(`expansions.${account.expansion}`);
+
+  return (
+    <div
+      className="relative bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "url('/img/World of Warcraft Classic 1920x1080/ClassicLaunch_WoW_Andorhal_1920x1080.jpg')",
+      }}
+    >
+      <div className="absolute inset-0 bg-wow-darker/90" />
+
+      <div className="relative container mx-auto max-w-5xl px-6 py-16">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl font-black wow-gradient-text mb-2">{t("title")}</h1>
+          <p className="text-gray-300">{t("subtitle")}</p>
+          <div className="shimmer-line w-24 mx-auto mt-4" />
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Account Info Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="lg:col-span-1"
+          >
+            <div className="relative overflow-hidden rounded-2xl glow-gold">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-25"
+                style={{
+                  backgroundImage:
+                    "url('/img/Burning Crusade Classic Overlords of Outland Screenshots 1080p/BCC_Overlords_of_Outland_Ogrila_1920x1080.jpg')",
+                }}
+              />
+              <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
+                <h2 className="text-lg font-bold wow-gradient-text mb-5">{t("info")}</h2>
+
+                {/* Avatar */}
+                <div className="flex justify-center mb-6">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-wow-gold/30 to-wow-gold-dark/30 flex items-center justify-center border-2 border-wow-gold/40 glow-gold-strong">
+                    <span className="text-3xl font-black wow-gradient-text">
+                      {account.username.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <InfoRow label={t("username")} value={account.username} highlight />
+                  <InfoRow label={t("email")} value={account.email} />
+                  <InfoRow
+                    label={t("joinDate")}
+                    value={new Date(account.joindate).toLocaleDateString(locale)}
+                  />
+                  <InfoRow label={t("expansion")}>
+                    <Chip
+                      size="sm"
+                      variant="flat"
+                      classNames={{ base: "bg-wow-blue/10 border border-wow-blue/20", content: "text-wow-blue-ice text-xs font-medium" }}
+                    >
+                      {expansionName}
+                    </Chip>
+                  </InfoRow>
+                </div>
+              </div>
+            </div>
+
+            {/* Realm Info Card */}
+            {realm && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mt-6"
+              >
+                <div className="glass border-wow-blue/15 rounded-2xl p-6 glow-blue">
+                  <h2 className="text-lg font-bold wow-ice-text mb-4">{t("realmInfo")}</h2>
+                  <div className="space-y-3">
+                    <InfoRow label={t("realmName")} value={realm.name} />
+                    <InfoRow label={t("realmStatus")}>
+                      <span className="flex items-center gap-2">
+                        <span className="relative flex h-2.5 w-2.5">
+                          {realm.online && (
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                          )}
+                          <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${realm.online ? "bg-green-400" : "bg-red-500"}`} />
+                        </span>
+                        <span className={realm.online ? "text-green-400" : "text-red-400"}>
+                          {realm.online ? tCommon("online") : tCommon("offline")}
+                        </span>
+                      </span>
+                    </InfoRow>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </motion.div>
+
+          {/* Characters Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-2"
+          >
+            <div className="relative overflow-hidden rounded-2xl glow-gold">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-20"
+                style={{
+                  backgroundImage:
+                    "url('/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_BlackTemple_Entrance.jpg')",
+                }}
+              />
+              <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
+                <h2 className="text-lg font-bold wow-gradient-text mb-5">{t("characters")}</h2>
+
+                {characters.length === 0 ? (
+                  <div className="text-center py-12">
+                    <p className="text-gray-400 text-sm">{t("noCharacters")}</p>
+                  </div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <Table
+                      aria-label="Characters"
+                      classNames={{
+                        wrapper: "bg-transparent shadow-none p-0",
+                        th: "bg-wow-darker/60 text-wow-gold text-xs uppercase tracking-wider border-b border-wow-gold/10",
+                        td: "border-b border-white/5 py-3",
+                        tr: "hover:bg-white/[0.02] transition-colors",
+                      }}
+                    >
+                      <TableHeader>
+                        <TableColumn>{t("name")}</TableColumn>
+                        <TableColumn>{t("level")}</TableColumn>
+                        <TableColumn>{t("race")}</TableColumn>
+                        <TableColumn>{t("class")}</TableColumn>
+                        <TableColumn>{t("playTime")}</TableColumn>
+                        <TableColumn>{t("status")}</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {characters.map((char) => {
+                          const faction = ALLIANCE_RACES.includes(char.race) ? "alliance" : "horde";
+                          return (
+                            <TableRow key={char.guid}>
+                              <TableCell>
+                                <span className="font-semibold text-gray-200">{char.name}</span>
+                              </TableCell>
+                              <TableCell>
+                                <span className={`font-bold ${char.level >= 80 ? "text-wow-gold drop-shadow-[0_0_4px_rgba(199,156,62,0.5)]" : "text-gray-300"}`}>
+                                  {char.level}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <Chip
+                                  size="sm"
+                                  variant="flat"
+                                  classNames={{
+                                    base: `${faction === "alliance" ? "bg-wow-alliance/10 border border-wow-alliance/20" : "bg-wow-horde/10 border border-wow-horde/20"}`,
+                                    content: `text-xs font-medium ${faction === "alliance" ? "text-wow-alliance" : "text-wow-horde"}`,
+                                  }}
+                                >
+                                  {RACE_NAMES[char.race] || `Race ${char.race}`}
+                                </Chip>
+                              </TableCell>
+                              <TableCell>
+                                <span
+                                  className="font-medium text-sm"
+                                  style={{ color: CLASS_COLORS[char.class] || "#ffffff" }}
+                                >
+                                  {CLASS_NAMES[char.class] || `Class ${char.class}`}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <span className="text-gray-300 text-sm">
+                                  {formatPlayTime(char.totaltime)}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <span className="flex items-center gap-1.5">
+                                  <span className={`w-2 h-2 rounded-full ${char.online ? "bg-green-400" : "bg-default-600"}`} />
+                                  <span className={`text-xs ${char.online ? "text-green-400" : "text-gray-400"}`}>
+                                    {char.online ? tCommon("online") : tCommon("offline")}
+                                  </span>
+                                </span>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InfoRow({
+  label,
+  value,
+  highlight,
+  children,
+}: {
+  label: string;
+  value?: string;
+  highlight?: boolean;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-0.5">
+      <span className="text-gray-400 text-xs uppercase tracking-wider">{label}</span>
+      {children || (
+        <span className={`text-sm font-medium ${highlight ? "text-wow-gold" : "text-gray-200"}`}>
+          {value}
+        </span>
+      )}
+    </div>
+  );
+}
