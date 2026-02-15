@@ -4,6 +4,7 @@ import { verifySession } from "@/lib/auth";
 import { findAccountById } from "@/lib/queries/account";
 import { getCharactersByAccount } from "@/lib/queries/characters";
 import { getRealmStatus } from "@/lib/queries/server";
+import { getSoulShardBalance } from "@/lib/queries/soul-shards";
 
 export const dynamic = "force-dynamic";
 
@@ -14,10 +15,11 @@ export async function GET() {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
 
-    const [account, characters, realm] = await Promise.all([
+    const [account, characters, realm, soulShards] = await Promise.all([
       findAccountById(session.id),
       getCharactersByAccount(session.id),
       getRealmStatus(),
+      getSoulShardBalance(session.id),
     ]);
 
     if (!account) {
@@ -35,6 +37,7 @@ export async function GET() {
       },
       characters,
       realm,
+      soulShards,
     });
   } catch (error) {
     console.error("Account fetch error:", error);

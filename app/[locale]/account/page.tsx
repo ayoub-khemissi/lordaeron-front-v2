@@ -57,6 +57,7 @@ export default function AccountPage() {
   const [account, setAccount] = useState<AccountInfo | null>(null);
   const [characters, setCharacters] = useState<Character[]>([]);
   const [realm, setRealm] = useState<{ online: boolean; name: string } | null>(null);
+  const [soulShards, setSoulShards] = useState<number>(0);
 
   useEffect(() => {
     if (authLoading) return;
@@ -76,6 +77,7 @@ export default function AccountPage() {
         setAccount(data.account);
         setCharacters(data.characters || []);
         setRealm(data.realm);
+        setSoulShards(data.soulShards ?? 0);
       } catch {
         router.replace(`/${locale}/login`);
       } finally {
@@ -95,8 +97,6 @@ export default function AccountPage() {
   }
 
   if (!account) return null;
-
-  const expansionName = t(`expansions.${account.expansion}`);
 
   return (
     <div
@@ -155,14 +155,13 @@ export default function AccountPage() {
                     label={t("joinDate")}
                     value={new Date(account.joindate).toLocaleDateString(locale)}
                   />
-                  <InfoRow label={t("expansion")}>
-                    <Chip
-                      size="sm"
-                      variant="flat"
-                      classNames={{ base: "bg-wow-blue/10 border border-wow-blue/20", content: "text-wow-blue-ice text-xs font-medium" }}
-                    >
-                      {expansionName}
-                    </Chip>
+                  <InfoRow label={t("soulShards")}>
+                    <span className="flex items-center gap-1.5">
+                      <img src="/img/icons/soul-shard.svg" alt="Soul Shard" className="w-4 h-4" />
+                      <span className="text-purple-400 text-sm font-medium">
+                        {soulShards.toLocaleString()}
+                      </span>
+                    </span>
                   </InfoRow>
                 </div>
               </div>

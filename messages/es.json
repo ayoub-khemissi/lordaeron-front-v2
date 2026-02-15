@@ -146,7 +146,8 @@
     "realm": "Reino",
     "realmInfo": "Información del reino",
     "realmName": "Nombre del reino",
-    "realmStatus": "Estado"
+    "realmStatus": "Estado",
+    "soulShards": "Soul Shards"
   },
   "footer": {
     "description": "Un servidor privado WoW Epic Progressive — de Vanilla a WotLK.",

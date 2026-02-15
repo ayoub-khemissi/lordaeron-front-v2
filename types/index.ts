@@ -81,6 +81,11 @@ export interface AccountInfo {
   expansion: number;
 }
 
+export interface SoulShardBalance {
+  account_id: number;
+  balance: number;
+}
+
 export interface JWTPayload {
   id: number;
   username: string;

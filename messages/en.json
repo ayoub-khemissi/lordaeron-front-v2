@@ -146,7 +146,8 @@
     "realm": "Realm",
     "realmInfo": "Realm Information",
     "realmName": "Realm Name",
-    "realmStatus": "Status"
+    "realmStatus": "Status",
+    "soulShards": "Soul Shards"
   },
   "footer": {
     "description": "An Epic Progressive WoW private server — from Vanilla to WotLK.",

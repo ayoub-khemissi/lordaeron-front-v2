@@ -146,7 +146,8 @@
     "realm": "Reame",
     "realmInfo": "Informazioni reame",
     "realmName": "Nome reame",
-    "realmStatus": "Stato"
+    "realmStatus": "Stato",
+    "soulShards": "Soul Shards"
   },
   "footer": {
     "description": "Un server privato WoW Epic Progressive — da Vanilla a WotLK.",
