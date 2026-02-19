@@ -64,6 +64,8 @@ export function CategoryFilterBar({
           <SelectItem key="oldest">{t("sortOldest")}</SelectItem>
           <SelectItem key="name_asc">{t("sortNameAsc")}</SelectItem>
           <SelectItem key="name_desc">{t("sortNameDesc")}</SelectItem>
+          <SelectItem key="quality_asc">{t("sortQualityAsc")}</SelectItem>
+          <SelectItem key="quality_desc">{t("sortQualityDesc")}</SelectItem>
         </Select>
       </div>
       {onShowSetsChange && onShowItemsChange && (

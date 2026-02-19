@@ -169,6 +169,8 @@
     "sortNameDesc": "Nome: Z a A",
     "sortNewest": "Più recenti",
     "sortOldest": "Più vecchi",
+    "sortQualityAsc": "Qualità: crescente",
+    "sortQualityDesc": "Qualità: decrescente",
     "filterSets": "Set di articoli",
     "filterItems": "Articoli singoli",
     "noItems": "Nessun articolo disponibile in questa categoria",

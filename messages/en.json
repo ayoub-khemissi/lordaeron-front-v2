@@ -169,6 +169,8 @@
     "sortNameDesc": "Name: Z to A",
     "sortNewest": "Newest",
     "sortOldest": "Oldest",
+    "sortQualityAsc": "Quality: Low to High",
+    "sortQualityDesc": "Quality: High to Low",
     "filterSets": "Item Sets",
     "filterItems": "Individual Items",
     "noItems": "No items available in this category",

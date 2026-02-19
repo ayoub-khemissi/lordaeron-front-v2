@@ -256,7 +256,7 @@ export default function ShopPage() {
   };
 
   // Sort function shared between items and sets
-  const sortFn = <T extends { discounted_price: number; id: number; name: string }>(a: T, b: T) => {
+  const sortFn = <T extends { discounted_price: number; id: number; name: string; quality?: number }>(a: T, b: T) => {
     switch (sortBy) {
       case "price_asc":
         return a.discounted_price - b.discounted_price;
@@ -266,6 +266,10 @@ export default function ShopPage() {
         return a.name.localeCompare(b.name);
       case "name_desc":
         return b.name.localeCompare(a.name);
+      case "quality_asc":
+        return (a.quality ?? 0) - (b.quality ?? 0);
+      case "quality_desc":
+        return (b.quality ?? 0) - (a.quality ?? 0);
       case "newest":
         return b.id - a.id;
       case "oldest":
