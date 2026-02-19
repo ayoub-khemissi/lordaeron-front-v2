@@ -30,6 +30,17 @@ Retries SOAP delivery for purchases stuck in `pending_delivery` status (server w
 | **Frequency** | Every 5 minutes |
 | **Log** | `/var/log/lordaeron/retry-deliveries.log` |
 
+### Rotate Daily Highlights
+
+Picks 1 random active item from each of the 7 categories (bags, heirlooms, transmog, mounts, tabards, pets, toys) and assigns a random discount (10%, 20%, or 30%). Resets previous highlights first.
+
+| | |
+|---|---|
+| **Endpoint** | `GET /api/shop/cron/rotate-highlights` |
+| **Auth** | `Authorization: Bearer <CRON_SECRET>` |
+| **Frequency** | Daily at midnight |
+| **Log** | `/var/log/lordaeron/rotate-highlights.log` |
+
 ## Setup
 
 ### 1. Create log directory
@@ -52,6 +63,9 @@ Add the following lines:
 
 # Retry pending deliveries every 5 minutes
 */5 * * * * curl -sf -H "Authorization: Bearer dev-cron-secret-2024" http://localhost:3000/api/shop/cron/retry-deliveries >> /var/log/lordaeron/retry-deliveries.log 2>&1
+
+# Rotate daily highlights at midnight
+0 0 * * * curl -sf -H "Authorization: Bearer dev-cron-secret-2024" http://localhost:3000/api/shop/cron/rotate-highlights >> /var/log/lordaeron/rotate-highlights.log 2>&1
 ```
 
 > Replace `dev-cron-secret-2024` with your production `CRON_SECRET` and `localhost:3000` with your production URL.

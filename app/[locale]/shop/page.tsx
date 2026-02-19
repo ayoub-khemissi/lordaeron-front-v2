@@ -15,7 +15,7 @@ import { CategoryNav } from "@/components/shop/category-nav";
 import { ItemGrid } from "@/components/shop/item-grid";
 import { SetGrid } from "@/components/shop/set-grid";
 import { HighlightsCarousel } from "@/components/shop/highlights-carousel";
-import { DiscountsSection } from "@/components/shop/discounts-section";
+
 import { ItemDetailModal } from "@/components/shop/item-detail-modal";
 import { SetDetailModal } from "@/components/shop/set-detail-modal";
 import { PurchaseModal } from "@/components/shop/purchase-modal";
@@ -292,8 +292,7 @@ export default function ShopPage() {
     .sort(sortFn);
 
   const highlightedItems = items.filter((i) => i.is_highlighted);
-  const discountedItems = items.filter((i) => i.discount_percentage > 0);
-
+  const highlightedSets = sets.filter((s) => s.is_highlighted);
   // Show sets only on the transmog category, combined with user filter
   const showSetsSection = selectedCategory === "transmog" && showSetFilter;
 
@@ -390,12 +389,13 @@ export default function ShopPage() {
 
       {activeTab === "shop" ? (
         <>
-          {!selectedCategory && highlightedItems.length > 0 && (
-            <HighlightsCarousel items={highlightedItems} onItemClick={setDetailItem} />
-          )}
-
-          {!selectedCategory && discountedItems.length > 0 && (
-            <DiscountsSection items={discountedItems} onItemClick={setDetailItem} />
+          {!selectedCategory && (highlightedItems.length > 0 || highlightedSets.length > 0) && (
+            <HighlightsCarousel
+              items={highlightedItems}
+              sets={highlightedSets}
+              onItemClick={setDetailItem}
+              onSetClick={setDetailSet}
+            />
           )}
 
           <CategoryNav
