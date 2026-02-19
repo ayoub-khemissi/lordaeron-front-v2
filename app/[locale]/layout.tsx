@@ -12,6 +12,7 @@ import { fontSans, fontHeading } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AuthProvider } from "@/lib/auth-context";
+import { CookieBanner } from "@/components/cookie-banner";
 
 const ogLocaleMap: Record<string, string> = {
   en: "en_US",
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
                 <Navbar />
                 <main className="flex-grow">{children}</main>
                 <Footer />
+                <CookieBanner />
               </div>
             </AuthProvider>
           </Providers>

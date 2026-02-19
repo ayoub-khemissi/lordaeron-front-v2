@@ -7,7 +7,8 @@
     "login": "Connexion",
     "account": "Mon Compte",
     "logout": "Déconnexion",
-    "shop": "Boutique"
+    "shop": "Boutique",
+    "contact": "Contact"
   },
   "home": {
     "title": "Bienvenue sur Lordaeron",
@@ -325,7 +326,7 @@
   },
   "admin": {
     "login": { "title": "Connexion Admin", "username": "Nom d'utilisateur", "password": "Mot de passe", "submit": "Se connecter", "error": "Identifiants invalides" },
-    "nav": { "dashboard": "Tableau de bord", "items": "Articles", "sets": "Sets", "purchases": "Achats", "bans": "Bans", "audit": "Journal d'audit", "realMoney": "Argent réel", "logout": "Déconnexion" },
+    "nav": { "dashboard": "Tableau de bord", "items": "Articles", "sets": "Sets", "purchases": "Achats", "bans": "Bans", "audit": "Journal d'audit", "contactMessages": "Messages de contact", "realMoney": "Argent réel", "logout": "Déconnexion" },
     "dashboard": { "title": "Tableau de bord", "totalRevenue": "Revenu total", "totalPurchases": "Achats totaux", "averageOrder": "Panier moyen", "activeItems": "Articles actifs", "salesTrend": "Tendance des ventes", "topItems": "Meilleurs articles", "recentPurchases": "Achats récents" },
     "items": { "title": "Articles de la boutique", "addItem": "Ajouter un article", "editItem": "Modifier l'article", "name": "Nom", "category": "Catégorie", "price": "Prix", "discount": "Réduction", "status": "Statut", "active": "Actif", "inactive": "Inactif", "highlighted": "En vedette", "actions": "Actions", "save": "Sauvegarder", "delete": "Désactiver", "refundable": "Remboursable",
       "confirmDelete": "Êtes-vous sûr de vouloir désactiver cet article ?" },
@@ -353,6 +354,22 @@
     "purchases": { "title": "Historique des achats", "account": "Compte", "character": "Personnage", "item": "Article", "price": "Prix", "status": "Statut", "date": "Date", "refund": "Rembourser", "confirmRefund": "Êtes-vous sûr de vouloir rembourser cet achat ?", "refundSuccess": "Achat remboursé avec succès", "actions": "Actions", "retry": "Réessayer", "retrySuccess": "Livraison relancée avec succès", "retryFailed": "Échec de la relance de livraison", "status_completed": "Complété", "status_refunded": "Remboursé", "status_pending_refund": "Remboursement en attente", "status_pending_delivery": "Livraison en attente", "status_cancelled": "Annulé", "reason_itemNotRefundable": "Non remboursable", "reason_refundExpired": "Délai de 2h dépassé", "reason_itemNotInInventory": "Objet plus dans l'inventaire", "reason_purchaseNotRefundable": "Achat non remboursable", "reason_recipientNotFound": "Destinataire introuvable", "reason_serverError": "Erreur serveur", "reason_characterOnline": "Personnage en ligne" },
     "bans": { "title": "Bans de la boutique", "addBan": "Ajouter un ban", "accountId": "ID du compte", "reason": "Raison", "expiresAt": "Expire le", "permanent": "Permanent", "active": "Actif", "actions": "Actions", "remove": "Supprimer" },
     "audit": { "title": "Journal d'audit", "admin": "Admin", "action": "Action", "target": "Cible", "details": "Détails", "date": "Date", "action_create_item": "Création d'article", "action_update_item": "Modification d'article", "action_deactivate_item": "Désactivation d'article", "action_create_set": "Création de set", "action_update_set": "Modification de set", "action_deactivate_set": "Désactivation de set", "action_create_ban": "Création de ban", "action_update_ban": "Modification de ban", "action_delete_ban": "Suppression de ban", "action_retry_delivery": "Relance de livraison", "action_refund_purchase": "Remboursement", "target_shop_item": "Article", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Achat" },
+    "contactMessages": {
+      "title": "Messages de contact",
+      "username": "Nom d'utilisateur",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "status": "Statut",
+      "date": "Date",
+      "actions": "Actions",
+      "view": "Voir",
+      "read": "Lu",
+      "unread": "Non lu",
+      "all": "Tous",
+      "noMessages": "Aucun message",
+      "markAsRead": "Marquer comme lu"
+    },
     "common": {
       "cancel": "Annuler",
       "previous": "Précédent",
@@ -379,6 +396,161 @@
       "quality": "Qualité"
     }
   },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Une question ou besoin d'aide ? Envoyez-nous un message.",
+    "sendingAs": "Envoi en tant que : {username} ({email})",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Quel est l'objet de votre message ?",
+    "message": "Message",
+    "messagePlaceholder": "Décrivez votre problème ou question en détail...",
+    "submit": "Envoyer le message",
+    "success": "Votre message a été envoyé avec succès ! Nous vous répondrons dès que possible.",
+    "loginRequired": "Vous devez être connecté pour envoyer un message.",
+    "loginLink": "Se connecter ici",
+    "errors": {
+      "subjectRequired": "Le sujet est requis",
+      "subjectTooLong": "Le sujet ne doit pas dépasser 255 caractères",
+      "messageRequired": "Le message est requis",
+      "messageTooLong": "Le message ne doit pas dépasser 5000 caractères",
+      "unauthorized": "Vous devez être connecté pour envoyer un message",
+      "serverError": "Erreur serveur. Veuillez réessayer."
+    }
+  },
+  "cgu": {
+    "title": "Conditions Générales d'Utilisation",
+    "subtitle": "Veuillez lire attentivement ces conditions avant d'utiliser Lordaeron.",
+    "lastUpdated": "Dernière mise à jour : Février 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptation des conditions",
+        "content": "En accédant et en utilisant le site web et le serveur de jeu Lordaeron, vous acceptez d'être lié par ces Conditions Générales d'Utilisation. Si vous n'acceptez pas tout ou partie de ces conditions, vous ne devez pas utiliser nos services.\n\nCes conditions constituent un accord juridiquement contraignant entre vous et l'équipe Lordaeron. Nous nous réservons le droit de modifier ces conditions à tout moment, et il est de votre responsabilité de les consulter périodiquement."
+      },
+      "access": {
+        "title": "2. Accès et éligibilité",
+        "content": "Lordaeron est un serveur privé World of Warcraft gratuit (free-to-play). Vous devez avoir au moins 13 ans pour créer un compte et utiliser nos services.\n\nL'accès au serveur est fourni gratuitement. Des objets cosmétiques et de confort optionnels peuvent être achetés via notre boutique en jeu avec des Soul Shards, notre monnaie virtuelle. Aucun achat n'est requis pour profiter pleinement de l'expérience de jeu."
+      },
+      "account": {
+        "title": "3. Responsabilités du compte",
+        "content": "Vous êtes seul responsable du maintien de la confidentialité de vos identifiants de compte. Vous ne devez pas partager, vendre, échanger ou transférer votre compte à une autre personne.\n\nChaque personne ne peut créer et maintenir qu'un seul compte. Le multi-compte pour obtenir des avantages injustes est strictement interdit et peut entraîner la suspension ou le bannissement permanent de tous les comptes associés.\n\nVous êtes responsable de toutes les activités qui se produisent sous votre compte."
+      },
+      "conduct": {
+        "title": "4. Code de conduite",
+        "content": "Tous les joueurs doivent respecter les règles suivantes :\n\n- Pas de triche, piratage ou utilisation de logiciels tiers non autorisés (bots, speed hacks, fly hacks, etc.)\n- Pas d'exploitation de bugs ou de mécaniques de jeu — signalez tout exploit à l'équipe\n- Pas de harcèlement, discours haineux, discrimination ou comportement toxique envers les autres joueurs\n- Pas de commerce en argent réel (RMT) d'objets en jeu, d'or ou de comptes en dehors de notre boutique officielle\n- Pas d'usurpation d'identité de membres du staff ou d'autres joueurs\n- Pas de spam ou de publicité dans les canaux de jeu\n\nLa violation de ces règles peut entraîner des avertissements, des mutes temporaires, des bans temporaires ou des bans permanents à la discrétion de l'équipe Lordaeron."
+      },
+      "ip": {
+        "title": "5. Propriété intellectuelle",
+        "content": "World of Warcraft et tout le contenu associé, les noms et les images sont la propriété de Blizzard Entertainment. Lordaeron est un projet créé par des fans et n'est pas affilié, approuvé ou sponsorisé par Blizzard Entertainment.\n\nTout le contenu original créé par l'équipe Lordaeron (design du site web, fonctionnalités personnalisées, configurations) reste la propriété du projet Lordaeron."
+      },
+      "liability": {
+        "title": "6. Limitations de responsabilité",
+        "content": "Lordaeron est fourni « tel quel » sans garantie d'aucune sorte, expresse ou implicite. Nous ne garantissons pas un service ininterrompu ou sans erreur.\n\nL'équipe Lordaeron n'est pas responsable de toute perte de progression en jeu, d'objets, de personnages ou de données résultant de problèmes serveur, de maintenance, de rollbacks ou de toute autre circonstance.\n\nNous nous réservons le droit d'effectuer des maintenances, mises à jour ou réinitialisations du serveur si nécessaire, sans préavis."
+      },
+      "termination": {
+        "title": "7. Résiliation de compte",
+        "content": "Nous nous réservons le droit de suspendre ou de résilier votre compte à tout moment, avec ou sans motif, avec ou sans préavis. Les raisons de résiliation peuvent inclure, sans s'y limiter :\n\n- Violation de ces Conditions Générales d'Utilisation\n- Violation du Code de conduite\n- Triche, exploitation ou utilisation de logiciels non autorisés\n- Activité frauduleuse ou rétrofacturation sur les achats de Soul Shards\n\nVous pouvez demander la suppression de votre compte à tout moment en nous contactant via le formulaire de contact."
+      },
+      "modifications": {
+        "title": "8. Modifications des conditions",
+        "content": "L'équipe Lordaeron se réserve le droit de modifier ces Conditions Générales d'Utilisation à tout moment. Les modifications seront publiées sur cette page avec une date de révision mise à jour.\n\nVotre utilisation continue de Lordaeron après toute modification constitue l'acceptation des conditions révisées. Nous vous encourageons à consulter cette page périodiquement."
+      }
+    }
+  },
+  "cgv": {
+    "title": "Conditions Générales de Vente",
+    "subtitle": "Conditions régissant les achats effectués sur Lordaeron.",
+    "lastUpdated": "Dernière mise à jour : Février 2026",
+    "sections": {
+      "general": {
+        "title": "1. Informations générales",
+        "content": "Ces Conditions Générales de Vente régissent tous les achats effectués via la boutique du site Lordaeron. En effectuant un achat, vous acceptez ces conditions.\n\nLe vendeur est l'équipe du projet Lordaeron. Toutes les transactions sont traitées en Euros (EUR) et sont soumises aux taxes et réglementations applicables."
+      },
+      "soulShards": {
+        "title": "2. Soul Shards — Monnaie virtuelle",
+        "content": "Les Soul Shards sont la monnaie virtuelle de Lordaeron, utilisée exclusivement dans notre boutique en jeu. Les Soul Shards n'ont aucune valeur monétaire réelle et ne peuvent pas être échangés contre de la monnaie réelle.\n\nLes Soul Shards sont non-transférables entre comptes. Ils sont liés au compte qui les a achetés et ne peuvent pas être offerts, échangés ou vendus à d'autres joueurs.\n\nL'équipe Lordaeron se réserve le droit de modifier les packages de Soul Shards, les tarifs et la disponibilité à tout moment."
+      },
+      "pricing": {
+        "title": "3. Tarification et packages",
+        "content": "Tous les prix sont affichés en Euros (EUR) et incluent les taxes applicables. Les packages de Soul Shards disponibles et leurs prix sont affichés sur la page de la boutique.\n\nLes prix sont susceptibles de changer sans préavis. Le prix au moment de l'achat est le prix qui s'applique à votre transaction."
+      },
+      "payment": {
+        "title": "4. Paiement",
+        "content": "Tous les paiements sont traités de manière sécurisée par Stripe, un processeur de paiement certifié PCI DSS Niveau 1. Nous ne stockons pas vos informations de carte bancaire sur nos serveurs.\n\nLes méthodes de paiement acceptées incluent les cartes de crédit (Visa, Mastercard, American Express), les cartes de débit et d'autres méthodes supportées par Stripe dans votre région.\n\nLes paiements sont traités immédiatement après confirmation. Les Soul Shards sont crédités sur votre compte dès que le paiement est confirmé par Stripe."
+      },
+      "delivery": {
+        "title": "5. Livraison",
+        "content": "Les Soul Shards sont livrés numériquement et instantanément sur votre compte Lordaeron après confirmation du paiement.\n\nLes objets en jeu achetés avec des Soul Shards sont livrés directement dans la boîte aux lettres ou l'inventaire du personnage sélectionné dans les secondes suivant l'achat.\n\nSi vous ne recevez pas vos Soul Shards ou objets dans un délai raisonnable, veuillez nous contacter via le formulaire de contact."
+      },
+      "refund": {
+        "title": "6. Politique de remboursement",
+        "content": "Achats de Soul Shards : Conformément à la Directive européenne 2011/83/UE relative aux droits des consommateurs, vous reconnaissez que la livraison du contenu numérique commence immédiatement après l'achat. En complétant un achat, vous consentez expressément à cette livraison immédiate et renoncez à votre droit de rétractation de 14 jours.\n\nAchats d'objets en jeu : Les objets achetés avec des Soul Shards peuvent être remboursés dans les 2 heures suivant l'achat, à condition que l'objet reste dans l'inventaire du personnage et n'ait pas été utilisé, équipé ou transféré. Les Soul Shards seront recrédités sur votre compte en cas de remboursement réussi.\n\nRétrofacturation : Initier une rétrofacturation auprès de votre banque sans nous contacter au préalable peut entraîner la suspension de votre compte. Veuillez d'abord nous contacter si vous avez un problème avec une transaction."
+      },
+      "shopItems": {
+        "title": "7. Articles et services de la boutique",
+        "content": "La boutique en jeu propose des objets cosmétiques, des objets de confort et des services de personnage. Ceux-ci incluent des montures, des sets de transmog, des sacs, des objets d'héritage, des mascottes, des jouets et des services tels que le changement de nom, d'apparence, de race et de faction.\n\nTous les articles et services sont fournis tels que décrits sur la page de la boutique. L'équipe Lordaeron se réserve le droit de modifier, retirer ou rééquilibrer tout article ou service de la boutique à tout moment.\n\nLes articles et services achetés ne sont pas transférables entre comptes, sauf indication contraire explicite (par exemple, la fonctionnalité de cadeau)."
+      },
+      "liabilityLimit": {
+        "title": "8. Limitation de responsabilité",
+        "content": "La responsabilité totale de l'équipe Lordaeron pour toute réclamation découlant d'un achat ne dépassera pas le montant que vous avez payé pour cette transaction spécifique.\n\nNous ne sommes pas responsables des pertes résultant de temps d'arrêt du serveur, de perte de personnages, de perte d'objets ou d'autres événements en jeu hors de notre contrôle raisonnable.\n\nPour tout litige, veuillez nous contacter via le formulaire de contact. Nous nous engageons à résoudre les problèmes de manière équitable et rapide."
+      }
+    }
+  },
+  "rgpd": {
+    "title": "Politique de Confidentialité (RGPD)",
+    "subtitle": "Comment nous collectons, utilisons et protégeons vos données personnelles.",
+    "lastUpdated": "Dernière mise à jour : Février 2026",
+    "sections": {
+      "controller": {
+        "title": "1. Responsable du traitement",
+        "content": "Le responsable du traitement des données personnelles traitées via le site web et le serveur de jeu Lordaeron est l'équipe du projet Lordaeron.\n\nPour toute question concernant vos données personnelles ou pour exercer vos droits, veuillez nous contacter via le formulaire de contact de notre site web."
+      },
+      "dataCollected": {
+        "title": "2. Données collectées",
+        "content": "Nous collectons les données personnelles suivantes :\n\n- Informations de compte : nom d'utilisateur, adresse e-mail\n- Données de connexion : adresse IP, horodatages de connexion\n- Données de jeu : noms de personnages, niveaux, temps de jeu, activité en jeu\n- Données d'achat : historique des transactions, solde de Soul Shards, références de paiement (nous ne stockons pas les détails de carte bancaire)\n- Données de contact : messages envoyés via le formulaire de contact\n\nNous ne collectons pas de données personnelles sensibles (origine raciale, opinions politiques, données de santé, etc.)."
+      },
+      "purposes": {
+        "title": "3. Finalités du traitement",
+        "content": "Vos données personnelles sont traitées aux fins suivantes :\n\n- Création de compte et authentification\n- Fourniture et maintenance du service de jeu\n- Traitement des achats en boutique et gestion des soldes de Soul Shards\n- Assurer la sécurité du serveur et prévenir la triche\n- Réponse aux demandes de support via le formulaire de contact\n- Envoi d'annonces de service importantes (ex. : maintenance, mises à jour)"
+      },
+      "legalBasis": {
+        "title": "4. Base légale",
+        "content": "Nous traitons vos données sur les bases légales suivantes telles que définies par le RGPD :\n\n- Exécution du contrat (Article 6(1)(b)) : Traitement nécessaire pour fournir le service de jeu et exécuter les achats\n- Intérêt légitime (Article 6(1)(f)) : Sécurité du serveur, mesures anti-triche et amélioration du service\n- Consentement (Article 6(1)(a)) : Pour les cookies optionnels et les communications marketing (le cas échéant)\n\nVous pouvez retirer votre consentement à tout moment sans affecter la licéité du traitement fondé sur le consentement avant son retrait."
+      },
+      "storage": {
+        "title": "5. Stockage et conservation",
+        "content": "Vos données sont stockées sur des serveurs situés dans l'Union européenne.\n\nDurées de conservation :\n- Données de compte : conservées pendant la durée d'existence de votre compte\n- Données de jeu : conservées pendant la durée d'existence de votre compte\n- Données d'achat : conservées pendant 5 ans à des fins légales et comptables\n- Messages de contact : conservés pendant 1 an\n- Journaux de connexion (adresses IP) : conservés pendant 6 mois\n\nSur demande de suppression de compte, vos données personnelles seront supprimées dans les 30 jours, sauf si la conservation est requise par la loi."
+      },
+      "thirdParties": {
+        "title": "6. Tiers",
+        "content": "Nous partageons vos données uniquement avec le tiers suivant :\n\n- Stripe (processeur de paiement) : Lorsque vous effectuez un achat, vos informations de paiement sont traitées directement par Stripe. Stripe est certifié PCI DSS Niveau 1 et agit en tant que responsable de traitement indépendant pour les données de paiement. Consultez la politique de confidentialité de Stripe sur stripe.com/privacy.\n\nNous ne vendons, ne louons ni ne partageons vos données personnelles avec d'autres tiers à des fins marketing ou commerciales."
+      },
+      "rights": {
+        "title": "7. Vos droits RGPD",
+        "content": "En vertu du Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :\n\n- Droit d'accès (Article 15) : Demander une copie de vos données personnelles\n- Droit de rectification (Article 16) : Demander la correction de données inexactes\n- Droit à l'effacement (Article 17) : Demander la suppression de vos données (« droit à l'oubli »)\n- Droit à la limitation du traitement (Article 18) : Demander la limitation du traitement des données\n- Droit à la portabilité (Article 20) : Recevoir vos données dans un format structuré et lisible par machine\n- Droit d'opposition (Article 21) : S'opposer au traitement des données fondé sur l'intérêt légitime\n\nPour exercer l'un de ces droits, veuillez nous contacter via le formulaire de contact. Nous répondrons à votre demande dans les 30 jours."
+      },
+      "cookies": {
+        "title": "8. Cookies",
+        "content": "Lordaeron n'utilise qu'un seul cookie essentiel :\n\n- lordaeron_session : Un cookie de session utilisé pour l'authentification. Il est HttpOnly, Secure et expire après 7 jours. Ce cookie est strictement nécessaire au fonctionnement du site et ne requiert pas de consentement en vertu du RGPD.\n\nNous n'utilisons pas de cookies d'analyse, de cookies de suivi, de cookies publicitaires ni aucun cookie tiers."
+      }
+    }
+  },
+  "cookieBanner": {
+    "message": "Lordaeron n'utilise qu'un seul cookie de session essentiel pour l'authentification. Aucun cookie de suivi ou publicitaire.",
+    "learnMore": "En savoir plus",
+    "accept": "Compris"
+  },
+  "footer": {
+    "description": "Un serveur privé WoW Epic Progressive — de Vanilla à WotLK.",
+    "links": "Liens rapides",
+    "community": "Communauté",
+    "legal": "Légal",
+    "contact": "Contact",
+    "cgu": "CGU",
+    "cgv": "CGV",
+    "rgpd": "Politique de confidentialité",
+    "rights": "Tous droits réservés.",
+    "disclaimer": "Lordaeron n'est pas affilié à Blizzard Entertainment."
+  },
   "meta": {
     "home": {
       "title": "Lordaeron — Serveur WoW Epic Progressive",
@@ -403,13 +575,22 @@
     "branding": {
       "title": "Branding — Aperçu des images OG",
       "description": "Prévisualisez et générez les images Open Graph et Twitter Card pour le SEO de Lordaeron."
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "description": "Contactez l'équipe Lordaeron. Envoyez-nous un message pour le support, vos retours ou toute question sur le serveur."
+    },
+    "cgu": {
+      "title": "Conditions Générales d'Utilisation",
+      "description": "Lisez les CGU de Lordaeron. Découvrez les responsabilités de compte, le code de conduite et les règles du serveur."
+    },
+    "cgv": {
+      "title": "Conditions Générales de Vente",
+      "description": "Lisez les CGV de Lordaeron. Découvrez les Soul Shards, les méthodes de paiement, la politique de remboursement et les achats en boutique."
+    },
+    "rgpd": {
+      "title": "Politique de Confidentialité (RGPD)",
+      "description": "Lisez la Politique de Confidentialité de Lordaeron. Découvrez comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD."
     }
-  },
-  "footer": {
-    "description": "Un serveur privé WoW Epic Progressive — de Vanilla à WotLK.",
-    "links": "Liens rapides",
-    "community": "Communauté",
-    "rights": "Tous droits réservés.",
-    "disclaimer": "Lordaeron n'est pas affilié à Blizzard Entertainment."
   }
 }

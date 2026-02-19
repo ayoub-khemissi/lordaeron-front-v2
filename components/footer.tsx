@@ -28,7 +28,7 @@ export const Footer = () => {
 
       <div className="relative glass border-t-0 border-l-0 border-r-0 border-b-0">
         <div className="container mx-auto max-w-7xl px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
               <h3 className="text-xl font-black wow-gradient-text mb-3 tracking-widest">
                 LORDAERON
@@ -50,6 +50,29 @@ export const Footer = () => {
                   user
                     ? { label: tNav("account"), href: `/${locale}/account` }
                     : { label: tNav("register"), href: `/${locale}/register` },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <NextLink
+                      className="text-gray-400 hover:text-wow-gold text-sm transition-colors"
+                      href={link.href}
+                    >
+                      {link.label}
+                    </NextLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-wow-gold text-xs font-bold mb-4 uppercase tracking-[0.2em]">
+                {t("legal")}
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  { label: t("contact"), href: `/${locale}/contact` },
+                  { label: t("cgu"), href: `/${locale}/terms-of-use` },
+                  { label: t("cgv"), href: `/${locale}/terms-of-sale` },
+                  { label: t("rgpd"), href: `/${locale}/privacy-policy` },
                 ].map((link) => (
                   <li key={link.href}>
                     <NextLink

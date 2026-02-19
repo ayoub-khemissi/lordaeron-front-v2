@@ -335,6 +335,19 @@ export interface ShopSetItemLocalized {
   quality: number | null;
 }
 
+// ── Contact Types ──
+
+export interface ContactMessage {
+  id: number;
+  account_id: number;
+  username: string;
+  email: string;
+  subject: string;
+  message: string;
+  is_read: boolean;
+  created_at: string;
+}
+
 // ── Shard Transaction Types ──
 
 export type ShardTransactionStatus =

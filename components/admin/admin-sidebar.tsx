@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { key: "purchases", href: "/purchases", icon: "\uD83D\uDED2" },
   { key: "bans", href: "/bans", icon: "\uD83D\uDEAB" },
   { key: "audit", href: "/audit", icon: "\uD83D\uDCDD" },
+  { key: "contactMessages", href: "/contact-messages", icon: "\uD83D\uDCE7" },
 ];
 
 export function AdminSidebar() {

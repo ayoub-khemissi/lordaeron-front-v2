@@ -7,7 +7,8 @@
     "login": "Login",
     "account": "My Account",
     "logout": "Logout",
-    "shop": "Shop"
+    "shop": "Shop",
+    "contact": "Contact"
   },
   "home": {
     "title": "Welcome to Lordaeron",
@@ -338,6 +339,7 @@
       "purchases": "Purchases",
       "bans": "Bans",
       "audit": "Audit Log",
+      "contactMessages": "Contact Messages",
       "realMoney": "Real Money",
       "logout": "Logout"
     },
@@ -452,6 +454,22 @@
       "target_shop_ban": "Ban",
       "target_shop_purchase": "Purchase"
     },
+    "contactMessages": {
+      "title": "Contact Messages",
+      "username": "Username",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions",
+      "view": "View",
+      "read": "Read",
+      "unread": "Unread",
+      "all": "All",
+      "noMessages": "No messages",
+      "markAsRead": "Mark as Read"
+    },
     "common": {
       "cancel": "Cancel",
       "previous": "Previous",
@@ -478,6 +496,161 @@
       "quality": "Quality"
     }
   },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question or need help? Send us a message.",
+    "sendingAs": "Sending as: {username} ({email})",
+    "subject": "Subject",
+    "subjectPlaceholder": "What is your message about?",
+    "message": "Message",
+    "messagePlaceholder": "Describe your issue or question in detail...",
+    "submit": "Send Message",
+    "success": "Your message has been sent successfully! We will get back to you as soon as possible.",
+    "loginRequired": "You must be logged in to send a message.",
+    "loginLink": "Login here",
+    "errors": {
+      "subjectRequired": "Subject is required",
+      "subjectTooLong": "Subject must be 255 characters or less",
+      "messageRequired": "Message is required",
+      "messageTooLong": "Message must be 5000 characters or less",
+      "unauthorized": "You must be logged in to send a message",
+      "serverError": "Server error. Please try again."
+    }
+  },
+  "cgu": {
+    "title": "Terms of Use",
+    "subtitle": "Please read these terms carefully before using Lordaeron.",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "content": "By accessing and using the Lordaeron website and game server, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you must not use our services.\n\nThese terms constitute a legally binding agreement between you and the Lordaeron team. We reserve the right to modify these terms at any time, and it is your responsibility to review them periodically."
+      },
+      "access": {
+        "title": "2. Access and Eligibility",
+        "content": "Lordaeron is a free-to-play World of Warcraft private server. You must be at least 13 years of age to create an account and use our services.\n\nAccess to the server is provided free of charge. Optional cosmetic and convenience items may be purchased through our in-game shop using Soul Shards, our virtual currency. No purchase is required to enjoy the full game experience."
+      },
+      "account": {
+        "title": "3. Account Responsibilities",
+        "content": "You are solely responsible for maintaining the confidentiality of your account credentials. You must not share, sell, trade, or transfer your account to any other person.\n\nEach person may only create and maintain one account. Multi-accounting to gain unfair advantages is strictly prohibited and may result in the suspension or permanent ban of all associated accounts.\n\nYou are responsible for all activities that occur under your account."
+      },
+      "conduct": {
+        "title": "4. Code of Conduct",
+        "content": "All players must adhere to the following rules:\n\n- No cheating, hacking, or using unauthorized third-party software (bots, speed hacks, fly hacks, etc.)\n- No exploiting bugs or game mechanics — report any exploits to the team\n- No harassment, hate speech, discrimination, or toxic behavior towards other players\n- No real-money trading (RMT) of in-game items, gold, or accounts outside of our official shop\n- No impersonation of staff members or other players\n- No spamming or advertising in any game channels\n\nViolation of these rules may result in warnings, temporary mutes, temporary bans, or permanent bans at the discretion of the Lordaeron team."
+      },
+      "ip": {
+        "title": "5. Intellectual Property",
+        "content": "World of Warcraft and all related content, names, and imagery are the property of Blizzard Entertainment. Lordaeron is a fan-made project and is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment.\n\nAll original content created by the Lordaeron team (website design, custom features, configurations) remains the property of the Lordaeron project."
+      },
+      "liability": {
+        "title": "6. Limitations of Liability",
+        "content": "Lordaeron is provided \"as is\" without warranties of any kind, express or implied. We do not guarantee uninterrupted or error-free service.\n\nThe Lordaeron team is not liable for any loss of in-game progress, items, characters, or data resulting from server issues, maintenance, rollbacks, or any other circumstances.\n\nWe reserve the right to perform server maintenance, updates, or resets as necessary without prior notice."
+      },
+      "termination": {
+        "title": "7. Account Termination",
+        "content": "We reserve the right to suspend or terminate your account at any time, with or without cause, with or without notice. Reasons for termination may include, but are not limited to:\n\n- Violation of these Terms of Use\n- Violation of the Code of Conduct\n- Cheating, exploiting, or using unauthorized software\n- Fraudulent activity or chargebacks on Soul Shard purchases\n\nYou may request account deletion at any time by contacting us through the contact form."
+      },
+      "modifications": {
+        "title": "8. Modifications to Terms",
+        "content": "The Lordaeron team reserves the right to modify these Terms of Use at any time. Changes will be posted on this page with an updated revision date.\n\nYour continued use of Lordaeron after any modifications constitutes acceptance of the revised terms. We encourage you to review this page periodically."
+      }
+    }
+  },
+  "cgv": {
+    "title": "Terms of Sale",
+    "subtitle": "Terms governing purchases made on Lordaeron.",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": {
+      "general": {
+        "title": "1. General Information",
+        "content": "These Terms of Sale govern all purchases made through the Lordaeron website shop. By making a purchase, you agree to these terms.\n\nThe seller is the Lordaeron project team. All transactions are processed in Euros (EUR) and are subject to applicable taxes and regulations."
+      },
+      "soulShards": {
+        "title": "2. Soul Shards — Virtual Currency",
+        "content": "Soul Shards are Lordaeron's virtual currency used exclusively within our in-game shop. Soul Shards have no real-world monetary value and cannot be exchanged for real currency.\n\nSoul Shards are non-transferable between accounts. They are linked to the account that purchased them and cannot be gifted, traded, or sold to other players.\n\nThe Lordaeron team reserves the right to modify Soul Shard packages, pricing, and availability at any time."
+      },
+      "pricing": {
+        "title": "3. Pricing and Packages",
+        "content": "All prices are displayed in Euros (EUR) and include applicable taxes. Available Soul Shard packages and their prices are displayed on the shop page.\n\nPrices are subject to change without prior notice. The price at the time of purchase is the price that applies to your transaction."
+      },
+      "payment": {
+        "title": "4. Payment",
+        "content": "All payments are processed securely through Stripe, a PCI DSS Level 1 certified payment processor. We do not store your credit card information on our servers.\n\nAccepted payment methods include credit cards (Visa, Mastercard, American Express), debit cards, and other methods supported by Stripe in your region.\n\nPayments are processed immediately upon confirmation. Soul Shards are credited to your account as soon as the payment is confirmed by Stripe."
+      },
+      "delivery": {
+        "title": "5. Delivery",
+        "content": "Soul Shards are delivered digitally and instantly to your Lordaeron account upon successful payment confirmation.\n\nIn-game items purchased with Soul Shards are delivered directly to the selected character's mailbox or inventory within seconds of the purchase.\n\nIf you do not receive your Soul Shards or items within a reasonable time, please contact us through the contact form."
+      },
+      "refund": {
+        "title": "6. Refund Policy",
+        "content": "Soul Shard purchases: In accordance with EU Directive 2011/83/EU on consumer rights, you acknowledge that digital content delivery begins immediately upon purchase. By completing a purchase, you expressly consent to this immediate delivery and waive your 14-day withdrawal right.\n\nIn-game item purchases: Items purchased with Soul Shards may be refunded within 2 hours of purchase, provided the item remains in the character's inventory and has not been used, equipped, or transferred. Soul Shards will be credited back to your account upon successful refund.\n\nChargebacks: Initiating a chargeback with your bank without first contacting us may result in the suspension of your account. Please contact us first if you have any issues with a transaction."
+      },
+      "shopItems": {
+        "title": "7. Shop Items and Services",
+        "content": "The in-game shop offers cosmetic items, convenience items, and character services. These include mounts, transmog sets, bags, heirlooms, pets, toys, and services such as name changes, appearance changes, race changes, and faction changes.\n\nAll items and services are provided as described on the shop page. The Lordaeron team reserves the right to modify, remove, or rebalance any shop item or service at any time.\n\nPurchased items and services are non-transferable between accounts unless explicitly stated otherwise (e.g., the gifting feature)."
+      },
+      "liabilityLimit": {
+        "title": "8. Limitation of Liability",
+        "content": "The Lordaeron team's total liability for any claim arising from a purchase shall not exceed the amount paid by you for that specific transaction.\n\nWe are not responsible for any losses resulting from server downtime, character loss, item loss, or other in-game events beyond our reasonable control.\n\nFor any disputes, please contact us through the contact form. We are committed to resolving issues fairly and promptly."
+      }
+    }
+  },
+  "rgpd": {
+    "title": "Privacy Policy (GDPR)",
+    "subtitle": "How we collect, use, and protect your personal data.",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": {
+      "controller": {
+        "title": "1. Data Controller",
+        "content": "The data controller for personal data processed through the Lordaeron website and game server is the Lordaeron project team.\n\nFor any questions regarding your personal data or to exercise your rights, please contact us through the contact form on our website."
+      },
+      "dataCollected": {
+        "title": "2. Data Collected",
+        "content": "We collect the following personal data:\n\n- Account information: username, email address\n- Connection data: IP address, login timestamps\n- Game data: character names, levels, play time, in-game activity\n- Purchase data: transaction history, Soul Shard balance, payment references (we do not store credit card details)\n- Contact data: messages sent through the contact form\n\nWe do not collect sensitive personal data (racial origin, political opinions, health data, etc.)."
+      },
+      "purposes": {
+        "title": "3. Purposes of Processing",
+        "content": "Your personal data is processed for the following purposes:\n\n- Account creation and authentication\n- Providing and maintaining the game service\n- Processing shop purchases and managing Soul Shard balances\n- Ensuring server security and preventing cheating\n- Responding to support requests via the contact form\n- Sending important service announcements (e.g., maintenance, updates)"
+      },
+      "legalBasis": {
+        "title": "4. Legal Basis",
+        "content": "We process your data under the following legal bases as defined by the GDPR:\n\n- Contract performance (Article 6(1)(b)): Processing necessary to provide the game service and fulfill purchases\n- Legitimate interest (Article 6(1)(f)): Server security, anti-cheat measures, and service improvement\n- Consent (Article 6(1)(a)): For optional cookies and marketing communications (if any)\n\nYou may withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal."
+      },
+      "storage": {
+        "title": "5. Data Storage and Retention",
+        "content": "Your data is stored on servers located within the European Union.\n\nRetention periods:\n- Account data: retained for the duration of your account's existence\n- Game data: retained for the duration of your account's existence\n- Purchase data: retained for 5 years for legal and accounting purposes\n- Contact messages: retained for 1 year\n- Connection logs (IP addresses): retained for 6 months\n\nUpon account deletion request, your personal data will be deleted within 30 days, except where retention is required by law."
+      },
+      "thirdParties": {
+        "title": "6. Third Parties",
+        "content": "We share your data only with the following third party:\n\n- Stripe (payment processor): When you make a purchase, your payment information is processed directly by Stripe. Stripe is PCI DSS Level 1 certified and acts as an independent data controller for payment data. See Stripe's privacy policy at stripe.com/privacy.\n\nWe do not sell, rent, or share your personal data with any other third parties for marketing or commercial purposes."
+      },
+      "rights": {
+        "title": "7. Your GDPR Rights",
+        "content": "Under the General Data Protection Regulation (GDPR), you have the following rights:\n\n- Right of access (Article 15): Request a copy of your personal data\n- Right to rectification (Article 16): Request correction of inaccurate data\n- Right to erasure (Article 17): Request deletion of your data (\"right to be forgotten\")\n- Right to restrict processing (Article 18): Request limitation of data processing\n- Right to data portability (Article 20): Receive your data in a structured, machine-readable format\n- Right to object (Article 21): Object to data processing based on legitimate interests\n\nTo exercise any of these rights, please contact us through the contact form. We will respond to your request within 30 days."
+      },
+      "cookies": {
+        "title": "8. Cookies",
+        "content": "Lordaeron uses only one essential cookie:\n\n- lordaeron_session: A session cookie used for authentication. It is HttpOnly, Secure, and expires after 7 days. This cookie is strictly necessary for the website to function and does not require consent under GDPR.\n\nWe do not use analytics cookies, tracking cookies, advertising cookies, or any third-party cookies."
+      }
+    }
+  },
+  "cookieBanner": {
+    "message": "Lordaeron only uses one essential session cookie for authentication. No tracking or advertising cookies.",
+    "learnMore": "Learn more",
+    "accept": "Got it"
+  },
+  "footer": {
+    "description": "An Epic Progressive WoW private server — from Vanilla to WotLK.",
+    "links": "Quick Links",
+    "community": "Community",
+    "legal": "Legal",
+    "contact": "Contact",
+    "cgu": "Terms of Use",
+    "cgv": "Terms of Sale",
+    "rgpd": "Privacy Policy",
+    "rights": "All rights reserved.",
+    "disclaimer": "Lordaeron is not affiliated with Blizzard Entertainment."
+  },
   "meta": {
     "home": {
       "title": "Lordaeron — Epic Progressive WoW Server",
@@ -502,13 +675,22 @@
     "branding": {
       "title": "Branding — OG Image Preview",
       "description": "Preview and generate Open Graph and Twitter Card images for Lordaeron SEO."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with the Lordaeron team. Send us a message for support, feedback, or any questions about the server."
+    },
+    "cgu": {
+      "title": "Terms of Use",
+      "description": "Read the Lordaeron Terms of Use. Learn about account responsibilities, code of conduct, and server rules."
+    },
+    "cgv": {
+      "title": "Terms of Sale",
+      "description": "Read the Lordaeron Terms of Sale. Learn about Soul Shards, payment methods, refund policy, and shop purchases."
+    },
+    "rgpd": {
+      "title": "Privacy Policy (GDPR)",
+      "description": "Read the Lordaeron Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR."
     }
-  },
-  "footer": {
-    "description": "An Epic Progressive WoW private server — from Vanilla to WotLK.",
-    "links": "Quick Links",
-    "community": "Community",
-    "rights": "All rights reserved.",
-    "disclaimer": "Lordaeron is not affiliated with Blizzard Entertainment."
   }
 }
