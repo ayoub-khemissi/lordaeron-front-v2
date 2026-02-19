@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import { Button } from "@heroui/button";
 import { useTranslations } from "next-intl";
 
 interface ShopHeaderProps {
   balance: number;
+  onBuyShards?: () => void;
 }
 
-export function ShopHeader({ balance }: ShopHeaderProps) {
+export function ShopHeader({ balance, onBuyShards }: ShopHeaderProps) {
   const t = useTranslations("shop");
 
   return (
@@ -20,20 +22,30 @@ export function ShopHeader({ balance }: ShopHeaderProps) {
           </h1>
           <p className="text-gray-400 text-sm md:text-base">{t("subtitle")}</p>
         </div>
-        <div className="glass rounded-xl px-6 py-4 flex items-center gap-3 glow-pulse-gold">
-          <Image
-            alt="Soul Shards"
-            height={28}
-            src="/img/icons/soul-shard.svg"
-            width={28}
-          />
-          <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">
-              {t("balance")}
-            </p>
-            <p className="text-2xl font-bold text-purple-400">
-              {balance.toLocaleString()}
-            </p>
+        <div className="flex items-center gap-3">
+          {onBuyShards && (
+            <Button
+              className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold h-auto py-3 px-5"
+              onPress={onBuyShards}
+            >
+              {t("buyShards")}
+            </Button>
+          )}
+          <div className="glass rounded-xl px-6 py-4 flex items-center gap-3 glow-pulse-gold">
+            <Image
+              alt="Soul Shards"
+              height={28}
+              src="/img/icons/soul-shard.svg"
+              width={28}
+            />
+            <div>
+              <p className="text-xs text-gray-400 uppercase tracking-wider">
+                {t("balance")}
+              </p>
+              <p className="text-2xl font-bold text-purple-400">
+                {balance.toLocaleString()}
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ import {
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Spinner } from "@heroui/spinner";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
@@ -26,6 +27,7 @@ interface GiftModalProps {
   onClose: () => void;
   onConfirm: (giftToName: string, giftMessage: string) => Promise<void>;
   balance: number;
+  onBuyShards?: (deficit: number) => void;
 }
 
 export function GiftModal({
@@ -35,6 +37,7 @@ export function GiftModal({
   onClose,
   onConfirm,
   balance,
+  onBuyShards,
 }: GiftModalProps) {
   const t = useTranslations("shop");
   const [query, setQuery] = useState("");
@@ -276,9 +279,29 @@ export function GiftModal({
                   size="md"
                 />
                 {!canAfford && (
-                  <p className="text-red-400 text-sm mt-2">
-                    {t("errors.insufficientBalance")}
-                  </p>
+                  <div className="mt-3 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                    <p className="text-red-400 text-sm flex items-center gap-1.5">
+                      <Image
+                        alt=""
+                        height={14}
+                        src="/img/icons/soul-shard.svg"
+                        width={14}
+                      />
+                      {t("needMoreShards", { count: finalPrice - balance })}
+                    </p>
+                    {onBuyShards && (
+                      <Button
+                        className="mt-2 w-full bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold text-sm"
+                        size="sm"
+                        onPress={() => {
+                          handleClose();
+                          onBuyShards(finalPrice - balance);
+                        }}
+                      >
+                        {t("buyShards")}
+                      </Button>
+                    )}
+                  </div>
                 )}
               </div>
             </>

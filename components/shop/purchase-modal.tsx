@@ -11,6 +11,7 @@ import {
   ModalFooter,
 } from "@heroui/modal";
 import { Button } from "@heroui/button";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
@@ -24,6 +25,7 @@ interface PurchaseModalProps {
   onClose: () => void;
   onConfirm: () => Promise<void>;
   balance: number;
+  onBuyShards?: (deficit: number) => void;
 }
 
 export function PurchaseModal({
@@ -33,6 +35,7 @@ export function PurchaseModal({
   onClose,
   onConfirm,
   balance,
+  onBuyShards,
 }: PurchaseModalProps) {
   const t = useTranslations("shop");
   const [loading, setLoading] = useState(false);
@@ -112,9 +115,29 @@ export function PurchaseModal({
                   size="lg"
                 />
                 {!canAfford && (
-                  <p className="text-red-400 text-sm mt-2">
-                    {t("errors.insufficientBalance")}
-                  </p>
+                  <div className="mt-3 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                    <p className="text-red-400 text-sm flex items-center gap-1.5">
+                      <Image
+                        alt=""
+                        height={14}
+                        src="/img/icons/soul-shard.svg"
+                        width={14}
+                      />
+                      {t("needMoreShards", { count: finalPrice - balance })}
+                    </p>
+                    {onBuyShards && (
+                      <Button
+                        className="mt-2 w-full bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold text-sm"
+                        size="sm"
+                        onPress={() => {
+                          handleClose();
+                          onBuyShards(finalPrice - balance);
+                        }}
+                      >
+                        {t("buyShards")}
+                      </Button>
+                    )}
+                  </div>
                 )}
                 {item.is_refundable && item.category !== "services" && (
                   <p className="text-xs text-gray-400 mt-2">

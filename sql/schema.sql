@@ -195,3 +195,22 @@ CREATE TABLE IF NOT EXISTS shop_audit_log (
   INDEX idx_action (action),
   INDEX idx_created_at (created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ── Shard Transactions (Stripe) ────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS shard_transactions (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  account_id INT UNSIGNED NOT NULL,
+  stripe_checkout_session_id VARCHAR(255) NOT NULL UNIQUE,
+  stripe_payment_intent_id VARCHAR(255) NULL UNIQUE,
+  package_shards INT UNSIGNED NOT NULL,
+  price_eur_cents INT UNSIGNED NOT NULL,
+  currency VARCHAR(3) NOT NULL DEFAULT 'eur',
+  status ENUM('pending','completed','failed','expired','refunded') NOT NULL DEFAULT 'pending',
+  credited_at TIMESTAMP NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_account_id (account_id),
+  INDEX idx_status (status),
+  INDEX idx_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

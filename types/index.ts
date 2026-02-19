@@ -334,3 +334,26 @@ export interface ShopSetItemLocalized {
   icon_url: string | null;
   quality: number | null;
 }
+
+// ── Shard Transaction Types ──
+
+export type ShardTransactionStatus =
+  | "pending"
+  | "completed"
+  | "failed"
+  | "expired"
+  | "refunded";
+
+export interface ShardTransaction {
+  id: number;
+  account_id: number;
+  stripe_checkout_session_id: string;
+  stripe_payment_intent_id: string | null;
+  package_shards: number;
+  price_eur_cents: number;
+  currency: string;
+  status: ShardTransactionStatus;
+  credited_at: string | null;
+  created_at: string;
+  updated_at: string;
+}

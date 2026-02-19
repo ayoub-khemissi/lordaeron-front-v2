@@ -8,8 +8,9 @@ import type {
   ShopPurchaseWithItem,
 } from "@/types";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Spinner } from "@heroui/spinner";
 import { Tabs, Tab } from "@heroui/tabs";
 import {
@@ -35,11 +36,14 @@ import { PurchaseModal } from "@/components/shop/purchase-modal";
 import { GiftModal } from "@/components/shop/gift-modal";
 import { PurchaseHistory } from "@/components/shop/purchase-history";
 import { CategoryFilterBar } from "@/components/shop/category-filter-bar";
+import { BuyShardsModal } from "@/components/shop/buy-shards-modal";
 
 export default function ShopContent() {
   const t = useTranslations("shop");
   const locale = useLocale();
   const { user, loading: authLoading } = useAuth();
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const [items, setItems] = useState<ShopItemLocalized[]>([]);
   const [sets, setSets] = useState<ShopSetLocalized[]>([]);
@@ -69,6 +73,12 @@ export default function ShopContent() {
   const [purchaseSet, setPurchaseSet] = useState<ShopSetLocalized | null>(null);
   const [giftSet, setGiftSet] = useState<ShopSetLocalized | null>(null);
   const [purchases, setPurchases] = useState<ShopPurchaseWithItem[]>([]);
+
+  // Buy Shards states
+  const [buyShardOpen, setBuyShardOpen] = useState(false);
+  const [recommendedShards, setRecommendedShards] = useState<number | undefined>(undefined);
+  const [checkoutResult, setCheckoutResult] = useState<"success" | "cancelled" | null>(null);
+  const checkoutHandled = useRef(false);
 
   // Refund states
   const [refundTarget, setRefundTarget] = useState<ShopPurchaseWithItem | null>(
@@ -184,6 +194,32 @@ export default function ShopContent() {
       // Ignore storage errors
     }
   }, [sortBy, showSetFilter, showItemFilter, prefsLoaded]);
+
+  // Handle checkout return from Stripe
+  useEffect(() => {
+    if (checkoutHandled.current) return;
+    const checkout = searchParams.get("checkout");
+
+    if (checkout === "success" || checkout === "cancelled") {
+      checkoutHandled.current = true;
+      setCheckoutResult(checkout);
+      // Clean URL
+      router.replace(`/${locale}/shop`, { scroll: false });
+      if (checkout === "success") {
+        // Refetch balance after successful payment
+        fetchData();
+      }
+      // Auto-dismiss banner after 6 seconds
+      const timer = setTimeout(() => setCheckoutResult(null), 6000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams, router, locale, fetchData]);
+
+  const handleBuyShards = (deficit?: number) => {
+    setRecommendedShards(deficit);
+    setBuyShardOpen(true);
+  };
 
   const handlePurchase = async () => {
     if (!purchaseItem || !selectedCharacter) return;
@@ -421,7 +457,30 @@ export default function ShopContent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <ShopHeader balance={balance} />
+      {checkoutResult && (
+        <div
+          className={`mb-4 rounded-xl px-4 py-3 text-sm font-medium flex items-center justify-between ${
+            checkoutResult === "success"
+              ? "bg-green-500/10 border border-green-500/20 text-green-400"
+              : "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400"
+          }`}
+        >
+          <span>
+            {checkoutResult === "success"
+              ? t("checkoutSuccess")
+              : t("checkoutCancelled")}
+          </span>
+          <button
+            className="text-current opacity-60 hover:opacity-100"
+            type="button"
+            onClick={() => setCheckoutResult(null)}
+          >
+            &#x2715;
+          </button>
+        </div>
+      )}
+
+      <ShopHeader balance={balance} onBuyShards={() => handleBuyShards()} />
 
       <RealmCharacterSelector
         characters={characters}
@@ -550,6 +609,7 @@ export default function ShopContent() {
         character={selectedCharacter}
         isOpen={!!purchaseItem}
         item={purchaseItem}
+        onBuyShards={handleBuyShards}
         onClose={() => setPurchaseItem(null)}
         onConfirm={handlePurchase}
       />
@@ -560,6 +620,7 @@ export default function ShopContent() {
         character={selectedCharacter}
         isOpen={!!purchaseSet}
         item={setAsPurchaseItem}
+        onBuyShards={handleBuyShards}
         onClose={() => setPurchaseSet(null)}
         onConfirm={handleSetPurchase}
       />
@@ -569,6 +630,7 @@ export default function ShopContent() {
         character={selectedCharacter}
         isOpen={!!giftItem}
         item={giftItem}
+        onBuyShards={handleBuyShards}
         onClose={() => setGiftItem(null)}
         onConfirm={handleGift}
       />
@@ -579,6 +641,7 @@ export default function ShopContent() {
         character={selectedCharacter}
         isOpen={!!giftSet}
         item={setAsGiftItem}
+        onBuyShards={handleBuyShards}
         onClose={() => setGiftSet(null)}
         onConfirm={handleSetGift}
       />
@@ -679,6 +742,15 @@ export default function ShopContent() {
           </ModalFooter>
         </ModalContent>
       </Modal>
+
+      <BuyShardsModal
+        isOpen={buyShardOpen}
+        recommendedShards={recommendedShards}
+        onClose={() => {
+          setBuyShardOpen(false);
+          setRecommendedShards(undefined);
+        }}
+      />
     </div>
   );
 }
