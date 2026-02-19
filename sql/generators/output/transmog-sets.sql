@@ -1,0 +1,1366 @@
+-- =============================================================================
+-- Transmog Sets Seed — Auto-generated from doc/transmog.html
+-- Generated: 2026-02-19T02:58:58.476Z
+-- Database: lordaeron_website
+-- Pricing: 100 Soul Shards = 1 EUR
+-- =============================================================================
+
+SET FOREIGN_KEY_CHECKS = 0;
+DELETE FROM shop_set_items;
+DELETE FROM shop_sets;
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- SHOP_SETS (75 sets)
+-- ─────────────────────────────────────────────────────────────────────────────
+
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (1, 'Judgement Armor (Recolor)', 'Judgement Armor (Recolor)', 'Judgement Armor (Recolor)', 'Judgement Armor (Recolor)', 'Judgement Armor (Recolor)', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 750, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_74.jpg', 1, 1, 70, 10);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (2, 'Gladiator\'s Plate Armor', 'Gladiator\'s Plate Armor', 'Gladiator\'s Plate Armor', 'Gladiator\'s Plate Armor', 'Gladiator\'s Plate Armor', 'Plate transmog set — 7 pieces', 'Set transmog Plaques — 7 pièces', 'Set transmog Placas — 7 piezas', 'Transmog-Set Platte — 7 Teile', 'Set transmog Piastre — 7 pezzi', 1000, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_07.jpg', 1, 1, 70, 20);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (3, 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 750, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_29.jpg', 1, 1, 70, 30);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (4, 'Absolution Regalia (Recolor)', 'Absolution Regalia (Recolor)', 'Absolution Regalia (Recolor)', 'Absolution Regalia (Recolor)', 'Absolution Regalia (Recolor)', 'Cloth transmog set — 5 pieces', 'Set transmog Tissu — 5 pièces', 'Set transmog Tela — 5 piezas', 'Transmog-Set Stoff — 5 Teile', 'Set transmog Stoffa — 5 pezzi', 650, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_32.jpg', 0, 1, 70, 40);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (5, 'Mageweave Regalia', 'Mageweave Regalia', 'Mageweave Regalia', 'Mageweave Regalia', 'Mageweave Regalia', 'Cloth transmog set — 5 pieces', 'Set transmog Tissu — 5 pièces', 'Set transmog Tela — 5 piezas', 'Transmog-Set Stoff — 5 Teile', 'Set transmog Stoffa — 5 pezzi', 450, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_08.jpg', 0, 1, 70, 50);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (6, 'Conqueror\'s Battlegear', 'Conqueror\'s Battlegear', 'Conqueror\'s Battlegear', 'Conqueror\'s Battlegear', 'Conqueror\'s Battlegear', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 1050, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_72.jpg', 0, 1, 60, 60);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (7, 'Gladiator\'s Chain Armor', 'Gladiator\'s Chain Armor', 'Gladiator\'s Chain Armor', 'Gladiator\'s Chain Armor', 'Gladiator\'s Chain Armor', 'Mail transmog set — 7 pieces', 'Set transmog Mailles — 7 pièces', 'Set transmog Malla — 7 piezas', 'Transmog-Set Kette — 7 Teile', 'Set transmog Maglia — 7 pezzi', 900, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 0, 1, 70, 70);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (8, 'Black Dragon Mail', 'Black Dragon Mail', 'Black Dragon Mail', 'Black Dragon Mail', 'Black Dragon Mail', 'Mail transmog set — 4 pieces', 'Set transmog Mailles — 4 pièces', 'Set transmog Malla — 4 piezas', 'Transmog-Set Kette — 4 Teile', 'Set transmog Maglia — 4 pezzi', 350, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_01.jpg', 0, 1, 64, 80);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (9, 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Plate transmog set — 6 pieces', 'Set transmog Plaques — 6 pièces', 'Set transmog Placas — 6 piezas', 'Transmog-Set Platte — 6 Teile', 'Set transmog Piastre — 6 pezzi', 550, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate02.jpg', 0, 1, 70, 90);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (10, 'Amani Garb', 'Amani Garb', 'Amani Garb', 'Amani Garb', 'Amani Garb', 'Leather transmog set — 5 pieces', 'Set transmog Cuir — 5 pièces', 'Set transmog Cuero — 5 piezas', 'Transmog-Set Leder — 5 Teile', 'Set transmog Cuoio — 5 pezzi', 600, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_06.jpg', 0, 1, 70, 100);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (11, 'Blessed Battlegear of Undead Slaying', 'Blessed Battlegear of Undead Slaying', 'Blessed Battlegear of Undead Slaying', 'Blessed Battlegear of Undead Slaying', 'Blessed Battlegear of Undead Slaying', 'Plate transmog set — 4 pieces', 'Set transmog Plaques — 4 pièces', 'Set transmog Placas — 4 piezas', 'Transmog-Set Platte — 4 Teile', 'Set transmog Piastre — 4 pezzi', 500, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_21.jpg', 0, 1, 70, 110);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (12, 'Cataclysm Raiment (Recolor)', 'Cataclysm Raiment (Recolor)', 'Cataclysm Raiment (Recolor)', 'Cataclysm Raiment (Recolor)', 'Cataclysm Raiment (Recolor)', 'Mail transmog set — 7 pieces', 'Set transmog Mailles — 7 pièces', 'Set transmog Malla — 7 piezas', 'Transmog-Set Kette — 7 Teile', 'Set transmog Maglia — 7 pezzi', 850, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_19.jpg', 0, 1, 70, 120);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (13, 'Corruptor Raiment', 'Corruptor Raiment', 'Corruptor Raiment', 'Corruptor Raiment', 'Corruptor Raiment', 'Cloth transmog set — 7 pieces', 'Set transmog Tissu — 7 pièces', 'Set transmog Tela — 7 piezas', 'Transmog-Set Stoff — 7 Teile', 'Set transmog Stoffa — 7 pezzi', 850, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 0, 1, 70, 130);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (14, 'Deathdealer\'s Embrace', 'Deathdealer\'s Embrace', 'Deathdealer\'s Embrace', 'Deathdealer\'s Embrace', 'Deathdealer\'s Embrace', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_04.jpg', 0, 1, 60, 140);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (15, 'Dreadnaught\'s Battlegear', 'Dreadnaught\'s Battlegear', 'Dreadnaught\'s Battlegear', 'Dreadnaught\'s Battlegear', 'Dreadnaught\'s Battlegear', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 0, 1, 60, 150);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (16, 'Frostfire Regalia', 'Frostfire Regalia', 'Frostfire Regalia', 'Frostfire Regalia', 'Frostfire Regalia', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 0, 1, 60, 160);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (17, 'Malefic Raiment', 'Malefic Raiment', 'Malefic Raiment', 'Malefic Raiment', 'Malefic Raiment', 'Cloth transmog set — 6 pieces', 'Set transmog Tissu — 6 pièces', 'Set transmog Tela — 6 piezas', 'Transmog-Set Stoff — 6 Teile', 'Set transmog Stoffa — 6 pezzi', 700, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_103.jpg', 0, 1, 70, 170);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (18, 'Slayer\'s Sunwell Battlegear', 'Slayer\'s Sunwell Battlegear', 'Slayer\'s Sunwell Battlegear', 'Slayer\'s Sunwell Battlegear', 'Slayer\'s Sunwell Battlegear', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_126.jpg', 0, 1, 70, 180);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (19, 'Sunwell Vestments of Absolution', 'Sunwell Vestments of Absolution', 'Sunwell Vestments of Absolution', 'Sunwell Vestments of Absolution', 'Sunwell Vestments of Absolution', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 0, 1, 70, 190);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (20, 'Tempest Sunwell Garb', 'Tempest Sunwell Garb', 'Tempest Sunwell Garb', 'Tempest Sunwell Garb', 'Tempest Sunwell Garb', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 0, 1, 70, 200);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (21, 'Assassination Armor', 'Assassination Armor', 'Assassination Armor', 'Assassination Armor', 'Assassination Armor', 'Leather transmog set — 7 pieces', 'Set transmog Cuir — 7 pièces', 'Set transmog Cuero — 7 piezas', 'Transmog-Set Leder — 7 Teile', 'Set transmog Cuoio — 7 pezzi', 550, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg', 0, 1, 78, 210);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (22, 'Netherwind Regalia (Recolor)', 'Netherwind Regalia (Recolor)', 'Netherwind Regalia (Recolor)', 'Netherwind Regalia (Recolor)', 'Netherwind Regalia (Recolor)', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 650, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_70.jpg', 0, 1, 70, 220);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (23, 'Amani Mail (Recolor)', 'Amani Mail (Recolor)', 'Amani Mail (Recolor)', 'Amani Mail (Recolor)', 'Amani Mail (Recolor)', 'Mail transmog set — 7 pieces', 'Set transmog Mailles — 7 pièces', 'Set transmog Malla — 7 piezas', 'Transmog-Set Kette — 7 Teile', 'Set transmog Maglia — 7 pezzi', 850, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_116.jpg', 0, 1, 70, 230);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (24, 'Amani Plate', 'Amani Plate', 'Amani Plate', 'Amani Plate', 'Amani Plate', 'Plate transmog set — 6 pieces', 'Set transmog Plaques — 6 pièces', 'Set transmog Placas — 6 piezas', 'Transmog-Set Platte — 6 Teile', 'Set transmog Piastre — 6 pezzi', 700, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_81.jpg', 0, 1, 70, 240);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (25, 'Amani Raiment', 'Amani Raiment', 'Amani Raiment', 'Amani Raiment', 'Amani Raiment', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_116.jpg', 0, 1, 70, 250);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (26, 'Avatar Raiment', 'Avatar Raiment', 'Avatar Raiment', 'Avatar Raiment', 'Avatar Raiment', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 0, 1, 70, 260);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (27, 'Battlegear of Might', 'Battlegear of Might', 'Battlegear of Might', 'Battlegear of Might', 'Battlegear of Might', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 0, 1, 70, 270);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (28, 'Deathmantle', 'Deathmantle', 'Deathmantle', 'Deathmantle', 'Deathmantle', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 0, 1, 70, 280);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (29, 'Destroyer Armor (Recolor)', 'Destroyer Armor (Recolor)', 'Destroyer Armor (Recolor)', 'Destroyer Armor (Recolor)', 'Destroyer Armor (Recolor)', 'Plate transmog set — 5 pieces', 'Set transmog Plaques — 5 pièces', 'Set transmog Placas — 5 piezas', 'Transmog-Set Platte — 5 Teile', 'Set transmog Piastre — 5 pezzi', 600, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_03.jpg', 0, 1, 70, 290);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (30, 'Field Marshal\'s Pursuit', 'Field Marshal\'s Pursuit', 'Field Marshal\'s Pursuit', 'Field Marshal\'s Pursuit', 'Field Marshal\'s Pursuit', 'Mail transmog set — 6 pieces', 'Set transmog Mailles — 6 pièces', 'Set transmog Malla — 6 piezas', 'Transmog-Set Kette — 6 Teile', 'Set transmog Maglia — 6 pezzi', 700, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_05.jpg', 0, 1, 60, 300);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (31, 'Gladiator\'s Scaled Armor', 'Gladiator\'s Scaled Armor', 'Gladiator\'s Scaled Armor', 'Gladiator\'s Scaled Armor', 'Gladiator\'s Scaled Armor', 'Plate transmog set — 7 pieces', 'Set transmog Plaques — 7 pièces', 'Set transmog Placas — 7 piezas', 'Transmog-Set Platte — 7 Teile', 'Set transmog Piastre — 7 pezzi', 850, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_22.jpg', 0, 1, 70, 310);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (32, 'Lightbringer Battlegear', 'Lightbringer Battlegear', 'Lightbringer Battlegear', 'Lightbringer Battlegear', 'Lightbringer Battlegear', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_96.jpg', 0, 1, 70, 320);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (33, 'Lightbringer Sunwell Battlegear', 'Lightbringer Sunwell Battlegear', 'Lightbringer Sunwell Battlegear', 'Lightbringer Sunwell Battlegear', 'Lightbringer Sunwell Battlegear', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_25.jpg', 0, 1, 70, 330);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (34, 'Netherblade', 'Netherblade', 'Netherblade', 'Netherblade', 'Netherblade', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 0, 1, 70, 340);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (35, 'Onslaught Armor', 'Onslaught Armor', 'Onslaught Armor', 'Onslaught Armor', 'Onslaught Armor', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_98.jpg', 0, 1, 70, 350);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (36, 'Onslaught Sunwell Battlegear', 'Onslaught Sunwell Battlegear', 'Onslaught Sunwell Battlegear', 'Onslaught Sunwell Battlegear', 'Onslaught Sunwell Battlegear', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_92.jpg', 0, 1, 70, 360);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (37, 'Thunderheart Sunwell Regalia', 'Thunderheart Sunwell Regalia', 'Thunderheart Sunwell Regalia', 'Thunderheart Sunwell Regalia', 'Thunderheart Sunwell Regalia', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_126.jpg', 0, 1, 70, 370);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (38, 'Vestments of the Virtuous', 'Vestments of the Virtuous', 'Vestments of the Virtuous', 'Vestments of the Virtuous', 'Vestments of the Virtuous', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 0, 1, 67, 380);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (39, 'Voidheart Raiment', 'Voidheart Raiment', 'Voidheart Raiment', 'Voidheart Raiment', 'Voidheart Raiment', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 0, 1, 70, 390);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (40, 'Warlord\'s Vestments', 'Warlord\'s Vestments', 'Warlord\'s Vestments', 'Warlord\'s Vestments', 'Warlord\'s Vestments', 'Leather transmog set — 6 pieces', 'Set transmog Cuir — 6 pièces', 'Set transmog Cuero — 6 piezas', 'Transmog-Set Leder — 6 Teile', 'Set transmog Cuoio — 6 pezzi', 700, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 0, 1, 60, 400);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (41, 'Battlegear of Might (Recolor)', 'Battlegear of Might (Recolor)', 'Battlegear of Might (Recolor)', 'Battlegear of Might (Recolor)', 'Battlegear of Might (Recolor)', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 650, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_12.jpg', 0, 1, 70, 410);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (42, 'Battlegear of Wrath (Recolor)', 'Battlegear of Wrath (Recolor)', 'Battlegear of Wrath (Recolor)', 'Battlegear of Wrath (Recolor)', 'Battlegear of Wrath (Recolor)', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 650, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_71.jpg', 0, 1, 70, 420);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (43, 'Beaststalker Armor (Recolor)', 'Beaststalker Armor (Recolor)', 'Beaststalker Armor (Recolor)', 'Beaststalker Armor (Recolor)', 'Beaststalker Armor (Recolor)', 'Mail transmog set — 8 pieces', 'Set transmog Mailles — 8 pièces', 'Set transmog Malla — 8 piezas', 'Transmog-Set Kette — 8 Teile', 'Set transmog Maglia — 8 pezzi', 650, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_19.jpg', 0, 1, 65, 430);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (44, 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Deathbone Guardian (Recolor)', 'Plate transmog set — 6 pieces', 'Set transmog Plaques — 6 pièces', 'Set transmog Placas — 6 piezas', 'Transmog-Set Platte — 6 Teile', 'Set transmog Piastre — 6 pezzi', 500, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_01.jpg', 0, 1, 67, 440);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (45, 'Exalted Plate (Recolor)', 'Exalted Plate (Recolor)', 'Exalted Plate (Recolor)', 'Exalted Plate (Recolor)', 'Exalted Plate (Recolor)', 'Plate transmog set — 6 pieces', 'Set transmog Plaques — 6 pièces', 'Set transmog Placas — 6 piezas', 'Transmog-Set Platte — 6 Teile', 'Set transmog Piastre — 6 pezzi', 500, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg', 0, 1, 70, 450);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (46, 'Lawbringer Armor (Recolor)', 'Lawbringer Armor (Recolor)', 'Lawbringer Armor (Recolor)', 'Lawbringer Armor (Recolor)', 'Lawbringer Armor (Recolor)', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 650, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_12.jpg', 0, 1, 70, 460);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (47, 'Lightforge Armor (Recolor)', 'Lightforge Armor (Recolor)', 'Lightforge Armor (Recolor)', 'Lightforge Armor (Recolor)', 'Lightforge Armor (Recolor)', 'Plate transmog set — 7 pieces', 'Set transmog Plaques — 7 pièces', 'Set transmog Placas — 7 piezas', 'Transmog-Set Platte — 7 Teile', 'Set transmog Piastre — 7 pezzi', 550, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_16.jpg', 0, 1, 70, 470);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (48, 'Mageweave Regalia (Recolor)', 'Mageweave Regalia (Recolor)', 'Mageweave Regalia (Recolor)', 'Mageweave Regalia (Recolor)', 'Mageweave Regalia (Recolor)', 'Cloth transmog set — 5 pieces', 'Set transmog Tissu — 5 pièces', 'Set transmog Tela — 5 piezas', 'Transmog-Set Stoff — 5 Teile', 'Set transmog Stoffa — 5 pezzi', 400, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_08.jpg', 0, 1, 70, 480);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (49, 'Mana-Etched Regalia', 'Mana-Etched Regalia', 'Mana-Etched Regalia', 'Mana-Etched Regalia', 'Mana-Etched Regalia', 'Cloth transmog set — 7 pieces', 'Set transmog Tissu — 7 pièces', 'Set transmog Tela — 7 piezas', 'Transmog-Set Stoff — 7 Teile', 'Set transmog Stoffa — 7 pezzi', 550, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_56.jpg', 0, 1, 70, 490);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (50, 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Leather transmog set — 7 pieces', 'Set transmog Cuir — 7 pièces', 'Set transmog Cuero — 7 piezas', 'Transmog-Set Leder — 7 Teile', 'Set transmog Cuoio — 7 pezzi', 550, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_73.jpg', 0, 1, 70, 500);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (51, 'Stalker\'s Chain Battlegear', 'Stalker\'s Chain Battlegear', 'Stalker\'s Chain Battlegear', 'Stalker\'s Chain Battlegear', 'Stalker\'s Chain Battlegear', 'Mail transmog set — 7 pieces', 'Set transmog Mailles — 7 pièces', 'Set transmog Malla — 7 piezas', 'Transmog-Set Kette — 7 Teile', 'Set transmog Maglia — 7 pezzi', 550, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_19.jpg', 0, 1, 77, 510);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (52, 'Absolution Regalia', 'Absolution Regalia', 'Absolution Regalia', 'Absolution Regalia', 'Absolution Regalia', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_99.jpg', 0, 1, 70, 520);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (53, 'Arcanist Regalia', 'Arcanist Regalia', 'Arcanist Regalia', 'Arcanist Regalia', 'Arcanist Regalia', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_53.jpg', 0, 1, 60, 530);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (54, 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Bloodfang Armor (Recolor)', 'Leather transmog set — 7 pieces', 'Set transmog Cuir — 7 pièces', 'Set transmog Cuero — 7 piezas', 'Transmog-Set Leder — 7 Teile', 'Set transmog Cuoio — 7 pezzi', 850, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 0, 1, 70, 540);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (55, 'Brutal Gladiator\'s Felweave Armor', 'Brutal Gladiator\'s Felweave Armor', 'Brutal Gladiator\'s Felweave Armor', 'Brutal Gladiator\'s Felweave Armor', 'Brutal Gladiator\'s Felweave Armor', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 0, 1, 70, 550);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (56, 'Crystalforge Armor', 'Crystalforge Armor', 'Crystalforge Armor', 'Crystalforge Armor', 'Crystalforge Armor', 'Plate transmog set — 7 pieces', 'Set transmog Plaques — 7 pièces', 'Set transmog Placas — 7 piezas', 'Transmog-Set Platte — 7 Teile', 'Set transmog Piastre — 7 pezzi', 850, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg', 0, 1, 70, 560);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (57, 'Destroyer Armor', 'Destroyer Armor', 'Destroyer Armor', 'Destroyer Armor', 'Destroyer Armor', 'Plate transmog set — 8 pieces', 'Set transmog Plaques — 8 pièces', 'Set transmog Placas — 8 piezas', 'Transmog-Set Platte — 8 Teile', 'Set transmog Piastre — 8 pezzi', 950, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 0, 1, 70, 570);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (58, 'Doomcaller\'s Attire', 'Doomcaller\'s Attire', 'Doomcaller\'s Attire', 'Doomcaller\'s Attire', 'Doomcaller\'s Attire', 'Cloth transmog set — 7 pieces', 'Set transmog Tissu — 7 pièces', 'Set transmog Tela — 7 piezas', 'Transmog-Set Stoff — 7 Teile', 'Set transmog Stoffa — 7 pezzi', 850, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_06.jpg', 0, 1, 60, 580);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (59, 'Gladiator\'s Ringmail Armor', 'Gladiator\'s Ringmail Armor', 'Gladiator\'s Ringmail Armor', 'Gladiator\'s Ringmail Armor', 'Gladiator\'s Ringmail Armor', 'Mail transmog set — 7 pieces', 'Set transmog Mailles — 7 pièces', 'Set transmog Malla — 7 piezas', 'Transmog-Set Kette — 7 Teile', 'Set transmog Maglia — 7 pezzi', 850, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 0, 1, 70, 590);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (60, 'Gronnstalker\'s Sunwell Battlegear', 'Gronnstalker\'s Sunwell Battlegear', 'Gronnstalker\'s Sunwell Battlegear', 'Gronnstalker\'s Sunwell Battlegear', 'Gronnstalker\'s Sunwell Battlegear', 'Mail transmog set — 8 pieces', 'Set transmog Mailles — 8 pièces', 'Set transmog Malla — 8 piezas', 'Transmog-Set Kette — 8 Teile', 'Set transmog Maglia — 8 pezzi', 950, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet128.jpg', 0, 1, 70, 600);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (61, 'Malefic Sunwell Regalia', 'Malefic Sunwell Regalia', 'Malefic Sunwell Regalia', 'Malefic Sunwell Regalia', 'Malefic Sunwell Regalia', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 0, 1, 70, 610);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (62, 'Merciless Gladiator\'s Ringmail Armor', 'Merciless Gladiator\'s Ringmail Armor', 'Merciless Gladiator\'s Ringmail Armor', 'Merciless Gladiator\'s Ringmail Armor', 'Merciless Gladiator\'s Ringmail Armor', 'Mail transmog set — 8 pieces', 'Set transmog Mailles — 8 pièces', 'Set transmog Malla — 8 piezas', 'Transmog-Set Kette — 8 Teile', 'Set transmog Maglia — 8 pezzi', 950, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 0, 1, 70, 620);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (63, 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Nightslayer Armor (Recolor)', 'Leather transmog set — 4 pieces', 'Set transmog Cuir — 4 pièces', 'Set transmog Cuero — 4 piezas', 'Transmog-Set Leder — 4 Teile', 'Set transmog Cuoio — 4 pezzi', 500, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_43.jpg', 0, 1, 70, 630);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (64, 'Nordrassil Raiment', 'Nordrassil Raiment', 'Nordrassil Raiment', 'Nordrassil Raiment', 'Nordrassil Raiment', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 950, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg', 0, 1, 70, 640);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (65, 'Vengeful Gladiator\'s Felweave Armor', 'Vengeful Gladiator\'s Felweave Armor', 'Vengeful Gladiator\'s Felweave Armor', 'Vengeful Gladiator\'s Felweave Armor', 'Vengeful Gladiator\'s Felweave Armor', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_103.jpg', 0, 1, 70, 650);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (66, 'Vengeful Gladiator\'s Silk Armor', 'Vengeful Gladiator\'s Silk Armor', 'Vengeful Gladiator\'s Silk Armor', 'Vengeful Gladiator\'s Silk Armor', 'Vengeful Gladiator\'s Silk Armor', 'Cloth transmog set — 8 pieces', 'Set transmog Tissu — 8 pièces', 'Set transmog Tela — 8 piezas', 'Transmog-Set Stoff — 8 Teile', 'Set transmog Stoffa — 8 pezzi', 950, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_101.jpg', 0, 1, 70, 660);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (67, 'Warlord\'s Aegis', 'Warlord\'s Aegis', 'Warlord\'s Aegis', 'Warlord\'s Aegis', 'Warlord\'s Aegis', 'Plate transmog set — 6 pieces', 'Set transmog Plaques — 6 pièces', 'Set transmog Placas — 6 piezas', 'Transmog-Set Platte — 6 Teile', 'Set transmog Piastre — 6 pezzi', 700, 0, '[1,2,6]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_05.jpg', 0, 1, 70, 670);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (68, 'Aurora Regalia (Recolor)', 'Aurora Regalia (Recolor)', 'Aurora Regalia (Recolor)', 'Aurora Regalia (Recolor)', 'Aurora Regalia (Recolor)', 'Cloth transmog set — 2 pieces', 'Set transmog Tissu — 2 pièces', 'Set transmog Tela — 2 piezas', 'Transmog-Set Stoff — 2 Teile', 'Set transmog Stoffa — 2 pezzi', 300, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_25.jpg', 0, 1, 60, 680);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (69, 'Dragonstalker Armor (Recolor)', 'Dragonstalker Armor (Recolor)', 'Dragonstalker Armor (Recolor)', 'Dragonstalker Armor (Recolor)', 'Dragonstalker Armor (Recolor)', 'Mail transmog set — 8 pieces', 'Set transmog Mailles — 8 pièces', 'Set transmog Malla — 8 piezas', 'Transmog-Set Kette — 8 Teile', 'Set transmog Maglia — 8 pezzi', 650, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_21.jpg', 0, 1, 70, 690);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (70, 'Fel Skin', 'Fel Skin', 'Fel Skin', 'Fel Skin', 'Fel Skin', 'Leather transmog set — 6 pieces', 'Set transmog Cuir — 6 pièces', 'Set transmog Cuero — 6 piezas', 'Transmog-Set Leder — 6 Teile', 'Set transmog Cuoio — 6 pezzi', 500, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_23.jpg', 0, 1, 69, 700);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (71, 'Gossamer Regalia (Recolor)', 'Gossamer Regalia (Recolor)', 'Gossamer Regalia (Recolor)', 'Gossamer Regalia (Recolor)', 'Gossamer Regalia (Recolor)', 'Cloth transmog set — 5 pieces', 'Set transmog Tissu — 5 pièces', 'Set transmog Tela — 5 piezas', 'Transmog-Set Stoff — 5 Teile', 'Set transmog Stoffa — 5 pezzi', 400, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_17.jpg', 0, 1, 68, 710);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (72, 'Stormrage Raiment (Recolor)', 'Stormrage Raiment (Recolor)', 'Stormrage Raiment (Recolor)', 'Stormrage Raiment (Recolor)', 'Stormrage Raiment (Recolor)', 'Leather transmog set — 8 pieces', 'Set transmog Cuir — 8 pièces', 'Set transmog Cuero — 8 piezas', 'Transmog-Set Leder — 8 Teile', 'Set transmog Cuoio — 8 pezzi', 650, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_24.jpg', 0, 1, 70, 720);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (73, 'Vestments of the Devout (Recolor)', 'Vestments of the Devout (Recolor)', 'Vestments of the Devout (Recolor)', 'Vestments of the Devout (Recolor)', 'Vestments of the Devout (Recolor)', 'Cloth transmog set — 5 pieces', 'Set transmog Tissu — 5 pièces', 'Set transmog Tela — 5 piezas', 'Transmog-Set Stoff — 5 Teile', 'Set transmog Stoffa — 5 pezzi', 400, 0, '[5,8,9]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_06.jpg', 0, 1, 70, 730);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (74, 'Warlord\'s Earthshaker', 'Warlord\'s Earthshaker', 'Warlord\'s Earthshaker', 'Warlord\'s Earthshaker', 'Warlord\'s Earthshaker', 'Mail transmog set — 6 pieces', 'Set transmog Mailles — 6 pièces', 'Set transmog Malla — 6 piezas', 'Transmog-Set Kette — 6 Teile', 'Set transmog Maglia — 6 pezzi', 500, 0, '[3,7]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 0, 1, 70, 740);
+INSERT INTO shop_sets (id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, is_highlighted, is_active, min_level, sort_order) VALUES
+  (75, 'Wildheart Raiment (Recolor)', 'Wildheart Raiment (Recolor)', 'Wildheart Raiment (Recolor)', 'Wildheart Raiment (Recolor)', 'Wildheart Raiment (Recolor)', 'Leather transmog set — 5 pieces', 'Set transmog Cuir — 5 pièces', 'Set transmog Cuero — 5 piezas', 'Transmog-Set Leder — 5 Teile', 'Set transmog Cuoio — 5 pezzi', 400, 0, '[4,11]', 'both', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_21.jpg', 0, 1, 66, 750);
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- SHOP_SET_ITEMS
+-- ─────────────────────────────────────────────────────────────────────────────
+
+-- Set 1: Judgement Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27790, 'Mask of Penance', 'Masque de pénitence', 'Máscara de penitencia', 'Maske der Buße', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_74.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27539, 'Justice Bearer\'s Pauldrons', 'Espauliers du porteur de justice', 'Espaldares de portador de justicia', 'Schulterstücke des Rechtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_37.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27897, 'Breastplate of Many Graces', 'Cuirasse des grâces multiples', 'Coraza de gracias múltiples', 'Brustplatte der vielfachen Anmut', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate11.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27548, 'Girdle of Many Blessings', 'Ceinturon des bénédictions multiples', 'Faja de muchas bendiciones', 'Gurt der vielen Segnungen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_23.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27748, 'Cassock of the Loyal', 'Soutane du fidèle', 'Sotana del fiel', 'Soutane des Ergebenen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_59.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 28221, 'Boots of the Watchful Heart', 'Bottes du coeur vigilant', 'Botas del corazón atento', 'Stiefel des wachsamen Herzens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27489, 'Virtue Bearer\'s Vambraces', 'Protège-bras du porteur de vertus', 'Avambrazos de portador de virtud', 'Unterarmschienen des Ehrenträgers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (1, 27457, 'Life Bearer\'s Gauntlets', 'Gantelets du porteur de vie', 'Guanteletes de portador de vida', 'Stulpen des Lebensträgers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_09.jpg', 3, 80);
+
+-- Set 2: Gladiator's Plate Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 42656, 'Gladiator\'s Dreadplate Helm', 'Heaume de gladiateur en plaques d\'effroi', 'Yelmo de placas de tinieblas de Gladiador', 'Schreckensplattenhelm des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_07.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 42658, 'Gladiator\'s Dreadplate Shoulders', 'Epaulières de gladiateur en plaques d\'effroi', 'Sobrehombros de placas de tinieblas de Gladiador', 'Schreckensplattenschultern des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_22.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 42654, 'Gladiator\'s Dreadplate Chestpiece', 'Plastron de gladiateur en plaques d\'effroi', 'Pechera de placas de tinieblas de Gladiador', 'Schreckensplattenbrustharnisch des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate05.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 28385, 'General\'s Plate Belt', 'Ceinture de général en plaques', 'Cinturón de placas de Gran general', 'Plattengürtel des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_14.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 42657, 'Gladiator\'s Dreadplate Legguards', 'Garde-jambes de gladiateur en plaques d\'effroi', 'Musleras de placas de tinieblas de Gladiador', 'Schreckensplattenbeinschützer des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_17.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 28383, 'General\'s Plate Greaves', 'Grèves de général en plaques', 'Grebas de placas de Gran general', 'Plattenschienbeinschützer des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_04.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (2, 42655, 'Gladiator\'s Dreadplate Gauntlets', 'Gantelets de gladiateur en plaques d\'effroi', 'Guanteletes de placas de tinieblas de Gladiador', 'Schreckensplattenstulpen des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_29.jpg', 4, 70);
+
+-- Set 3: Bloodfang Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 28206, 'Cowl of the Guiltless', 'Capuche de l\'innocent', 'Capucha del inocente', 'Gugel des Schuldlosen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_29.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 27831, 'Mantle of the Unforgiven', 'Mantelet du condamné', 'Manto del Imperdonable', 'Mantelung des Unverziehenen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_17.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 27787, 'Chestguard of No Remorse', 'Corselet sans-remords', 'Coselete sin remordimientos', 'Brustschutz der Reuelosigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate11.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 28124, 'Liar\'s Cord', 'Corde de menteur', 'Cordón de embustero', 'Kordel des Lügners', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_15.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 27514, 'Leggings of the Unrepentant', 'Jambières de l\'impénitent', 'Leotardos del impenitente', 'Gamaschen des Reuelosen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_12.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 27867, 'Boots of the Unjust', 'Bottes de l\'injuste', 'Botas del injusto', 'Stiefel des Ungerechten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_06.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 27765, 'Armwraps of Disdain', 'Couvre-bras du Dédain', 'Brazaletes de desdén', 'Armwickel der Verachtung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (3, 28396, 'Gloves of the Unbound', 'Gants du délié', 'Guantes del desvinculado', 'Handschuhe des Unbändigen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_22.jpg', 3, 80);
+
+-- Set 4: Absolution Regalia (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (4, 32329, 'Cowl of Benevolence', 'Capuche de bienveillance', 'Capucha de benevolencia', 'Gugel der Gutmütigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_32.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (4, 32273, 'Amice of Brilliant Light', 'Amict de lumière éclatante', 'Amito de luz luminosa', 'Amicia des strahlenden Lichts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_63.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (4, 32340, 'Garments of Temperance', 'Vêtements de la tempérance', 'Ropas de templanza', 'Gewänder der Mäßigung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_35.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (4, 34926, 'Slippers of Dutiful Mending', 'Mules de la guérison dévouée', 'Zapatillas de remiendo debido', 'Schuhe der getreuen Heilung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_03.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (4, 32353, 'Gloves of Unfailing Faith', 'Gants de la foi indéfectible', 'Guantes de fe indefectible', 'Handschuhe des unermüdlichen Glaubens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_63.jpg', 4, 50);
+
+-- Set 5: Mageweave Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (5, 29117, 'Stormspire Vest', 'Gilet Foudreflèche', 'Jubón de la Flecha de la Tormenta', 'Weste der Sturmsäule', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_08.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (5, 19133, 'Fel Infused Leggings', 'Jambières gangrenées imprégnées', 'Leotardos vil imbuidos', 'Teufelserfüllte Gamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (5, 31230, 'Abyss Walker\'s Boots', 'Bottes de marcheur d\'abysse', 'Botas de caminante del abismo', 'Stiefel des Abysswandlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_05.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (5, 20690, 'Abyssal Cloth Wristbands', 'Protège-poignets abyssaux en tissu', 'Braciles de paño abisal', 'Abyssische Stoffgelenkbänder', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (5, 13525, 'Darkbind Fingers', 'Doigts du sombre lien', 'Dedos de Presotenebra', 'Finger des Dunkelbinders', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg', 2, 50);
+
+-- Set 6: Conqueror's Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21329, 'Conqueror\'s Crown', 'Couronne de conquérant', 'Corona de conquistador', 'Krone des Eroberers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_72.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21330, 'Conqueror\'s Spaulders', 'Spallières de conquérant', 'Bufas de conquistador', 'Schiftung des Eroberers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_35.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21331, 'Conqueror\'s Breastplate', 'Cuirasse de conquérant', 'Coraza de conquistador', 'Brustplatte des Eroberers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate12.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21598, 'Royal Qiraji Belt', 'Ceinture royale qiraji', 'Cinturón qiraji real', 'Königlicher Qirajigürtel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_31.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21332, 'Conqueror\'s Legguards', 'Garde-jambes de conquérant', 'Musleras de conquistador', 'Beinschützer des Eroberers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_03.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21333, 'Conqueror\'s Greaves', 'Grèves de conquérant', 'Grebas de conquistador', 'Schienbeinschützer des Eroberers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21618, 'Hive Defiler Wristguards', 'Garde-poignets de profanateur de ruche', 'Guardamuñecas de colmena Rapiñador', 'Handgelenksschützer des Schwarmbauentweihers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (6, 21581, 'Gauntlets of Annihilation', 'Gantelets d\'annihilation', 'Guanteletes de Aniquilación', 'Stulpen der Vernichtung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_31.jpg', 4, 80);
+
+-- Set 7: Gladiator's Chain Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28331, 'Gladiator\'s Chain Helm', 'Heaume de gladiateur en anneaux', 'Yelmo de anillas de Gladiador', 'Kettenhelm des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28333, 'Gladiator\'s Chain Spaulders', 'Spallières de gladiateur en anneaux', 'Bufas de anillas de Gladiador', 'Kettenschiftung des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28334, 'Gladiator\'s Chain Armor', 'Cotte d\'anneaux de gladiateur', 'Armadura de anillas de Gladiador', 'Kettenrüstung des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_11.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28450, 'General\'s Chain Girdle', 'Ceinturon de général en anneaux', 'Faja de anillas de Gran general', 'Kettengurt des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_20.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28332, 'Gladiator\'s Chain Leggings', 'Jambières de gladiateur en anneaux', 'Leotardos de anillas de Gladiador', 'Kettengamaschen des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28449, 'General\'s Chain Sabatons', 'Solerets de général en anneaux', 'Escarpes de anillas de Gran general', 'Kettensabatons des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (7, 28335, 'Gladiator\'s Chain Gauntlets', 'Gantelets de gladiateur en anneaux', 'Guanteletes de anillas de Gladiador', 'Kettenstulpen des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_11.jpg', 4, 70);
+
+-- Set 8: Black Dragon Mail
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (8, 15051, 'Black Dragonscale Shoulders', 'Epaulières en écailles de dragon noir', 'Sobrehombros de escamas de dragón negro', 'Schwarze Drachenschuppenschultern', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_01.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (8, 15050, 'Black Dragonscale Breastplate', 'Cuirasse en écailles de dragon noir', 'Coraza de escamas de dragón negro', 'Schwarze Drachenschuppenbrustplatte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate06.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (8, 15052, 'Black Dragonscale Leggings', 'Jambières en écailles de dragon noir', 'Leotardos de escamas de dragón negro', 'Schwarze Drachenschuppengamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_03.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (8, 16984, 'Black Dragonscale Boots', 'Bottes en écailles de dragon noir', 'Botas de escamas de dragón negro', 'Schwarze Drachenschuppenstiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_09.jpg', 4, 40);
+
+-- Set 9: Deathbone Guardian (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (9, 11633, 'Spiderfang Carapace', 'Carapace croc-d\'épeire', 'Caparazón colmillo de araña', 'Spinnenfangzahnknochenpanzer', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate02.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (9, 14620, 'Deathbone Girdle', 'Ceinturon des ossements', 'Faja de hueso de muerto', 'Gurt des Totenwächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_12.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (9, 22651, 'Outrider\'s Plate Legguards', 'Garde-jambes de voltigeur en plaques', 'Musleras de placas de escolta', 'Plattenbeinschützer der Vorhut', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_20.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (9, 14621, 'Deathbone Sabatons', 'Solerets des ossements', 'Escarpes de hueso de muerto', 'Sabatons des Totenwächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_01.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (9, 21184, 'Deeprock Bracers', 'Brassards de Fonderoc', 'Brazales de roca profunda', 'Tiefsteinarmschienen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (9, 14622, 'Deathbone Gauntlets', 'Gantelets des ossements', 'Guanteletes de hueso de muerto', 'Stulpen des Totenwächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 3, 60);
+
+-- Set 10: Amani Garb
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (10, 33566, 'Blessed Elunite Coverings', 'Couvrante bénie en élunite', 'Cuberturas de elunita benditas', 'Gesegnete Elunittücher', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_06.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (10, 33971, 'Elunite Imbued Leggings', 'Jambières imprégnées d\'élunite', 'Leotardos imbuidos con elunita', 'Eluniterfüllte Gamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_23.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (10, 33582, 'Footwraps of Wild Encroachment', 'Bottillons d\'empiètement sauvage', 'Borceguíes de usurpación salvaje', 'Fußlappen des wilden Übergriffs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_wolf.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (10, 33578, 'Armwraps of the Kaldorei Protector', 'Couvre-bras du protecteur kaldorei', 'Brazaletes del protector kaldorei', 'Beschützerarmwickel der Kaldorei', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (10, 34904, 'Barbed Gloves of the Sage', 'Gants barbelés du sage', 'Guantes barbados del Sabio', 'Stachelbesetze Handschuhe des Weisen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_50.jpg', 4, 50);
+
+-- Set 11: Blessed Battlegear of Undead Slaying
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (11, 43068, 'Blessed Spaulders of Undead Slaying', 'Spallières bénies de tueur de mort-vivant', 'Bufas de matanza de no-muertos benditas', 'Gesegnete Schiftung des Untotenschlachtens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_21.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (11, 43069, 'Blessed Breastplate of Undead Slaying', 'Cuirasse bénie de tueur de mort-vivant', 'Coraza de matanza de no-muertos bendita', 'Gesegnete Brustplatte des Untotenschlachtens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate19.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (11, 43071, 'Blessed Legplates of Undead Slaying', 'Cuissards bénis de tueur de mort-vivant', 'Quijotes de matanza de no-muertos benditos', 'Gesegnete Beinplatten des Untotenschlachtens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_12.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (11, 43070, 'Blessed Gauntlets of Undead Slaying', 'Gantelets bénis de tueur de mort-vivant', 'Guanteletes de matanza de no-muertos benditos', 'Gesegnete Stulpen des Untotenschlachtens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 40);
+
+-- Set 12: Cataclysm Raiment (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 30097, 'Coral-Barbed Shoulderpads', 'Protège-épaules barbelés de corail', 'Hombreras de púas de coral', 'Stachelige Korallenschulterpolster', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_19.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 29921, 'Fire Crest Breastplate', 'Cuirasse de la crête de feu', 'Coraza de blasón de fuego', 'Brustplatte des Feuerwappens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate03.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 30030, 'Girdle of Fallen Stars', 'Ceinturon des étoiles tombées', 'Faja de estrellas caídas', 'Gurt der gefallenen Sterne', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_22.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 29991, 'Sunhawk Leggings', 'Jambières d\'Epervier du soleil', 'Leotardos de Halcón del Sol', 'Gamaschen der Sonnenfalken', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_07.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 30043, 'Hurricane Boots', 'Bottes de l\'ouragan', 'Botas de huracán', 'Stiefel des Wirbelsturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_06.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 30047, 'Blackfathom Warbands', 'Poignets de guerre de Brassenoire', 'Brazales de guerra de Brazanegra', 'Kriegsbänder der Tiefschwarzen Grotte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (12, 29976, 'Worldstorm Gauntlets', 'Gantelets de la tempête mondiale', 'Guanteletes de tormenta mundial', 'Stulpen des Weltensturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_26.jpg', 4, 70);
+
+-- Set 13: Corruptor Raiment
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30212, 'Hood of the Corruptor', 'Chaperon du corrupteur', 'Caperuza del corruptor', 'Kapuze des Verderbers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30215, 'Mantle of the Corruptor', 'Mantelet du corrupteur', 'Manto del corruptor', 'Mantelung des Verderbers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_25.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30214, 'Robe of the Corruptor', 'Robe du corrupteur', 'Toga del corruptor', 'Robe des Verderbers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_43.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30064, 'Cord of Screaming Terrors', 'Corde des terreurs hurlantes', 'Cordón de terrores aulladores', 'Kordel des gellenden Schreckens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30213, 'Leggings of the Corruptor', 'Jambières du corrupteur', 'Leotardos del corruptor', 'Gamaschen des Verderbers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30050, 'Boots of the Shifting Nightmare', 'Bottes du cauchemar changeant', 'Botas de la pesadilla cambiante', 'Stiefel des unbeständigen Alptraums', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (13, 30211, 'Gloves of the Corruptor', 'Gants du corrupteur', 'Guantes del corruptor', 'Handschuhe des Verderbers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_17.jpg', 4, 70);
+
+-- Set 14: Deathdealer's Embrace
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21360, 'Deathdealer\'s Helm', 'Casque de dispensateur de mort', 'Yelmo de mortífero', 'Helm des Todesboten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_04.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21361, 'Deathdealer\'s Spaulders', 'Spallières de dispensateur de mort', 'Bufas de mortífero', 'Schiftung des Todesboten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_03.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21364, 'Deathdealer\'s Vest', 'Gilet de dispensateur de mort', 'Jubón de mortífero', 'Weste des Todesboten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_08.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21586, 'Belt of Never-ending Agony', 'Ceinture d\'agonie sans fin', 'Cinturón de Agonía interminable', 'Gürtel der endlosen Pein', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21362, 'Deathdealer\'s Leggings', 'Jambières de dispensateur de mort', 'Leotardos de mortífero', 'Gamaschen des Todesboten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_07.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21359, 'Deathdealer\'s Boots', 'Bottes de dispensateur de mort', 'Botas de mortífero', 'Stiefel des Todesboten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21602, 'Qiraji Execution Bracers', 'Brassards d\'exécution qiraji', 'Brazales qiraji de ejecución', 'Vollstreckungsarmschienen der Qiraji', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (14, 21672, 'Gloves of Enforcement', 'Gants de coercition', 'Guantes de aplicación', 'Handschuhe der Vollstreckung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_17.jpg', 4, 80);
+
+-- Set 15: Dreadnaught's Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22418, 'Dreadnaught Helmet', 'Casque de cuirassier', 'Casco acorator', 'Helm des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22419, 'Dreadnaught Pauldrons', 'Espauliers de cuirassier', 'Espaldares acorator', 'Schulterstücke des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22416, 'Dreadnaught Breastplate', 'Cuirasse de cuirassier', 'Coraza acorator', 'Brustplatte des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate02.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22422, 'Dreadnaught Waistguard', 'Sangle de cuirassier', 'Guardarrenes acorator', 'Taillenschutz des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_27.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22417, 'Dreadnaught Legplates', 'Cuissards de cuirassier', 'Quijotes acorator', 'Beinplatten des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22420, 'Dreadnaught Sabatons', 'Solerets de cuirassier', 'Escarpes acorator', 'Sabatons des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22423, 'Dreadnaught Bracers', 'Brassards de cuirassier', 'Brazales acorator', 'Armschienen des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_15.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (15, 22421, 'Dreadnaught Gauntlets', 'Gantelets de cuirassier', 'Guanteletes acorator', 'Stulpen des Schreckenspanzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 80);
+
+-- Set 16: Frostfire Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22498, 'Frostfire Circlet', 'Diadème de givrefeu', 'Aro de Fuego de Escarcha', 'Frostfeuerreif', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22499, 'Frostfire Shoulderpads', 'Protège-épaules de givrefeu', 'Hombreras de Fuego de Escarcha', 'Frostfeuerschulterpolster', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_25.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22496, 'Frostfire Robe', 'Robe de givrefeu', 'Toga de Fuego de Escarcha', 'Frostfeuerrobe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_43.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22502, 'Frostfire Belt', 'Ceinture de givrefeu', 'Cinturón de Fuego de Escarcha', 'Frostfeuergürtel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22497, 'Frostfire Leggings', 'Jambières de givrefeu', 'Leotardos de Fuego de Escarcha', 'Frostfeuergamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22500, 'Frostfire Sandals', 'Sandales de givrefeu', 'Botines de Fuego de Escarcha', 'Frostfeuersandalen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_fabric_01.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22503, 'Frostfire Bindings', 'Manchettes de givrefeu', 'Ataduras de Fuego de Escarcha', 'Frostfeuerbindungen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (16, 22501, 'Frostfire Gloves', 'Gants de givrefeu', 'Guantes de Fuego de Escarcha', 'Frostfeuerhandschuhe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_17.jpg', 4, 80);
+
+-- Set 17: Malefic Raiment
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (17, 31051, 'Hood of the Malefic', 'Chaperon du maléfice', 'Caperuza del maléfico', 'Kapuze der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_103.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (17, 31054, 'Mantle of the Malefic', 'Mantelet du maléfice', 'Manto del maléfico', 'Mantelung der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_68.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (17, 31052, 'Robe of the Malefic', 'Robe du maléfice', 'Toga del maléfico', 'Robe der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_68.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (17, 30888, 'Anetheron\'s Noose', 'Collet d\'Anetheron', 'Lazo de Anetheron', 'Anetherons Schlinge', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (17, 31053, 'Leggings of the Malefic', 'Jambières du maléfice', 'Leotardos del maléfico', 'Gamaschen der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_29.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (17, 31050, 'Gloves of the Malefic', 'Gants du maléfice', 'Guantes del maléfico', 'Handschuhe der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_66.jpg', 4, 60);
+
+-- Set 18: Slayer's Sunwell Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34244, 'Duplicitous Guise', 'Semblance fourbe', 'Guisa engañosa', 'Haube des Doppelzüngigen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_126.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34195, 'Shoulderpads of Vehemence', 'Protège-épaules de véhémence', 'Hombreras de vehemencia', 'Schulterpolster der Vehemenz', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_88.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34397, 'Bladed Chaos Tunic', 'Tunique du chaos à lames', 'Guerrera de caos de hojas', 'Klingenbewehrte Chaostunika', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_16.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34558, 'Slayer\'s Belt', 'Ceinture de tueur', 'Cinturón de destripador', 'Gürtel des Schlächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34188, 'Leggings of the Immortal Night', 'Jambières de la nuit immortelle', 'Leotardos de la noche inmortal', 'Gamaschen der unvergänglichen Nacht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_27.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34575, 'Slayer\'s Boots', 'Bottes de tueur', 'Botas de destripador', 'Stiefel des Schlächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_02.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34448, 'Slayer\'s Bracers', 'Brassards de tueur', 'Brazales de destripador', 'Armschienen des Schlächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_09.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (18, 34370, 'Gloves of Immortal Dusk', 'Gants de la pénombre immortelle', 'Guantes de anochecer inmortal', 'Handschuhe der unsterblichen Dämmerung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 80);
+
+-- Set 19: Sunwell Vestments of Absolution
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34339, 'Cowl of Light\'s Purity', 'Capuche de la pureté de la Lumière', 'Capucha de pureza de luz', 'Gugel des reinen Lichts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34202, 'Shawl of Wonderment', 'Châle d\'émerveillement', 'Chal de asombro', 'Schal der Verwunderung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_96.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34365, 'Robe of Eternal Light', 'Robe de la lumière éternelle', 'Toga de Luz eterna', 'Robe des ewigen Lichts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_51.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34527, 'Belt of Absolution', 'Ceinture d\'absolution', 'Cinturón de absolución', 'Gürtel der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_07.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34170, 'Pantaloons of Calming Strife', 'Culotte de la lutte calmante', 'Bombachos de menores conflictos', 'Pantalons des schwindenden Zwists', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_07.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34562, 'Boots of Absolution', 'Bottes d\'absolution', 'Botas de absolución', 'Stiefel der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34434, 'Bracers of Absolution', 'Brassards d\'absolution', 'Brazales de absolución', 'Armschienen der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_10.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (19, 34342, 'Handguards of the Dawn', 'Garde-mains de l\'aube', 'Manoplas del alba', 'Handschützer des Morgens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_16.jpg', 4, 80);
+
+-- Set 20: Tempest Sunwell Garb
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34405, 'Helm of Arcane Purity', 'Collerette de pureté des arcanes', 'Yelmo de pureza Arcana', 'Helm der arkanen Reinheit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34393, 'Shoulderpads of Knowledge\'s Pursuit', 'Protège-épaules de la poursuite des connaissances', 'Hombreras de la búsqueda de conocimiento', 'Schulterpolster des Wissensdurstes', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_96.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34399, 'Robes of Ghostly Hatred', 'Robe de haine fantomatique', 'Togas de odio fantasmal', 'Geistergrollroben', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_25.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34557, 'Belt of the Tempest', 'Ceinture de la tempête', 'Cinturón de la tempestad', 'Gürtel des Gewittersturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_07.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34386, 'Pantaloons of Growing Strife', 'Culotte de la lutte croissante', 'Bombachos de mayores conflictos', 'Pantalons des aufbrausenden Zwists', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_14.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34574, 'Boots of the Tempest', 'Bottes de la tempête', 'Botas de la tempestad', 'Stiefel des Gewittersturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_16.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34447, 'Bracers of the Tempest', 'Brassards de la tempête', 'Brazales de la tempestad', 'Armschienen des Gewittersturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (20, 34406, 'Gloves of Tyri\'s Power', 'Gants du pouvoir de Tyri', 'Guantes del poder de Tyri', 'Handschuhe von Tyris Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_16.jpg', 4, 80);
+
+-- Set 21: Assassination Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 28414, 'Helm of Assassination', 'Heaume d\'assassinat', 'Yelmo de asesinato', 'Helm des Meuchelmords', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 27776, 'Shoulderpads of Assassination', 'Protège-épaules d\'assassinat', 'Hombreras de asesinato', 'Schulterpolster des Meuchelmords', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_24.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 28204, 'Tunic of Assassination', 'Tunique d\'assassinat', 'Guerrera de asesinato', 'Tunika des Meuchelmords', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_17.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 29247, 'Girdle of the Deathdealer', 'Ceinturon du dispensateur de mort', 'Faja del mortífero', 'Gurt des Todesboten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 27908, 'Leggings of Assassination', 'Jambières d\'assassinat', 'Leotardos de asesinato', 'Gamaschen des Meuchelmords', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_03.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 29248, 'Shadowstep Striders', 'Cuissardes des pas de l\'ombre', 'Botas Paso de las Sombras', 'Schattenpfadschreiter', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (21, 27509, 'Handgrips of Assassination', 'Manicles d\'assassinat', 'Lúas de asesinato', 'Handschutz des Meuchelmords', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_01.jpg', 3, 70);
+
+-- Set 22: Netherwind Regalia (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 27466, 'Headdress of Alacrity', 'Coiffure d\'empressement', 'Ornato de prontitud', 'Kopfputz des Eifers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_70.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 28374, 'Mana-Sphere Shoulderguards', 'Garde-épaules à la sphère de mana', 'Guardahombros de esfera de maná', 'Schulterschutz der Manasphäre', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_32.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 27824, 'Robe of the Great Dark Beyond', 'Robe de la Ténèbre de l\'Au-delà', 'Toga de la Gran Oscuridad del Más Allá', 'Robe des dunklen Jenseits', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_38.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 27768, 'Oracle Belt of Timeless Mystery', 'Ceinture d\'oracle du mystère intemporel', 'Cinturón oráculo de misterio intemporal', 'Orakelgürtel des zeitlosen Geheimnisses', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_01.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 28185, 'Khadgar\'s Kilt of Abjuration', 'Kilt d\'abjuration de Khadgar', 'Falda de abjuración de Khadgar', 'Khadgars Kilt des Bannzaubers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_05.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 27902, 'Silent Slippers of Meditation', 'Mules silencieuses de méditation', 'Zapatillas silenciosas de meditación', 'Geräuschlose Schuhe der Meditation', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_09.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 27517, 'Bands of Nethekurse', 'Poignets de Néanathème', 'Braciles de Malbisal', 'Bänder von Nethekurse', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (22, 28317, 'Energis Armwraps', 'Couvre-bras d\'Energis', 'Brazaletes de Energis', 'Energisarmwickel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_19.jpg', 3, 80);
+
+-- Set 23: Amani Mail (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33964, 'Helm of the Stormcaller', 'Heaume de l\'implorateur des tempêtes', 'Yelmo del Clamatormentas', 'Helm des Sturmrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_116.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33464, 'Hex Lord\'s Voodoo Pauldrons', 'Espauliers vaudous du seigneur des maléfices', 'Espaldares de vudú del señor de la brujería', 'Voodooschultern des Hexlords', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_86.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33469, 'Hauberk of the Empire\'s Champion', 'Haubert du champion de l\'empire', 'Camisote del Campeón del imperio', 'Heldenhalsberge des Imperiums', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_05.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33533, 'Avalanche Leggings', 'Jambières d\'avalanche', 'Falda de avalancha', 'Lawinengamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_26.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33537, 'Treads of Booming Thunder', 'Bottines du tonnerre retentissant', 'Botines de truenos retumbantes', 'Treter des schallenden Donners', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33535, 'Earthquake Bracers', 'Brassards de tremblement de terre', 'Brazales terremoto', 'Erdbebenarmschienen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (23, 33534, 'Grips of Nature\'s Wrath', 'Poignes de courroux naturel', 'Mandiletes de cólera de la Naturaleza', 'Handschutz des Naturzorns', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_68.jpg', 4, 70);
+
+-- Set 24: Amani Plate
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (24, 33481, 'Pauldrons of Stone Resolve', 'Espauliers de résolution de pierre', 'Espaldares de resolución pétrea', 'Schulterstücke der steinernen Entschlossenheit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_81.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (24, 33473, 'Chestguard of the Warlord', 'Corselet du seigneur de guerre', 'Coselete del Señor de la Guerra', 'Kriegsfürstenbrustschutz', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_22.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (24, 33515, 'Unwavering Legguards', 'Garde-jambes inexorables', 'Musleras antititubeo', 'Beharrliche Beinschützer', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_28.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (24, 33191, 'Jungle Stompers', 'Croquenots de la jungle', 'Apisonadoras de la selva', 'Dschungelstampfer', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_10.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (24, 33516, 'Bracers of the Ancient Phalanx', 'Brassards de l\'antique phalange', 'Brazales de antigua Falange', 'Uralte Phalanxarmschienen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_19.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (24, 33517, 'Bonefist Gauntlets', 'Gantelets Poing-d\'os', 'Guanteletes nudillóseo', 'Knochenfausthandschuhe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_67.jpg', 4, 60);
+
+-- Set 25: Amani Raiment
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33479, 'Grimgrin Faceguard', 'Ventaille de Sombrictus', 'Visera con mueca', 'Gesichtsschutz des bösen Grinsens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_116.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33300, 'Shoulderpads of Dancing Blades', 'Protège-épaules des lames dansantes', 'Hombreras de hojas danzantes', 'Schulterpolster der tanzenden Klingen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_24.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33329, 'Shadowtooth Trollskin Cuirass', 'Cuirasse en peau de troll crocs-d\'ombre', 'Loriga de piel de trol diente oscuro', 'Trollhautkürass des Schattenzahns', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_06.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33211, 'Bladeangel\'s Money Belt', 'Ceinture à poches d\'Angelame', 'Faltriquera de ángel de espadas', 'Klingenengels Geldgürtel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_14.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33538, 'Shallow-grave Trousers', 'Chausses de la tombe peu profonde', 'Calzas de tumba poco profunda', 'Beinkleider des flachen Grabs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_09.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33222, 'Nyn\'jah\'s Tabi Boots', 'Bottes tabi de Nyn\'jah', 'Botas atigradas de Nyn\'jah', 'Nyn\'jahs Tabis', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_07.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33540, 'Master Assassin Wristwraps', 'Bandelettes de maître assassin', 'Cubremuñecas de maestro asesino', 'Gelenkbänder des Meisterassassinen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (25, 33539, 'Trickster\'s Stickyfingers', 'Chapardoigts d\'entourloupeur', 'Dedos pringosos de timador', 'Langfinger des Schwindlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_50.jpg', 4, 80);
+
+-- Set 26: Avatar Raiment
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 30152, 'Cowl of the Avatar', 'Capuche de l\'avatar', 'Capucha de avatar', 'Gugel des Avatars', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 30154, 'Mantle of the Avatar', 'Mantelet de l\'avatar', 'Manto de avatar', 'Mantelung des Avatars', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_25.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 30159, 'Shroud of the Avatar', 'Voile de l\'avatar', 'Embozo del avatar', 'Tuch des Avatars', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_43.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 28799, 'Belt of Divine Inspiration', 'Ceinture d\'inspiration divine', 'Cinturón de inspiración divina', 'Gürtel der göttlichen Eingebung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 30153, 'Breeches of the Avatar', 'Braies de l\'avatar', 'Calzones de avatar', 'Bundhose des Avatars', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 30035, 'Boots of the Long Road', 'Bottes du long chemin', 'Botas del largo camino', 'Stiefel des langen Weges', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_14.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 28511, 'Bands of Indwelling', 'Poignets d\'inhérence', 'Braciles de posesión', 'Bänder des Innewohnens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (26, 30151, 'Gloves of the Avatar', 'Gants de l\'avatar', 'Guantes de avatar', 'Handschuhe des Avatars', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_17.jpg', 4, 80);
+
+-- Set 27: Battlegear of Might
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16866, 'Helm of Might', 'Heaume de puissance', 'Yelmo de poderío', 'Helm der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16868, 'Pauldrons of Might', 'Espauliers de puissance', 'Espaldares de poderío', 'Schulterstücke der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_15.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16865, 'Breastplate of Might', 'Cuirasse de puissance', 'Coraza de poderío', 'Brustplatte der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate16.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16864, 'Belt of Might', 'Ceinture de puissance', 'Cinturón de poderío', 'Gürtel der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_09.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16867, 'Legplates of Might', 'Cuissards de puissance', 'Quijotes de poderío', 'Beinplatten der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_04.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16862, 'Sabatons of Might', 'Solerets de puissance', 'Escarpes de poderío', 'Sabatons der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_04.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16861, 'Bracers of Might', 'Brassards de puissance', 'Brazales de poderío', 'Armschienen der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_19.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (27, 16863, 'Gauntlets of Might', 'Gantelets de puissance', 'Guanteletes de poderío', 'Stulpen der Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_10.jpg', 4, 80);
+
+-- Set 28: Deathmantle
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30146, 'Deathmantle Helm', 'Casque de mantemort', 'Yelmo de manto de la muerte', 'Helm des Todeshauchs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30149, 'Deathmantle Shoulderpads', 'Protège-épaules de mantemort', 'Hombreras de manto de la muerte', 'Schulterpolster des Todeshauchs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30144, 'Deathmantle Chestguard', 'Corselet de mantemort', 'Coselete de manto de la muerte', 'Brustschutz des Todeshauchs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate02.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30040, 'Belt of Deep Shadow', 'Ceinture des ombres profondes', 'Cinturón de sombra profunda', 'Gürtel der tiefen Schatten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_29.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30148, 'Deathmantle Legguards', 'Garde-jambes de mantemort', 'Musleras de manto de la muerte', 'Beinschützer des Todeshauchs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30060, 'Boots of Effortless Striking', 'Bottes de frappe sans effort', 'Botas de golpe sin esfuerzo', 'Stiefel des mühelosen Kampfes', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 33540, 'Master Assassin Wristwraps', 'Bandelettes de maître assassin', 'Cubremuñecas de maestro asesino', 'Gelenkbänder des Meisterassassinen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (28, 30145, 'Deathmantle Handguards', 'Garde-mains de mantemort', 'Manoplas de manto de la muerte', 'Handschützer des Todeshauchs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 80);
+
+-- Set 29: Destroyer Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (29, 29983, 'Fel-Steel Warhelm', 'Heaume de guerre en gangracier', 'Yelmo de guerra de acero vil', 'Teufelsstahlkriegshelm', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_03.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (29, 30053, 'Pauldrons of the Wardancer', 'Espauliers du danseur de guerre', 'Espaldares del danzante de guerra', 'Schulterstücke des Kriegstänzers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_20.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (29, 30102, 'Krakken-Heart Breastplate', 'Cuirasse coeur-de-kraken', 'Coraza de corazón de krakken', 'Krakkenherzbrustplatte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate11.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (29, 29950, 'Greaves of the Bloodwarder', 'Grèves du garde-sang', 'Grebas de depositario de sangre', 'Schienbeinschützer des Blutwärters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_05.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (29, 29998, 'Royal Gauntlets of Silvermoon', 'Gantelets royaux de Lune-d\'argent', 'Guanteletes reales de Lunargenta', 'Königliche Stulpen von Silbermond', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_29.jpg', 4, 50);
+
+-- Set 30: Field Marshal's Pursuit
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (30, 16465, 'Field Marshal\'s Chain Helm', 'Casque de grand maréchal en anneaux', 'Yelmo de anillas de Mariscal de campo', 'Kettenhelm des Feldmarschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_05.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (30, 16468, 'Field Marshal\'s Chain Spaulders', 'Spallières de grand maréchal en anneaux', 'Bufas de anillas de Mariscal de campo', 'Kettenschiftung des Feldmarschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_10.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (30, 16466, 'Field Marshal\'s Chain Breastplate', 'Cuirasse de grand maréchal en anneaux', 'Coraza de anillas de Mariscal de campo', 'Kettenbrustplatte des Feldmarschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_03.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (30, 16467, 'Marshal\'s Chain Legguards', 'Garde-jambes de maréchal en anneaux', 'Musleras de anillas de Mariscal', 'Kettenbeinschützer des Marschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_17.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (30, 16462, 'Marshal\'s Chain Boots', 'Bottes de maréchal en anneaux', 'Botas de anillas de Mariscal', 'Kettenstiefel des Marschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_07.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (30, 16463, 'Marshal\'s Chain Grips', 'Poignes de maréchal en anneaux', 'Mandiletes de anillas de Mariscal', 'Kettenhandschutz des Marschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_10.jpg', 4, 60);
+
+-- Set 31: Gladiator's Scaled Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 27704, 'Gladiator\'s Lamellar Helm', 'Heaume lamellaire de gladiateur', 'Yelmo de láminas de Gladiador', 'Lamellenhelm des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_22.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 27706, 'Gladiator\'s Lamellar Shoulders', 'Epaulières lamellaires de gladiateur', 'Sobrehombros de láminas de Gladiador', 'Lamellenschultern des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_22.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 27702, 'Gladiator\'s Lamellar Chestpiece', 'Plastron lamellaire de gladiateur', 'Pechera de láminas de Gladiador', 'Lamellenbrustharnisch des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate05.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 28641, 'General\'s Lamellar Belt', 'Ceinture lamellaire de général', 'Cinturón de láminas de Gran general', 'Lamellengürtel des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_14.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 27705, 'Gladiator\'s Lamellar Legguards', 'Garde-jambes lamellaires de gladiateur', 'Musleras de láminas de Gladiador', 'Lamellenbeinschützer des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_17.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 28642, 'General\'s Lamellar Greaves', 'Grèves lamellaires de général', 'Grebas de láminas de Gran general', 'Lamellenschienbeinschützer des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_04.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (31, 27703, 'Gladiator\'s Lamellar Gauntlets', 'Gantelets lamellaires de gladiateur', 'Guanteletes de láminas de Gladiador', 'Lamellenstulpen des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_29.jpg', 4, 70);
+
+-- Set 32: Lightbringer Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 30987, 'Lightbringer Faceguard', 'Ventaille du porteur de Lumière', 'Visera de Iluminado', 'Gesichtsschutz des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_96.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 30996, 'Lightbringer Pauldrons', 'Espauliers du porteur de Lumière', 'Espaldares de Iluminado', 'Schulterstücke des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_60.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 30990, 'Lightbringer Breastplate', 'Cuirasse du porteur de Lumière', 'Coraza de Iluminado', 'Brustplatte des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_22.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 30897, 'Girdle of Hope', 'Ceinturon de l\'espoir', 'Faja de esperanza', 'Gurt der Hoffnung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_28.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 30993, 'Lightbringer Greaves', 'Grèves du porteur de Lumière', 'Grebas de Iluminado', 'Schienbeinschützer des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_26.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 32243, 'Pearl Inlaid Boots', 'Bottes enchâssées de perles', 'Botas con incrustaciones de perla', 'Perlenveredelte Stiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 32279, 'The Seeker\'s Wristguards', 'Les garde-poignets du Chercheur', 'Guardamuñecas de El Buscador', 'Handgelenksschützer des Suchers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_17.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (32, 30982, 'Lightbringer Gauntlets', 'Gantelets du porteur de Lumière', 'Guanteletes de Iluminado', 'Stulpen des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_60.jpg', 4, 80);
+
+-- Set 33: Lightbringer Sunwell Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34243, 'Helm of Burning Righteousness', 'Heaume de la piété ardente', 'Yelmo de rectitud ardiente', 'Helm der lodernden Rechtschaffenheit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_25.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34389, 'Spaulders of the Thalassian Defender', 'Spallières du défenseur thalassien', 'Bufas del defensor thalassiano', 'Schiftung des thalassischen Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_89.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34216, 'Heroic Judicator\'s Chestguard', 'Corselet du judicateur héroïque', 'Coselete de enjuiciador heroico', 'Brustschutz des heroischen Richters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate18.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34487, 'Lightbringer Belt', 'Ceinture du porteur de Lumière', 'Cinturón de Iluminado', 'Gürtel des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_27.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34382, 'Judicator\'s Legguards', 'Garde-jambes de judicateur', 'Musleras de enjuiciador', 'Beinschützer des Richters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_19.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34561, 'Lightbringer Boots', 'Bottes du porteur de Lumière', 'Botas de Iluminado', 'Stiefel des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34431, 'Lightbringer Bands', 'Poignets du porteur de Lumière', 'Braciles de Iluminado', 'Bänder des Lichtbringers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_15.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (33, 34240, 'Gauntlets of the Soothed Soul', 'Gantelets de l\'âme apaisante', 'Guanteletes del alma aliviada', 'Stulpen der besänftigten Seele', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_20.jpg', 4, 80);
+
+-- Set 34: Netherblade
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 29044, 'Netherblade Facemask', 'Masque de la Lame-néant', 'Máscara facial de filo abisal', 'Gesichtsmaske der Netherklinge', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 29047, 'Netherblade Shoulderpads', 'Protège-épaules de la Lame-néant', 'Hombreras de filo abisal', 'Schulterpolster der Netherklinge', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 29045, 'Netherblade Chestpiece', 'Plastron de la Lame-néant', 'Pechera de filo abisal', 'Brustharnisch der Netherklinge', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate02.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 28750, 'Girdle of Treachery', 'Ceinturon de traîtrise', 'Faja de la fulla', 'Gurt des Verrats', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 29046, 'Netherblade Breeches', 'Braies de la Lame-néant', 'Calzones de filo abisal', 'Bundhose der Netherklinge', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 28669, 'Rapscallion Boots', 'Bottes de scélérat', 'Botas de sinvergüenza', 'Stiefel des Schurken', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 28514, 'Bracers of Maliciousness', 'Brassards de malignité', 'Brazales de malicia', 'Armschienen der Bosheit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_15.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (34, 29048, 'Netherblade Gloves', 'Gants de la Lame-néant', 'Guantes de filo abisal', 'Handschuhe der Netherklinge', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 80);
+
+-- Set 35: Onslaught Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 30972, 'Onslaught Battle-Helm', 'Heaume de bataille d\'assaut', 'Yelmo de batalla de acometida', 'Kampfhelm des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_98.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 30979, 'Onslaught Shoulderblades', 'Lames d\'épaules d\'assaut', 'Hombreras laminadas de acometida', 'Klingenschultern des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_62.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 30975, 'Onslaught Breastplate', 'Cuirasse d\'assaut', 'Coraza de acometida', 'Brustplatte des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_23.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 30915, 'Belt of Seething Fury', 'Ceinture de la fureur destructrice', 'Cinturón de furia hirviente', 'Gürtel des brodelnden Zorns', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_27.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 30977, 'Onslaught Greaves', 'Grèves d\'assaut', 'Grebas de acometida', 'Schienbeinschützer des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_27.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 32345, 'Dreadboots of the Legion', 'Bottes-effroi de la Légion', 'Botas pavorosas de la Legión', 'Schreckensstiefel der Legion', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_02.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 32232, 'Eternium Shell Bracers', 'Brassards à coque d\'éternium', 'Brazales de concha de eternio', 'Eterniumverstärkte Armschienen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_14.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (35, 30969, 'Onslaught Gauntlets', 'Gantelets d\'assaut', 'Guanteletes de acometida', 'Stulpen des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_62.jpg', 4, 80);
+
+-- Set 36: Onslaught Sunwell Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34345, 'Crown of Anasterian', 'Couronne d\'Anasterian', 'Corona de Anasterian', 'Krone von Anasterian', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_92.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34388, 'Pauldrons of Berserking', 'Espauliers de berserker', 'Espaldares de Rabiar', 'Schulterstücke der Berserkerwut', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_89.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34394, 'Breastplate of Agony\'s Aversion', 'Cuirasse d\'aversion à l\'agonie', 'Coraza de aversión a la agonía', 'Brustplatte der leidgeschürten Gräuel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate20.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34546, 'Onslaught Belt', 'Ceinture d\'assaut', 'Cinturón de acometida', 'Gürtel des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_27.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34180, 'Felfury Legplates', 'Cuissards gangrefurie', 'Quijotes de furia vil', 'Teufelszornbeinplatten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_24.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34568, 'Onslaught Boots', 'Bottes d\'assaut', 'Botas de acometida', 'Stiefel des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34441, 'Onslaught Bracers', 'Brassards d\'assaut', 'Brazales de acometida', 'Armschienen des Ansturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_15.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (36, 34352, 'Borderland Fortress Grips', 'Poignes de la forteresse frontalière', 'Mandiletes de fortaleza de zona fronteriza', 'Festungshandschutz des Grenzlandes', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_68.jpg', 4, 80);
+
+-- Set 37: Thunderheart Sunwell Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34403, 'Cover of Ursoc the Mighty', 'Couvre-chef d\'Ursoc le Puissant', 'Casquete de Ursoc el Poderoso', 'Bedeckung von Ursoc dem Mächtigen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_126.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34392, 'Demontooth Shoulderpads', 'Protège-épaules dent-de-démon', 'Hombreras de diente de demonio', 'Dämonenzahnschulterpolster', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_88.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34211, 'Harness of Carnal Instinct', 'Harnais des instincts charnels', 'Arnés del instinto carnal', 'Brustharnisch der Fleischeslust', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_14.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34554, 'Thunderheart Belt', 'Ceinture Coeur-de-tonnerre', 'Cinturón de Corazón Atronador', 'Gürtel des Donnerherzens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_24.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34169, 'Breeches of Natural Aggression', 'Braies de l\'agression naturelle', 'Falda de agresividad natural', 'Bundhosen der natürlichen Aggression', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_23.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34571, 'Thunderheart Boots', 'Bottes Coeur-de-tonnerre', 'Botas de Corazón Atronador', 'Stiefel des Donnerherzens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34446, 'Thunderheart Bands', 'Poignets Coeur-de-tonnerre', 'Braciles de Corazón Atronador', 'Bänder des Donnerherzens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (37, 34408, 'Gloves of the Forest Drifter', 'Gants du vagabond des forêts', 'Guantes de morador de bosque', 'Handschuhe des Waldstreuners', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_51.jpg', 4, 80);
+
+-- Set 38: Vestments of the Virtuous
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22080, 'Virtuous Crown', 'Couronne vertueuse', 'Corona del virtuoso', 'Krone des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22082, 'Virtuous Mantle', 'Mantelet vertueux', 'Manto del virtuoso', 'Mantel des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_02.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22083, 'Virtuous Robe', 'Robe vertueuse', 'Toga del virtuoso', 'Robe des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_11.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22078, 'Virtuous Belt', 'Ceinture vertueuse', 'Cinturón del virtuoso', 'Gürtel des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_10.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22085, 'Virtuous Skirt', 'Jupe vertueuse', 'Saya del virtuoso', 'Rock des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_08.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22084, 'Virtuous Sandals', 'Sandales vertueuses', 'Zapatos del virtuoso', 'Sandalen des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22079, 'Virtuous Bracers', 'Brassards vertueux', 'Brazales del virtuoso', 'Armschienen des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_31.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (38, 22081, 'Virtuous Gloves', 'Gants vertueux', 'Guantes del virtuoso', 'Handschuhe des Tugendhaften', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_14.jpg', 4, 80);
+
+-- Set 39: Voidheart Raiment
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28963, 'Voidheart Crown', 'Couronne Coeur-du-vide', 'Corona de corazón vacío', 'Krone des Herzens der Leere', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_crown_01.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28967, 'Voidheart Mantle', 'Mantelet Coeur-du-vide', 'Manto de corazón vacío', 'Mantelung des Herzens der Leere', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_25.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28964, 'Voidheart Robe', 'Robe Coeur-du-vide', 'Toga de corazón vacío', 'Robe des Herzens der Leere', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_43.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28404, 'General\'s Dreadweave Belt', 'Ceinture de général en tisse-effroi', 'Cinturón de tejido de tinieblas de Gran general', 'Schreckenszwirngürtel des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_17.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28966, 'Voidheart Leggings', 'Jambières Coeur-du-vide', 'Leotardos de corazón vacío', 'Gamaschen des Herzens der Leere', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28670, 'Boots of the Infernal Coven', 'Bottes du convent infernal', 'Botas del aquelarre infernal', 'Stiefel des höllischen Kovens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28515, 'Bands of Nefarious Deeds', 'Poignets des actes néfastes', 'Braciles de actos nefandos', 'Bänder der schändlichen Taten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (39, 28968, 'Voidheart Gloves', 'Gants Coeur-du-vide', 'Guantes de corazón vacío', 'Handschuhe des Herzens der Leere', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_17.jpg', 4, 80);
+
+-- Set 40: Warlord's Vestments
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (40, 16561, 'Warlord\'s Leather Helm', 'Casque de seigneur de guerre en cuir', 'Yelmo de cuero de Señor de la Guerra', 'Lederhelm des Kriegsfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (40, 16562, 'Warlord\'s Leather Spaulders', 'Spallières de seigneur de guerre en cuir', 'Bufas de cuero de Señor de la Guerra', 'Lederschiftung des Kriegsfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_07.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (40, 16563, 'Warlord\'s Leather Breastplate', 'Cuirasse de seigneur de guerre en cuir', 'Coraza de cuero de Señor de la Guerra', 'Lederbrustplatte des Kriegsfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_16.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (40, 16564, 'General\'s Leather Legguards', 'Garde-jambes de général en cuir', 'Musleras de cuero de General', 'Lederbeinschützer des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (40, 16558, 'General\'s Leather Treads', 'Bottines de général en cuir', 'Botines de cuero de General', 'Ledertreter des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_08.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (40, 16560, 'General\'s Leather Mitts', 'Mitaines de général en cuir', 'Mitones de cuero de General', 'Lederfäustlinge des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_25.jpg', 4, 60);
+
+-- Set 41: Battlegear of Might (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 27455, 'Irondrake Faceguard', 'Ventaille drakefer', 'Visera de draco de hierro', 'Gesichtsschutz des Eisendrachen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_12.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 28207, 'Pauldrons of the Crimson Flight', 'Espauliers du vol cramoisi', 'Espaldares del Vuelo Carmesí', 'Schulterstücke des Purpurschwarms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_01.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 27906, 'Crimsonforge Breastplate', 'Cuirasse de la forge cramoisie', 'Coraza de forja carmesí', 'Brustplatte der Purpurschmiede', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate08.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 31151, 'Girdle of Siege', 'Ceinturon de siège', 'Faja de asedio', 'Gurt der Belagerung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_23.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 27487, 'Bloodlord Legplates', 'Cuissards de seigneur sanglant', 'Quijotes de señor de sangre', 'Beinplatten des Blutfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_02.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 27788, 'Bloodsworn Warboots', 'Bottes de guerre de Ligessang', 'Botas de guerra de jurasangre', 'Kriegsstiefel des Blutschwurs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_04.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 27918, 'Bands of Syth', 'Poignets de Syth', 'Braciles de Syth', 'Syths Bänder', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_10.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (41, 32072, 'Gauntlets of Dissension', 'Gantelets de la dissension', 'Guanteletes de disensión', 'Stulpen der Zwietracht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 80);
+
+-- Set 42: Battlegear of Wrath (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 27520, 'Greathelm of the Unbreakable', 'Grand heaume de l\'Invaincu', 'Gran yelmo del inquebrantable', 'Großhelm des Unbezwingbaren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_71.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 27847, 'Fanblade Pauldrons', 'Espauliers en lames d\'éventail', 'Espaldares de abanico de hojas', 'Fächerklingenschulterstücke', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_34.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 28262, 'Jade-Skull Breastplate', 'Cuirasse crâne-de-jade', 'Coraza de calavera de jade', 'Brustplatte des Jadeschädels', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate07.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 27672, 'Girdle of the Immovable', 'Ceinturon de l\'inébranlable', 'Faja del inamovible', 'Gurt des Unbeweglichen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 27527, 'Greaves of the Shatterer', 'Grèves du briseur', 'Grebas del Despedazador', 'Schienbeinschützer des Zerschmetterers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_01.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 27813, 'Boots of the Colossus', 'Bottes du colosse', 'Botas del coloso', 'Stiefel des Kolosses', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_11.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 27459, 'Vambraces of Daring', 'Protège-bras de hardiesse', 'Avambrazos de atrevimiento', 'Unterarmschienen des Wagemuts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_06.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (42, 28390, 'Thatia\'s Self-Correcting Gauntlets', 'Gantelets d\'auto-correction de Thatia', 'Guanteletes de autocorrección de Thatia', 'Thatias selbstkorrigierende Stulpen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_30.jpg', 3, 80);
+
+-- Set 43: Beaststalker Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 27414, 'Mok\'Nathal Beast-Mask', 'Masque de bête mok\'nathal', 'Máscara de bestia de Mok\'Nathal', 'Wildtiermaske der Mok\'Nathal', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_19.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 24366, 'Scorpid-Sting Mantle', 'Mantelet du dard de scorpide', 'Manto de aguijón de escórpido', 'Mantelung des Skorpidstichs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_03.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 24465, 'Shamblehide Chestguard', 'Corselet en peau de traînard', 'Coselete de pellejo de arrastrado', 'Torkelbalgbrustschutz', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_03.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 24360, 'Tracker\'s Belt', 'Ceinture de pisteur', 'Cinturón de rastreador', 'Fährtenlesergürtel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_11.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 24022, 'Scale Leggings of the Skirmisher', 'Jambières du tirailleur en écailles', 'Leotardos de escamas del hostigador', 'Schuppengamaschen des Scharmützlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_15.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 25941, 'Boots of the Outlander', 'Bottes de l\'Outreterrien', 'Botas de extranjero', 'Stiefel des Scherbenweltlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_03.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 24451, 'Lykul Bloodbands', 'Poignets sanglants lykul', 'Bandas de sangre de lykul', 'Lykulblutbänder', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_ahnqiraj_01.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (43, 24090, 'Bloodstained Ravager Gauntlets', 'Gantelets du ravageur tachés de sang', 'Guanteletes de devastador salpicados de sangre', 'Blutbefleckte Felshetzerstulpen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_10.jpg', 3, 80);
+
+-- Set 44: Deathbone Guardian (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (44, 29316, 'Warchief\'s Mantle', 'Mantelet de chef de guerre', 'Manto de Jefe de Guerra', 'Mantelung des Kriegshäuptlings', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_01.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (44, 14624, 'Deathbone Chestplate', 'Pansière des ossements', 'Peto de hueso de muerto', 'Brustplatte des Totenwächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_15.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (44, 18547, 'Unmelting Ice Girdle', 'Ceinturon de glace éternelle', 'Faja de hielo sin derretir', 'Nieschmelzender Eisgurt', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_31.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (44, 14623, 'Deathbone Legguards', 'Garde-jambes des ossements', 'Musleras de hueso de muerto', 'Beinschützer des Totenwächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_04.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (44, 21706, 'Boots of the Unwavering Will', 'Bottes de la volonté inexorable', 'Botas de la Voluntad inquebrantable', 'Stiefel des standhaften Willens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (44, 18722, 'Death Grips', 'Poignes de mort', 'Mandiletes de la Muerte', 'Todesgriffe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_13.jpg', 3, 60);
+
+-- Set 45: Exalted Plate (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (45, 14901, 'Saltstone Shoulder Pads', 'Protège-épaules du sel gemme', 'Hombreras Piedra de sal', 'Salzsteinschulterpolster', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg', 2, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (45, 23509, 'Enchanted Adamantite Breastplate', 'Cuirasse enchantée en adamantite', 'Coraza de adamantita encantada', 'Verzauberte Adamantitbrustplatte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate10.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (45, 23510, 'Enchanted Adamantite Belt', 'Ceinture enchantée en adamantite', 'Cinturón de adamantita encantada', 'Verzauberter Adamantitgürtel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_29.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (45, 23512, 'Enchanted Adamantite Leggings', 'Jambières enchantées en adamantite', 'Leotardos de adamantita encantada', 'Verzauberte Adamantitgamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_12.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (45, 23511, 'Enchanted Adamantite Boots', 'Bottes enchantées en adamantite', 'Botas de adamantita encantada', 'Verzauberte Adamantitstiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (45, 31714, 'Nether Drake Wristguards', 'Garde-poignets de drake du Néant', 'Guardamuñecas de draco abisal', 'Netherdrachenhandgelenksschützer', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 2, 60);
+
+-- Set 46: Lawbringer Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27505, 'Ruby Helm of the Just', 'Heaume de rubis du juste', 'Yelmo de rubí del justo', 'Rubinhelm des Gerechten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_12.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27844, 'Pauldrons of Swift Retribution', 'Espauliers de vindicte rapide', 'Espaldares de reprensión presta', 'Schulterstücke der raschen Vergeltung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_35.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 28337, 'Breastplate of Righteous Fury', 'Cuirasse de la fureur vertueuse', 'Coraza de furia recta', 'Brustplatte des rechtschaffenen Zorns', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate08.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27755, 'Girdle of Gallantry', 'Ceinturon de galanterie', 'Faja de galantería', 'Gurt des Edelmuts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_29.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27893, 'Ornate Leggings of the Venerated', 'Jambières ornées du vénéré', 'Leotardos ornamentados del venerado', 'Verschnörkelte Gamaschen des Verehrten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_21.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27884, 'Ornate Boots of the Sanctified', 'Bottes ornées du sanctifié', 'Botas ornamentadas del santificado', 'Verschnörkelte Stiefel des Geweihten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_04.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27447, 'Bracers of Just Rewards', 'Brassards des justes récompenses', 'Brazales de las recompensas justas', 'Armschienen der gerechten Entlohnung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_18.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (46, 27798, 'Gauntlets of Vindication', 'Gantelets de justification', 'Guanteletes de vindicación', 'Stulpen der Gegenwehr', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_19.jpg', 3, 80);
+
+-- Set 47: Lightforge Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 27408, 'Hope Bearer Helm', 'Heaume du porteur d\'espoir', 'Yelmo de portador de esperanza', 'Helm des Hoffnungsträgers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_16.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 24457, 'Truth Bearer Shoulderguards', 'Garde-épaules du porteur de vérité', 'Guardahombros del portador de la Verdad', 'Schulterschutz des Wahrheitsträgers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_21.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 24021, 'Light-Touched Breastplate', 'Cuirasse touchée par la Lumière', 'Coraza tocada por la Luz', 'Lichtberührte Brustplatte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate03.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 24458, 'Studded Girdle of Virtue', 'Ceinturon clouté de vertu', 'Faja tachonada de Virtud', 'Nietengurt der Heilkraft', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_01.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 30533, 'Vanquisher\'s Legplates', 'Cuissards du triomphe', 'Quijotes de vencedor', 'Beinplatten des Bezwingers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_21.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 27420, 'Uther\'s Ceremonial Warboots', 'Bottes de guerre de cérémonie d\'Uther', 'Botas de guerra ceremoniales de Uther', 'Uthers zeremonielle Kriegsstiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_02.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (47, 25942, 'Faith Bearer\'s Gauntlets', 'Gantelets du porte-foi', 'Guanteletes de portador de paz', 'Stulpen des Glaubensjüngers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_30.jpg', 3, 70);
+
+-- Set 48: Mageweave Regalia (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (48, 13869, 'Frostweave Tunic', 'Tunique en tisse-givre', 'Guerrera de tejido de Escarcha', 'Froststofftunika', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_08.jpg', 2, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (48, 16414, 'Knight-Captain\'s Silk Leggings', 'Jambières de chevalier-capitaine en soie', 'Leotardos de seda de Capitán caballero', 'Seidene Beinlinge des Kürassiers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_08.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (48, 28491, 'Windwalker\'s Footwraps', 'Bottillons Marche-vent', 'Borceguíes de caminante de viento', 'Windspäherfußlappen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_06.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (48, 32655, 'Crystalweave Bracers', 'Brassards en tisse-cristal', 'Brazales de tejido de cristal', 'Kristallgewebte Armschienen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_09.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (48, 21888, 'Gloves of the Immortal', 'Gants de l\'immortel', 'Guantes del Inmortal', 'Handschuhe des Unsterblichen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_14.jpg', 4, 50);
+
+-- Set 49: Mana-Etched Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 28193, 'Mana-Etched Crown', 'Couronne gravée au mana', 'Corona grabada con maná', 'Managetränkte Krone', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_56.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 43074, 'Blessed Mantle of Undead Cleansing', 'Mantelet béni de purificateur de mort-vivant', 'Manto de limpieza de no-muertos bendito', 'Gesegnete Mantelung der Untotenbekämpfung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 28191, 'Mana-Etched Vestments', 'Habit gravé au mana', 'Vestimentas grabadas con maná', 'Managetränktes Gewand', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_42.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 27843, 'Glyph-Lined Sash', 'Echarpe bordée de glyphes', 'Fajín forrado de glifos', 'Gefütterte Glyphenschärpe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_10.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 27907, 'Mana-Etched Pantaloons', 'Culotte gravée au mana', 'Bombachos grabados con maná', 'Managetränkte Pantalons', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_17.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 28406, 'Sigil-Laced Boots', 'Bottes entrelacées de cachets', 'Botas con cordones de sigilo', 'Geschnürte Siegelstiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_04.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (49, 27465, 'Mana-Etched Gloves', 'Gants gravés au mana', 'Guantes grabados con maná', 'Managetränkte Handschuhe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg', 3, 70);
+
+-- Set 50: Nightslayer Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 32087, 'Mask of the Deceiver', 'Masque du trompeur', 'Máscara del Falsario', 'Maske der Täuschung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_73.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 27995, 'Sun-Gilded Shouldercaps', 'Protège-épaules dorés par le soleil', 'Hombreras doradas al sol', 'Sonnenvergoldete Schulterkappen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_08.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 27461, 'Chestguard of the Prowler', 'Corselet du rôdeur', 'Coselete del merodeador', 'Brustschutz des Streuners', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_08.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 32769, 'Belt of the Raven Lord', 'Ceinture du seigneur corbeau', 'Cinturón del Lord Cuervo', 'Gürtel des Rabenfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_19.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 27545, 'Mennu\'s Scaled Leggings', 'Jambières de Mennu en écailles', 'Leotardos escamados de Mennu', 'Mennus geschuppte Gamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_05.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 30939, 'Felboar Hide Shoes', 'Chaussures en peau de sanglier gangrené', 'Botas de pellejo de jabalí vil', 'Schuhe aus Teufelseberbalg', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_11.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (50, 27825, 'Predatory Gloves', 'Gantelets prédateurs', 'Guantes depredadores', 'Räuberische Handschuhe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg', 3, 70);
+
+-- Set 51: Stalker's Chain Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 28275, 'Beast Lord Helm', 'Casque de seigneur des bêtes', 'Yelmo de señor de bestias', 'Helm des Wildtierfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_19.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 27801, 'Beast Lord Mantle', 'Mantelet de seigneur des bêtes', 'Manto de señor de bestias', 'Mantelung des Wildtierfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_23.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 35376, 'Stalker\'s Chain Armor', 'Cotte d\'anneaux de traqueur', 'Armadura de anillas de acechador', 'Kettenrüstung des Pirschers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_11.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 29261, 'Girdle of Ferocity', 'Ceinturon de férocité', 'Faja de ferocidad', 'Gurt der Wildheit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_30.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 27874, 'Beast Lord Leggings', 'Jambières de seigneur des bêtes', 'Leotardos de señor de bestias', 'Gamaschen des Wildtierfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_03.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 29262, 'Boots of the Endless Hunt', 'Bottes de la chasse sans fin', 'Botas de la caza sin fin', 'Stiefel der endlosen Jagd', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (51, 27474, 'Beast Lord Handguards', 'Garde-mains de seigneur des bêtes', 'Manoplas de señor de bestias', 'Handschützer des Wildtierfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_10.jpg', 3, 70);
+
+-- Set 52: Absolution Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 31063, 'Cowl of Absolution', 'Capuche d\'absolution', 'Capucha de absolución', 'Gugel der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_99.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 31069, 'Mantle of Absolution', 'Mantelet d\'absolution', 'Manto de absolución', 'Mantelung der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_63.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 31065, 'Shroud of Absolution', 'Voile d\'absolution', 'Embozo de absolución', 'Tuch der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_66.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 32519, 'Belt of Divine Guidance', 'Ceinture du conseil divin', 'Cinturón de orientación divina', 'Gürtel des göttlichen Rats', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_07.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 31068, 'Breeches of Absolution', 'Braies d\'absolution', 'Calzones de absolución', 'Bundhose der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_27.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 30885, 'Archbishop\'s Slippers', 'Mules d\'archevêque', 'Zapatillas de arzobispo', 'Schuhe des Erzbischofs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_14.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 32513, 'Wristbands of Divine Influence', 'Protège-poignets de l\'influence divine', 'Braciles de influencia divina', 'Gelenkbänder der göttlichen Einwirkung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (52, 31060, 'Gloves of Absolution', 'Gants d\'absolution', 'Guantes de absolución', 'Handschuhe der Absolution', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_63.jpg', 4, 80);
+
+-- Set 53: Arcanist Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16795, 'Arcanist Crown', 'Couronne d\'arcaniste', 'Corona arcanista', 'Krone des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_53.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16797, 'Arcanist Mantle', 'Mantelet d\'arcaniste', 'Manto arcanista', 'Mantel des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_02.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16798, 'Arcanist Robes', 'Robe d\'arcaniste', 'Togas arcanistas', 'Roben des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_03.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16802, 'Arcanist Belt', 'Ceinture d\'arcaniste', 'Cinturón de arcanista', 'Gürtel des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_30.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16796, 'Arcanist Leggings', 'Jambières d\'arcaniste', 'Leotardos arcanistas', 'Gamaschen des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_08.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16800, 'Arcanist Boots', 'Bottes d\'arcaniste', 'Botas arcanistas', 'Stiefel des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_07.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16799, 'Arcanist Bindings', 'Manchettes d\'arcaniste', 'Ataduras arcanistas', 'Bindungen des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_29.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (53, 16801, 'Arcanist Gloves', 'Gants d\'arcaniste', 'Guantes arcanistas', 'Handschuhe des Arkanisten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_14.jpg', 4, 80);
+
+-- Set 54: Bloodfang Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 28732, 'Cowl of Defiance', 'Capuche de défiance', 'Capucha de desafío', 'Gugel der Herausforderung', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 28755, 'Bladed Shoulderpads of the Merciless', 'Protège-épaules à lames de l\'impitoyable', 'Hombreras de hojas del despiadado', 'Klingenschulterpolster des Erbarmungslosen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 30101, 'Bloodsea Brigand\'s Vest', 'Gilet de brigand de la Mer de sang', 'Jubón de salteador de Sangremar', 'Brigantenweste der blutigen See', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate08.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 28828, 'Gronn-Stitched Girdle', 'Ceinturon cousu de Gronn', 'Faja de gronn cosida', 'Gronngenähter Gurt', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 28591, 'Earthsoul Leggings', 'Jambières d\'âmeterre', 'Leotardos de alma terrestre', 'Gamaschen der Erdseele', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 28545, 'Edgewalker Longboots', 'Bottes hautes de l\'arpenteur de lisières', 'Botas altas de caminante del filo', 'Stiefel des wagemutigen Schritts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (54, 28506, 'Gloves of Dexterous Manipulation', 'Gants de la manipulation habile', 'Guantes de manipulación diestra', 'Handschuhe der geschickten Manipulation', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 70);
+
+-- Set 55: Brutal Gladiator's Felweave Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35004, 'Brutal Gladiator\'s Dreadweave Hood', 'Chaperon du gladiateur brutal en tisse-effroi', 'Caperuza de tejido de tinieblas de Gladiador brutal', 'Schreckenszwirnkapuze des brutalen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35006, 'Brutal Gladiator\'s Dreadweave Mantle', 'Mantelet du gladiateur brutal en tisse-effroi', 'Manto de tejido de tinieblas de Gladiador brutal', 'Schreckenszwirnmantelung des brutalen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_96.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35007, 'Brutal Gladiator\'s Dreadweave Robe', 'Robe du gladiateur brutal en tisse-effroi', 'Toga de tejido de tinieblas de Gladiador brutal', 'Schreckenszwirnrobe des brutalen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_61.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35153, 'Guardian\'s Dreadweave Belt', 'Ceinture de gardien en tisse-effroi', 'Cinturón de tejido de tinieblas de guardián', 'Schreckenszwirngürtel des Wächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_13.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35005, 'Brutal Gladiator\'s Dreadweave Leggings', 'Jambières du gladiateur brutal en tisse-effroi', 'Leotardos de tejido de tinieblas de Gladiador brutal', 'Schreckenszwirngamaschen des brutalen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_22.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35138, 'Guardian\'s Dreadweave Stalkers', 'Souliers de gardien en tisse-effroi', 'Polainas de tejido de tinieblas de guardián', 'Schreckenszwirnpirscher des Wächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_12.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35168, 'Guardian\'s Dreadweave Cuffs', 'Crispins de gardien en tisse-effroi', 'Puños de tejido de tinieblas de guardián', 'Schreckenszwirnmanschetten des Wächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (55, 35003, 'Brutal Gladiator\'s Dreadweave Gloves', 'Gants du gladiateur brutal en tisse-effroi', 'Guantes de tejido de tinieblas de Gladiador brutal', 'Schreckenszwirnhandschuhe des brutalen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_49.jpg', 4, 80);
+
+-- Set 56: Crystalforge Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30125, 'Crystalforge Faceguard', 'Ventaille de Cristalforge', 'Visera forjacristal', 'Kristallgeschmiedeter Gesichtsschutz', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30138, 'Crystalforge Pauldrons', 'Espauliers de Cristalforge', 'Espaldares forjacristal', 'Kristallgeschmiedete Schulterstücke', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_14.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30129, 'Crystalforge Breastplate', 'Cuirasse de Cristalforge', 'Coraza forjacristal', 'Kristallgeschmiedete Brustplatte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_15.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30034, 'Belt of the Guardian', 'Ceinture du gardien', 'Cinturón del guardián', 'Gürtel des Wächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_28.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30132, 'Crystalforge Greaves', 'Grèves de Cristalforge', 'Grebas forjacristal', 'Kristallgeschmiedete Schienbeinschützer', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30027, 'Boots of Courage Unending', 'Bottes du courage sans fin', 'Botas de valor sin fin', 'Stiefel des endlosen Mutes', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (56, 30130, 'Crystalforge Gauntlets', 'Gantelets de Cristalforge', 'Guanteletes forjacristal', 'Kristallgeschmiedete Stulpen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_25.jpg', 4, 70);
+
+-- Set 57: Destroyer Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 30120, 'Destroyer Battle-Helm', 'Heaume de bataille de destructeur', 'Yelmo de batalla de destructor', 'Kampfhelm des Zerstörers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_58.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 30122, 'Destroyer Shoulderblades', 'Lames d\'épaules de destructeur', 'Hombreras laminadas de destructor', 'Klingenschultern des Zerstörers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 30118, 'Destroyer Breastplate', 'Cuirasse de destructeur', 'Coraza de destructor', 'Brustplatte des Zerstörers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate02.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 34941, 'Girdle of the Fearless', 'Ceinturon de l\'intrépide', 'Faja de los intrépidos', 'Gurt des Furchtlosen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_27.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 30121, 'Destroyer Greaves', 'Grèves de destructeur', 'Grebas de destructor', 'Schienbeinschützer des Zerstörers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 32267, 'Boots of the Resilient', 'Bottes du résistant', 'Botas del templado', 'Stiefel des Unverwüstlichen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 30057, 'Bracers of Eradication', 'Brassards d\'éradication', 'Brazales de erradicación', 'Armschienen des Blutbads', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_19.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (57, 30119, 'Destroyer Gauntlets', 'Gantelets de destructeur', 'Guanteletes de destructor', 'Stulpen des Zerstörers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_28.jpg', 4, 80);
+
+-- Set 58: Doomcaller's Attire
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21337, 'Doomcaller\'s Circlet', 'Diadème d\'implorateur funeste', 'Aro de clamacondenas', 'Reif des Verdammnisrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_06.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21335, 'Doomcaller\'s Mantle', 'Mantelet d\'implorateur funeste', 'Manto clamacondenas', 'Mantel des Verdammnisrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_03.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21334, 'Doomcaller\'s Robes', 'Robe d\'implorateur funeste', 'Togas clamacondenas', 'Roben des Verdammnisrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_12.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21336, 'Doomcaller\'s Trousers', 'Chausses d\'implorateur funeste', 'Calzas clamacondenas', 'Beinkleider des Verdammnisrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_02.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21338, 'Doomcaller\'s Footwraps', 'Bottillons d\'implorateur funeste', 'Borceguíes de clamacondenas', 'Fußlappen des Verdammnisrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_02.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21611, 'Burrower Bracers', 'Brassards de fouisseur', 'Brazales de escarbador', 'Armschienen des Wühlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (58, 21585, 'Dark Storm Gauntlets', 'Gantelets du sombre orage', 'Guanteletes de Tormenta oscura', 'Stulpen der dunklen Stürme', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_17.jpg', 4, 70);
+
+-- Set 59: Gladiator's Ringmail Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 25998, 'Gladiator\'s Linked Helm', 'Heaume riveté de gladiateur', 'Yelmo eslabonado de Gladiador', 'Gekettelter Helm des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 25999, 'Gladiator\'s Linked Spaulders', 'Spallières rivetées de gladiateur', 'Bufas eslabonadas de Gladiador', 'Gekettelte Schiftung des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 25997, 'Gladiator\'s Linked Armor', 'Armure rivetée de gladiateur', 'Armadura eslabonada de Gladiador', 'Gekettelte Rüstung des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_11.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 28629, 'General\'s Linked Girdle', 'Ceinturon de général riveté', 'Faja eslabonada de Gran general', 'Gekettelter Gurt des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_20.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 26001, 'Gladiator\'s Linked Leggings', 'Jambières rivetées de gladiateur', 'Leotardos eslabonados de Gladiador', 'Gekettelte Gamaschen des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 28630, 'General\'s Linked Sabatons', 'Solerets de général rivetés', 'Escarpes eslabonados de Gran general', 'Gekettelte Sabatons des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (59, 26000, 'Gladiator\'s Linked Gauntlets', 'Gantelets rivetés de gladiateur', 'Guanteletes eslabonados de Gladiador', 'Gekettelte Stulpen des Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_11.jpg', 4, 70);
+
+-- Set 60: Gronnstalker's Sunwell Battlegear
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34333, 'Coif of Alleria', 'Coiffe d\'Alleria', 'Almófar de Alleria', 'Helmkappe Allerias', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet128.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34194, 'Mantle of the Golden Forest', 'Mantelet de la forêt dorée', 'Manto del bosque dorado', 'Mantelung des goldenen Waldes', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_90.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34228, 'Vicious Hawkstrider Hauberk', 'Haubert du faucon-pérégrin vicieux', 'Camisote de halcón zancudo sañoso', 'Halsberge des bösartigen Falkenschreiters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_17.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34549, 'Gronnstalker\'s Belt', 'Ceinture de traqueur de gronn', 'Cinturón de acechagronns', 'Gürtel des Gronnjägers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_14.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34168, 'Starstalker Legguards', 'Garde-jambes de traqueur d\'étoiles', 'Musleras de acechador de estrellas', 'Beinschützer des Sternenjägers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_16.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34570, 'Gronnstalker\'s Boots', 'Bottes de traqueur de gronn', 'Botas de acechagronns', 'Stiefel des Gronnjägers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34443, 'Gronnstalker\'s Bracers', 'Brassards de traqueur de gronn', 'Brazales de acechagronns', 'Armschienen des Gronnjägers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (60, 34343, 'Thalassian Ranger Gauntlets', 'Gantelets de forestier thalassien', 'Guanteletes de forestal thalassiano', 'Thalassische Waldläuferstulpen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_51.jpg', 4, 80);
+
+-- Set 61: Malefic Sunwell Regalia
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34340, 'Dark Conjuror\'s Collar', 'Collerette de sombre conjurateur', 'Alzacuellos del oscuro conjurador', 'Kragen des Schwarzkünstlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_132.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34210, 'Amice of the Convoker', 'Amict du convocateur', 'Amito del convocador', 'Amicia des Zusammenrufers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_96.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34232, 'Fel Conquerer Raiments', 'Grande tenue de gangre-conquérant', 'Vestiduras de conquistador vil', 'Gewandung des teuflischen Eroberers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_51.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34541, 'Belt of the Malefic', 'Ceinture du maléfice', 'Cinturón del maléfico', 'Gürtel der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_07.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34181, 'Leggings of Calamity', 'Jambières de calamité', 'Leotardos de calamidad', 'Gamaschen der Katastrophe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_05.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34564, 'Boots of the Malefic', 'Bottes du maléfice', 'Botas del maléfico', 'Stiefel der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_17.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34436, 'Bracers of the Malefic', 'Brassards du maléfice', 'Brazales del maléfico', 'Armschienen der Boshaftigkeit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (61, 34344, 'Handguards of Defiled Worlds', 'Garde-mains des mondes profanés', 'Manoplas de mundos profanados', 'Handschützer der entweihten Welten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg', 4, 80);
+
+-- Set 62: Merciless Gladiator's Ringmail Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32006, 'Merciless Gladiator\'s Linked Helm', 'Heaume riveté du gladiateur impitoyable', 'Yelmo eslabonado de Gladiador despiadado', 'Gekettelter Helm des erbarmungslosen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32008, 'Merciless Gladiator\'s Linked Spaulders', 'Spallières rivetées du gladiateur impitoyable', 'Bufas eslabonadas de Gladiador despiadado', 'Gekettelte Schiftung des erbarmungslosen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32004, 'Merciless Gladiator\'s Linked Armor', 'Armure rivetée du gladiateur impitoyable', 'Armadura eslabonada de Gladiador despiadado', 'Gekettelte Rüstung des erbarmungslosen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_11.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32803, 'Veteran\'s Linked Girdle', 'Ceinturon de vétéran rivetés', 'Faja eslabonada de veterano', 'Gekettelter Gurt des Veteranen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_20.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32007, 'Merciless Gladiator\'s Linked Leggings', 'Jambières rivetées du gladiateur impitoyable', 'Leotardos eslabonados de Gladiador despiadado', 'Gekettelte Gamaschen des erbarmungslosen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 33805, 'Shadowhunter\'s Treads', 'Bottines de chasseur des ombres', 'Botines de Cazasombras', 'Schattenjägertreter', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_08.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32816, 'Veteran\'s Linked Bracers', 'Brassards de vétéran rivetés', 'Brazales eslabonados de veterano', 'Gekettelte Armschienen des Veteranen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_16.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (62, 32005, 'Merciless Gladiator\'s Linked Gauntlets', 'Gantelets rivetés du gladiateur impitoyable', 'Guanteletes eslabonados de Gladiador despiadado', 'Gekettelte Stulpen des erbarmungslosen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_11.jpg', 4, 80);
+
+-- Set 63: Nightslayer Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (63, 31333, 'The Night Watchman', 'Le guetteur de nuit', 'El velador de la noche', 'Der Nachtwächter', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_43.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (63, 30730, 'Terrorweave Tunic', 'Tunique en tisse-terreur', 'Guerrera de tejido de terror', 'Schreckensgewebte Tunika', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_45.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (63, 28347, 'Warpscale Leggings', 'Jambières en écailles dimensionnelles', 'Leotardos de escamas de distorsión', 'Warpschuppengamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_21.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (63, 29357, 'Master Thief\'s Gloves', 'Gants de maître voleur', 'Guantes de maestro ladrón', 'Handschuhe des Meisterdiebs', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_22.jpg', 4, 40);
+
+-- Set 64: Nordrassil Raiment
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30228, 'Nordrassil Headdress', 'Coiffure de Nordrassil', 'Ornato de Nordrassil', 'Kopfputz von Nordrassil', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30230, 'Nordrassil Feral-Mantle', 'Mantelet farouche de Nordrassil', 'Manto feral de Nordrassil', 'Wildmantelung von Nordrassil', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_14.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30216, 'Nordrassil Chestguard', 'Corselet de Nordrassil', 'Coselete de Nordrassil', 'Brustschutz von Nordrassil', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_15.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 29984, 'Girdle of Zaetar', 'Ceinturon de Zaetar', 'Faja de Zaetar', 'Gurt von Zaetar', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_08.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30229, 'Nordrassil Feral-Kilt', 'Kilt farouche de Nordrassil', 'Falda feral de Nordrassil', 'Wildkilt von Nordrassil', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30041, 'Boots of Natural Grace', 'Bottes de grâce naturelle', 'Botas de gracia natural', 'Stiefel der naturgleichen Anmut', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_04.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30062, 'Grove-Bands of Remulos', 'Sylve-poignets de Remulos', 'Braciles de arboleda de Remulos', 'Hainbänder von Remulos', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (64, 30232, 'Nordrassil Gauntlets', 'Gantelets de Nordrassil', 'Guanteletes de Nordrassil', 'Stulpen von Nordrassil', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_25.jpg', 4, 80);
+
+-- Set 65: Vengeful Gladiator's Felweave Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33677, 'Vengeful Gladiator\'s Dreadweave Hood', 'Chaperon du gladiateur vengeur en tisse-effroi', 'Caperuza de tejido de tinieblas de Gladiador vengativo', 'Schreckenszwirnkapuze des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_103.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33679, 'Vengeful Gladiator\'s Dreadweave Mantle', 'Mantelet du gladiateur vengeur en tisse-effroi', 'Manto de tejido de tinieblas de Gladiador vengativo', 'Schreckenszwirnmantelung des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_68.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33680, 'Vengeful Gladiator\'s Dreadweave Robe', 'Robe du gladiateur vengeur en tisse-effroi', 'Toga de tejido de tinieblas de Gladiador vengativo', 'Schreckenszwirnrobe des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_68.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33882, 'Vindicator\'s Dreadweave Belt', 'Ceinture de redresseur de torts en tisse-effroi', 'Cinturón de tejido de tinieblas de vindicador', 'Schreckenszwirngürtel des Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_17.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33678, 'Vengeful Gladiator\'s Dreadweave Leggings', 'Jambières du gladiateur vengeur en tisse-effroi', 'Leotardos de tejido de tinieblas de Gladiador vengativo', 'Schreckenszwirngamaschen des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_29.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33884, 'Vindicator\'s Dreadweave Stalkers', 'Souliers de redresseur de torts en tisse-effroi', 'Polainas de tejido de tinieblas de vindicador', 'Schreckenszwirnpirscher des Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33883, 'Vindicator\'s Dreadweave Cuffs', 'Crispins de redresseur de torts en tisse-effroi', 'Puños de tejido de tinieblas de vindicador', 'Schreckenszwirnmanschetten des Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (65, 33676, 'Vengeful Gladiator\'s Dreadweave Gloves', 'Gants du gladiateur vengeur en tisse-effroi', 'Guantes de tejido de tinieblas de Gladiador vengativo', 'Schreckenszwirnhandschuhe des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_66.jpg', 4, 80);
+
+-- Set 66: Vengeful Gladiator's Silk Armor
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33758, 'Vengeful Gladiator\'s Silk Cowl', 'Capuche du gladiateur vengeur en soie', 'Capucha de seda de Gladiador vengativo', 'Seidene Gugel des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_101.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33757, 'Vengeful Gladiator\'s Silk Amice', 'Amict du gladiateur vengeur en soie', 'Amito de seda de Gladiador vengativo', 'Seidene Amicia des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_64.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33760, 'Vengeful Gladiator\'s Silk Raiment', 'Grande tenue du gladiateur vengeur en soie', 'Vestiduras de seda de Gladiador vengativo', 'Seidene Gewandung des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_67.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33912, 'Vindicator\'s Silk Belt', 'Ceinture de redresseur de torts en soie', 'Cinturón de seda de vindicador', 'Seidengürtel des Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_17.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33761, 'Vengeful Gladiator\'s Silk Trousers', 'Chausses du gladiateur vengeur en soie', 'Calzas de seda de Gladiador vengativo', 'Seidene Beinkleider des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_28.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33914, 'Vindicator\'s Silk Footguards', 'Protège-tibias de redresseur de torts en soie', 'Calzas de seda de vindicador', 'Seidenfußschützer des Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg', 4, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33913, 'Vindicator\'s Silk Cuffs', 'Crispins de redresseur de torts en soie', 'Puños de seda de vindicador', 'Seidenmanschetten des Verteidigers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg', 4, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (66, 33759, 'Vengeful Gladiator\'s Silk Handguards', 'Garde-mains du gladiateur vengeur en soie', 'Manoplas de seda de Gladiador vengativo', 'Seidene Handschützer des rachsüchtigen Gladiators', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_64.jpg', 4, 80);
+
+-- Set 67: Warlord's Aegis
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (67, 29616, 'Warlord\'s Lamellar Faceguard', 'Ventaille lamellaire de seigneur de guerre', 'Visera de láminas de Señor de la Guerra', 'Lamellengesichtsschutz des Kriegsfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_05.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (67, 29617, 'Warlord\'s Lamellar Pauldrons', 'Espauliers lamellaires de seigneur de guerre', 'Espaldares de láminas Señor de la Guerra', 'Lamellenschulterstücke des Kriegsfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_20.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (67, 29615, 'Warlord\'s Lamellar Chestplate', 'Pansière lamellaire de seigneur de guerre', 'Peto de láminas de Señor de la Guerra', 'Lamellenbrustharnisch des Kriegsfürsten', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate03.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (67, 29614, 'General\'s Lamellar Legplates', 'Cuissards lamellaires de général', 'Quijotes de láminas de Mariscal de campo', 'Lamellenbeinplatten des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_04.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (67, 29612, 'General\'s Lamellar Boots', 'Bottes lamellaire de général', 'Botas de láminas de Gran general', 'Lamellenstiefel des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_09.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (67, 29613, 'General\'s Lamellar Gloves', 'Gants lamellaires de général', 'Guantes de láminas de Mariscal de campo', 'Lamellenhandschuhe des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_29.jpg', 4, 60);
+
+-- Set 68: Aurora Regalia (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (68, 20686, 'Abyssal Cloth Amice', 'Amict abyssal en tissu', 'Amito de paño abisal', 'Abyssische Stoffamicia', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_25.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (68, 2800, 'Black Velvet Robes', 'Robe noire en velours', 'Togas de terciopelo negro', 'Schwarze Samtroben', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_48.jpg', 3, 20);
+
+-- Set 69: Dragonstalker Armor (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 27888, 'Dream-Wing Helm', 'Casque aile-rêve', 'Yelmo de alasueño', 'Traumschwingenhelm', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_21.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 28344, 'Wyrmfury Pauldrons', 'Espauliers fureur-du-wyrm', 'Espaldares de furia de vermis', 'Schulterstücke des Wyrmzorns', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_18.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 27823, 'Shard Encrusted Breastplate', 'Cuirasse incrustée d\'éclats', 'Coraza taraceada con fragmentos', 'Splitterbesetzte Brustplatte', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_13.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 27541, 'Archery Belt of the Broken', 'Ceinture d\'archerie des Roués', 'Cinturón de arquero de los Tábidos', 'Bogenschießgürtel des Zerschlagenen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_25.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 28219, 'Emerald-Scale Greaves', 'Grèves en écailles émeraude', 'Grebas de escamas esmeralda', 'Schienbeinschützer aus Smaragdschuppen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_16.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 27915, 'Sky-Hunter Swift Boots', 'Bottes de rapidité de chasseur céleste', 'Botas prestas de cazador del cielo', 'Hurtige Stiefel des Himmelsjägers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_chain_05.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 27494, 'Emerald Eye Bracer', 'Brassards de l\'oeil d\'émeraude', 'Sortija de ojo de esmeralda', 'Armschienen des Smaragdauges', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_16.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (69, 27745, 'Hungarhide Gauntlets', 'Gantelets en peau de Hungar', 'Guanteletes de pellejo de panthambre', 'Hungarbalgstulpen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_11.jpg', 3, 80);
+
+-- Set 70: Fel Skin
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (70, 24699, 'Bonechewer Shoulderguards', 'Garde-épaules mâche-les-os', 'Guardahombros Mascahuesos', 'Knochenmalmerschulterschutz', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_23.jpg', 2, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (70, 29973, 'Primalstorm Breastplate', 'Cuirasse de tempête primordiale', 'Coraza de tormenta primigenia', 'Brustplatte des Ursturms', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_07.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (70, 25687, 'Fel Leather Leggings', 'Jambières en gangrecuir', 'Leotardos de cuero vil', 'Teufelsledergamaschen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_03.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (70, 25686, 'Fel Leather Boots', 'Bottes en gangrecuir', 'Botas de cuero vil', 'Teufelslederstiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_05.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (70, 31224, 'Illidari Bracers', 'Brassards illidari', 'Brazales Illidari', 'Illidariarmschienen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_18.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (70, 25685, 'Fel Leather Gloves', 'Gants en gangrecuir', 'Guantes de cuero vil', 'Teufelslederhandschuhe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_22.jpg', 3, 60);
+
+-- Set 71: Gossamer Regalia (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (71, 19849, 'Zandalar Demoniac\'s Mantle', 'Mantelet de démoniaque zandalar', 'Manto de demoníaco Zandalar', 'Mantel des Zandalaribesessenen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_17.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (71, 22301, 'Ironweave Robe', 'Robe Tisse-fer', 'Toga de tejido de hierro', 'Eisengewebte Robe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_48.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (71, 22306, 'Ironweave Belt', 'Ceinture Tisse-fer', 'Cinturón de tejido de hierro', 'Eisengewebter Gürtel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (71, 22303, 'Ironweave Pants', 'Pantalon Tisse-fer', 'Pantalones de tejido de hierro', 'Eisengewebte Hose', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_08.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (71, 18697, 'Coldstone Slippers', 'Mules de froidepierre', 'Zapatillas de piedrafría', 'Froststeinschuhe', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_fabric_01.jpg', 3, 50);
+
+-- Set 72: Stormrage Raiment (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 28220, 'Moon-Crown Antlers', 'Ramure de la couronne lunaire', 'Astas de corona de la luna', 'Mondkronengeweih', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_24.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 28255, 'Lunar-Claw Pauldrons', 'Espauliers griffe-lunaire', 'Espaldares de garra lunar', 'Mondklauenschulterstücke', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_19.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 27818, 'Starry Robes of the Crescent', 'Robe étoilée du croissant', 'Togas estrelladas de creciente', 'Leuchtende Roben der Mondsichel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_08.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 27783, 'Moonrage Girdle', 'Ceinturon ragelune', 'Faja de ira lunar', 'Gurt des Mondzorns', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_belt_08.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 31226, 'Leggings of the Sly', 'Jambières du sournois', 'Leotardos del artero', 'Gamaschen des Durchtriebenen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_cloth_12.jpg', 3, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 27914, 'Moonstrider Boots', 'Bottes du marcheur sélénien', 'Botas de zancudo selenita', 'Mondschreiterstiefel', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_14.jpg', 3, 60);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 27483, 'Moon-Touched Bands', 'Poignets touchés par la lune', 'Braciles tocados por la luna', 'Mondberührte Bänder', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg', 3, 70);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (72, 28214, 'Grips of the Lunar Eclipse', 'Poignes de l\'éclipse lunaire', 'Mandiletes del eclipse lunar', 'Handschutz der Mondfinsternis', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_07.jpg', 3, 80);
+
+-- Set 73: Vestments of the Devout (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (73, 27410, 'Collar of Command', 'Collerette de commandement', 'Alzacuellos de mando', 'Kragen des Befehls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_06.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (73, 27433, 'Pauldrons of Sufferance', 'Espauliers de mansuétude', 'Espaldares de sufrimiento', 'Schulterstücke des Langmuts', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_26.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (73, 24397, 'Raiments of Divine Authority', 'Grande tenue de l\'autorité divine', 'Vestiduras de autoridad divina', 'Roben der göttlichen Macht', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_31.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (73, 31306, 'Leggings of the Sacred Crest', 'Jambières du cimier sacré', 'Falda del blasón sagrado', 'Gamaschen des heiligen Wappens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_plate_01.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (73, 27411, 'Slippers of Serenity', 'Mules de sérénité', 'Zapatillas de serenidad', 'Schuhe der Gelassenheit', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_cloth_14.jpg', 3, 50);
+
+-- Set 74: Warlord's Earthshaker
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (74, 29610, 'Field Marshal\'s Mail Helm', 'Heaume de grand maréchal en mailles', 'Yelmo de malla de Mariscal de campo', 'Panzerhelm des Feldmarschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_09.jpg', 4, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (74, 29611, 'Field Marshal\'s Mail Spaulders', 'Spallières de grand maréchal en mailles', 'Bufas de malla Mariscal de campo', 'Panzerschiftung des Feldmarschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_29.jpg', 4, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (74, 29609, 'Field Marshal\'s Mail Armor', 'Cotte de mailles de grand maréchal', 'Armadura de malla de Mariscal de campo', 'Panzerrüstung des Feldmarschalls', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_chain_11.jpg', 4, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (74, 16579, 'General\'s Mail Leggings', 'Jambières de général en mailles', 'Leotardos de malla de General', 'Panzergamaschen des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_mail_15.jpg', 4, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (74, 16573, 'General\'s Mail Boots', 'Bottes de général en mailles', 'Botas de malla de General', 'Panzerstiefel des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_boots_plate_06.jpg', 4, 50);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (74, 16574, 'General\'s Mail Gauntlets', 'Gantelets de général en mailles', 'Guanteletes de malla de General', 'Panzerstulpen des Kriegsherren', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_11.jpg', 4, 60);
+
+-- Set 75: Wildheart Raiment (Recolor)
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (75, 27409, 'Raven-Heart Headdress', 'Coiffure coeur-de-corbeau', 'Ornato de corazón de cuervo', 'Kopfputz des Rabenherzens', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_helmet_21.jpg', 3, 10);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (75, 27417, 'Ravenwing Pauldrons', 'Espauliers aile-de-corbeau', 'Espaldares alacuervo', 'Rabenflügelschulterstücke', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_17.jpg', 3, 20);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (75, 24455, 'Tunic of the Nightwatcher', 'Tunique du veilleur de nuit', 'Guerrera del vigía de la noche', 'Tunika des Nachtwächters', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate06.jpg', 3, 30);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (75, 24391, 'Kilt of the Night Strider', 'Kilt du marcheur de la nuit', 'Falda de caminante de la noche', 'Kilt des Nachtwandlers', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_pants_leather_03.jpg', 3, 40);
+INSERT INTO shop_set_items (set_id, item_id, name_en, name_fr, name_es, name_de, name_it, icon_url, quality, sort_order) VALUES
+  (75, 24452, 'Starlight Gauntlets', 'Gantelets de la lumière stellaire', 'Guanteletes de luz estelar', 'Sternenlichtstulpen', '', 'https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_21.jpg', 3, 50);

@@ -117,7 +117,7 @@ export const Navbar = () => {
               <DropdownMenu
                 aria-label="User menu"
                 classNames={{
-                  base: "glass border-wow-gold/15",
+                  base: "bg-[#161b22] border border-wow-gold/15",
                 }}
               >
                 <DropdownItem

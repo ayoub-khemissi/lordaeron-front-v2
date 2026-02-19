@@ -1,5 +1,6 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import clsx from "clsx";
 
 import { routing } from "@/i18n/routing";
@@ -25,7 +26,15 @@ export default async function LocaleLayout({
 
   return (
     <html suppressHydrationWarning lang={locale}>
-      <head />
+      <head>
+        <Script id="wowhead-config" strategy="beforeInteractive">
+          {`const whTooltips = { colorLinks: false, iconizeLinks: false, renameLinks: false };`}
+        </Script>
+        <Script
+          src="https://wow.wowhead.com/widgets/power.js"
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         className={clsx(
           "min-h-screen text-foreground bg-background font-sans antialiased",
