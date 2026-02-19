@@ -120,7 +120,13 @@
     "loading": "Cargando...",
     "error": "Ha ocurrido un error",
     "submit": "Enviar",
-    "language": "Idioma"
+    "language": "Idioma",
+    "notFoundTitle": "Página no encontrada",
+    "notFoundDesc": "La página que buscas no existe o ha sido movida.",
+    "errorTitle": "Algo salió mal",
+    "errorDesc": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "backHome": "Volver al inicio"
   },
   "account": {
     "title": "Mi Cuenta",

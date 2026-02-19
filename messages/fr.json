@@ -120,7 +120,13 @@
     "loading": "Chargement...",
     "error": "Une erreur est survenue",
     "submit": "Envoyer",
-    "language": "Langue"
+    "language": "Langue",
+    "notFoundTitle": "Page introuvable",
+    "notFoundDesc": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "errorTitle": "Une erreur est survenue",
+    "errorDesc": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+    "retry": "Réessayer",
+    "backHome": "Retour à l'accueil"
   },
   "account": {
     "title": "Mon Compte",

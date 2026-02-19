@@ -120,7 +120,13 @@
     "loading": "Caricamento...",
     "error": "Si è verificato un errore",
     "submit": "Invia",
-    "language": "Lingua"
+    "language": "Lingua",
+    "notFoundTitle": "Pagina non trovata",
+    "notFoundDesc": "La pagina che cerchi non esiste o è stata spostata.",
+    "errorTitle": "Qualcosa è andato storto",
+    "errorDesc": "Si è verificato un errore imprevisto. Riprova.",
+    "retry": "Riprova",
+    "backHome": "Torna alla home"
   },
   "account": {
     "title": "Il mio account",

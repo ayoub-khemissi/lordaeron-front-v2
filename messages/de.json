@@ -120,7 +120,13 @@
     "loading": "Laden...",
     "error": "Ein Fehler ist aufgetreten",
     "submit": "Absenden",
-    "language": "Sprache"
+    "language": "Sprache",
+    "notFoundTitle": "Seite nicht gefunden",
+    "notFoundDesc": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "errorTitle": "Etwas ist schiefgelaufen",
+    "errorDesc": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
+    "retry": "Erneut versuchen",
+    "backHome": "Zurück zur Startseite"
   },
   "account": {
     "title": "Mein Konto",
