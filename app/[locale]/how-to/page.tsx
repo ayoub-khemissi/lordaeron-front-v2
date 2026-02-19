@@ -4,25 +4,27 @@ import { Snippet } from "@heroui/snippet";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
+const WOWHEAD_ICON = "https://wow.zamimg.com/images/wow/icons/large";
+
 const steps = [
   {
     key: "step1",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Bag_20.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_bag_20.jpg`,
     bg: "/img/World of Warcraft Classic 1920x1080/WoW_ClassicLaunchPressKit_ThousandNeedles_1920x1080.jpg",
   },
   {
     key: "step2",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Note_01.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_note_01.jpg`,
     bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Dalaran_007_1080p_png_jpgcopy.jpg",
   },
   {
     key: "step3",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Letter_08.png",
+    icon: `${WOWHEAD_ICON}/inv_letter_08.jpg`,
     bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_ArthasThrone_003_1080p_png_jpgcopy.jpg",
   },
   {
     key: "step4",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Horn_02.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_horn_02.jpg`,
     bg: "/img/Wrath Classic Fall of the Lich King Launch Screenshots/WoW_WrathClassic_Fall_of_the_Lich_King_(5)_png_jpgcopy.jpg",
   },
 ];
@@ -32,7 +34,7 @@ export default function HowToPage() {
 
   return (
     <div
-      className="relative bg-cover bg-center bg-fixed"
+      className="relative bg-cover bg-center"
       style={{
         backgroundImage:
           "url('/img/World of Warcraft Classic 1920x1080/ClassicLaunch_WoW_STV_1920x1080.jpg')",
@@ -64,9 +66,11 @@ export default function HowToPage() {
             >
               <div className="relative overflow-hidden rounded-2xl group glow-gold">
                 {/* Background image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700"
-                  style={{ backgroundImage: `url('${step.bg}')` }}
+                <img
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-45 group-hover:scale-105 transition-[opacity,transform] duration-700"
+                  loading="lazy"
+                  src={step.bg}
                 />
 
                 <div className="relative glass border-wow-gold/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start">

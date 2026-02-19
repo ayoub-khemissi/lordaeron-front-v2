@@ -1,22 +1,26 @@
 "use client";
 
+import React from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+
+const WOWHEAD_ICON = "https://wow.zamimg.com/images/wow/icons/large";
 
 const features = [
   {
     key: "transmog",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_ArmorKit_17.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_armorkit_17.jpg`,
     bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
   },
   {
     key: "epicProgression",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Orb_02.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_orb_02.jpg`,
     bg: "/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_Black_Temple_Illidan.jpg",
   },
   {
     key: "tankAsDps",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Rune_08.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_rune_08.jpg`,
     bg: "/img/Wrath of the Lich King Classic Cinematic Stills/Wrath_of_the_Lich_King_Classic_Cinematic_Still__(5).jpg",
   },
 ];
@@ -24,32 +28,32 @@ const features = [
 const qol = [
   {
     key: "dungeonNoLock",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Key_08.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_key_08.jpg`,
     bg: "/img/World of Warcraft Classic 1920x1080/ClassicDungeon.jpg",
   },
   {
     key: "raidReset",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Idol_02.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_idol_02.jpg`,
     bg: "/img/Wrath of the Lich King Classic Call of the Crusade Screenshots/Wrath_Classic_Call_of_the_Crusade_Trial_of_the_Crusader_003.jpg",
   },
   {
     key: "crossfaction",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Horn_01.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_horn_01.jpg`,
     bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Dalaran_004_1080p_png_jpgcopy.jpg",
   },
   {
     key: "aoeLoot",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Bag_10_Blue.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_bag_10_blue.jpg`,
     bg: "/img/World of Warcraft Classic 1920x1080/WoW_ClassicLaunchPressKit_ScarletMonastery_1920x1080.jpg",
   },
   {
     key: "autolearnSpells",
-    icon: "/WoW Vanilla_Classic Icon Pack/Items/INV_Misc_Book_09.png",
+    icon: `${WOWHEAD_ICON}/inv_misc_book_09.jpg`,
     bg: "/img/Burning Crusade Classic Fury of the Sunwell Screenshots 4K/WoW_BCC_FuryOfTheSunwell_Kalecgos_010_png_jpgcopy.jpg",
   },
 ];
 
-function FeatureCard({
+const FeatureCard = React.memo(function FeatureCard({
   featureKey,
   iconUrl,
   bgImage,
@@ -71,21 +75,23 @@ function FeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
     >
       <div className="relative overflow-hidden rounded-2xl group h-full glow-gold">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-all duration-700"
-          style={{ backgroundImage: `url('${bgImage}')` }}
+        <Image
+          alt=""
+          className="absolute inset-0 object-cover opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-[opacity,transform] duration-700"
+          fill={true}
+          loading="lazy"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          src={bgImage}
         />
 
-        {/* Glass content */}
-        <div className="relative glass border-wow-gold/10 rounded-2xl p-8 text-center h-full flex flex-col items-center">
-          {/* WoW icon from local pack */}
+        <div className="relative glass-lite border-wow-gold/10 rounded-2xl p-8 text-center h-full flex flex-col items-center">
           <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 border-2 border-wow-gold/40 glow-gold-strong bg-wow-darker/50">
-            <img
+            <Image
               alt=""
-              className="w-full h-full object-cover"
-              loading="lazy"
+              className="object-cover"
+              height={64}
               src={iconUrl}
+              width={64}
             />
           </div>
 
@@ -99,7 +105,7 @@ function FeatureCard({
       </div>
     </motion.div>
   );
-}
+});
 
 export const FeaturesGrid = () => {
   const t = useTranslations("features");

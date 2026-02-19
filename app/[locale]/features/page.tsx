@@ -4,7 +4,7 @@ import { RatesSection, RaidProgressionSection } from "@/components/rates-table";
 export default function FeaturesPage() {
   return (
     <div
-      className="relative bg-cover bg-center bg-fixed"
+      className="relative bg-cover bg-center"
       style={{
         backgroundImage:
           "url('/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_Hyjal_Archimonde.jpg')",
