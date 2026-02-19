@@ -28,8 +28,13 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
   const tQuality = useTranslations("shop.qualities");
   const isEdit = !!item;
 
+  const savedCategory =
+    !isEdit && typeof window !== "undefined"
+      ? (localStorage.getItem("lordaeron_admin_last_category") as ShopCategory | null)
+      : null;
+
   const [form, setForm] = useState({
-    category: item?.category || "services",
+    category: item?.category || savedCategory || "services",
     service_type: item?.service_type || "",
     item_id: item?.item_id?.toString() || "",
     name_en: item?.name_en || "",
@@ -150,7 +155,10 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
           onSelectionChange={(keys) => {
             const key = Array.from(keys)[0] as string;
 
-            if (key) setForm({ ...form, category: key as ShopCategory });
+            if (key) {
+              setForm({ ...form, category: key as ShopCategory });
+              localStorage.setItem("lordaeron_admin_last_category", key);
+            }
           }}
         >
           {SHOP_CATEGORIES.map((cat) => (
