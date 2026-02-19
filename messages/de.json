@@ -209,6 +209,7 @@
     "factionRestriction": "Fraktionseinschränkung",
     "refundable": "Erstattbar",
     "nonRefundable": "Nicht erstattbar",
+    "reqLevel": "Lvl {level}+",
     "refundPolicy": "Erstattbar innerhalb von 2h, Gegenstand muss im Inventar bleiben",
     "refundPolicyNote": "Erstattbar innerhalb von 2 Stunden, wenn der Gegenstand in deinem Inventar bleibt.",
     "confirmPurchase": "Kauf bestätigen",

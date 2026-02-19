@@ -209,6 +209,7 @@
     "factionRestriction": "Restrizione di fazione",
     "refundable": "Rimborsabile",
     "nonRefundable": "Non rimborsabile",
+    "reqLevel": "Liv. {level}+",
     "refundPolicy": "Rimborsabile entro 2h, l'oggetto deve restare nell'inventario",
     "refundPolicyNote": "Rimborsabile entro 2 ore se l'oggetto resta nel tuo inventario.",
     "confirmPurchase": "Conferma acquisto",

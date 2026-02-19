@@ -209,6 +209,7 @@
     "factionRestriction": "Restricción de facción",
     "refundable": "Reembolsable",
     "nonRefundable": "No reembolsable",
+    "reqLevel": "Niv. {level}+",
     "refundPolicy": "Reembolsable en 2h, el objeto debe permanecer en el inventario",
     "refundPolicyNote": "Reembolsable en 2 horas si el objeto permanece en tu inventario.",
     "confirmPurchase": "Confirmar compra",

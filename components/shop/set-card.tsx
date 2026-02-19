@@ -70,8 +70,13 @@ export function SetCard({ set, onClick }: SetCardProps) {
       </div>
 
       {/* Restriction chips */}
-      {(set.class_ids || set.faction !== "both") && (
+      {(set.class_ids || set.faction !== "both" || set.min_level > 0) && (
         <div className="flex flex-wrap gap-1 mb-3">
+          {set.min_level > 0 && (
+            <Chip size="sm" className="bg-orange-500/10 text-orange-300 text-[10px]">
+              {t("reqLevel", { level: set.min_level })}
+            </Chip>
+          )}
           {set.class_ids && (
             <Chip size="sm" className="bg-cyan-500/10 text-cyan-300 text-[10px]">
               {set.class_ids.map((id) => t(`className_${id}`)).join(", ")}

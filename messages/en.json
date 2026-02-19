@@ -209,6 +209,7 @@
     "factionRestriction": "Faction restricted",
     "refundable": "Refundable",
     "nonRefundable": "Non-refundable",
+    "reqLevel": "Lvl {level}+",
     "refundPolicy": "Refundable within 2h, item must remain in inventory",
     "refundPolicyNote": "Refundable within 2 hours if the item stays in your inventory.",
     "confirmPurchase": "Confirm Purchase",

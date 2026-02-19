@@ -78,6 +78,11 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
               {item.faction === "alliance" ? tHome("alliance") : tHome("horde")}
             </Chip>
           )}
+          {item.min_level > 0 && (
+            <Chip size="sm" className="bg-orange-500/10 text-orange-300">
+              {t("reqLevel", { level: item.min_level })}
+            </Chip>
+          )}
           {!item.is_refundable && (
             <Chip size="sm" className="bg-red-500/10 text-red-400">
               {t("nonRefundable")}
