@@ -20,6 +20,7 @@ export default function AdminNewSetPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
       if (res.ok) {
         router.push(`/${locale}/admin/sets`);
       }
@@ -30,8 +31,10 @@ export default function AdminNewSetPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-heading text-gray-100 mb-6">{t("addSet")}</h1>
-      <SetForm onSubmit={handleSubmit} loading={loading} />
+      <h1 className="text-2xl font-heading text-gray-100 mb-6">
+        {t("addSet")}
+      </h1>
+      <SetForm loading={loading} onSubmit={handleSubmit} />
     </div>
   );
 }

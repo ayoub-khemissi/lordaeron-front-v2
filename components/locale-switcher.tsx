@@ -27,6 +27,7 @@ export function LocaleSwitcher() {
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split("/");
+
     segments[1] = newLocale;
     router.push(segments.join("/"));
   };
@@ -34,7 +35,11 @@ export function LocaleSwitcher() {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="light" size="sm" className="min-w-[40px] text-gray-400">
+        <Button
+          className="min-w-[40px] text-gray-400"
+          size="sm"
+          variant="light"
+        >
           {currentLocale.flag}
         </Button>
       </DropdownTrigger>

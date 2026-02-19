@@ -1,9 +1,10 @@
 "use client";
 
+import type { ShopItemLocalized } from "@/types";
+
 import { useTranslations } from "next-intl";
 
 import { ItemCard } from "./item-card";
-import type { ShopItemLocalized } from "@/types";
 
 interface ItemGridProps {
   items: ShopItemLocalized[];

@@ -1,7 +1,13 @@
+import type {
+  ShopPurchase,
+  ShopPurchaseWithItem,
+  PurchaseRequest,
+  PurchaseStatus,
+} from "@/types";
+
 import { RowDataPacket, ResultSetHeader } from "mysql2";
 
 import { websiteDb } from "@/lib/db";
-import type { ShopPurchase, ShopPurchaseWithItem, PurchaseRequest, PurchaseStatus } from "@/types";
 import { calculateDiscountedPrice } from "@/lib/shop-utils";
 
 export async function createPurchase(
@@ -17,7 +23,10 @@ export async function createPurchase(
   try {
     await connection.beginTransaction();
 
-    const pricePaid = calculateDiscountedPrice(originalPrice, discountPercentage);
+    const pricePaid = calculateDiscountedPrice(
+      originalPrice,
+      discountPercentage,
+    );
 
     // Lock the balance row
     const [balanceRows] = await connection.execute<RowDataPacket[]>(
@@ -29,6 +38,7 @@ export async function createPurchase(
 
     if (currentBalance < pricePaid) {
       await connection.rollback();
+
       return { success: false, error: "insufficientBalance" };
     }
 
@@ -40,6 +50,7 @@ export async function createPurchase(
       );
     } else {
       await connection.rollback();
+
       return { success: false, error: "insufficientBalance" };
     }
 
@@ -70,6 +81,7 @@ export async function createPurchase(
     );
 
     await connection.commit();
+
     return { success: true, purchaseId: result.insertId };
   } catch (error) {
     await connection.rollback();
@@ -175,7 +187,10 @@ export async function getAllPurchases(filters?: {
   query += ` LIMIT ${filters?.limit || 50} OFFSET ${filters?.offset || 0}`;
 
   const [rows] = await websiteDb.execute<RowDataPacket[]>(query, params);
-  const [countRows] = await websiteDb.execute<RowDataPacket[]>(countQuery, countParams);
+  const [countRows] = await websiteDb.execute<RowDataPacket[]>(
+    countQuery,
+    countParams,
+  );
 
   return {
     purchases: rows as ShopPurchaseWithItem[],
@@ -183,13 +198,16 @@ export async function getAllPurchases(filters?: {
   };
 }
 
-export async function getPurchaseById(id: number): Promise<ShopPurchase | null> {
+export async function getPurchaseById(
+  id: number,
+): Promise<ShopPurchase | null> {
   const [rows] = await websiteDb.execute<RowDataPacket[]>(
     "SELECT * FROM shop_purchases WHERE id = ?",
     [id],
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as ShopPurchase;
 }
 
@@ -209,6 +227,7 @@ export async function refundPurchase(
 
     if (purchaseRows.length === 0) {
       await connection.rollback();
+
       return { success: false, error: "purchaseNotFound" };
     }
 
@@ -227,6 +246,7 @@ export async function refundPurchase(
     );
 
     await connection.commit();
+
     return { success: true };
   } catch (error) {
     await connection.rollback();
@@ -252,6 +272,7 @@ export async function refundPurchaseSelf(
 
     if (purchaseRows.length === 0) {
       await connection.rollback();
+
       return { success: false, error: "purchaseNotFound" };
     }
 
@@ -270,6 +291,7 @@ export async function refundPurchaseSelf(
     );
 
     await connection.commit();
+
     return { success: true };
   } catch (error) {
     await connection.rollback();
@@ -291,8 +313,8 @@ export async function updatePurchaseStatus(
   purchaseId: number,
   status: PurchaseStatus,
 ): Promise<void> {
-  await websiteDb.execute(
-    "UPDATE shop_purchases SET status = ? WHERE id = ?",
-    [status, purchaseId],
-  );
+  await websiteDb.execute("UPDATE shop_purchases SET status = ? WHERE id = ?", [
+    status,
+    purchaseId,
+  ]);
 }

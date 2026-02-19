@@ -42,10 +42,10 @@ export default function HowToPage() {
 
       <div className="relative container mx-auto max-w-4xl px-6 py-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl sm:text-5xl font-black wow-gradient-text mb-3">
             {t("title")}
@@ -58,8 +58,8 @@ export default function HowToPage() {
           {steps.map((step, index) => (
             <motion.div
               key={step.key}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               <div className="relative overflow-hidden rounded-2xl group glow-gold">
@@ -74,10 +74,10 @@ export default function HowToPage() {
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-wow-gold/40 glow-gold bg-wow-darker/50">
                       <img
-                        src={step.icon}
                         alt=""
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        src={step.icon}
                       />
                     </div>
                   </div>
@@ -98,13 +98,13 @@ export default function HowToPage() {
                     {step.key === "step2" && (
                       <div className="mt-5">
                         <Snippet
-                          symbol=""
-                          variant="bordered"
                           classNames={{
                             base: "glass-blue border-wow-blue/20 w-full glow-blue",
                             pre: "text-wow-blue-ice font-mono text-sm",
                             copyButton: "text-wow-blue hover:text-wow-blue-ice",
                           }}
+                          symbol=""
+                          variant="bordered"
                         >
                           {t("realmlist")}
                         </Snippet>
@@ -119,9 +119,9 @@ export default function HowToPage() {
 
         {/* Version badge */}
         <motion.div
+          animate={{ opacity: 1 }}
           className="mt-12 text-center"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <div className="inline-block glass-gold glow-gold-strong rounded-full px-8 py-3">

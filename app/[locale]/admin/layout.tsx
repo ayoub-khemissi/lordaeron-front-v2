@@ -30,7 +30,7 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
   if (loading) {
     return (
       <div className="fixed inset-0 z-50 bg-[#0d1117] flex items-center justify-center">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -50,7 +50,11 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <AdminAuthProvider>
       <AdminLayoutInner>{children}</AdminLayoutInner>

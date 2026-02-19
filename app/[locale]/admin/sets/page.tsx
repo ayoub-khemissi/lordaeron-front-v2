@@ -1,7 +1,16 @@
 "use client";
 
+import type { ShopSet } from "@/types";
+
 import { useState, useEffect } from "react";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@heroui/table";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@heroui/table";
 import { Chip } from "@heroui/chip";
 import { Button } from "@heroui/button";
 import { Spinner } from "@heroui/spinner";
@@ -10,7 +19,6 @@ import NextLink from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 
 import { getLocalizedName } from "@/lib/shop-utils";
-import type { ShopSet } from "@/types";
 
 export default function AdminSetsPage() {
   const t = useTranslations("admin.sets");
@@ -22,6 +30,7 @@ export default function AdminSetsPage() {
     try {
       const res = await fetch("/api/admin/sets");
       const data = await res.json();
+
       setSets(data.sets || []);
     } catch {
       // Silent fail
@@ -43,7 +52,7 @@ export default function AdminSetsPage() {
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -54,8 +63,8 @@ export default function AdminSetsPage() {
         <h1 className="text-2xl font-heading text-gray-100">{t("title")}</h1>
         <Button
           as={NextLink}
-          href={`/${locale}/admin/sets/new`}
           className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
+          href={`/${locale}/admin/sets/new`}
         >
           {t("addSet")}
         </Button>
@@ -84,32 +93,49 @@ export default function AdminSetsPage() {
               <TableCell className="text-gray-500">#{set.id}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  {set.icon_url && <img src={set.icon_url} alt="" className="w-6 h-6 rounded" />}
+                  {set.icon_url && (
+                    <img
+                      alt=""
+                      className="w-6 h-6 rounded"
+                      src={set.icon_url}
+                    />
+                  )}
                   <span>{getLocalizedName(set, locale)}</span>
                 </div>
               </TableCell>
               <TableCell>
-                <Chip size="sm" className="bg-purple-500/10 text-purple-400">
+                <Chip className="bg-purple-500/10 text-purple-400" size="sm">
                   {t("piecesCount")}
                 </Chip>
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-1">
-                  <Image src="/img/icons/soul-shard.svg" alt="" width={14} height={14} />
+                  <Image
+                    alt=""
+                    height={14}
+                    src="/img/icons/soul-shard.svg"
+                    width={14}
+                  />
                   <span className="text-purple-400">{set.price}</span>
                 </div>
               </TableCell>
               <TableCell>
                 {set.discount_percentage > 0 ? (
-                  <Chip size="sm" className="bg-green-500/10 text-green-400">-{set.discount_percentage}%</Chip>
+                  <Chip className="bg-green-500/10 text-green-400" size="sm">
+                    -{set.discount_percentage}%
+                  </Chip>
                 ) : (
                   <span className="text-gray-600">-</span>
                 )}
               </TableCell>
               <TableCell>
                 <Chip
+                  className={
+                    set.is_active
+                      ? "bg-green-500/10 text-green-400"
+                      : "bg-red-500/10 text-red-400"
+                  }
                   size="sm"
-                  className={set.is_active ? "bg-green-500/10 text-green-400" : "bg-red-500/10 text-red-400"}
                 >
                   {set.is_active ? t("active") : t("inactive")}
                 </Chip>
@@ -118,18 +144,18 @@ export default function AdminSetsPage() {
                 <div className="flex gap-1">
                   <Button
                     as={NextLink}
+                    className="text-blue-400"
                     href={`/${locale}/admin/sets/${set.id}/edit`}
                     size="sm"
                     variant="light"
-                    className="text-blue-400"
                   >
                     {t("editSet")}
                   </Button>
                   {set.is_active && (
                     <Button
+                      className="text-red-400"
                       size="sm"
                       variant="light"
-                      className="text-red-400"
                       onPress={() => handleDeactivate(set.id)}
                     >
                       {t("deactivate")}

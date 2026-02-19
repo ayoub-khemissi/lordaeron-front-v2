@@ -8,11 +8,13 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ admin: null });
     }
 
     const admin = await findAdminById(session.id);
+
     if (!admin) {
       return NextResponse.json({ admin: null });
     }

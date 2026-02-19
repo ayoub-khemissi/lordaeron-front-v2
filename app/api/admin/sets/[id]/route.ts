@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { verifyAdminSession } from "@/lib/admin-auth";
-import { getShopSetById, updateShopSet, deactivateShopSet } from "@/lib/queries/shop-sets";
+import {
+  getShopSetById,
+  updateShopSet,
+  deactivateShopSet,
+} from "@/lib/queries/shop-sets";
 import { createAuditLog } from "@/lib/queries/shop-stats";
 
 export async function GET(
@@ -10,12 +14,14 @@ export async function GET(
 ) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
 
     const { id } = await params;
     const set = await getShopSetById(parseInt(id));
+
     if (!set) {
       return NextResponse.json({ error: "setNotFound" }, { status: 404 });
     }
@@ -23,6 +29,7 @@ export async function GET(
     return NextResponse.json({ set });
   } catch (error) {
     console.error("Admin set detail error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }
@@ -33,6 +40,7 @@ export async function PUT(
 ) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -42,6 +50,7 @@ export async function PUT(
     const body = await request.json();
 
     const existing = await getShopSetById(setId);
+
     if (!existing) {
       return NextResponse.json({ error: "setNotFound" }, { status: 404 });
     }
@@ -55,6 +64,7 @@ export async function PUT(
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Admin set update error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }
@@ -65,6 +75,7 @@ export async function DELETE(
 ) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -79,6 +90,7 @@ export async function DELETE(
     return NextResponse.json({ success: deactivated });
   } catch (error) {
     console.error("Admin set deactivate error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

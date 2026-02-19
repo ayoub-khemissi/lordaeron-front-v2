@@ -1,10 +1,11 @@
 "use client";
 
+import type { ShopCategory } from "@/types";
+
 import { Tabs, Tab } from "@heroui/tabs";
 import { useTranslations } from "next-intl";
 
 import { SHOP_CATEGORIES } from "@/lib/shop-utils";
-import type { ShopCategory } from "@/types";
 
 interface CategoryNavProps {
   selectedCategory: ShopCategory | null;
@@ -22,22 +23,26 @@ const CATEGORY_ICONS: Record<string, string> = {
   toys: "\uD83C\uDFAE",
 };
 
-export function CategoryNav({ selectedCategory, onCategoryChange }: CategoryNavProps) {
+export function CategoryNav({
+  selectedCategory,
+  onCategoryChange,
+}: CategoryNavProps) {
   const t = useTranslations("shop");
 
   return (
     <div className="mb-6 overflow-x-auto">
       <Tabs
-        selectedKey={selectedCategory || "all"}
-        onSelectionChange={(key) => {
-          onCategoryChange(key === "all" ? null : (key as ShopCategory));
-        }}
-        variant="underlined"
         classNames={{
-          tabList: "gap-2 w-full relative rounded-none p-0 border-b border-wow-gold/10",
+          tabList:
+            "gap-2 w-full relative rounded-none p-0 border-b border-wow-gold/10",
           cursor: "w-full bg-wow-gold",
           tab: "max-w-fit px-4 h-10",
           tabContent: "group-data-[selected=true]:text-wow-gold text-gray-400",
+        }}
+        selectedKey={selectedCategory || "all"}
+        variant="underlined"
+        onSelectionChange={(key) => {
+          onCategoryChange(key === "all" ? null : (key as ShopCategory));
         }}
       >
         <Tab key="all" title={t("allItems")} />

@@ -20,6 +20,7 @@ export default function AdminNewItemPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
       if (res.ok) {
         router.push(`/${locale}/admin/items`);
       }
@@ -30,8 +31,10 @@ export default function AdminNewItemPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-heading text-gray-100 mb-6">{t("addItem")}</h1>
-      <ItemForm onSubmit={handleSubmit} loading={loading} />
+      <h1 className="text-2xl font-heading text-gray-100 mb-6">
+        {t("addItem")}
+      </h1>
+      <ItemForm loading={loading} onSubmit={handleSubmit} />
     </div>
   );
 }

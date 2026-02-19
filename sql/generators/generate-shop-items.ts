@@ -18,6 +18,7 @@
 
 import fs from "fs";
 import path from "path";
+
 import mysql from "mysql2/promise";
 
 // ── Config ──────────────────────────────────────────────────────────────────
@@ -55,7 +56,14 @@ interface ItemRow {
   name_de?: string;
 }
 
-type ShopCategory = "bags" | "heirlooms" | "transmog" | "mounts" | "tabards" | "pets" | "toys";
+type ShopCategory =
+  | "bags"
+  | "heirlooms"
+  | "transmog"
+  | "mounts"
+  | "tabards"
+  | "pets"
+  | "toys";
 
 interface ShopEntry {
   category: ShopCategory;
@@ -114,6 +122,7 @@ const CATEGORIES: CategoryDef[] = [
     priceFormula: (item) => {
       // Price based on slot count: ~10 shards per slot above 14
       const base = (item.ContainerSlots - 14) * 15;
+
       return Math.max(50, Math.round(base / 10) * 10);
     },
     descriptionEn: (item) => `${item.ContainerSlots}-slot bag`,
@@ -139,54 +148,100 @@ const CATEGORIES: CategoryDef[] = [
     `,
     priceFormula: (item) => {
       // Weapons: 250-300, Armor: 200, Trinkets: 180
-      if (item.class === 2) return item.subclass === 1 || item.subclass === 5 || item.subclass === 6 || item.subclass === 8 || item.subclass === 10 ? 300 : 250; // 2H vs 1H
+      if (item.class === 2)
+        return item.subclass === 1 ||
+          item.subclass === 5 ||
+          item.subclass === 6 ||
+          item.subclass === 8 ||
+          item.subclass === 10
+          ? 300
+          : 250; // 2H vs 1H
       if (item.class === 4 && item.InventoryType === 12) return 180; // trinket
+
       return 200; // shoulders/chest
     },
     descriptionEn: (item) => {
       const slotNames: Record<number, string> = {
-        1: "Head", 3: "Shoulder", 5: "Chest", 12: "Trinket",
-        13: "One-Hand", 14: "Shield", 15: "Ranged", 17: "Two-Hand",
-        21: "Main Hand", 22: "Off Hand", 23: "Held In Off-hand",
-        25: "Thrown", 26: "Ranged",
+        1: "Head",
+        3: "Shoulder",
+        5: "Chest",
+        12: "Trinket",
+        13: "One-Hand",
+        14: "Shield",
+        15: "Ranged",
+        17: "Two-Hand",
+        21: "Main Hand",
+        22: "Off Hand",
+        23: "Held In Off-hand",
+        25: "Thrown",
+        26: "Ranged",
       };
       const slot = slotNames[item.InventoryType] || "";
+
       return `Heirloom ${slot} — scales to 80`.trim();
     },
     descriptionFr: (item) => {
       const slotNames: Record<number, string> = {
-        1: "Tête", 3: "Épaules", 5: "Torse", 12: "Bijou",
-        13: "Une main", 15: "À distance", 17: "Deux mains",
-        21: "Main droite", 26: "À distance",
+        1: "Tête",
+        3: "Épaules",
+        5: "Torse",
+        12: "Bijou",
+        13: "Une main",
+        15: "À distance",
+        17: "Deux mains",
+        21: "Main droite",
+        26: "À distance",
       };
       const slot = slotNames[item.InventoryType] || "";
+
       return `Héritage ${slot} — évolue jusqu'à 80`.trim();
     },
     descriptionEs: (item) => {
       const slotNames: Record<number, string> = {
-        1: "Cabeza", 3: "Hombros", 5: "Pecho", 12: "Abalorio",
-        13: "Una mano", 15: "A distancia", 17: "Dos manos",
-        21: "Mano derecha", 26: "A distancia",
+        1: "Cabeza",
+        3: "Hombros",
+        5: "Pecho",
+        12: "Abalorio",
+        13: "Una mano",
+        15: "A distancia",
+        17: "Dos manos",
+        21: "Mano derecha",
+        26: "A distancia",
       };
       const slot = slotNames[item.InventoryType] || "";
+
       return `Reliquia ${slot} — escala hasta 80`.trim();
     },
     descriptionDe: (item) => {
       const slotNames: Record<number, string> = {
-        1: "Kopf", 3: "Schultern", 5: "Brust", 12: "Schmuck",
-        13: "Einhand", 15: "Distanz", 17: "Zweihand",
-        21: "Waffenhand", 26: "Distanz",
+        1: "Kopf",
+        3: "Schultern",
+        5: "Brust",
+        12: "Schmuck",
+        13: "Einhand",
+        15: "Distanz",
+        17: "Zweihand",
+        21: "Waffenhand",
+        26: "Distanz",
       };
       const slot = slotNames[item.InventoryType] || "";
+
       return `Erbstück ${slot} — skaliert bis 80`.trim();
     },
     descriptionIt: (item) => {
       const slotNames: Record<number, string> = {
-        1: "Testa", 3: "Spalle", 5: "Petto", 12: "Monile",
-        13: "Una mano", 15: "A distanza", 17: "Due mani",
-        21: "Mano principale", 26: "A distanza",
+        1: "Testa",
+        3: "Spalle",
+        5: "Petto",
+        12: "Monile",
+        13: "Una mano",
+        15: "A distanza",
+        17: "Due mani",
+        21: "Mano principale",
+        26: "A distanza",
       };
       const slot = slotNames[item.InventoryType] || "";
+
       return `Cimelio ${slot} — scala fino a 80`.trim();
     },
     refundable: true,
@@ -207,6 +262,7 @@ const CATEGORIES: CategoryDef[] = [
     priceFormula: (item) => {
       if (item.Quality === 5) return 5000; // Legendary
       if (item.Quality === 4) return 2000; // Epic
+
       return 800; // Rare
     },
     descriptionEn: () => "Mount",
@@ -233,6 +289,7 @@ const CATEGORIES: CategoryDef[] = [
     priceFormula: (item) => {
       if (item.Quality >= 4) return 150;
       if (item.Quality >= 3) return 100;
+
       return 80;
     },
     descriptionEn: () => "Cosmetic tabard",
@@ -258,6 +315,7 @@ const CATEGORIES: CategoryDef[] = [
     priceFormula: (item) => {
       if (item.Quality >= 4) return 500;
       if (item.Quality >= 3) return 300;
+
       return 100;
     },
     descriptionEn: () => "Companion pet",
@@ -304,6 +362,7 @@ const CATEGORIES: CategoryDef[] = [
     priceFormula: (item) => {
       if (item.Quality >= 4) return 250;
       if (item.Quality >= 3) return 150;
+
       return 100;
     },
     descriptionEn: () => "Fun item",
@@ -324,19 +383,99 @@ const CATEGORIES: CategoryDef[] = [
 type Locale5 = "en" | "fr" | "es" | "de" | "it";
 
 const TRANSMOG_CLASS_NAMES: Record<Locale5, Record<string, string>> = {
-  en: { Warrior: "Warrior", Mage: "Mage", Rogue: "Rogue", Druid: "Druid", Paladin: "Paladin", Warlock: "Warlock", Hunter: "Hunter", Priest: "Priest", Shaman: "Shaman" },
-  fr: { Warrior: "Guerrier", Mage: "Mage", Rogue: "Voleur", Druid: "Druide", Paladin: "Paladin", Warlock: "Démoniste", Hunter: "Chasseur", Priest: "Prêtre", Shaman: "Chaman" },
-  es: { Warrior: "Guerrero", Mage: "Mago", Rogue: "Pícaro", Druid: "Druida", Paladin: "Paladín", Warlock: "Brujo", Hunter: "Cazador", Priest: "Sacerdote", Shaman: "Chamán" },
-  de: { Warrior: "Krieger", Mage: "Magier", Rogue: "Schurke", Druid: "Druide", Paladin: "Paladin", Warlock: "Hexenmeister", Hunter: "Jäger", Priest: "Priester", Shaman: "Schamane" },
-  it: { Warrior: "Guerriero", Mage: "Mago", Rogue: "Ladro", Druid: "Druido", Paladin: "Paladino", Warlock: "Stregone", Hunter: "Cacciatore", Priest: "Sacerdote", Shaman: "Sciamano" },
+  en: {
+    Warrior: "Warrior",
+    Mage: "Mage",
+    Rogue: "Rogue",
+    Druid: "Druid",
+    Paladin: "Paladin",
+    Warlock: "Warlock",
+    Hunter: "Hunter",
+    Priest: "Priest",
+    Shaman: "Shaman",
+  },
+  fr: {
+    Warrior: "Guerrier",
+    Mage: "Mage",
+    Rogue: "Voleur",
+    Druid: "Druide",
+    Paladin: "Paladin",
+    Warlock: "Démoniste",
+    Hunter: "Chasseur",
+    Priest: "Prêtre",
+    Shaman: "Chaman",
+  },
+  es: {
+    Warrior: "Guerrero",
+    Mage: "Mago",
+    Rogue: "Pícaro",
+    Druid: "Druida",
+    Paladin: "Paladín",
+    Warlock: "Brujo",
+    Hunter: "Cazador",
+    Priest: "Sacerdote",
+    Shaman: "Chamán",
+  },
+  de: {
+    Warrior: "Krieger",
+    Mage: "Magier",
+    Rogue: "Schurke",
+    Druid: "Druide",
+    Paladin: "Paladin",
+    Warlock: "Hexenmeister",
+    Hunter: "Jäger",
+    Priest: "Priester",
+    Shaman: "Schamane",
+  },
+  it: {
+    Warrior: "Guerriero",
+    Mage: "Mago",
+    Rogue: "Ladro",
+    Druid: "Druido",
+    Paladin: "Paladino",
+    Warlock: "Stregone",
+    Hunter: "Cacciatore",
+    Priest: "Sacerdote",
+    Shaman: "Sciamano",
+  },
 };
 
 const TRANSMOG_SLOT_NAMES: Record<Locale5, Record<string, string>> = {
-  en: { Head: "Head", Chest: "Chest", Legs: "Legs", Shoulders: "Shoulders", Hands: "Hands" },
-  fr: { Head: "Casque", Chest: "Plastron", Legs: "Jambières", Shoulders: "Épaulières", Hands: "Gants" },
-  es: { Head: "Cabeza", Chest: "Pecho", Legs: "Piernas", Shoulders: "Hombros", Hands: "Manos" },
-  de: { Head: "Kopf", Chest: "Brust", Legs: "Beine", Shoulders: "Schultern", Hands: "Hände" },
-  it: { Head: "Testa", Chest: "Petto", Legs: "Gambe", Shoulders: "Spalle", Hands: "Mani" },
+  en: {
+    Head: "Head",
+    Chest: "Chest",
+    Legs: "Legs",
+    Shoulders: "Shoulders",
+    Hands: "Hands",
+  },
+  fr: {
+    Head: "Casque",
+    Chest: "Plastron",
+    Legs: "Jambières",
+    Shoulders: "Épaulières",
+    Hands: "Gants",
+  },
+  es: {
+    Head: "Cabeza",
+    Chest: "Pecho",
+    Legs: "Piernas",
+    Shoulders: "Hombros",
+    Hands: "Manos",
+  },
+  de: {
+    Head: "Kopf",
+    Chest: "Brust",
+    Legs: "Beine",
+    Shoulders: "Schultern",
+    Hands: "Hände",
+  },
+  it: {
+    Head: "Testa",
+    Chest: "Petto",
+    Legs: "Gambe",
+    Shoulders: "Spalle",
+    Hands: "Mani",
+  },
 };
 
 /** Translate a transmog description key like "t3:Warrior:Head" into localized text */
@@ -345,33 +484,48 @@ function transmogDesc(key: string, locale: Locale5): string {
     const [, className, slot] = key.split(":");
     const cls = TRANSMOG_CLASS_NAMES[locale][className] || className;
     const sl = TRANSMOG_SLOT_NAMES[locale][slot] || slot;
+
     return `${cls} T3 ${sl} — Naxx 40`;
   }
   // Legendary / special items — keyed by English description
   const legendaryMap: Record<string, Record<Locale5, string>> = {
     "Legendary 1H Sword": {
-      en: "Legendary 1H Sword", fr: "Épée 1M Légendaire", es: "Espada 1M legendaria",
-      de: "Legendäres 1H-Schwert", it: "Spada 1M leggendaria",
+      en: "Legendary 1H Sword",
+      fr: "Épée 1M Légendaire",
+      es: "Espada 1M legendaria",
+      de: "Legendäres 1H-Schwert",
+      it: "Spada 1M leggendaria",
     },
     "Legendary 2H Mace": {
-      en: "Legendary 2H Mace", fr: "Masse 2M Légendaire", es: "Maza 2M legendaria",
-      de: "Legendäre 2H-Keule", it: "Mazza 2M leggendaria",
+      en: "Legendary 2H Mace",
+      fr: "Masse 2M Légendaire",
+      es: "Maza 2M legendaria",
+      de: "Legendäre 2H-Keule",
+      it: "Mazza 2M leggendaria",
     },
     "Legendary Staff": {
-      en: "Legendary Staff", fr: "Bâton Légendaire", es: "Bastón legendario",
-      de: "Legendärer Stab", it: "Bastone leggendario",
+      en: "Legendary Staff",
+      fr: "Bâton Légendaire",
+      es: "Bastón legendario",
+      de: "Legendärer Stab",
+      it: "Bastone leggendario",
     },
     "Warglaive (MH)": {
-      en: "Illidan's Warglaive (MH)", fr: "Glaive d'Illidan (Main droite)",
-      es: "Guja de guerra de Illidan (Mano derecha)", de: "Illidans Kriegsgleve (Waffenhand)",
+      en: "Illidan's Warglaive (MH)",
+      fr: "Glaive d'Illidan (Main droite)",
+      es: "Guja de guerra de Illidan (Mano derecha)",
+      de: "Illidans Kriegsgleve (Waffenhand)",
       it: "Lama da guerra di Illidan (Mano principale)",
     },
     "Warglaive (OH)": {
-      en: "Illidan's Warglaive (OH)", fr: "Glaive d'Illidan (Main gauche)",
-      es: "Guja de guerra de Illidan (Mano izquierda)", de: "Illidans Kriegsgleve (Schildhand)",
+      en: "Illidan's Warglaive (OH)",
+      fr: "Glaive d'Illidan (Main gauche)",
+      es: "Guja de guerra de Illidan (Mano izquierda)",
+      de: "Illidans Kriegsgleve (Schildhand)",
       it: "Lama da guerra di Illidan (Mano secondaria)",
     },
   };
+
   return legendaryMap[key]?.[locale] || key;
 }
 
@@ -386,42 +540,224 @@ const TRANSMOG_ENTRIES: {
   minLevel: number;
 }[] = [
   // Legendaries (Vanilla: min_level 60)
-  { entry: 19019, descKey: "Legendary 1H Sword", price: 2000, classIds: null, highlighted: true, minLevel: 60 },
-  { entry: 17182, descKey: "Legendary 2H Mace",  price: 2000, classIds: null, highlighted: true, minLevel: 60 },
-  { entry: 22589, descKey: "Legendary Staff",     price: 2500, classIds: null, highlighted: true, minLevel: 60 },
+  {
+    entry: 19019,
+    descKey: "Legendary 1H Sword",
+    price: 2000,
+    classIds: null,
+    highlighted: true,
+    minLevel: 60,
+  },
+  {
+    entry: 17182,
+    descKey: "Legendary 2H Mace",
+    price: 2000,
+    classIds: null,
+    highlighted: true,
+    minLevel: 60,
+  },
+  {
+    entry: 22589,
+    descKey: "Legendary Staff",
+    price: 2500,
+    classIds: null,
+    highlighted: true,
+    minLevel: 60,
+  },
   // Warglaives (TBC: min_level 70)
-  { entry: 32837, descKey: "Warglaive (MH)", price: 1500, classIds: null, highlighted: false, minLevel: 70 },
-  { entry: 32838, descKey: "Warglaive (OH)", price: 1500, classIds: null, highlighted: false, minLevel: 70 },
+  {
+    entry: 32837,
+    descKey: "Warglaive (MH)",
+    price: 1500,
+    classIds: null,
+    highlighted: false,
+    minLevel: 70,
+  },
+  {
+    entry: 32838,
+    descKey: "Warglaive (OH)",
+    price: 1500,
+    classIds: null,
+    highlighted: false,
+    minLevel: 70,
+  },
   // T3 Warrior (Vanilla: min_level 60)
-  { entry: 22416, descKey: "t3:Warrior:Head",      price: 500, classIds: [1], highlighted: false, minLevel: 60 },
-  { entry: 22418, descKey: "t3:Warrior:Chest",     price: 500, classIds: [1], highlighted: false, minLevel: 60 },
-  { entry: 22419, descKey: "t3:Warrior:Legs",      price: 500, classIds: [1], highlighted: false, minLevel: 60 },
-  { entry: 22420, descKey: "t3:Warrior:Shoulders", price: 500, classIds: [1], highlighted: false, minLevel: 60 },
-  { entry: 22421, descKey: "t3:Warrior:Hands",     price: 400, classIds: [1], highlighted: false, minLevel: 60 },
+  {
+    entry: 22416,
+    descKey: "t3:Warrior:Head",
+    price: 500,
+    classIds: [1],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22418,
+    descKey: "t3:Warrior:Chest",
+    price: 500,
+    classIds: [1],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22419,
+    descKey: "t3:Warrior:Legs",
+    price: 500,
+    classIds: [1],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22420,
+    descKey: "t3:Warrior:Shoulders",
+    price: 500,
+    classIds: [1],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22421,
+    descKey: "t3:Warrior:Hands",
+    price: 400,
+    classIds: [1],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Mage (Vanilla: min_level 60)
-  { entry: 22496, descKey: "t3:Mage:Chest",     price: 500, classIds: [8], highlighted: false, minLevel: 60 },
-  { entry: 22497, descKey: "t3:Mage:Head",      price: 500, classIds: [8], highlighted: false, minLevel: 60 },
-  { entry: 22498, descKey: "t3:Mage:Legs",      price: 500, classIds: [8], highlighted: false, minLevel: 60 },
-  { entry: 22499, descKey: "t3:Mage:Shoulders", price: 500, classIds: [8], highlighted: false, minLevel: 60 },
-  { entry: 22500, descKey: "t3:Mage:Hands",     price: 400, classIds: [8], highlighted: false, minLevel: 60 },
+  {
+    entry: 22496,
+    descKey: "t3:Mage:Chest",
+    price: 500,
+    classIds: [8],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22497,
+    descKey: "t3:Mage:Head",
+    price: 500,
+    classIds: [8],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22498,
+    descKey: "t3:Mage:Legs",
+    price: 500,
+    classIds: [8],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22499,
+    descKey: "t3:Mage:Shoulders",
+    price: 500,
+    classIds: [8],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22500,
+    descKey: "t3:Mage:Hands",
+    price: 400,
+    classIds: [8],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Rogue (Vanilla: min_level 60)
-  { entry: 22476, descKey: "t3:Rogue:Chest",     price: 500, classIds: [4], highlighted: false, minLevel: 60 },
-  { entry: 22477, descKey: "t3:Rogue:Head",      price: 500, classIds: [4], highlighted: false, minLevel: 60 },
-  { entry: 22478, descKey: "t3:Rogue:Legs",      price: 500, classIds: [4], highlighted: false, minLevel: 60 },
-  { entry: 22479, descKey: "t3:Rogue:Shoulders", price: 500, classIds: [4], highlighted: false, minLevel: 60 },
-  { entry: 22480, descKey: "t3:Rogue:Hands",     price: 400, classIds: [4], highlighted: false, minLevel: 60 },
+  {
+    entry: 22476,
+    descKey: "t3:Rogue:Chest",
+    price: 500,
+    classIds: [4],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22477,
+    descKey: "t3:Rogue:Head",
+    price: 500,
+    classIds: [4],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22478,
+    descKey: "t3:Rogue:Legs",
+    price: 500,
+    classIds: [4],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22479,
+    descKey: "t3:Rogue:Shoulders",
+    price: 500,
+    classIds: [4],
+    highlighted: false,
+    minLevel: 60,
+  },
+  {
+    entry: 22480,
+    descKey: "t3:Rogue:Hands",
+    price: 400,
+    classIds: [4],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Druid (Vanilla: min_level 60)
-  { entry: 22512, descKey: "t3:Druid:Chest",   price: 500, classIds: [11], highlighted: false, minLevel: 60 },
+  {
+    entry: 22512,
+    descKey: "t3:Druid:Chest",
+    price: 500,
+    classIds: [11],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Paladin (Vanilla: min_level 60)
-  { entry: 22425, descKey: "t3:Paladin:Chest",  price: 500, classIds: [2], highlighted: false, minLevel: 60 },
+  {
+    entry: 22425,
+    descKey: "t3:Paladin:Chest",
+    price: 500,
+    classIds: [2],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Warlock (Vanilla: min_level 60)
-  { entry: 22464, descKey: "t3:Warlock:Chest",  price: 500, classIds: [9], highlighted: false, minLevel: 60 },
+  {
+    entry: 22464,
+    descKey: "t3:Warlock:Chest",
+    price: 500,
+    classIds: [9],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Hunter (Vanilla: min_level 60)
-  { entry: 22504, descKey: "t3:Hunter:Chest",   price: 500, classIds: [3], highlighted: false, minLevel: 60 },
+  {
+    entry: 22504,
+    descKey: "t3:Hunter:Chest",
+    price: 500,
+    classIds: [3],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Priest (Vanilla: min_level 60)
-  { entry: 22515, descKey: "t3:Priest:Chest",   price: 500, classIds: [5], highlighted: false, minLevel: 60 },
+  {
+    entry: 22515,
+    descKey: "t3:Priest:Chest",
+    price: 500,
+    classIds: [5],
+    highlighted: false,
+    minLevel: 60,
+  },
   // T3 Shaman (Vanilla: min_level 60)
-  { entry: 22488, descKey: "t3:Shaman:Chest",   price: 500, classIds: [7], highlighted: false, minLevel: 60 },
+  {
+    entry: 22488,
+    descKey: "t3:Shaman:Chest",
+    price: 500,
+    classIds: [7],
+    highlighted: false,
+    minLevel: 60,
+  },
 ];
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -443,6 +779,7 @@ async function fetchIconName(entry: number): Promise<string | null> {
 
     if (!res.ok) {
       iconCache.set(entry, null);
+
       return null;
     }
 
@@ -451,6 +788,7 @@ async function fetchIconName(entry: number): Promise<string | null> {
 
     if (icon) {
       iconCache.set(entry, icon);
+
       return icon;
     }
   } catch {
@@ -458,6 +796,7 @@ async function fetchIconName(entry: number): Promise<string | null> {
   }
 
   iconCache.set(entry, null);
+
   return null;
 }
 
@@ -478,6 +817,7 @@ function factionFromRaceMask(mask: number): "alliance" | "horde" | "both" {
   if (hasAlliance && hasHorde) return "both";
   if (hasAlliance) return "alliance";
   if (hasHorde) return "horde";
+
   return "both";
 }
 
@@ -487,17 +827,32 @@ function classIdsFromMask(mask: number): number[] | null {
   // Class bits: 1=Warrior(1), 2=Paladin(2), 3=Hunter(4), 4=Rogue(8), 5=Priest(16),
   // 6=DK(32), 7=Shaman(64), 8=Mage(128), 9=Warlock(256), 11=Druid(1024)
   const classMap: Record<number, number> = {
-    1: 1, 2: 2, 4: 3, 8: 4, 16: 5, 32: 6, 64: 7, 128: 8, 256: 9, 1024: 11,
+    1: 1,
+    2: 2,
+    4: 3,
+    8: 4,
+    16: 5,
+    32: 6,
+    64: 7,
+    128: 8,
+    256: 9,
+    1024: 11,
   };
+
   for (const [bit, classId] of Object.entries(classMap)) {
     if (mask & parseInt(bit)) classes.push(classId);
   }
+
   return classes.length > 0 && classes.length < 10 ? classes : null;
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────
 
-const OUTPUT_FILE = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, "$1")), "output", "shop-items.sql");
+const OUTPUT_FILE = path.join(
+  path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, "$1")),
+  "output",
+  "shop-items.sql",
+);
 
 async function main() {
   const pool = mysql.createPool({
@@ -509,12 +864,16 @@ async function main() {
   const lines: string[] = [];
   const out = (line = "") => lines.push(line);
 
-  out("-- =============================================================================");
+  out(
+    "-- =============================================================================",
+  );
   out("-- Shop Items Seed — Auto-generated from item_template");
   out(`-- Generated: ${new Date().toISOString()}`);
   out("-- Database: lordaeron_website");
   out("-- Pricing: 100 Soul Shards = 1 EUR");
-  out("-- =============================================================================");
+  out(
+    "-- =============================================================================",
+  );
   out();
   out("SET FOREIGN_KEY_CHECKS = 0;");
   out("DELETE FROM shop_items WHERE category != 'services';");
@@ -528,7 +887,10 @@ async function main() {
   for (const def of CATEGORIES) {
     process.stderr.write(`\n[${def.category}] Querying item_template...\n`);
 
-    const [rows] = await pool.execute<mysql.RowDataPacket[]>(def.query, def.params);
+    const [rows] = await pool.execute<mysql.RowDataPacket[]>(
+      def.query,
+      def.params,
+    );
     let items = rows as ItemRow[];
 
     if (def.limit && items.length > def.limit) {
@@ -550,7 +912,12 @@ async function main() {
 
       // Build locale map
       const localeMap = new Map<string, string>();
-      for (const row of localeRows as { entry: number; locale: string; Name: string }[]) {
+
+      for (const row of localeRows as {
+        entry: number;
+        locale: string;
+        Name: string;
+      }[]) {
         localeMap.set(`${row.entry}_${row.locale}`, row.Name || "");
       }
 
@@ -563,9 +930,12 @@ async function main() {
 
     // Fetch icons from wowhead
     for (const item of items) {
-      process.stderr.write(`  Fetching icon for [${item.entry}] ${item.name}...`);
+      process.stderr.write(
+        `  Fetching icon for [${item.entry}] ${item.name}...`,
+      );
       const icon = await fetchIconName(item.entry);
       const iconUrl = icon ? `${ICON_CDN}${icon}.jpg` : null;
+
       process.stderr.write(icon ? ` ${icon}\n` : " (none)\n");
 
       const faction = factionFromRaceMask(item.AllowableRace);
@@ -591,7 +961,9 @@ async function main() {
         is_highlighted: def.highlighted ? def.highlighted(item) : false,
         is_refundable: def.refundable,
         min_level: 0,
-        sort_order: def.sortBase + allEntries.filter((e) => e.category === def.category).length * 10,
+        sort_order:
+          def.sortBase +
+          allEntries.filter((e) => e.category === def.category).length * 10,
         icon_url: iconUrl,
         quality: item.Quality,
       });
@@ -605,6 +977,7 @@ async function main() {
   process.stderr.write("\n[transmog] Querying curated entries...\n");
 
   const transmogEntries = TRANSMOG_ENTRIES.map((t) => t.entry);
+
   if (transmogEntries.length > 0) {
     const placeholders = transmogEntries.map(() => "?").join(",");
 
@@ -617,6 +990,7 @@ async function main() {
     );
 
     const tmItems = new Map<number, ItemRow>();
+
     for (const row of tmRows as ItemRow[]) {
       tmItems.set(row.entry, row);
     }
@@ -630,21 +1004,33 @@ async function main() {
     );
 
     const tmLocaleMap = new Map<string, string>();
-    for (const row of tmLocaleRows as { entry: number; locale: string; Name: string }[]) {
+
+    for (const row of tmLocaleRows as {
+      entry: number;
+      locale: string;
+      Name: string;
+    }[]) {
       tmLocaleMap.set(`${row.entry}_${row.locale}`, row.Name || "");
     }
 
     let sortIdx = 0;
+
     for (const def of TRANSMOG_ENTRIES) {
       const item = tmItems.get(def.entry);
+
       if (!item) {
-        process.stderr.write(`  [SKIP] Entry ${def.entry} not found in item_template\n`);
+        process.stderr.write(
+          `  [SKIP] Entry ${def.entry} not found in item_template\n`,
+        );
         continue;
       }
 
-      process.stderr.write(`  Fetching icon for [${def.entry}] ${item.name}...`);
+      process.stderr.write(
+        `  Fetching icon for [${def.entry}] ${item.name}...`,
+      );
       const icon = await fetchIconName(def.entry);
       const iconUrl = icon ? `${ICON_CDN}${icon}.jpg` : null;
+
       process.stderr.write(icon ? ` ${icon}\n` : " (none)\n");
 
       allEntries.push({
@@ -681,30 +1067,51 @@ async function main() {
 
   // Group by category for readability
   const grouped = new Map<ShopCategory, ShopEntry[]>();
+
   for (const entry of allEntries) {
     const list = grouped.get(entry.category) || [];
+
     list.push(entry);
     grouped.set(entry.category, list);
   }
 
-  const categoryOrder: ShopCategory[] = ["bags", "heirlooms", "transmog", "mounts", "tabards", "pets", "toys"];
+  const categoryOrder: ShopCategory[] = [
+    "bags",
+    "heirlooms",
+    "transmog",
+    "mounts",
+    "tabards",
+    "pets",
+    "toys",
+  ];
 
   for (const cat of categoryOrder) {
     const entries = grouped.get(cat);
+
     if (!entries || entries.length === 0) continue;
 
-    out(`-- ─────────────────────────────────────────────────────────────────────────────`);
+    out(
+      `-- ─────────────────────────────────────────────────────────────────────────────`,
+    );
     out(`-- ${cat.toUpperCase()} (${entries.length} items)`);
-    out(`-- ─────────────────────────────────────────────────────────────────────────────`);
+    out(
+      `-- ─────────────────────────────────────────────────────────────────────────────`,
+    );
 
     for (const e of entries) {
-      const classIdsStr = e.class_ids ? `'${JSON.stringify(e.class_ids)}'` : "NULL";
+      const classIdsStr = e.class_ids
+        ? `'${JSON.stringify(e.class_ids)}'`
+        : "NULL";
       const iconStr = e.icon_url ? `'${escSql(e.icon_url)}'` : "NULL";
 
       const qualityStr = e.quality != null ? String(e.quality) : "NULL";
 
-      out(`INSERT INTO shop_items (category, item_id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, quality, is_highlighted, is_active, is_refundable, min_level, sort_order) VALUES`);
-      out(`  ('${e.category}', ${e.entry}, '${escSql(e.name_en)}', '${escSql(e.name_fr)}', '${escSql(e.name_es)}', '${escSql(e.name_de)}', '${escSql(e.name_it)}', '${escSql(e.description_en)}', '${escSql(e.description_fr)}', '${escSql(e.description_es)}', '${escSql(e.description_de)}', '${escSql(e.description_it)}', ${e.price}, ${e.discount_percentage}, ${classIdsStr}, '${e.faction}', ${iconStr}, ${qualityStr}, ${e.is_highlighted ? 1 : 0}, 1, ${e.is_refundable ? 1 : 0}, ${e.min_level}, ${e.sort_order});`);
+      out(
+        `INSERT INTO shop_items (category, item_id, name_en, name_fr, name_es, name_de, name_it, description_en, description_fr, description_es, description_de, description_it, price, discount_percentage, class_ids, faction, icon_url, quality, is_highlighted, is_active, is_refundable, min_level, sort_order) VALUES`,
+      );
+      out(
+        `  ('${e.category}', ${e.entry}, '${escSql(e.name_en)}', '${escSql(e.name_fr)}', '${escSql(e.name_es)}', '${escSql(e.name_de)}', '${escSql(e.name_it)}', '${escSql(e.description_en)}', '${escSql(e.description_fr)}', '${escSql(e.description_es)}', '${escSql(e.description_de)}', '${escSql(e.description_it)}', ${e.price}, ${e.discount_percentage}, ${classIdsStr}, '${e.faction}', ${iconStr}, ${qualityStr}, ${e.is_highlighted ? 1 : 0}, 1, ${e.is_refundable ? 1 : 0}, ${e.min_level}, ${e.sort_order});`,
+      );
     }
 
     out();
@@ -712,7 +1119,9 @@ async function main() {
 
   // Write file as UTF-8
   fs.writeFileSync(OUTPUT_FILE, lines.join("\n"), "utf-8");
-  process.stderr.write(`\nDone! ${allEntries.length} items written to ${OUTPUT_FILE}\n`);
+  process.stderr.write(
+    `\nDone! ${allEntries.length} items written to ${OUTPUT_FILE}\n`,
+  );
 
   await pool.end();
 }

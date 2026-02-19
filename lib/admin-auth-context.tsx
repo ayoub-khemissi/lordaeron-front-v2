@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 
 interface AdminUser {
   id: number;
@@ -33,6 +39,7 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await fetch("/api/admin/auth/me");
       const data = await res.json();
+
       setAdmin(data.admin || null);
     } catch {
       setAdmin(null);

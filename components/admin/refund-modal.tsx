@@ -1,11 +1,18 @@
 "use client";
 
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import type { ShopPurchaseWithItem } from "@/types";
+
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Button } from "@heroui/button";
 import { useLocale, useTranslations } from "next-intl";
 
 import { getLocalizedName } from "@/lib/shop-utils";
-import type { ShopPurchaseWithItem } from "@/types";
 
 interface RefundModalProps {
   purchase: ShopPurchaseWithItem | null;
@@ -16,13 +23,24 @@ interface RefundModalProps {
   error: string | null;
 }
 
-export function RefundModal({ purchase, isOpen, onClose, onConfirm, loading, error }: RefundModalProps) {
+export function RefundModal({
+  purchase,
+  isOpen,
+  onClose,
+  onConfirm,
+  loading,
+  error,
+}: RefundModalProps) {
   const t = useTranslations("admin.purchases");
   const tc = useTranslations("admin.common");
   const locale = useLocale();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} classNames={{ base: "bg-[#161b22] border border-gray-800" }}>
+    <Modal
+      classNames={{ base: "bg-[#161b22] border border-gray-800" }}
+      isOpen={isOpen}
+      onClose={onClose}
+    >
       <ModalContent>
         {purchase && (
           <>
@@ -30,20 +48,34 @@ export function RefundModal({ purchase, isOpen, onClose, onConfirm, loading, err
             <ModalBody>
               <div className="space-y-2 text-sm text-gray-300">
                 <p>#{purchase.id}</p>
-                <p>{t("item")}: {getLocalizedName(purchase, locale, "item_name")}</p>
-                <p>{t("character")}: {purchase.character_name}</p>
-                <p>{t("price")}: {purchase.price_paid} Soul Shards</p>
+                <p>
+                  {t("item")}: {getLocalizedName(purchase, locale, "item_name")}
+                </p>
+                <p>
+                  {t("character")}: {purchase.character_name}
+                </p>
+                <p>
+                  {t("price")}: {purchase.price_paid} Soul Shards
+                </p>
               </div>
               {error && (
-                <p className="text-red-400 text-sm mt-3">{t(`reason_${error}`)}</p>
+                <p className="text-red-400 text-sm mt-3">
+                  {t(`reason_${error}`)}
+                </p>
               )}
             </ModalBody>
             <ModalFooter>
-              <Button variant="light" onPress={onClose} className="text-gray-400">{tc("cancel")}</Button>
               <Button
-                onPress={onConfirm}
-                isLoading={loading}
+                className="text-gray-400"
+                variant="light"
+                onPress={onClose}
+              >
+                {tc("cancel")}
+              </Button>
+              <Button
                 className="bg-orange-500 text-white font-bold"
+                isLoading={loading}
+                onPress={onConfirm}
               >
                 {t("refund")}
               </Button>

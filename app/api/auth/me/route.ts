@@ -5,6 +5,7 @@ import { verifySession } from "@/lib/auth";
 export async function GET() {
   try {
     const session = await verifySession();
+
     if (!session) {
       return NextResponse.json({ user: null }, { status: 401 });
     }

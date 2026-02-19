@@ -3,6 +3,7 @@
 import { Link } from "@heroui/link";
 import { useTranslations, useLocale } from "next-intl";
 import NextLink from "next/link";
+
 import { DiscordIcon } from "@/components/icons";
 import { useAuth } from "@/lib/auth-context";
 
@@ -52,8 +53,8 @@ export const Footer = () => {
                 ].map((link) => (
                   <li key={link.href}>
                     <NextLink
-                      href={link.href}
                       className="text-gray-400 hover:text-wow-gold text-sm transition-colors"
+                      href={link.href}
                     >
                       {link.label}
                     </NextLink>
@@ -68,8 +69,8 @@ export const Footer = () => {
               </h4>
               <Link
                 isExternal
-                href="https://discord.gg/MqTzu6Qhn3"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-[#5865F2] text-sm transition-colors"
+                href="https://discord.gg/MqTzu6Qhn3"
               >
                 <DiscordIcon className="w-5 h-5" />
                 Discord

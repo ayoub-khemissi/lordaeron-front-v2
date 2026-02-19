@@ -1,10 +1,24 @@
 "use client";
 
+import type {
+  ShopItemLocalized,
+  ShopSetLocalized,
+  Character,
+  ShopCategory,
+  ShopPurchaseWithItem,
+} from "@/types";
+
 import { useState, useEffect, useCallback } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Spinner } from "@heroui/spinner";
 import { Tabs, Tab } from "@heroui/tabs";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Button } from "@heroui/button";
 import Image from "next/image";
 
@@ -15,14 +29,12 @@ import { CategoryNav } from "@/components/shop/category-nav";
 import { ItemGrid } from "@/components/shop/item-grid";
 import { SetGrid } from "@/components/shop/set-grid";
 import { HighlightsCarousel } from "@/components/shop/highlights-carousel";
-
 import { ItemDetailModal } from "@/components/shop/item-detail-modal";
 import { SetDetailModal } from "@/components/shop/set-detail-modal";
 import { PurchaseModal } from "@/components/shop/purchase-modal";
 import { GiftModal } from "@/components/shop/gift-modal";
 import { PurchaseHistory } from "@/components/shop/purchase-history";
 import { CategoryFilterBar } from "@/components/shop/category-filter-bar";
-import type { ShopItemLocalized, ShopSetLocalized, Character, ShopCategory, ShopPurchaseWithItem } from "@/types";
 
 export default function ShopPage() {
   const t = useTranslations("shop");
@@ -32,8 +44,12 @@ export default function ShopPage() {
   const [items, setItems] = useState<ShopItemLocalized[]>([]);
   const [sets, setSets] = useState<ShopSetLocalized[]>([]);
   const [characters, setCharacters] = useState<Character[]>([]);
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<ShopCategory | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
+    null,
+  );
+  const [selectedCategory, setSelectedCategory] = useState<ShopCategory | null>(
+    null,
+  );
   const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -45,7 +61,9 @@ export default function ShopPage() {
 
   // Modal states
   const [detailItem, setDetailItem] = useState<ShopItemLocalized | null>(null);
-  const [purchaseItem, setPurchaseItem] = useState<ShopItemLocalized | null>(null);
+  const [purchaseItem, setPurchaseItem] = useState<ShopItemLocalized | null>(
+    null,
+  );
   const [giftItem, setGiftItem] = useState<ShopItemLocalized | null>(null);
   const [detailSet, setDetailSet] = useState<ShopSetLocalized | null>(null);
   const [purchaseSet, setPurchaseSet] = useState<ShopSetLocalized | null>(null);
@@ -53,9 +71,13 @@ export default function ShopPage() {
   const [purchases, setPurchases] = useState<ShopPurchaseWithItem[]>([]);
 
   // Refund states
-  const [refundTarget, setRefundTarget] = useState<ShopPurchaseWithItem | null>(null);
+  const [refundTarget, setRefundTarget] = useState<ShopPurchaseWithItem | null>(
+    null,
+  );
   const [refundLoading, setRefundLoading] = useState(false);
-  const [refundResult, setRefundResult] = useState<"success" | "error" | null>(null);
+  const [refundResult, setRefundResult] = useState<"success" | "error" | null>(
+    null,
+  );
   const [refundError, setRefundError] = useState("");
 
   const fetchData = useCallback(async () => {
@@ -63,6 +85,7 @@ export default function ShopPage() {
     setLoading(true);
     try {
       const params = new URLSearchParams({ locale });
+
       if (selectedCategory) params.set("category", selectedCategory);
       if (selectedCharacter) {
         params.set("race_id", String(selectedCharacter.race));
@@ -71,6 +94,7 @@ export default function ShopPage() {
       }
 
       const setParams = new URLSearchParams({ locale });
+
       if (selectedCharacter) {
         setParams.set("class_id", String(selectedCharacter.class));
         setParams.set("level", String(selectedCharacter.level));
@@ -89,6 +113,7 @@ export default function ShopPage() {
       const accountData = await accountRes.json();
 
       const chars = charsData.characters || [];
+
       setItems(itemsData.items || []);
       setSets(setsData.sets || []);
       setCharacters(chars);
@@ -112,6 +137,7 @@ export default function ShopPage() {
     try {
       const res = await fetch("/api/shop/purchases");
       const data = await res.json();
+
       setPurchases(data.purchases || []);
     } catch {
       // Silent fail
@@ -126,11 +152,15 @@ export default function ShopPage() {
   useEffect(() => {
     try {
       const saved = localStorage.getItem("lordaeron_shop_prefs");
+
       if (saved) {
         const prefs = JSON.parse(saved);
+
         if (prefs.sortBy) setSortBy(prefs.sortBy);
-        if (typeof prefs.showSets === "boolean") setShowSetFilter(prefs.showSets);
-        if (typeof prefs.showItems === "boolean") setShowItemFilter(prefs.showItems);
+        if (typeof prefs.showSets === "boolean")
+          setShowSetFilter(prefs.showSets);
+        if (typeof prefs.showItems === "boolean")
+          setShowItemFilter(prefs.showItems);
       }
     } catch {
       // Ignore parse errors
@@ -144,7 +174,11 @@ export default function ShopPage() {
     try {
       localStorage.setItem(
         "lordaeron_shop_prefs",
-        JSON.stringify({ sortBy, showSets: showSetFilter, showItems: showItemFilter })
+        JSON.stringify({
+          sortBy,
+          showSets: showSetFilter,
+          showItems: showItemFilter,
+        }),
       );
     } catch {
       // Ignore storage errors
@@ -164,6 +198,7 @@ export default function ShopPage() {
       }),
     });
     const data = await res.json();
+
     if (!res.ok) throw new Error(data.error || "serverError");
     fetchData();
   };
@@ -181,6 +216,7 @@ export default function ShopPage() {
       }),
     });
     const data = await res.json();
+
     if (!res.ok) throw new Error(data.error || "serverError");
     fetchData();
   };
@@ -201,6 +237,7 @@ export default function ShopPage() {
       }),
     });
     const data = await res.json();
+
     if (!res.ok) throw new Error(data.error || "serverError");
     fetchData();
   };
@@ -221,6 +258,7 @@ export default function ShopPage() {
       }),
     });
     const data = await res.json();
+
     if (!res.ok) throw new Error(data.error || "serverError");
     fetchData();
   };
@@ -233,6 +271,7 @@ export default function ShopPage() {
         method: "POST",
       });
       const data = await res.json();
+
       if (!res.ok) {
         setRefundResult("error");
         setRefundError(data.error || "serverError");
@@ -256,7 +295,17 @@ export default function ShopPage() {
   };
 
   // Sort function shared between items and sets
-  const sortFn = <T extends { discounted_price: number; id: number; name: string; quality?: number }>(a: T, b: T) => {
+  const sortFn = <
+    T extends {
+      discounted_price: number;
+      id: number;
+      name: string;
+      quality?: number;
+    },
+  >(
+    a: T,
+    b: T,
+  ) => {
     switch (sortBy) {
       case "price_asc":
         return a.discounted_price - b.discounted_price;
@@ -283,6 +332,7 @@ export default function ShopPage() {
   const filteredItems = items
     .filter((item) => {
       if (!search) return true;
+
       return item.name.toLowerCase().includes(search.toLowerCase());
     })
     .sort(sortFn);
@@ -291,6 +341,7 @@ export default function ShopPage() {
   const filteredSets = sets
     .filter((s) => {
       if (!search) return true;
+
       return s.name.toLowerCase().includes(search.toLowerCase());
     })
     .sort(sortFn);
@@ -352,7 +403,7 @@ export default function ShopPage() {
   if (authLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -360,7 +411,9 @@ export default function ShopPage() {
   if (!user) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-heading wow-gradient-text mb-4">{t("title")}</h1>
+        <h1 className="text-3xl font-heading wow-gradient-text mb-4">
+          {t("title")}
+        </h1>
         <p className="text-gray-400">{t("errors.unauthorized")}</p>
       </div>
     );
@@ -377,15 +430,16 @@ export default function ShopPage() {
       />
 
       <Tabs
-        selectedKey={activeTab}
-        onSelectionChange={(key) => setActiveTab(key as string)}
-        variant="underlined"
         classNames={{
-          tabList: "gap-4 w-full relative rounded-none p-0 border-b border-wow-gold/10 mb-6",
+          tabList:
+            "gap-4 w-full relative rounded-none p-0 border-b border-wow-gold/10 mb-6",
           cursor: "w-full bg-wow-gold",
           tab: "max-w-fit px-0 h-10",
           tabContent: "group-data-[selected=true]:text-wow-gold text-gray-400",
         }}
+        selectedKey={activeTab}
+        variant="underlined"
+        onSelectionChange={(key) => setActiveTab(key as string)}
       >
         <Tab key="shop" title={t("title")} />
         <Tab key="history" title={t("history")} />
@@ -393,14 +447,15 @@ export default function ShopPage() {
 
       {activeTab === "shop" ? (
         <>
-          {!selectedCategory && (highlightedItems.length > 0 || highlightedSets.length > 0) && (
-            <HighlightsCarousel
-              items={highlightedItems}
-              sets={highlightedSets}
-              onItemClick={setDetailItem}
-              onSetClick={setDetailSet}
-            />
-          )}
+          {!selectedCategory &&
+            (highlightedItems.length > 0 || highlightedSets.length > 0) && (
+              <HighlightsCarousel
+                items={highlightedItems}
+                sets={highlightedSets}
+                onItemClick={setDetailItem}
+                onSetClick={setDetailSet}
+              />
+            )}
 
           <CategoryNav
             selectedCategory={selectedCategory}
@@ -409,20 +464,22 @@ export default function ShopPage() {
 
           <CategoryFilterBar
             search={search}
-            onSearchChange={setSearch}
             sortBy={sortBy}
+            onSearchChange={setSearch}
             onSortChange={setSortBy}
-            {...(selectedCategory === "transmog" ? {
-              showSets: showSetFilter,
-              onShowSetsChange: setShowSetFilter,
-              showItems: showItemFilter,
-              onShowItemsChange: setShowItemFilter,
-            } : {})}
+            {...(selectedCategory === "transmog"
+              ? {
+                  showSets: showSetFilter,
+                  onShowSetsChange: setShowSetFilter,
+                  showItems: showItemFilter,
+                  onShowItemsChange: setShowItemFilter,
+                }
+              : {})}
           />
 
           {loading ? (
             <div className="flex justify-center py-16">
-              <Spinner size="lg" color="warning" />
+              <Spinner color="warning" size="lg" />
             </div>
           ) : (
             <>
@@ -451,86 +508,90 @@ export default function ShopPage() {
           )}
         </>
       ) : (
-        <PurchaseHistory purchases={purchases} locale={locale} onRefund={setRefundTarget} />
+        <PurchaseHistory
+          locale={locale}
+          purchases={purchases}
+          onRefund={setRefundTarget}
+        />
       )}
 
       <ItemDetailModal
-        item={detailItem}
+        hasCharacter={!!selectedCharacter}
         isOpen={!!detailItem}
-        onClose={() => setDetailItem(null)}
+        item={detailItem}
         onBuy={() => {
           setPurchaseItem(detailItem);
           setDetailItem(null);
         }}
+        onClose={() => setDetailItem(null)}
         onGift={() => {
           setGiftItem(detailItem);
           setDetailItem(null);
         }}
-        hasCharacter={!!selectedCharacter}
       />
 
       <SetDetailModal
-        set={detailSet}
+        hasCharacter={!!selectedCharacter}
         isOpen={!!detailSet}
-        onClose={() => setDetailSet(null)}
+        set={detailSet}
         onBuy={() => {
           setPurchaseSet(detailSet);
           setDetailSet(null);
         }}
+        onClose={() => setDetailSet(null)}
         onGift={() => {
           setGiftSet(detailSet);
           setDetailSet(null);
         }}
-        hasCharacter={!!selectedCharacter}
       />
 
       <PurchaseModal
-        item={purchaseItem}
+        balance={balance}
         character={selectedCharacter}
         isOpen={!!purchaseItem}
+        item={purchaseItem}
         onClose={() => setPurchaseItem(null)}
         onConfirm={handlePurchase}
-        balance={balance}
       />
 
       {/* Set Purchase Modal — reuse PurchaseModal with virtual item */}
       <PurchaseModal
-        item={setAsPurchaseItem}
+        balance={balance}
         character={selectedCharacter}
         isOpen={!!purchaseSet}
+        item={setAsPurchaseItem}
         onClose={() => setPurchaseSet(null)}
         onConfirm={handleSetPurchase}
-        balance={balance}
       />
 
       <GiftModal
-        item={giftItem}
+        balance={balance}
         character={selectedCharacter}
         isOpen={!!giftItem}
+        item={giftItem}
         onClose={() => setGiftItem(null)}
         onConfirm={handleGift}
-        balance={balance}
       />
 
       {/* Set Gift Modal — reuse GiftModal with virtual item */}
       <GiftModal
-        item={setAsGiftItem}
+        balance={balance}
         character={selectedCharacter}
         isOpen={!!giftSet}
+        item={setAsGiftItem}
         onClose={() => setGiftSet(null)}
         onConfirm={handleSetGift}
-        balance={balance}
       />
 
       {/* Refund Modal */}
       <Modal
-        isOpen={!!refundTarget}
-        onClose={handleRefundClose}
         classNames={{
           base: "bg-[#0d1117] border border-wow-gold/20",
           header: "border-b border-wow-gold/10",
           footer: "border-t border-wow-gold/10",
         }}
+        isOpen={!!refundTarget}
+        onClose={handleRefundClose}
       >
         <ModalContent>
           <ModalHeader>{t("confirmRefund")}</ModalHeader>
@@ -538,8 +599,12 @@ export default function ShopPage() {
             {refundResult === "success" ? (
               <div className="text-center py-4">
                 <div className="text-4xl mb-3">&#x2705;</div>
-                <h3 className="text-lg font-medium text-green-400 mb-1">{t("refundSuccess")}</h3>
-                <p className="text-gray-400 text-sm">{t("refundSuccessDesc")}</p>
+                <h3 className="text-lg font-medium text-green-400 mb-1">
+                  {t("refundSuccess")}
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  {t("refundSuccessDesc")}
+                </p>
               </div>
             ) : refundResult === "error" ? (
               <div className="text-center py-4">
@@ -548,23 +613,38 @@ export default function ShopPage() {
               </div>
             ) : refundTarget ? (
               <>
-                <p className="text-gray-300 text-sm mb-4">{t("confirmRefundDesc")}</p>
+                <p className="text-gray-300 text-sm mb-4">
+                  {t("confirmRefundDesc")}
+                </p>
                 <div className="bg-[#161b22] rounded-lg p-4 mb-4">
                   <p className="text-sm text-gray-400 mb-1">{t("item")}</p>
                   <div className="flex items-center gap-2">
                     {refundTarget.item_icon_url && (
-                      <img src={refundTarget.item_icon_url} alt="" className="w-6 h-6 rounded" />
+                      <img
+                        alt=""
+                        className="w-6 h-6 rounded"
+                        src={refundTarget.item_icon_url}
+                      />
                     )}
                     <p className="text-gray-100 font-medium">
-                      {(refundTarget[`item_name_${locale}` as keyof ShopPurchaseWithItem] as string) || refundTarget.item_name_en}
+                      {(refundTarget[
+                        `item_name_${locale}` as keyof ShopPurchaseWithItem
+                      ] as string) || refundTarget.item_name_en}
                     </p>
                   </div>
                 </div>
                 <div className="bg-[#161b22] rounded-lg p-4">
                   <p className="text-sm text-gray-400 mb-2">{t("pricePaid")}</p>
                   <div className="flex items-center gap-1">
-                    <Image src="/img/icons/soul-shard.svg" alt="" width={18} height={18} />
-                    <span className="text-lg text-purple-400 font-bold">{refundTarget.price_paid}</span>
+                    <Image
+                      alt=""
+                      height={18}
+                      src="/img/icons/soul-shard.svg"
+                      width={18}
+                    />
+                    <span className="text-lg text-purple-400 font-bold">
+                      {refundTarget.price_paid}
+                    </span>
                   </div>
                 </div>
               </>
@@ -572,18 +652,25 @@ export default function ShopPage() {
           </ModalBody>
           <ModalFooter>
             {refundResult ? (
-              <Button onPress={handleRefundClose} className="bg-wow-gold text-black font-bold">
+              <Button
+                className="bg-wow-gold text-black font-bold"
+                onPress={handleRefundClose}
+              >
                 {t("close")}
               </Button>
             ) : (
               <>
-                <Button variant="light" onPress={handleRefundClose} className="text-gray-400">
+                <Button
+                  className="text-gray-400"
+                  variant="light"
+                  onPress={handleRefundClose}
+                >
                   {t("cancel")}
                 </Button>
                 <Button
-                  onPress={handleRefund}
-                  isLoading={refundLoading}
                   className="bg-gradient-to-r from-orange-500 to-orange-400 text-black font-bold"
+                  isLoading={refundLoading}
+                  onPress={handleRefund}
                 >
                   {t("confirmRefund")}
                 </Button>

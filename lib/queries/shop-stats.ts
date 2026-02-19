@@ -13,7 +13,8 @@ export async function getShopStats() {
 
   const totalRevenue = revenueRows[0].total_revenue;
   const totalPurchases = revenueRows[0].total_purchases;
-  const averageOrderValue = totalPurchases > 0 ? Math.round(totalRevenue / totalPurchases) : 0;
+  const averageOrderValue =
+    totalPurchases > 0 ? Math.round(totalRevenue / totalPurchases) : 0;
   const activeItems = activeItemsRows[0].count;
 
   return { totalRevenue, totalPurchases, averageOrderValue, activeItems };
@@ -56,11 +57,25 @@ export async function getTopItems(limit: number = 10) {
     LIMIT ${safeLimit}`,
   );
 
-  return rows as { id: number; name_en: string; name_fr: string; name_es: string; name_de: string; name_it: string; item_id: number | null; count: number; revenue: number }[];
+  return rows as {
+    id: number;
+    name_en: string;
+    name_fr: string;
+    name_es: string;
+    name_de: string;
+    name_it: string;
+    item_id: number | null;
+    count: number;
+    revenue: number;
+  }[];
 }
 
-export async function getSalesTrend(period: "daily" | "weekly" | "monthly" = "daily", days: number = 30) {
+export async function getSalesTrend(
+  period: "daily" | "weekly" | "monthly" = "daily",
+  days: number = 30,
+) {
   let dateFormat: string;
+
   switch (period) {
     case "weekly":
       dateFormat = "%Y-%u";
@@ -113,6 +128,12 @@ export async function createAuditLog(
 ): Promise<void> {
   await websiteDb.execute(
     "INSERT INTO shop_audit_log (admin_id, action, target_type, target_id, details) VALUES (?, ?, ?, ?, ?)",
-    [adminId, action, targetType, targetId, details ? JSON.stringify(details) : null],
+    [
+      adminId,
+      action,
+      targetType,
+      targetId,
+      details ? JSON.stringify(details) : null,
+    ],
   );
 }

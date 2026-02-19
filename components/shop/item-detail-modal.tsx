@@ -1,14 +1,22 @@
 "use client";
 
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import type { ShopItemLocalized } from "@/types";
+
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
+
 import { WowheadLink } from "@/components/wowhead-link";
 import { RACE_NAMES, getQualityColor } from "@/lib/shop-utils";
-import type { ShopItemLocalized } from "@/types";
 
 interface ItemDetailModalProps {
   item: ShopItemLocalized | null;
@@ -33,39 +41,57 @@ export function ItemDetailModal({
 
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      size="lg"
       classNames={{
         base: "bg-[#0d1117] border border-wow-gold/20",
         header: "border-b border-wow-gold/10",
         footer: "border-t border-wow-gold/10",
       }}
+      isOpen={isOpen}
+      size="lg"
+      onClose={onClose}
     >
       <ModalContent>
         <ModalHeader className="flex items-center gap-3">
           {item.icon_url && (
             <div className="w-12 h-12 rounded-lg bg-wow-dark/50 border border-wow-gold/20 flex items-center justify-center overflow-hidden">
               {item.item_id ? (
-                <WowheadLink itemId={item.item_id} className="flex items-center justify-center">
-                  <img src={item.icon_url} alt={item.name} className="w-10 h-10 object-contain" />
+                <WowheadLink
+                  className="flex items-center justify-center"
+                  itemId={item.item_id}
+                >
+                  <img
+                    alt={item.name}
+                    className="w-10 h-10 object-contain"
+                    src={item.icon_url}
+                  />
                 </WowheadLink>
               ) : (
-                <img src={item.icon_url} alt={item.name} className="w-10 h-10 object-contain" />
+                <img
+                  alt={item.name}
+                  className="w-10 h-10 object-contain"
+                  src={item.icon_url}
+                />
               )}
             </div>
           )}
           <div>
-            <h3 className={`text-lg font-medium ${getQualityColor(item.quality)}`}>
+            <h3
+              className={`text-lg font-medium ${getQualityColor(item.quality)}`}
+            >
               {item.item_id ? (
-                <WowheadLink itemId={item.item_id} className="text-inherit hover:text-wow-gold">
+                <WowheadLink
+                  className="text-inherit hover:text-wow-gold"
+                  itemId={item.item_id}
+                >
                   {item.name}
                 </WowheadLink>
               ) : (
                 item.name
               )}
             </h3>
-            <p className="text-xs text-gray-400">{t(`categories.${item.category}`)}</p>
+            <p className="text-xs text-gray-400">
+              {t(`categories.${item.category}`)}
+            </p>
           </div>
         </ModalHeader>
 
@@ -76,38 +102,47 @@ export function ItemDetailModal({
 
           <div className="mb-4">
             <PriceDisplay
-              price={item.price}
-              discountedPrice={item.discounted_price}
               discountPercentage={item.discount_percentage}
+              discountedPrice={item.discounted_price}
+              price={item.price}
               size="lg"
             />
           </div>
 
           {/* Restrictions */}
-          {(item.realm_ids || item.race_ids || item.class_ids || item.faction !== "both") && (
+          {(item.realm_ids ||
+            item.race_ids ||
+            item.class_ids ||
+            item.faction !== "both") && (
             <div className="bg-[#161b22] rounded-lg p-4">
-              <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">{t("restrictions")}</p>
+              <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">
+                {t("restrictions")}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {item.faction !== "both" && (
                   <Chip
-                    size="sm"
                     className={
                       item.faction === "alliance"
                         ? "bg-wow-alliance/20 text-blue-300"
                         : "bg-wow-horde/20 text-red-300"
                     }
+                    size="sm"
                   >
                     {t("factionRestriction")}: {item.faction}
                   </Chip>
                 )}
                 {item.race_ids && (
-                  <Chip size="sm" className="bg-orange-500/10 text-orange-300">
-                    {t("raceRestriction")}: {item.race_ids.map((id) => RACE_NAMES[id]).join(", ")}
+                  <Chip className="bg-orange-500/10 text-orange-300" size="sm">
+                    {t("raceRestriction")}:{" "}
+                    {item.race_ids.map((id) => RACE_NAMES[id]).join(", ")}
                   </Chip>
                 )}
                 {item.class_ids && (
-                  <Chip size="sm" className="bg-cyan-500/10 text-cyan-300">
-                    {t("classRestriction")}: {item.class_ids.map((id) => t(`className_${id}`)).join(", ")}
+                  <Chip className="bg-cyan-500/10 text-cyan-300" size="sm">
+                    {t("classRestriction")}:{" "}
+                    {item.class_ids
+                      .map((id) => t(`className_${id}`))
+                      .join(", ")}
                   </Chip>
                 )}
               </div>
@@ -116,8 +151,12 @@ export function ItemDetailModal({
 
           <div className="mt-3">
             <Chip
+              className={
+                item.is_refundable
+                  ? "bg-green-500/10 text-green-400"
+                  : "bg-red-500/10 text-red-400"
+              }
               size="sm"
-              className={item.is_refundable ? "bg-green-500/10 text-green-400" : "bg-red-500/10 text-red-400"}
             >
               {item.is_refundable ? t("refundable") : t("nonRefundable")}
             </Chip>
@@ -129,26 +168,28 @@ export function ItemDetailModal({
 
         <ModalFooter className="flex-col items-stretch gap-3">
           {!hasCharacter && (
-            <p className="text-xs text-yellow-400/80 text-center">{t("noCharacterSelected")}</p>
+            <p className="text-xs text-yellow-400/80 text-center">
+              {t("noCharacterSelected")}
+            </p>
           )}
           <div className="flex justify-end gap-2">
-            <Button variant="light" onPress={onClose} className="text-gray-400">
+            <Button className="text-gray-400" variant="light" onPress={onClose}>
               {t("close")}
             </Button>
             {item.category !== "services" && (
               <Button
-                onPress={onGift}
-                variant="bordered"
                 className="border-purple-500/30 text-purple-400"
                 isDisabled={!hasCharacter}
+                variant="bordered"
+                onPress={onGift}
               >
                 {t("gift")}
               </Button>
             )}
             <Button
-              onPress={onBuy}
               className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
               isDisabled={!hasCharacter}
+              onPress={onBuy}
             >
               {t("buyNow")}
             </Button>

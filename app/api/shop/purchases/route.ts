@@ -2,7 +2,11 @@ import { NextResponse } from "next/server";
 
 import { verifySession } from "@/lib/auth";
 import { getPurchasesByAccount } from "@/lib/queries/shop-purchases";
-import { getCharacterByExactName, getCharacterByGuid, findItemLocation } from "@/lib/queries/characters";
+import {
+  getCharacterByExactName,
+  getCharacterByGuid,
+  findItemLocation,
+} from "@/lib/queries/characters";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +15,7 @@ const TWO_HOURS = 2 * 60 * 60 * 1000;
 export async function GET() {
   try {
     const session = await verifySession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -40,14 +45,19 @@ export async function GET() {
         // Determine recipient
         let recipientGuid = p.character_guid;
         let recipientOnline = 0;
+
         if (p.is_gift && p.gift_to_character_name) {
-          const recipient = await getCharacterByExactName(p.gift_to_character_name);
+          const recipient = await getCharacterByExactName(
+            p.gift_to_character_name,
+          );
+
           if (recipient) {
             recipientGuid = recipient.guid;
             recipientOnline = recipient.online;
           }
         } else {
           const char = await getCharacterByGuid(recipientGuid);
+
           if (char) recipientOnline = char.online;
         }
 
@@ -56,6 +66,7 @@ export async function GET() {
         }
 
         const location = await findItemLocation(recipientGuid, p.wow_item_id);
+
         if (!location) {
           return { ...p, refund_blocked_reason: "itemNotInInventory" };
         }
@@ -67,6 +78,7 @@ export async function GET() {
     return NextResponse.json({ purchases });
   } catch (error) {
     console.error("Purchases fetch error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

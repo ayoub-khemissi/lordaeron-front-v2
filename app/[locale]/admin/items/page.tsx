@@ -1,7 +1,16 @@
 "use client";
 
+import type { ShopCategory, ShopItem } from "@/types";
+
 import { useState, useEffect } from "react";
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@heroui/table";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@heroui/table";
 import { Chip } from "@heroui/chip";
 import { Button } from "@heroui/button";
 import { Spinner } from "@heroui/spinner";
@@ -11,7 +20,6 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { WowheadLink } from "@/components/wowhead-link";
 import { getLocalizedName } from "@/lib/shop-utils";
-import type { ShopCategory, ShopItem } from "@/types";
 
 export default function AdminItemsPage() {
   const t = useTranslations("admin.items");
@@ -24,6 +32,7 @@ export default function AdminItemsPage() {
     try {
       const res = await fetch("/api/admin/items");
       const data = await res.json();
+
       setItems(data.items || []);
     } catch {
       // Silent fail
@@ -45,7 +54,7 @@ export default function AdminItemsPage() {
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -56,8 +65,8 @@ export default function AdminItemsPage() {
         <h1 className="text-2xl font-heading text-gray-100">{t("title")}</h1>
         <Button
           as={NextLink}
-          href={`/${locale}/admin/items/new`}
           className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
+          href={`/${locale}/admin/items/new`}
         >
           {t("addItem")}
         </Button>
@@ -86,9 +95,18 @@ export default function AdminItemsPage() {
               <TableCell className="text-gray-500">#{item.id}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  {item.icon_url && <img src={item.icon_url} alt="" className="w-6 h-6 rounded" />}
+                  {item.icon_url && (
+                    <img
+                      alt=""
+                      className="w-6 h-6 rounded"
+                      src={item.icon_url}
+                    />
+                  )}
                   {item.item_id ? (
-                    <WowheadLink itemId={item.item_id} className="text-gray-300 hover:text-wow-gold">
+                    <WowheadLink
+                      className="text-gray-300 hover:text-wow-gold"
+                      itemId={item.item_id}
+                    >
                       {getLocalizedName(item, locale)}
                     </WowheadLink>
                   ) : (
@@ -97,25 +115,38 @@ export default function AdminItemsPage() {
                 </div>
               </TableCell>
               <TableCell>
-                <Chip size="sm" className="bg-gray-800 text-gray-300">{tCat(item.category as ShopCategory)}</Chip>
+                <Chip className="bg-gray-800 text-gray-300" size="sm">
+                  {tCat(item.category as ShopCategory)}
+                </Chip>
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-1">
-                  <Image src="/img/icons/soul-shard.svg" alt="" width={14} height={14} />
+                  <Image
+                    alt=""
+                    height={14}
+                    src="/img/icons/soul-shard.svg"
+                    width={14}
+                  />
                   <span className="text-purple-400">{item.price}</span>
                 </div>
               </TableCell>
               <TableCell>
                 {item.discount_percentage > 0 ? (
-                  <Chip size="sm" className="bg-green-500/10 text-green-400">-{item.discount_percentage}%</Chip>
+                  <Chip className="bg-green-500/10 text-green-400" size="sm">
+                    -{item.discount_percentage}%
+                  </Chip>
                 ) : (
                   <span className="text-gray-600">-</span>
                 )}
               </TableCell>
               <TableCell>
                 <Chip
+                  className={
+                    item.is_active
+                      ? "bg-green-500/10 text-green-400"
+                      : "bg-red-500/10 text-red-400"
+                  }
                   size="sm"
-                  className={item.is_active ? "bg-green-500/10 text-green-400" : "bg-red-500/10 text-red-400"}
                 >
                   {item.is_active ? t("active") : t("inactive")}
                 </Chip>
@@ -124,18 +155,18 @@ export default function AdminItemsPage() {
                 <div className="flex gap-1">
                   <Button
                     as={NextLink}
+                    className="text-blue-400"
                     href={`/${locale}/admin/items/${item.id}/edit`}
                     size="sm"
                     variant="light"
-                    className="text-blue-400"
                   >
                     {t("editItem")}
                   </Button>
                   {item.is_active && (
                     <Button
+                      className="text-red-400"
                       size="sm"
                       variant="light"
-                      className="text-red-400"
                       onPress={() => handleDeactivate(item.id)}
                     >
                       {t("delete")}

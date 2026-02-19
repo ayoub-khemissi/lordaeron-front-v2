@@ -1,5 +1,7 @@
 "use client";
 
+import type { ShopBan } from "@/types";
+
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@heroui/button";
 import { Spinner } from "@heroui/spinner";
@@ -7,7 +9,6 @@ import { useTranslations } from "next-intl";
 
 import { BanTable } from "@/components/admin/ban-table";
 import { BanModal } from "@/components/admin/ban-modal";
-import type { ShopBan } from "@/types";
 
 export default function AdminBansPage() {
   const t = useTranslations("admin.bans");
@@ -19,6 +20,7 @@ export default function AdminBansPage() {
     try {
       const res = await fetch("/api/admin/bans");
       const data = await res.json();
+
       setBans(data.bans || []);
     } catch {
       // Silent fail
@@ -31,7 +33,11 @@ export default function AdminBansPage() {
     fetchBans();
   }, [fetchBans]);
 
-  const handleAddBan = async (data: { account_id: number; reason: string; expires_at: string | null }) => {
+  const handleAddBan = async (data: {
+    account_id: number;
+    reason: string;
+    expires_at: string | null;
+  }) => {
     await fetch("/api/admin/bans", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -48,7 +54,7 @@ export default function AdminBansPage() {
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -58,8 +64,8 @@ export default function AdminBansPage() {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-heading text-gray-100">{t("title")}</h1>
         <Button
-          onPress={() => setShowModal(true)}
           className="bg-red-500 text-white font-bold"
+          onPress={() => setShowModal(true)}
         >
           {t("addBan")}
         </Button>

@@ -1,15 +1,23 @@
 "use client";
 
+import type { ShopItemLocalized, Character } from "@/types";
+
 import { useState, useEffect, useRef } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Spinner } from "@heroui/spinner";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
+
 import { RACE_NAMES, CLASS_NAMES, getQualityColor } from "@/lib/shop-utils";
-import type { ShopItemLocalized, Character } from "@/types";
 
 interface GiftModalProps {
   item: ShopItemLocalized | null;
@@ -30,7 +38,9 @@ export function GiftModal({
 }: GiftModalProps) {
   const t = useTranslations("shop");
   const [query, setQuery] = useState("");
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
+    null,
+  );
   const [suggestions, setSuggestions] = useState<Character[]>([]);
   const [searching, setSearching] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -47,6 +57,7 @@ export function GiftModal({
     if (query.length < 2) {
       setSuggestions([]);
       setShowSuggestions(false);
+
       return;
     }
 
@@ -54,8 +65,11 @@ export function GiftModal({
     debounceRef.current = setTimeout(async () => {
       setSearching(true);
       try {
-        const res = await fetch(`/api/shop/characters/search?name=${encodeURIComponent(query)}`);
+        const res = await fetch(
+          `/api/shop/characters/search?name=${encodeURIComponent(query)}`,
+        );
         const data = await res.json();
+
         setSuggestions(data.characters || []);
         setShowSuggestions(true);
       } catch {
@@ -73,11 +87,16 @@ export function GiftModal({
   // Close suggestions on outside click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target as Node)
+      ) {
         setShowSuggestions(false);
       }
     };
+
     document.addEventListener("mousedown", handleClick);
+
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
@@ -127,13 +146,13 @@ export function GiftModal({
 
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={handleClose}
       classNames={{
         base: "bg-[#0d1117] border border-wow-gold/20",
         header: "border-b border-wow-gold/10",
         footer: "border-t border-wow-gold/10",
       }}
+      isOpen={isOpen}
+      onClose={handleClose}
     >
       <ModalContent>
         <ModalHeader>{t("confirmGift")}</ModalHeader>
@@ -141,7 +160,9 @@ export function GiftModal({
           {result === "success" ? (
             <div className="text-center py-4">
               <div className="text-4xl mb-3">&#x1F381;</div>
-              <h3 className="text-lg font-medium text-green-400 mb-1">{t("giftSuccess")}</h3>
+              <h3 className="text-lg font-medium text-green-400 mb-1">
+                {t("giftSuccess")}
+              </h3>
               <p className="text-gray-400 text-sm">{t("giftSuccessDesc")}</p>
             </div>
           ) : result === "error" ? (
@@ -153,32 +174,43 @@ export function GiftModal({
             <>
               <div className="bg-[#161b22] rounded-lg p-4 mb-4">
                 <p className="text-sm text-gray-400 mb-1">{t("item")}</p>
-                <p className={`${getQualityColor(item.quality)} font-medium`}>{item.name}</p>
+                <p className={`${getQualityColor(item.quality)} font-medium`}>
+                  {item.name}
+                </p>
               </div>
 
               {/* Character search autocomplete */}
               <div ref={wrapperRef} className="relative mb-4">
                 <Input
-                  label={t("giftCharacterName")}
-                  placeholder={t("giftSearchPlaceholder")}
-                  value={query}
-                  onValueChange={handleQueryChange}
-                  onFocus={() => {
-                    if (suggestions.length > 0 && !selectedCharacter) setShowSuggestions(true);
-                  }}
                   classNames={{
                     inputWrapper: "bg-[#161b22] border-wow-gold/20",
                   }}
-                  endContent={searching ? <Spinner size="sm" color="warning" /> : undefined}
+                  endContent={
+                    searching ? (
+                      <Spinner color="warning" size="sm" />
+                    ) : undefined
+                  }
+                  label={t("giftCharacterName")}
+                  placeholder={t("giftSearchPlaceholder")}
+                  value={query}
+                  onFocus={() => {
+                    if (suggestions.length > 0 && !selectedCharacter)
+                      setShowSuggestions(true);
+                  }}
+                  onValueChange={handleQueryChange}
                 />
 
                 {/* Selected character info */}
                 {selectedCharacter && (
                   <div className="flex items-center gap-2 mt-2 px-1 text-sm">
-                    <span className="text-wow-gold font-medium">{selectedCharacter.name}</span>
+                    <span className="text-wow-gold font-medium">
+                      {selectedCharacter.name}
+                    </span>
                     <span className="text-gray-500">-</span>
                     <span className="text-gray-400">
-                      Lv.{selectedCharacter.level} {RACE_NAMES[selectedCharacter.race]} {CLASS_NAMES[selectedCharacter.class]}
+                      Lv.{selectedCharacter.level}{" "}
+                      {RACE_NAMES[selectedCharacter.race]}{" "}
+                      {CLASS_NAMES[selectedCharacter.class]}
                     </span>
                   </div>
                 )}
@@ -188,7 +220,7 @@ export function GiftModal({
                   <div className="absolute z-50 left-0 right-0 mt-1 bg-[#161b22] border border-wow-gold/15 rounded-lg overflow-hidden shadow-lg">
                     {searching ? (
                       <div className="px-4 py-3 text-sm text-gray-400 flex items-center gap-2">
-                        <Spinner size="sm" color="warning" />
+                        <Spinner color="warning" size="sm" />
                         {t("giftSearching")}
                       </div>
                     ) : suggestions.length === 0 ? (
@@ -199,13 +231,16 @@ export function GiftModal({
                       suggestions.map((char) => (
                         <button
                           key={char.guid}
-                          type="button"
                           className="w-full px-4 py-2.5 flex items-center gap-3 hover:bg-wow-gold/10 transition-colors text-left"
+                          type="button"
                           onClick={() => handleSelect(char)}
                         >
-                          <span className="text-wow-gold font-medium text-sm">{char.name}</span>
+                          <span className="text-wow-gold font-medium text-sm">
+                            {char.name}
+                          </span>
                           <span className="text-xs text-gray-400">
-                            Lv.{char.level} {RACE_NAMES[char.race]} {CLASS_NAMES[char.class]}
+                            Lv.{char.level} {RACE_NAMES[char.race]}{" "}
+                            {CLASS_NAMES[char.class]}
                           </span>
                         </button>
                       ))
@@ -220,26 +255,30 @@ export function GiftModal({
                   {t("giftMessageLabel")}
                 </label>
                 <textarea
-                  value={giftMessage}
-                  onChange={(e) => setGiftMessage(e.target.value)}
+                  className="w-full rounded-lg bg-[#161b22] border border-wow-gold/20 px-3 py-2 text-sm text-gray-100 placeholder-gray-500 outline-none focus:border-wow-gold/40 resize-none"
                   maxLength={200}
                   placeholder={t("giftMessagePlaceholder")}
                   rows={3}
-                  className="w-full rounded-lg bg-[#161b22] border border-wow-gold/20 px-3 py-2 text-sm text-gray-100 placeholder-gray-500 outline-none focus:border-wow-gold/40 resize-none"
+                  value={giftMessage}
+                  onChange={(e) => setGiftMessage(e.target.value)}
                 />
-                <p className="text-xs text-gray-500 mt-1 text-right">{giftMessage.length}/200</p>
+                <p className="text-xs text-gray-500 mt-1 text-right">
+                  {giftMessage.length}/200
+                </p>
               </div>
 
               <div className="bg-[#161b22] rounded-lg p-4">
                 <p className="text-sm text-gray-400 mb-2">{t("price")}</p>
                 <PriceDisplay
-                  price={item.price}
-                  discountedPrice={item.discounted_price}
                   discountPercentage={item.discount_percentage}
+                  discountedPrice={item.discounted_price}
+                  price={item.price}
                   size="md"
                 />
                 {!canAfford && (
-                  <p className="text-red-400 text-sm mt-2">{t("errors.insufficientBalance")}</p>
+                  <p className="text-red-400 text-sm mt-2">
+                    {t("errors.insufficientBalance")}
+                  </p>
                 )}
               </div>
             </>
@@ -247,19 +286,26 @@ export function GiftModal({
         </ModalBody>
         <ModalFooter>
           {result ? (
-            <Button onPress={handleClose} className="bg-wow-gold text-black font-bold">
+            <Button
+              className="bg-wow-gold text-black font-bold"
+              onPress={handleClose}
+            >
               {t("close")}
             </Button>
           ) : (
             <>
-              <Button variant="light" onPress={handleClose} className="text-gray-400">
+              <Button
+                className="text-gray-400"
+                variant="light"
+                onPress={handleClose}
+              >
                 {t("cancel")}
               </Button>
               <Button
-                onPress={handleConfirm}
-                isLoading={loading}
-                isDisabled={!canAfford || !selectedCharacter}
                 className="bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold"
+                isDisabled={!canAfford || !selectedCharacter}
+                isLoading={loading}
+                onPress={handleConfirm}
               >
                 {t("confirm")}
               </Button>

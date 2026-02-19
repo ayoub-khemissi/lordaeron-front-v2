@@ -41,6 +41,7 @@ export const RegisterForm = () => {
       errs.confirmPassword = t("errors.passwordMismatch");
 
     setErrors(errs);
+
     return Object.keys(errs).length === 0;
   };
 
@@ -70,6 +71,7 @@ export const RegisterForm = () => {
         } else {
           setErrors({ server: t("errors.serverError") });
         }
+
         return;
       }
 
@@ -84,16 +86,16 @@ export const RegisterForm = () => {
   if (success) {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="glass glow-gold rounded-2xl max-w-md mx-auto p-10 text-center"
+        initial={{ opacity: 0, scale: 0.95 }}
       >
         <div className="text-5xl mb-4">&#9989;</div>
         <p className="text-green-400 text-lg mb-6">{t("success")}</p>
         <Button
           as={NextLink}
-          href={`/${locale}/login`}
           className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold glow-gold"
+          href={`/${locale}/login`}
         >
           {t("loginLink")}
         </Button>
@@ -107,10 +109,10 @@ export const RegisterForm = () => {
       <div className="absolute -inset-4 bg-gradient-to-r from-wow-gold/5 via-wow-blue/5 to-wow-gold/5 rounded-3xl blur-2xl" />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
         className="relative glass glow-gold rounded-2xl overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.5 }}
       >
         {/* Top accent image */}
         <div className="relative h-32 overflow-hidden">
@@ -123,65 +125,71 @@ export const RegisterForm = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(10,14,20,0.95)]" />
           <div className="absolute bottom-4 left-6">
-            <h1 className="text-2xl font-bold wow-gradient-text">{t("title")}</h1>
+            <h1 className="text-2xl font-bold wow-gradient-text">
+              {t("title")}
+            </h1>
             <p className="text-gray-400 text-sm">{t("subtitle")}</p>
           </div>
         </div>
 
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <Input
-              label={t("username")}
-              value={form.username}
-              onChange={(e) => setForm({ ...form, username: e.target.value })}
-              isInvalid={!!errors.username}
-              errorMessage={errors.username}
-              variant="bordered"
               classNames={{
-                inputWrapper: "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
+                inputWrapper:
+                  "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
                 label: "text-gray-400",
               }}
+              errorMessage={errors.username}
+              isInvalid={!!errors.username}
+              label={t("username")}
+              value={form.username}
+              variant="bordered"
+              onChange={(e) => setForm({ ...form, username: e.target.value })}
             />
             <Input
+              classNames={{
+                inputWrapper:
+                  "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
+                label: "text-gray-400",
+              }}
+              errorMessage={errors.email}
+              isInvalid={!!errors.email}
               label={t("email")}
               type="email"
               value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              isInvalid={!!errors.email}
-              errorMessage={errors.email}
               variant="bordered"
-              classNames={{
-                inputWrapper: "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
-                label: "text-gray-400",
-              }}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
             <Input
+              classNames={{
+                inputWrapper:
+                  "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
+                label: "text-gray-400",
+              }}
+              errorMessage={errors.password}
+              isInvalid={!!errors.password}
               label={t("password")}
               type="password"
               value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              isInvalid={!!errors.password}
-              errorMessage={errors.password}
               variant="bordered"
-              classNames={{
-                inputWrapper: "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
-                label: "text-gray-400",
-              }}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
             <Input
+              classNames={{
+                inputWrapper:
+                  "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
+                label: "text-gray-400",
+              }}
+              errorMessage={errors.confirmPassword}
+              isInvalid={!!errors.confirmPassword}
               label={t("confirmPassword")}
               type="password"
               value={form.confirmPassword}
+              variant="bordered"
               onChange={(e) =>
                 setForm({ ...form, confirmPassword: e.target.value })
               }
-              isInvalid={!!errors.confirmPassword}
-              errorMessage={errors.confirmPassword}
-              variant="bordered"
-              classNames={{
-                inputWrapper: "border-white/10 bg-white/[0.03] hover:border-wow-gold/30 focus-within:!border-wow-gold/50",
-                label: "text-gray-400",
-              }}
             />
 
             {errors.server && (
@@ -189,10 +197,10 @@ export const RegisterForm = () => {
             )}
 
             <Button
-              type="submit"
-              isLoading={loading}
               className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold mt-2 h-12 glow-gold-strong hover:shadow-[0_0_40px_rgba(199,156,62,0.5)] transition-all"
+              isLoading={loading}
               size="lg"
+              type="submit"
             >
               {t("submit")}
             </Button>
@@ -200,8 +208,8 @@ export const RegisterForm = () => {
             <p className="text-center text-gray-400 text-sm mt-1">
               {t("haveAccount")}{" "}
               <NextLink
-                href={`/${locale}/login`}
                 className="text-wow-blue hover:text-wow-blue-ice hover:underline transition-colors"
+                href={`/${locale}/login`}
               >
                 {t("loginLink")}
               </NextLink>

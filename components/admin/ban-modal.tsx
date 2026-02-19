@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Switch } from "@heroui/switch";
@@ -10,7 +16,11 @@ import { useTranslations } from "next-intl";
 interface BanModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: { account_id: number; reason: string; expires_at: string | null }) => Promise<void>;
+  onSubmit: (data: {
+    account_id: number;
+    reason: string;
+    expires_at: string | null;
+  }) => Promise<void>;
 }
 
 export function BanModal({ isOpen, onClose, onSubmit }: BanModalProps) {
@@ -42,43 +52,49 @@ export function BanModal({ isOpen, onClose, onSubmit }: BanModalProps) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} classNames={{ base: "bg-[#161b22] border border-gray-800" }}>
+    <Modal
+      classNames={{ base: "bg-[#161b22] border border-gray-800" }}
+      isOpen={isOpen}
+      onClose={onClose}
+    >
       <ModalContent>
         <ModalHeader>{t("addBan")}</ModalHeader>
         <ModalBody>
           <Input
+            classNames={{ inputWrapper: "bg-[#0d1117] border-gray-700" }}
             label={t("accountId")}
+            type="number"
             value={accountId}
             onValueChange={setAccountId}
-            type="number"
-            classNames={{ inputWrapper: "bg-[#0d1117] border-gray-700" }}
           />
           <Input
+            classNames={{ inputWrapper: "bg-[#0d1117] border-gray-700" }}
             label={t("reason")}
             value={reason}
             onValueChange={setReason}
-            classNames={{ inputWrapper: "bg-[#0d1117] border-gray-700" }}
           />
           <Switch isSelected={isPermanent} onValueChange={setIsPermanent}>
             <span className="text-gray-300 text-sm">{t("permanent")}</span>
           </Switch>
           {!isPermanent && (
             <Input
+              classNames={{ inputWrapper: "bg-[#0d1117] border-gray-700" }}
               label={t("expiresAt")}
+              type="datetime-local"
               value={expiresAt}
               onValueChange={setExpiresAt}
-              type="datetime-local"
-              classNames={{ inputWrapper: "bg-[#0d1117] border-gray-700" }}
             />
           )}
         </ModalBody>
         <ModalFooter>
-          <Button variant="light" onPress={onClose} className="text-gray-400">{tc("cancel")}</Button>
+          <Button className="text-gray-400" variant="light" onPress={onClose}>
+            {tc("cancel")}
+          </Button>
           <Button
-            onPress={handleSubmit}
-            isLoading={loading}
-            isDisabled={!accountId || !reason}
             className="bg-red-500 text-white font-bold"
+            isDisabled={!accountId || !reason}
+            isLoading={loading}
+            onPress={handleSubmit}
           >
             {t("addBan")}
           </Button>

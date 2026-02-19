@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const session = await verifySession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -41,6 +42,7 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Account fetch error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

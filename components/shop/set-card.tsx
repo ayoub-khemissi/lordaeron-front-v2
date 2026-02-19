@@ -1,12 +1,13 @@
 "use client";
 
+import type { ShopSetLocalized } from "@/types";
+
 import { Chip } from "@heroui/chip";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
-import { WowheadLink } from "@/components/wowhead-link";
 
-import type { ShopSetLocalized } from "@/types";
+import { WowheadLink } from "@/components/wowhead-link";
 
 interface SetCardProps {
   set: ShopSetLocalized;
@@ -18,14 +19,18 @@ export function SetCard({ set, onClick }: SetCardProps) {
 
   return (
     <button
+      className="glass border-wow-gold/10 hover:border-wow-gold/30 rounded-xl p-4 text-left transition-all duration-200 cursor-pointer group w-full"
       type="button"
       onClick={onClick}
-      className="glass border-wow-gold/10 hover:border-wow-gold/30 rounded-xl p-4 text-left transition-all duration-200 cursor-pointer group w-full"
     >
       <div className="flex items-start gap-3 mb-3">
         {set.icon_url && (
           <div className="w-12 h-12 rounded-lg bg-wow-dark/50 border border-wow-gold/20 flex items-center justify-center overflow-hidden shrink-0">
-            <img src={set.icon_url} alt={set.name} className="w-10 h-10 object-contain" />
+            <img
+              alt={set.name}
+              className="w-10 h-10 object-contain"
+              src={set.icon_url}
+            />
           </div>
         )}
         <div className="flex-1 min-w-0">
@@ -37,14 +42,16 @@ export function SetCard({ set, onClick }: SetCardProps) {
           </p>
         </div>
         {set.discount_percentage > 0 && (
-          <Chip size="sm" className="bg-green-500/10 text-green-400 shrink-0">
+          <Chip className="bg-green-500/10 text-green-400 shrink-0" size="sm">
             -{set.discount_percentage}%
           </Chip>
         )}
       </div>
 
       {set.description && (
-        <p className="text-xs text-gray-400 mb-3 line-clamp-2">{set.description}</p>
+        <p className="text-xs text-gray-400 mb-3 line-clamp-2">
+          {set.description}
+        </p>
       )}
 
       {/* Mini piece icons with Wowhead tooltips */}
@@ -57,11 +64,22 @@ export function SetCard({ set, onClick }: SetCardProps) {
             }`}
           >
             {piece.icon_url && piece.item_id ? (
-              <WowheadLink itemId={piece.item_id} className="flex items-center justify-center">
-                <img src={piece.icon_url} alt="" className="w-6 h-6 object-contain" />
+              <WowheadLink
+                className="flex items-center justify-center"
+                itemId={piece.item_id}
+              >
+                <img
+                  alt=""
+                  className="w-6 h-6 object-contain"
+                  src={piece.icon_url}
+                />
               </WowheadLink>
             ) : piece.icon_url ? (
-              <img src={piece.icon_url} alt="" className="w-6 h-6 object-contain" />
+              <img
+                alt=""
+                className="w-6 h-6 object-contain"
+                src={piece.icon_url}
+              />
             ) : (
               "?"
             )}
@@ -73,23 +91,29 @@ export function SetCard({ set, onClick }: SetCardProps) {
       {(set.class_ids || set.faction !== "both" || set.min_level > 0) && (
         <div className="flex flex-wrap gap-1 mb-3">
           {set.min_level > 0 && (
-            <Chip size="sm" className="bg-orange-500/10 text-orange-300 text-[10px]">
+            <Chip
+              className="bg-orange-500/10 text-orange-300 text-[10px]"
+              size="sm"
+            >
               {t("reqLevel", { level: set.min_level })}
             </Chip>
           )}
           {set.class_ids && (
-            <Chip size="sm" className="bg-cyan-500/10 text-cyan-300 text-[10px]">
+            <Chip
+              className="bg-cyan-500/10 text-cyan-300 text-[10px]"
+              size="sm"
+            >
               {set.class_ids.map((id) => t(`className_${id}`)).join(", ")}
             </Chip>
           )}
           {set.faction !== "both" && (
             <Chip
-              size="sm"
               className={
                 set.faction === "alliance"
                   ? "bg-wow-alliance/20 text-blue-300 text-[10px]"
                   : "bg-wow-horde/20 text-red-300 text-[10px]"
               }
+              size="sm"
             >
               {set.faction}
             </Chip>
@@ -98,9 +122,9 @@ export function SetCard({ set, onClick }: SetCardProps) {
       )}
 
       <PriceDisplay
-        price={set.price}
-        discountedPrice={set.discounted_price}
         discountPercentage={set.discount_percentage}
+        discountedPrice={set.discounted_price}
+        price={set.price}
         size="sm"
       />
     </button>

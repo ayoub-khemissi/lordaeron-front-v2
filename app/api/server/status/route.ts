@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const status = await getRealmStatus();
+
     return NextResponse.json(status);
   } catch {
     return NextResponse.json(

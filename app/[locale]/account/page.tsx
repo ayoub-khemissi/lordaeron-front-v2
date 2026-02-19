@@ -1,5 +1,7 @@
 "use client";
 
+import type { Character, AccountInfo } from "@/types";
+
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -15,25 +17,45 @@ import {
 } from "@heroui/table";
 import { Chip } from "@heroui/chip";
 
-import type { Character, AccountInfo } from "@/types";
 import { useAuth } from "@/lib/auth-context";
 
 const RACE_NAMES: Record<number, string> = {
-  1: "Human", 2: "Orc", 3: "Dwarf", 4: "Night Elf",
-  5: "Undead", 6: "Tauren", 7: "Gnome", 8: "Troll",
-  10: "Blood Elf", 11: "Draenei",
+  1: "Human",
+  2: "Orc",
+  3: "Dwarf",
+  4: "Night Elf",
+  5: "Undead",
+  6: "Tauren",
+  7: "Gnome",
+  8: "Troll",
+  10: "Blood Elf",
+  11: "Draenei",
 };
 
 const CLASS_NAMES: Record<number, string> = {
-  1: "Warrior", 2: "Paladin", 3: "Hunter", 4: "Rogue",
-  5: "Priest", 6: "Death Knight", 7: "Shaman", 8: "Mage",
-  9: "Warlock", 11: "Druid",
+  1: "Warrior",
+  2: "Paladin",
+  3: "Hunter",
+  4: "Rogue",
+  5: "Priest",
+  6: "Death Knight",
+  7: "Shaman",
+  8: "Mage",
+  9: "Warlock",
+  11: "Druid",
 };
 
 const CLASS_COLORS: Record<number, string> = {
-  1: "#C79C6E", 2: "#F58CBA", 3: "#ABD473", 4: "#FFF569",
-  5: "#FFFFFF", 6: "#C41F3B", 7: "#0070DE", 8: "#69CCF0",
-  9: "#9482C9", 11: "#FF7D0A",
+  1: "#C79C6E",
+  2: "#F58CBA",
+  3: "#ABD473",
+  4: "#FFF569",
+  5: "#FFFFFF",
+  6: "#C41F3B",
+  7: "#0070DE",
+  8: "#69CCF0",
+  9: "#9482C9",
+  11: "#FF7D0A",
 };
 
 const ALLIANCE_RACES = [1, 3, 4, 7, 11];
@@ -41,8 +63,10 @@ const ALLIANCE_RACES = [1, 3, 4, 7, 11];
 function formatPlayTime(seconds: number): string {
   const days = Math.floor(seconds / 86400);
   const hours = Math.floor((seconds % 86400) / 3600);
+
   if (days > 0) return `${days}d ${hours}h`;
   const minutes = Math.floor((seconds % 3600) / 60);
+
   return `${hours}h ${minutes}m`;
 }
 
@@ -56,24 +80,30 @@ export default function AccountPage() {
   const [loading, setLoading] = useState(true);
   const [account, setAccount] = useState<AccountInfo | null>(null);
   const [characters, setCharacters] = useState<Character[]>([]);
-  const [realm, setRealm] = useState<{ online: boolean; name: string } | null>(null);
+  const [realm, setRealm] = useState<{ online: boolean; name: string } | null>(
+    null,
+  );
   const [soulShards, setSoulShards] = useState<number>(0);
 
   useEffect(() => {
     if (authLoading) return;
     if (!authUser) {
       router.replace(`/${locale}/login`);
+
       return;
     }
 
     const fetchAccount = async () => {
       try {
         const res = await fetch("/api/account");
+
         if (res.status === 401) {
           router.replace(`/${locale}/login`);
+
           return;
         }
         const data = await res.json();
+
         setAccount(data.account);
         setCharacters(data.characters || []);
         setRealm(data.realm);
@@ -91,7 +121,7 @@ export default function AccountPage() {
   if (authLoading || loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -111,11 +141,13 @@ export default function AccountPage() {
       <div className="relative container mx-auto max-w-5xl px-6 py-16">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
         >
-          <h1 className="text-4xl font-black wow-gradient-text mb-2">{t("title")}</h1>
+          <h1 className="text-4xl font-black wow-gradient-text mb-2">
+            {t("title")}
+          </h1>
           <p className="text-gray-300">{t("subtitle")}</p>
           <div className="shimmer-line w-24 mx-auto mt-4" />
         </motion.div>
@@ -123,10 +155,10 @@ export default function AccountPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Account Info Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
             className="lg:col-span-1"
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
           >
             <div className="relative overflow-hidden rounded-2xl glow-gold">
               <div
@@ -137,7 +169,9 @@ export default function AccountPage() {
                 }}
               />
               <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
-                <h2 className="text-lg font-bold wow-gradient-text mb-5">{t("info")}</h2>
+                <h2 className="text-lg font-bold wow-gradient-text mb-5">
+                  {t("info")}
+                </h2>
 
                 {/* Avatar */}
                 <div className="flex justify-center mb-6">
@@ -149,15 +183,25 @@ export default function AccountPage() {
                 </div>
 
                 <div className="space-y-4">
-                  <InfoRow label={t("username")} value={account.username} highlight />
+                  <InfoRow
+                    highlight
+                    label={t("username")}
+                    value={account.username}
+                  />
                   <InfoRow label={t("email")} value={account.email} />
                   <InfoRow
                     label={t("joinDate")}
-                    value={new Date(account.joindate).toLocaleDateString(locale)}
+                    value={new Date(account.joindate).toLocaleDateString(
+                      locale,
+                    )}
                   />
                   <InfoRow label={t("soulShards")}>
                     <span className="flex items-center gap-1.5">
-                      <img src="/img/icons/soul-shard.svg" alt="Soul Shard" className="w-4 h-4" />
+                      <img
+                        alt="Soul Shard"
+                        className="w-4 h-4"
+                        src="/img/icons/soul-shard.svg"
+                      />
                       <span className="text-purple-400 text-sm font-medium">
                         {soulShards.toLocaleString()}
                       </span>
@@ -170,13 +214,15 @@ export default function AccountPage() {
             {/* Realm Info Card */}
             {realm && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
                 className="mt-6"
+                initial={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.2 }}
               >
                 <div className="glass border-wow-blue/15 rounded-2xl p-6 glow-blue">
-                  <h2 className="text-lg font-bold wow-ice-text mb-4">{t("realmInfo")}</h2>
+                  <h2 className="text-lg font-bold wow-ice-text mb-4">
+                    {t("realmInfo")}
+                  </h2>
                   <div className="space-y-3">
                     <InfoRow label={t("realmName")} value={realm.name} />
                     <InfoRow label={t("realmStatus")}>
@@ -185,10 +231,18 @@ export default function AccountPage() {
                           {realm.online && (
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                           )}
-                          <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${realm.online ? "bg-green-400" : "bg-red-500"}`} />
+                          <span
+                            className={`relative inline-flex rounded-full h-2.5 w-2.5 ${realm.online ? "bg-green-400" : "bg-red-500"}`}
+                          />
                         </span>
-                        <span className={realm.online ? "text-green-400" : "text-red-400"}>
-                          {realm.online ? tCommon("online") : tCommon("offline")}
+                        <span
+                          className={
+                            realm.online ? "text-green-400" : "text-red-400"
+                          }
+                        >
+                          {realm.online
+                            ? tCommon("online")
+                            : tCommon("offline")}
                         </span>
                       </span>
                     </InfoRow>
@@ -200,10 +254,10 @@ export default function AccountPage() {
 
           {/* Characters Table */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
             className="lg:col-span-2"
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.2 }}
           >
             <div className="relative overflow-hidden rounded-2xl glow-gold">
               <div
@@ -214,7 +268,9 @@ export default function AccountPage() {
                 }}
               />
               <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
-                <h2 className="text-lg font-bold wow-gradient-text mb-5">{t("characters")}</h2>
+                <h2 className="text-lg font-bold wow-gradient-text mb-5">
+                  {t("characters")}
+                </h2>
 
                 {characters.length === 0 ? (
                   <div className="text-center py-12">
@@ -241,25 +297,32 @@ export default function AccountPage() {
                       </TableHeader>
                       <TableBody>
                         {characters.map((char) => {
-                          const faction = ALLIANCE_RACES.includes(char.race) ? "alliance" : "horde";
+                          const faction = ALLIANCE_RACES.includes(char.race)
+                            ? "alliance"
+                            : "horde";
+
                           return (
                             <TableRow key={char.guid}>
                               <TableCell>
-                                <span className="font-semibold text-gray-200">{char.name}</span>
+                                <span className="font-semibold text-gray-200">
+                                  {char.name}
+                                </span>
                               </TableCell>
                               <TableCell>
-                                <span className={`font-bold ${char.level >= 80 ? "text-wow-gold drop-shadow-[0_0_4px_rgba(199,156,62,0.5)]" : "text-gray-300"}`}>
+                                <span
+                                  className={`font-bold ${char.level >= 80 ? "text-wow-gold drop-shadow-[0_0_4px_rgba(199,156,62,0.5)]" : "text-gray-300"}`}
+                                >
                                   {char.level}
                                 </span>
                               </TableCell>
                               <TableCell>
                                 <Chip
-                                  size="sm"
-                                  variant="flat"
                                   classNames={{
                                     base: `${faction === "alliance" ? "bg-wow-alliance/10 border border-wow-alliance/20" : "bg-wow-horde/10 border border-wow-horde/20"}`,
                                     content: `text-xs font-medium ${faction === "alliance" ? "text-wow-alliance" : "text-wow-horde"}`,
                                   }}
+                                  size="sm"
+                                  variant="flat"
                                 >
                                   {RACE_NAMES[char.race] || `Race ${char.race}`}
                                 </Chip>
@@ -267,9 +330,13 @@ export default function AccountPage() {
                               <TableCell>
                                 <span
                                   className="font-medium text-sm"
-                                  style={{ color: CLASS_COLORS[char.class] || "#ffffff" }}
+                                  style={{
+                                    color:
+                                      CLASS_COLORS[char.class] || "#ffffff",
+                                  }}
                                 >
-                                  {CLASS_NAMES[char.class] || `Class ${char.class}`}
+                                  {CLASS_NAMES[char.class] ||
+                                    `Class ${char.class}`}
                                 </span>
                               </TableCell>
                               <TableCell>
@@ -279,9 +346,15 @@ export default function AccountPage() {
                               </TableCell>
                               <TableCell>
                                 <span className="flex items-center gap-1.5">
-                                  <span className={`w-2 h-2 rounded-full ${char.online ? "bg-green-400" : "bg-default-600"}`} />
-                                  <span className={`text-xs ${char.online ? "text-green-400" : "text-gray-400"}`}>
-                                    {char.online ? tCommon("online") : tCommon("offline")}
+                                  <span
+                                    className={`w-2 h-2 rounded-full ${char.online ? "bg-green-400" : "bg-default-600"}`}
+                                  />
+                                  <span
+                                    className={`text-xs ${char.online ? "text-green-400" : "text-gray-400"}`}
+                                  >
+                                    {char.online
+                                      ? tCommon("online")
+                                      : tCommon("offline")}
                                   </span>
                                 </span>
                               </TableCell>
@@ -314,9 +387,13 @@ function InfoRow({
 }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="text-gray-400 text-xs uppercase tracking-wider">{label}</span>
+      <span className="text-gray-400 text-xs uppercase tracking-wider">
+        {label}
+      </span>
       {children || (
-        <span className={`text-sm font-medium ${highlight ? "text-wow-gold" : "text-gray-200"}`}>
+        <span
+          className={`text-sm font-medium ${highlight ? "text-wow-gold" : "text-gray-200"}`}
+        >
           {value}
         </span>
       )}

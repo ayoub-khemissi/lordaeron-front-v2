@@ -1,4 +1,5 @@
 import type { ShopPurchase } from "@/types";
+
 import { updatePurchaseStatus } from "@/lib/queries/shop-purchases";
 import { getShopSetItems } from "@/lib/queries/shop-sets";
 import { charactersDb } from "@/lib/db";
@@ -67,6 +68,7 @@ export async function executeCommand(
     // Check for fault in response
     if (text.includes("faultstring")) {
       const match = text.match(/<faultstring>([\s\S]*?)<\/faultstring>/);
+
       return {
         success: false,
         message: match ? match[1] : "Unknown SOAP fault",
@@ -147,21 +149,24 @@ async function markMailAsNonReturnable(
 export async function retryPurchaseDelivery(
   purchase: ShopPurchase,
 ): Promise<{ success: boolean; message: string }> {
-  const recipient = purchase.is_gift && purchase.gift_to_character_name
-    ? purchase.gift_to_character_name
-    : purchase.character_name;
+  const recipient =
+    purchase.is_gift && purchase.gift_to_character_name
+      ? purchase.gift_to_character_name
+      : purchase.character_name;
 
   const subject = purchase.is_gift
     ? "Gift from the Lordaeron Shop"
     : "Lordaeron Shop";
 
-  const body = purchase.is_gift && purchase.gift_message
-    ? purchase.gift_message
-    : "Thank you for your purchase!";
+  const body =
+    purchase.is_gift && purchase.gift_message
+      ? purchase.gift_message
+      : "Thank you for your purchase!";
 
   // Set purchase: send all set items
   if (purchase.set_id_ref) {
     const setItems = await getShopSetItems(purchase.set_id_ref);
+
     if (setItems.length === 0) {
       return { success: false, message: "No items found for set" };
     }
@@ -185,7 +190,13 @@ export async function retryPurchaseDelivery(
     return { success: false, message: "No wow_item_id on purchase" };
   }
 
-  const result = await sendItem(recipient, subject, body, purchase.wow_item_id, 1);
+  const result = await sendItem(
+    recipient,
+    subject,
+    body,
+    purchase.wow_item_id,
+    1,
+  );
 
   if (result.success) {
     await updatePurchaseStatus(purchase.id, "completed");

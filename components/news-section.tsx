@@ -1,10 +1,10 @@
 "use client";
 
+import type { News } from "@/types";
+
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-
-import type { News } from "@/types";
 
 // Fallback images for news cards when no image_url
 const fallbackImages = [
@@ -23,6 +23,7 @@ export const NewsSection = () => {
       try {
         const res = await fetch(`/api/news?locale=${locale}&limit=3`);
         const data = await res.json();
+
         setNews(data);
       } catch {
         setNews([]);
@@ -46,11 +47,11 @@ export const NewsSection = () => {
 
       <div className="relative container mx-auto max-w-7xl px-6">
         <motion.div
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold wow-gradient-text mb-3">
             {t("newsTitle")}
@@ -66,10 +67,10 @@ export const NewsSection = () => {
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                whileInView={{ opacity: 1, y: 0 }}
               >
                 <div className="relative overflow-hidden rounded-2xl group h-full glow-gold">
                   {/* Card background image */}

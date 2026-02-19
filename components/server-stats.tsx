@@ -1,10 +1,10 @@
 "use client";
 
+import type { ServerStats as ServerStatsType } from "@/types";
+
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-
-import type { ServerStats as ServerStatsType } from "@/types";
 
 // Background images for each stat card
 const statImages = [
@@ -23,6 +23,7 @@ export const ServerStats = () => {
       try {
         const res = await fetch("/api/server/stats");
         const data = await res.json();
+
         setStats(data);
       } catch {
         setStats({ onlineCount: 0, totalAccounts: 0, alliance: 0, horde: 0 });
@@ -31,18 +32,44 @@ export const ServerStats = () => {
 
     fetchStats();
     const interval = setInterval(fetchStats, 30000);
+
     return () => clearInterval(interval);
   }, []);
 
   const total = (stats?.alliance || 0) + (stats?.horde || 0);
-  const alliancePercent = total > 0 ? ((stats?.alliance || 0) / total) * 100 : 50;
+  const alliancePercent =
+    total > 0 ? ((stats?.alliance || 0) / total) * 100 : 50;
   const hordePercent = total > 0 ? ((stats?.horde || 0) / total) * 100 : 50;
 
   const cards = [
-    { value: stats?.onlineCount, label: t("players"), color: "text-wow-blue-ice", glowClass: "glow-blue", borderClass: "border-wow-blue/20" },
-    { value: stats?.totalAccounts, label: t("totalAccounts"), color: "text-wow-gold-light", glowClass: "glow-gold", borderClass: "border-wow-gold/20" },
-    { value: stats?.alliance, label: t("alliance"), color: "text-wow-alliance", glowClass: "glow-alliance", borderClass: "border-wow-alliance/20" },
-    { value: stats?.horde, label: t("horde"), color: "text-wow-horde", glowClass: "glow-horde", borderClass: "border-wow-horde/20" },
+    {
+      value: stats?.onlineCount,
+      label: t("players"),
+      color: "text-wow-blue-ice",
+      glowClass: "glow-blue",
+      borderClass: "border-wow-blue/20",
+    },
+    {
+      value: stats?.totalAccounts,
+      label: t("totalAccounts"),
+      color: "text-wow-gold-light",
+      glowClass: "glow-gold",
+      borderClass: "border-wow-gold/20",
+    },
+    {
+      value: stats?.alliance,
+      label: t("alliance"),
+      color: "text-wow-alliance",
+      glowClass: "glow-alliance",
+      borderClass: "border-wow-alliance/20",
+    },
+    {
+      value: stats?.horde,
+      label: t("horde"),
+      color: "text-wow-horde",
+      glowClass: "glow-horde",
+      borderClass: "border-wow-horde/20",
+    },
   ];
 
   return (
@@ -52,10 +79,10 @@ export const ServerStats = () => {
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
             whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <div
               className={`relative overflow-hidden rounded-2xl ${card.glowClass} group`}
@@ -66,8 +93,12 @@ export const ServerStats = () => {
                 style={{ backgroundImage: `url('${statImages[index]}')` }}
               />
               {/* Glass overlay */}
-              <div className={`relative glass ${card.borderClass} rounded-2xl text-center py-8 px-4`}>
-                <p className={`text-5xl font-black ${card.color} drop-shadow-lg`}>
+              <div
+                className={`relative glass ${card.borderClass} rounded-2xl text-center py-8 px-4`}
+              >
+                <p
+                  className={`text-5xl font-black ${card.color} drop-shadow-lg`}
+                >
                   {card.value ?? "..."}
                 </p>
                 <p className="text-gray-300 text-sm mt-2 uppercase tracking-wider font-medium">
@@ -83,9 +114,9 @@ export const ServerStats = () => {
       <motion.div
         className="mt-10"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
         viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
       >
         <p className="text-center text-gray-300 text-sm mb-3 uppercase tracking-wider font-medium">
           {t("factionBalance")}
@@ -95,18 +126,18 @@ export const ServerStats = () => {
             <motion.div
               className="bg-gradient-to-r from-wow-alliance to-blue-400 rounded-l-full"
               initial={{ width: 0 }}
-              whileInView={{ width: `${alliancePercent}%` }}
+              style={{ boxShadow: "0 0 15px rgba(0,120,255,0.4)" }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              style={{ boxShadow: "0 0 15px rgba(0,120,255,0.4)" }}
+              whileInView={{ width: `${alliancePercent}%` }}
             />
             <motion.div
               className="bg-gradient-to-r from-red-600 to-wow-horde rounded-r-full"
               initial={{ width: 0 }}
-              whileInView={{ width: `${hordePercent}%` }}
+              style={{ boxShadow: "0 0 15px rgba(179,0,0,0.4)" }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              style={{ boxShadow: "0 0 15px rgba(179,0,0,0.4)" }}
+              whileInView={{ width: `${hordePercent}%` }}
             />
           </div>
           <div className="flex justify-between mt-2 text-xs font-medium">

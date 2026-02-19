@@ -6,9 +6,10 @@ import { createAuditLog } from "@/lib/queries/shop-stats";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -18,6 +19,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ sets });
   } catch (error) {
     console.error("Admin sets fetch error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }
@@ -25,13 +27,19 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
 
     const body = await request.json();
 
-    if (!body.name_en || body.price === undefined || !body.items || body.items.length === 0) {
+    if (
+      !body.name_en ||
+      body.price === undefined ||
+      !body.items ||
+      body.items.length === 0
+    ) {
       return NextResponse.json({ error: "missingFields" }, { status: 400 });
     }
 
@@ -69,6 +77,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, id: setId });
   } catch (error) {
     console.error("Admin set create error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

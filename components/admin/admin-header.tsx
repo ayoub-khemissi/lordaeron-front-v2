@@ -30,10 +30,10 @@ export function AdminHeader() {
           </span>
         )}
         <Button
+          className="text-red-400 hover:text-red-300"
           size="sm"
           variant="light"
           onPress={handleLogout}
-          className="text-red-400 hover:text-red-300"
         >
           {t("logout")}
         </Button>

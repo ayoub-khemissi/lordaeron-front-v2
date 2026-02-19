@@ -1,13 +1,21 @@
 "use client";
 
+import type { ShopItemLocalized, Character } from "@/types";
+
 import { useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Button } from "@heroui/button";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
+
 import { getQualityColor } from "@/lib/shop-utils";
-import type { ShopItemLocalized, Character } from "@/types";
 
 interface PurchaseModalProps {
   item: ShopItemLocalized | null;
@@ -57,13 +65,13 @@ export function PurchaseModal({
 
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={handleClose}
       classNames={{
         base: "bg-[#0d1117] border border-wow-gold/20",
         header: "border-b border-wow-gold/10",
         footer: "border-t border-wow-gold/10",
       }}
+      isOpen={isOpen}
+      onClose={handleClose}
     >
       <ModalContent>
         <ModalHeader>{t("confirmPurchase")}</ModalHeader>
@@ -71,8 +79,12 @@ export function PurchaseModal({
           {result === "success" ? (
             <div className="text-center py-4">
               <div className="text-4xl mb-3">&#x2705;</div>
-              <h3 className="text-lg font-medium text-green-400 mb-1">{t("purchaseSuccess")}</h3>
-              <p className="text-gray-400 text-sm">{t("purchaseSuccessDesc")}</p>
+              <h3 className="text-lg font-medium text-green-400 mb-1">
+                {t("purchaseSuccess")}
+              </h3>
+              <p className="text-gray-400 text-sm">
+                {t("purchaseSuccessDesc")}
+              </p>
             </div>
           ) : result === "error" ? (
             <div className="text-center py-4">
@@ -83,7 +95,9 @@ export function PurchaseModal({
             <>
               <div className="bg-[#161b22] rounded-lg p-4 mb-4">
                 <p className="text-sm text-gray-400 mb-1">{t("item")}</p>
-                <p className={`${getQualityColor(item.quality)} font-medium`}>{item.name}</p>
+                <p className={`${getQualityColor(item.quality)} font-medium`}>
+                  {item.name}
+                </p>
               </div>
               <div className="bg-[#161b22] rounded-lg p-4 mb-4">
                 <p className="text-sm text-gray-400 mb-1">{t("purchaseFor")}</p>
@@ -92,16 +106,20 @@ export function PurchaseModal({
               <div className="bg-[#161b22] rounded-lg p-4">
                 <p className="text-sm text-gray-400 mb-2">{t("price")}</p>
                 <PriceDisplay
-                  price={item.price}
-                  discountedPrice={item.discounted_price}
                   discountPercentage={item.discount_percentage}
+                  discountedPrice={item.discounted_price}
+                  price={item.price}
                   size="lg"
                 />
                 {!canAfford && (
-                  <p className="text-red-400 text-sm mt-2">{t("errors.insufficientBalance")}</p>
+                  <p className="text-red-400 text-sm mt-2">
+                    {t("errors.insufficientBalance")}
+                  </p>
                 )}
                 {item.is_refundable && item.category !== "services" && (
-                  <p className="text-xs text-gray-400 mt-2">{t("refundPolicyNote")}</p>
+                  <p className="text-xs text-gray-400 mt-2">
+                    {t("refundPolicyNote")}
+                  </p>
                 )}
               </div>
             </>
@@ -109,19 +127,26 @@ export function PurchaseModal({
         </ModalBody>
         <ModalFooter>
           {result ? (
-            <Button onPress={handleClose} className="bg-wow-gold text-black font-bold">
+            <Button
+              className="bg-wow-gold text-black font-bold"
+              onPress={handleClose}
+            >
               {t("close")}
             </Button>
           ) : (
             <>
-              <Button variant="light" onPress={handleClose} className="text-gray-400">
+              <Button
+                className="text-gray-400"
+                variant="light"
+                onPress={handleClose}
+              >
                 {t("cancel")}
               </Button>
               <Button
-                onPress={handleConfirm}
-                isLoading={loading}
-                isDisabled={!canAfford}
                 className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
+                isDisabled={!canAfford}
+                isLoading={loading}
+                onPress={handleConfirm}
               >
                 {t("confirm")}
               </Button>

@@ -12,21 +12,25 @@ const LOCALES = [
 
 function extractName(xml: string): string | null {
   const match = xml.match(/<name>\s*<!\[CDATA\[\s*(.+?)\s*\]\]>\s*<\/name>/);
+
   return match ? match[1].trim() : null;
 }
 
 function extractIcon(xml: string): string | null {
   const match = xml.match(/<icon[^>]*>([^<]+)<\/icon>/);
+
   return match ? match[1].trim().toLowerCase() : null;
 }
 
 export async function GET(request: NextRequest) {
   const admin = await verifyAdminSession();
+
   if (!admin) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const itemId = request.nextUrl.searchParams.get("item_id");
+
   if (!itemId || isNaN(Number(itemId)) || Number(itemId) <= 0) {
     return NextResponse.json({ error: "Invalid item_id" }, { status: 400 });
   }
@@ -42,35 +46,47 @@ export async function GET(request: NextRequest) {
             signal: AbortSignal.timeout(8000),
           },
         );
+
         if (!res.ok) return null;
+
         return res.text();
       }),
     );
 
     // English is required (first result)
     const enResult = results[0];
+
     if (enResult.status !== "fulfilled" || !enResult.value) {
-      return NextResponse.json({ found: false, error: "Wowhead request failed" });
+      return NextResponse.json({
+        found: false,
+        error: "Wowhead request failed",
+      });
     }
 
     const enXml = enResult.value;
 
     // Wowhead returns XML with an error attribute when item doesn't exist
-    if (enXml.includes('<error>') || !enXml.includes('<item')) {
+    if (enXml.includes("<error>") || !enXml.includes("<item")) {
       return NextResponse.json({ found: false, error: "Item not found" });
     }
 
     const iconName = extractIcon(enXml);
+
     if (!iconName) {
-      return NextResponse.json({ found: false, error: "Icon not found in XML" });
+      return NextResponse.json({
+        found: false,
+        error: "Icon not found in XML",
+      });
     }
 
     const iconUrl = `https://wow.zamimg.com/images/wow/icons/large/${iconName}.jpg`;
 
     // Extract names from each locale
     const names: Record<string, string | null> = {};
+
     for (let i = 0; i < LOCALES.length; i++) {
       const result = results[i];
+
       if (result.status === "fulfilled" && result.value) {
         names[LOCALES[i].key] = extractName(result.value);
       } else {
@@ -85,6 +101,9 @@ export async function GET(request: NextRequest) {
       names,
     });
   } catch {
-    return NextResponse.json({ found: false, error: "Failed to fetch from Wowhead" });
+    return NextResponse.json({
+      found: false,
+      error: "Failed to fetch from Wowhead",
+    });
   }
 }

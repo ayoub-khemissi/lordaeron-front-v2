@@ -1,13 +1,15 @@
 "use client";
 
+import type { ShopItemLocalized } from "@/types";
+
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
+
 import { WowheadLink } from "@/components/wowhead-link";
 import { getQualityColor } from "@/lib/shop-utils";
-import type { ShopItemLocalized } from "@/types";
 
 interface ItemCardProps {
   item: ShopItemLocalized;
@@ -21,8 +23,8 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
   return (
     <Card
       isPressable
-      onPress={onClick}
       className="glass border-wow-gold/10 hover:border-wow-gold/30 transition-all duration-300 hover:glow-gold group"
+      onPress={onClick}
     >
       <CardBody className="p-4 pb-2">
         <div className="flex items-start justify-between gap-2 mb-3">
@@ -30,17 +32,33 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
             {item.icon_url && (
               <div className="w-12 h-12 rounded-lg bg-wow-dark/50 border border-wow-gold/20 flex items-center justify-center mb-2 overflow-hidden">
                 {item.item_id ? (
-                  <WowheadLink itemId={item.item_id} className="flex items-center justify-center">
-                    <img src={item.icon_url} alt={item.name} className="w-10 h-10 object-contain" />
+                  <WowheadLink
+                    className="flex items-center justify-center"
+                    itemId={item.item_id}
+                  >
+                    <img
+                      alt={item.name}
+                      className="w-10 h-10 object-contain"
+                      src={item.icon_url}
+                    />
                   </WowheadLink>
                 ) : (
-                  <img src={item.icon_url} alt={item.name} className="w-10 h-10 object-contain" />
+                  <img
+                    alt={item.name}
+                    className="w-10 h-10 object-contain"
+                    src={item.icon_url}
+                  />
                 )}
               </div>
             )}
-            <h3 className={`font-medium ${getQualityColor(item.quality)} ${item.quality == null ? "group-hover:text-wow-gold" : ""} transition-colors line-clamp-2`}>
+            <h3
+              className={`font-medium ${getQualityColor(item.quality)} ${item.quality == null ? "group-hover:text-wow-gold" : ""} transition-colors line-clamp-2`}
+            >
               {item.item_id ? (
-                <WowheadLink itemId={item.item_id} className="text-inherit hover:text-wow-gold">
+                <WowheadLink
+                  className="text-inherit hover:text-wow-gold"
+                  itemId={item.item_id}
+                >
                   {item.name}
                 </WowheadLink>
               ) : (
@@ -50,8 +68,8 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
           </div>
           {item.discount_percentage > 0 && (
             <Chip
-              size="sm"
               className="bg-green-500/20 text-green-400 border-green-500/30"
+              size="sm"
               variant="bordered"
             >
               -{item.discount_percentage}%
@@ -68,23 +86,23 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
         <div className="flex flex-wrap gap-1">
           {item.faction !== "both" && (
             <Chip
-              size="sm"
               className={
                 item.faction === "alliance"
                   ? "bg-wow-alliance/20 text-blue-300"
                   : "bg-wow-horde/20 text-red-300"
               }
+              size="sm"
             >
               {item.faction === "alliance" ? tHome("alliance") : tHome("horde")}
             </Chip>
           )}
           {item.min_level > 0 && (
-            <Chip size="sm" className="bg-orange-500/10 text-orange-300">
+            <Chip className="bg-orange-500/10 text-orange-300" size="sm">
               {t("reqLevel", { level: item.min_level })}
             </Chip>
           )}
           {!item.is_refundable && (
-            <Chip size="sm" className="bg-red-500/10 text-red-400">
+            <Chip className="bg-red-500/10 text-red-400" size="sm">
               {t("nonRefundable")}
             </Chip>
           )}
@@ -93,9 +111,9 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
 
       <CardFooter className="px-4 pb-4 pt-2">
         <PriceDisplay
-          price={item.price}
-          discountedPrice={item.discounted_price}
           discountPercentage={item.discount_percentage}
+          discountedPrice={item.discounted_price}
+          price={item.price}
           size="sm"
         />
       </CardFooter>

@@ -1,12 +1,13 @@
 "use client";
 
+import type { ShopSetWithItems } from "@/types";
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Spinner } from "@heroui/spinner";
 
 import { SetForm } from "@/components/admin/set-form";
-import type { ShopSetWithItems } from "@/types";
 
 export default function AdminEditSetPage({
   params: paramsPromise,
@@ -25,6 +26,7 @@ export default function AdminEditSetPage({
       try {
         const res = await fetch(`/api/admin/sets/${params.id}`);
         const data = await res.json();
+
         setSet(data.set || null);
       } catch {
         // Silent fail
@@ -44,6 +46,7 @@ export default function AdminEditSetPage({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
       if (res.ok) {
         router.push(`/${locale}/admin/sets`);
       }
@@ -55,7 +58,7 @@ export default function AdminEditSetPage({
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -70,8 +73,10 @@ export default function AdminEditSetPage({
 
   return (
     <div>
-      <h1 className="text-2xl font-heading text-gray-100 mb-6">{t("editSet")}</h1>
-      <SetForm set={set} onSubmit={handleSubmit} loading={saving} />
+      <h1 className="text-2xl font-heading text-gray-100 mb-6">
+        {t("editSet")}
+      </h1>
+      <SetForm loading={saving} set={set} onSubmit={handleSubmit} />
     </div>
   );
 }

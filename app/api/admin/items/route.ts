@@ -1,15 +1,17 @@
+import type { ShopCategory } from "@/types";
+
 import { NextRequest, NextResponse } from "next/server";
 
 import { verifyAdminSession } from "@/lib/admin-auth";
 import { getShopItems, createShopItem } from "@/lib/queries/shop-items";
 import { createAuditLog } from "@/lib/queries/shop-stats";
-import type { ShopCategory } from "@/types";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -25,6 +27,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ items });
   } catch (error) {
     console.error("Admin items fetch error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }
@@ -32,6 +35,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -44,8 +48,8 @@ export async function POST(request: NextRequest) {
 
     // Enforce category constraints: service_type only for "services", item_id only for non-"services"
     const isService = body.category === "services";
-    const sanitizedServiceType = isService ? (body.service_type || null) : null;
-    const sanitizedItemId = isService ? null : (body.item_id || null);
+    const sanitizedServiceType = isService ? body.service_type || null : null;
+    const sanitizedItemId = isService ? null : body.item_id || null;
 
     const itemId = await createShopItem({
       category: body.category,
@@ -85,6 +89,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, id: itemId });
   } catch (error) {
     console.error("Admin item create error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

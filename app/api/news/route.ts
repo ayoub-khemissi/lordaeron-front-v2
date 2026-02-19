@@ -14,8 +14,7 @@ export async function GET(request: NextRequest) {
 
     const localized = news.map((item) => ({
       id: item.id,
-      title:
-        item[`title_${locale}` as keyof typeof item] || item.title_en,
+      title: item[`title_${locale}` as keyof typeof item] || item.title_en,
       content:
         item[`content_${locale}` as keyof typeof item] || item.content_en,
       image_url: item.image_url,

@@ -10,19 +10,14 @@ export async function POST(request: NextRequest) {
     const { username, password } = await request.json();
 
     if (!username) {
-      return NextResponse.json(
-        { error: "usernameRequired" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "usernameRequired" }, { status: 400 });
     }
     if (!password) {
-      return NextResponse.json(
-        { error: "passwordRequired" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "passwordRequired" }, { status: 400 });
     }
 
     const account = await findAccountByUsername(username);
+
     if (!account) {
       return NextResponse.json(
         { error: "invalidCredentials" },
@@ -36,6 +31,7 @@ export async function POST(request: NextRequest) {
       account.salt,
       account.verifier,
     );
+
     if (!valid) {
       return NextResponse.json(
         { error: "invalidCredentials" },
@@ -50,6 +46,7 @@ export async function POST(request: NextRequest) {
 
     const cookieStore = await cookies();
     const cookieOptions = getSessionCookieOptions(token);
+
     cookieStore.set(cookieOptions);
 
     return NextResponse.json({
@@ -61,6 +58,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Login error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

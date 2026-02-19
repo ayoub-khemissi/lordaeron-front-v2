@@ -1,7 +1,8 @@
+import type { ShopBan } from "@/types";
+
 import { RowDataPacket, ResultSetHeader } from "mysql2";
 
 import { websiteDb } from "@/lib/db";
-import type { ShopBan } from "@/types";
 
 export async function getActiveBan(accountId: number): Promise<ShopBan | null> {
   const [rows] = await websiteDb.execute<RowDataPacket[]>(
@@ -10,6 +11,7 @@ export async function getActiveBan(accountId: number): Promise<ShopBan | null> {
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as ShopBan;
 }
 

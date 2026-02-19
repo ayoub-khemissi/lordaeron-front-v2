@@ -1,7 +1,7 @@
+import type { ShopAdminJWTPayload } from "@/types";
+
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-
-import type { ShopAdminJWTPayload } from "@/types";
 
 const secret = new TextEncoder().encode(
   process.env.ADMIN_JWT_SECRET || "changeme-admin-secret-key-2024",
@@ -25,9 +25,11 @@ export async function verifyAdminSession(): Promise<ShopAdminJWTPayload | null> 
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get(COOKIE_NAME)?.value;
+
     if (!token) return null;
 
     const { payload } = await jwtVerify(token, secret);
+
     return payload as unknown as ShopAdminJWTPayload;
   } catch {
     return null;

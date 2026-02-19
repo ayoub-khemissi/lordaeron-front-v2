@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+
 import { useAuth } from "@/lib/auth-context";
 
 export const LoginForm = () => {
@@ -20,9 +21,11 @@ export const LoginForm = () => {
 
   const validate = () => {
     const errs: Record<string, string> = {};
+
     if (!form.username) errs.username = t("errors.usernameRequired");
     if (!form.password) errs.password = t("errors.passwordRequired");
     setErrors(errs);
+
     return Object.keys(errs).length === 0;
   };
 
@@ -48,6 +51,7 @@ export const LoginForm = () => {
         } else {
           setErrors({ server: t("errors.serverError") });
         }
+
         return;
       }
 
@@ -66,10 +70,10 @@ export const LoginForm = () => {
       <div className="absolute -inset-4 bg-gradient-to-r from-wow-blue/5 via-wow-gold/5 to-wow-blue/5 rounded-3xl blur-2xl" />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
         className="relative glass glow-blue rounded-2xl overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.5 }}
       >
         {/* Top accent image */}
         <div className="relative h-32 overflow-hidden">
@@ -88,31 +92,33 @@ export const LoginForm = () => {
         </div>
 
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <Input
-              label={t("username")}
-              value={form.username}
-              onChange={(e) => setForm({ ...form, username: e.target.value })}
-              isInvalid={!!errors.username}
-              errorMessage={errors.username}
-              variant="bordered"
               classNames={{
-                inputWrapper: "border-white/10 bg-white/[0.03] hover:border-wow-blue/30 focus-within:!border-wow-blue/50",
+                inputWrapper:
+                  "border-white/10 bg-white/[0.03] hover:border-wow-blue/30 focus-within:!border-wow-blue/50",
                 label: "text-gray-400",
               }}
+              errorMessage={errors.username}
+              isInvalid={!!errors.username}
+              label={t("username")}
+              value={form.username}
+              variant="bordered"
+              onChange={(e) => setForm({ ...form, username: e.target.value })}
             />
             <Input
+              classNames={{
+                inputWrapper:
+                  "border-white/10 bg-white/[0.03] hover:border-wow-blue/30 focus-within:!border-wow-blue/50",
+                label: "text-gray-400",
+              }}
+              errorMessage={errors.password}
+              isInvalid={!!errors.password}
               label={t("password")}
               type="password"
               value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              isInvalid={!!errors.password}
-              errorMessage={errors.password}
               variant="bordered"
-              classNames={{
-                inputWrapper: "border-white/10 bg-white/[0.03] hover:border-wow-blue/30 focus-within:!border-wow-blue/50",
-                label: "text-gray-400",
-              }}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
 
             {errors.server && (
@@ -120,10 +126,10 @@ export const LoginForm = () => {
             )}
 
             <Button
-              type="submit"
-              isLoading={loading}
               className="bg-gradient-to-r from-wow-blue to-wow-blue-ice text-black font-bold mt-2 h-12 glow-blue-strong hover:shadow-[0_0_40px_rgba(79,195,247,0.4)] transition-all"
+              isLoading={loading}
               size="lg"
+              type="submit"
             >
               {t("submit")}
             </Button>
@@ -131,8 +137,8 @@ export const LoginForm = () => {
             <p className="text-center text-gray-400 text-sm mt-1">
               {t("noAccount")}{" "}
               <NextLink
-                href={`/${locale}/register`}
                 className="text-wow-gold hover:text-wow-gold-light hover:underline transition-colors"
+                href={`/${locale}/register`}
               >
                 {t("registerLink")}
               </NextLink>

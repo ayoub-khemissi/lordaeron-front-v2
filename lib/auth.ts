@@ -1,7 +1,7 @@
+import type { JWTPayload } from "@/types";
+
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-
-import type { JWTPayload } from "@/types";
 
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "changeme-lordaeron-secret-key-2024",
@@ -23,9 +23,11 @@ export async function verifySession(): Promise<JWTPayload | null> {
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get(COOKIE_NAME)?.value;
+
     if (!token) return null;
 
     const { payload } = await jwtVerify(token, secret);
+
     return payload as unknown as JWTPayload;
   } catch {
     return null;

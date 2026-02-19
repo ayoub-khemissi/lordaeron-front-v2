@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import clsx from "clsx";
 
+import { Providers } from "./providers";
+
 import { routing } from "@/i18n/routing";
 import { fontSans, fontHeading } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { Providers } from "./providers";
 import { AuthProvider } from "@/lib/auth-context";
 
 export default async function LocaleLayout({
@@ -18,6 +19,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -43,13 +45,17 @@ export default async function LocaleLayout({
         )}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers themeProps={{ attribute: "class", defaultTheme: "dark", forcedTheme: "dark" }}>
+          <Providers
+            themeProps={{
+              attribute: "class",
+              defaultTheme: "dark",
+              forcedTheme: "dark",
+            }}
+          >
             <AuthProvider>
               <div className="relative flex flex-col min-h-screen">
                 <Navbar />
-                <main className="flex-grow">
-                  {children}
-                </main>
+                <main className="flex-grow">{children}</main>
                 <Footer />
               </div>
             </AuthProvider>

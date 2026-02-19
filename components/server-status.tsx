@@ -14,6 +14,7 @@ export const ServerStatus = () => {
       try {
         const res = await fetch("/api/server/status");
         const data = await res.json();
+
         setOnline(data.online);
         setRealmName(data.name || "Lordaeron");
       } catch {
@@ -23,19 +24,20 @@ export const ServerStatus = () => {
 
     fetchStatus();
     const interval = setInterval(fetchStatus, 30000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.6 }}
       className={`
         inline-flex items-center gap-3 px-6 py-3 rounded-full
         glass
         ${online === true ? "glow-pulse border-green-500/20" : online === false ? "border-red-500/20" : "border-default-700/20"}
       `}
+      initial={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.5, delay: 0.6 }}
     >
       {/* Animated dot */}
       <span className="relative flex h-3 w-3">

@@ -1,6 +1,13 @@
 "use client";
 
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@heroui/table";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@heroui/table";
 import { useLocale, useTranslations } from "next-intl";
 
 interface AuditLog {
@@ -66,13 +73,21 @@ export function AuditTable({ logs }: AuditTableProps) {
               </span>
             </TableCell>
             <TableCell className="text-sm">
-              {translateTarget(log.target_type)}{log.target_id ? ` #${log.target_id}` : ""}
+              {translateTarget(log.target_type)}
+              {log.target_id ? ` #${log.target_id}` : ""}
             </TableCell>
             <TableCell className="max-w-[200px] truncate text-xs text-gray-500">
-              {log.details ? (typeof log.details === "string" ? log.details : JSON.stringify(log.details)) : "-"}
+              {log.details
+                ? typeof log.details === "string"
+                  ? log.details
+                  : JSON.stringify(log.details)
+                : "-"}
             </TableCell>
             <TableCell className="text-sm text-gray-400">
-              {new Date(log.created_at).toLocaleString(locale, { dateStyle: "short", timeStyle: "short" })}
+              {new Date(log.created_at).toLocaleString(locale, {
+                dateStyle: "short",
+                timeStyle: "short",
+              })}
             </TableCell>
           </TableRow>
         ))}

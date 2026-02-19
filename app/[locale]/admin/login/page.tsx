@@ -33,6 +33,7 @@ export default function AdminLoginPage() {
 
       if (!res.ok) {
         setError(t("error"));
+
         return;
       }
 
@@ -52,31 +53,32 @@ export default function AdminLoginPage() {
           <div className="w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-wow-gold to-wow-gold-dark flex items-center justify-center mb-4">
             <span className="text-black font-black text-2xl">L</span>
           </div>
-          <h1 className="text-2xl font-heading wow-gradient-text">{t("title")}</h1>
+          <h1 className="text-2xl font-heading wow-gradient-text">
+            {t("title")}
+          </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
+            classNames={{ inputWrapper: "bg-[#161b22] border-gray-700" }}
             label={t("username")}
             value={username}
             onValueChange={setUsername}
-            classNames={{ inputWrapper: "bg-[#161b22] border-gray-700" }}
-            autoFocus
           />
           <Input
+            classNames={{ inputWrapper: "bg-[#161b22] border-gray-700" }}
             label={t("password")}
             type="password"
             value={password}
             onValueChange={setPassword}
-            classNames={{ inputWrapper: "bg-[#161b22] border-gray-700" }}
           />
 
           {error && <p className="text-red-400 text-sm">{error}</p>}
 
           <Button
-            type="submit"
-            isLoading={loading}
             className="w-full bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
+            isLoading={loading}
+            type="submit"
           >
             {t("submit")}
           </Button>

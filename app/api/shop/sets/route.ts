@@ -1,16 +1,18 @@
+import type { ShopSetWithItems } from "@/types";
+
 import { NextRequest, NextResponse } from "next/server";
 
 import { verifySession } from "@/lib/auth";
 import { getShopSets } from "@/lib/queries/shop-sets";
 import { getShopSetItems } from "@/lib/queries/shop-sets";
 import { localizeShopSet } from "@/lib/shop-utils";
-import type { ShopSetWithItems } from "@/types";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
     const session = await verifySession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -32,6 +34,7 @@ export async function GET(request: NextRequest) {
     const setsWithItems: ShopSetWithItems[] = await Promise.all(
       sets.map(async (set) => {
         const items = await getShopSetItems(set.id);
+
         return { ...set, items };
       }),
     );
@@ -41,6 +44,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ sets: localized });
   } catch (error) {
     console.error("Shop sets fetch error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

@@ -39,12 +39,12 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar
-      maxWidth="xl"
-      position="sticky"
       classNames={{
         base: "bg-wow-darker/60 backdrop-blur-xl border-b border-wow-gold/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
         wrapper: "px-4 sm:px-6",
       }}
+      maxWidth="xl"
+      position="sticky"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -82,8 +82,8 @@ export const Navbar = () => {
           <Link
             isExternal
             aria-label="Discord"
-            href={siteConfig.links.discord}
             className="text-gray-400 hover:text-[#5865F2] transition-colors"
+            href={siteConfig.links.discord}
           >
             <DiscordIcon className="w-5 h-5" />
           </Link>
@@ -100,9 +100,9 @@ export const Navbar = () => {
             <Dropdown placement="bottom-end">
               <DropdownTrigger>
                 <Button
-                  variant="flat"
-                  size="sm"
                   className="glass border-wow-gold/20 hover:border-wow-gold/40 transition-colors gap-2 px-3"
+                  size="sm"
+                  variant="flat"
                 >
                   <div className="w-6 h-6 rounded-full bg-gradient-to-br from-wow-gold/40 to-wow-gold-dark/40 flex items-center justify-center border border-wow-gold/30">
                     <span className="text-xs font-bold wow-gradient-text">
@@ -122,16 +122,16 @@ export const Navbar = () => {
               >
                 <DropdownItem
                   key="account"
-                  onPress={() => router.push(`/${locale}/account`)}
                   className="text-gray-300 hover:text-wow-gold"
+                  onPress={() => router.push(`/${locale}/account`)}
                 >
                   {t("nav.account")}
                 </DropdownItem>
                 <DropdownItem
                   key="logout"
-                  onPress={handleLogout}
                   className="text-red-400"
                   color="danger"
+                  onPress={handleLogout}
                 >
                   {t("nav.logout")}
                 </DropdownItem>
@@ -142,18 +142,18 @@ export const Navbar = () => {
             <>
               <Button
                 as={NextLink}
-                href={`/${locale}/login`}
-                variant="light"
-                size="sm"
                 className="text-gray-200 hover:text-wow-blue"
+                href={`/${locale}/login`}
+                size="sm"
+                variant="light"
               >
                 {t("nav.login")}
               </Button>
               <Button
                 as={NextLink}
+                className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold glow-gold hover:shadow-[0_0_25px_rgba(199,156,62,0.4)] transition-shadow"
                 href={`/${locale}/register`}
                 size="sm"
-                className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold glow-gold hover:shadow-[0_0_25px_rgba(199,156,62,0.4)] transition-shadow"
               >
                 {t("nav.register")}
               </Button>
@@ -196,8 +196,8 @@ export const Navbar = () => {
               </NavbarMenuItem>
               <NavbarMenuItem>
                 <button
-                  onClick={handleLogout}
                   className="text-red-400 hover:text-red-300 transition-all text-lg block py-2 px-3 rounded-lg hover:bg-red-500/5 w-full text-left"
+                  onClick={handleLogout}
                 >
                   {t("nav.logout")}
                 </button>

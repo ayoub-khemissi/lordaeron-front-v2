@@ -9,10 +9,7 @@ export async function POST(request: NextRequest) {
 
     // Validation
     if (!username || typeof username !== "string") {
-      return NextResponse.json(
-        { error: "usernameRequired" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "usernameRequired" }, { status: 400 });
     }
     if (username.length < 3 || username.length > 16) {
       return NextResponse.json({ error: "usernameLength" }, { status: 400 });
@@ -32,6 +29,7 @@ export async function POST(request: NextRequest) {
 
     // Check if username exists
     const existing = await findAccountByUsername(username);
+
     if (existing) {
       return NextResponse.json({ error: "usernameTaken" }, { status: 409 });
     }
@@ -43,12 +41,10 @@ export async function POST(request: NextRequest) {
     // Create account
     const accountId = await createAccount(username, email, salt, verifier);
 
-    return NextResponse.json(
-      { success: true, accountId },
-      { status: 201 },
-    );
+    return NextResponse.json({ success: true, accountId }, { status: 201 });
   } catch (error) {
     console.error("Registration error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

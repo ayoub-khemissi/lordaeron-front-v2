@@ -1,7 +1,8 @@
+import type { ShopAdmin } from "@/types";
+
 import { RowDataPacket } from "mysql2";
 
 import { websiteDb } from "@/lib/db";
-import type { ShopAdmin } from "@/types";
 
 export async function findAdminByUsername(
   username: string,
@@ -12,18 +13,18 @@ export async function findAdminByUsername(
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as ShopAdmin;
 }
 
-export async function findAdminById(
-  id: number,
-): Promise<ShopAdmin | null> {
+export async function findAdminById(id: number): Promise<ShopAdmin | null> {
   const [rows] = await websiteDb.execute<RowDataPacket[]>(
     "SELECT * FROM shop_admins WHERE id = ? AND is_active = 1",
     [id],
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as ShopAdmin;
 }
 

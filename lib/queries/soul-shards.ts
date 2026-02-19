@@ -9,5 +9,6 @@ export async function getSoulShardBalance(accountId: number): Promise<number> {
   );
 
   if (rows.length === 0) return 0;
+
   return rows[0].balance as number;
 }

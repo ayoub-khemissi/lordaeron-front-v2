@@ -1,7 +1,8 @@
+import type { ShopSet, ShopSetItem, ShopSetWithItems } from "@/types";
+
 import { RowDataPacket, ResultSetHeader } from "mysql2";
 
 import { websiteDb } from "@/lib/db";
-import type { ShopSet, ShopSetItem, ShopSetWithItems } from "@/types";
 
 function parseSetRow(row: ShopSet): ShopSet {
   return {
@@ -152,6 +153,7 @@ export async function createShopSet(
     }
 
     await connection.commit();
+
     return setId;
   } catch (error) {
     await connection.rollback();
@@ -250,6 +252,7 @@ export async function updateShopSet(
     }
 
     await connection.commit();
+
     return true;
   } catch (error) {
     await connection.rollback();

@@ -29,10 +29,17 @@ export function PriceDisplay({
 
   return (
     <div className="flex items-center gap-2">
-      <Image src="/img/icons/soul-shard.svg" alt="Soul Shards" width={s.icon} height={s.icon} />
+      <Image
+        alt="Soul Shards"
+        height={s.icon}
+        src="/img/icons/soul-shard.svg"
+        width={s.icon}
+      />
       <div className="flex items-center gap-2">
         <span className={`font-bold text-purple-400 ${s.price}`}>
-          {hasDiscount ? discountedPrice.toLocaleString() : price.toLocaleString()}
+          {hasDiscount
+            ? discountedPrice.toLocaleString()
+            : price.toLocaleString()}
         </span>
         {hasDiscount && (
           <>

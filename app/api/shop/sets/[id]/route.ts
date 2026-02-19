@@ -10,6 +10,7 @@ export async function GET(
 ) {
   try {
     const session = await verifySession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -19,6 +20,7 @@ export async function GET(
     const locale = searchParams.get("locale") || "en";
 
     const set = await getShopSetById(parseInt(id));
+
     if (!set || !set.is_active) {
       return NextResponse.json({ error: "setNotFound" }, { status: 404 });
     }
@@ -26,6 +28,7 @@ export async function GET(
     return NextResponse.json({ set: localizeShopSet(set, locale) });
   } catch (error) {
     console.error("Shop set detail error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

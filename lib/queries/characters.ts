@@ -1,7 +1,8 @@
+import type { Character } from "@/types";
+
 import { RowDataPacket } from "mysql2";
 
 import { charactersDb } from "@/lib/db";
-import type { Character } from "@/types";
 
 export async function getCharactersByAccount(
   accountId: number,
@@ -23,6 +24,7 @@ export async function getCharacterByGuid(
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as Character;
 }
 
@@ -35,6 +37,7 @@ export async function getCharacterByExactName(
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as Character;
 }
 
@@ -120,8 +123,13 @@ export async function removeMailWithItem(
   mailId: number,
   itemGuid: number,
 ): Promise<void> {
-  await charactersDb.execute("DELETE FROM mail_items WHERE mail_id = ? AND item_guid = ?", [mailId, itemGuid]);
-  await charactersDb.execute("DELETE FROM item_instance WHERE guid = ?", [itemGuid]);
+  await charactersDb.execute(
+    "DELETE FROM mail_items WHERE mail_id = ? AND item_guid = ?",
+    [mailId, itemGuid],
+  );
+  await charactersDb.execute("DELETE FROM item_instance WHERE guid = ?", [
+    itemGuid,
+  ]);
   // Delete the mail if it has no remaining items
   await charactersDb.execute(
     `DELETE FROM mail WHERE id = ? AND NOT EXISTS (SELECT 1 FROM mail_items WHERE mail_id = ?)`,
@@ -130,6 +138,10 @@ export async function removeMailWithItem(
 }
 
 export async function removeInventoryItem(itemGuid: number): Promise<void> {
-  await charactersDb.execute("DELETE FROM character_inventory WHERE item = ?", [itemGuid]);
-  await charactersDb.execute("DELETE FROM item_instance WHERE guid = ?", [itemGuid]);
+  await charactersDb.execute("DELETE FROM character_inventory WHERE item = ?", [
+    itemGuid,
+  ]);
+  await charactersDb.execute("DELETE FROM item_instance WHERE guid = ?", [
+    itemGuid,
+  ]);
 }

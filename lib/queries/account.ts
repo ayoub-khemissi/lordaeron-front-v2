@@ -1,7 +1,8 @@
+import type { Account } from "@/types";
+
 import { RowDataPacket } from "mysql2";
 
 import { authDb } from "@/lib/db";
-import type { Account } from "@/types";
 
 export async function findAccountByUsername(
   username: string,
@@ -12,18 +13,18 @@ export async function findAccountByUsername(
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as Account;
 }
 
-export async function findAccountById(
-  id: number,
-): Promise<Account | null> {
+export async function findAccountById(id: number): Promise<Account | null> {
   const [rows] = await authDb.execute<RowDataPacket[]>(
     "SELECT id, username, email, joindate, last_ip, expansion FROM account WHERE id = ?",
     [id],
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as Account;
 }
 

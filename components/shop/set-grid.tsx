@@ -1,9 +1,10 @@
 "use client";
 
+import type { ShopSetLocalized } from "@/types";
+
 import { useTranslations } from "next-intl";
 
 import { SetCard } from "./set-card";
-import type { ShopSetLocalized } from "@/types";
 
 interface SetGridProps {
   sets: ShopSetLocalized[];

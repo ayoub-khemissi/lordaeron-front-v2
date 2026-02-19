@@ -1,12 +1,13 @@
 "use client";
 
+import type { ShopItem } from "@/types";
+
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Spinner } from "@heroui/spinner";
 
 import { ItemForm } from "@/components/admin/item-form";
-import type { ShopItem } from "@/types";
 
 export default function AdminEditItemPage() {
   const t = useTranslations("admin.items");
@@ -25,6 +26,7 @@ export default function AdminEditItemPage() {
       try {
         const res = await fetch(`/api/admin/items/${id}`);
         const data = await res.json();
+
         setItem(data.item);
       } catch {
         // Silent fail
@@ -32,6 +34,7 @@ export default function AdminEditItemPage() {
         setLoading(false);
       }
     };
+
     fetchItem();
   }, [id]);
 
@@ -43,6 +46,7 @@ export default function AdminEditItemPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
       if (res.ok) {
         router.push(`/${locale}/admin/items`);
       }
@@ -54,7 +58,7 @@ export default function AdminEditItemPage() {
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -68,7 +72,7 @@ export default function AdminEditItemPage() {
       <h1 className="text-2xl font-heading text-gray-100 mb-6">
         {t("editItem")}: {item.name_en}
       </h1>
-      <ItemForm item={item} onSubmit={handleSubmit} loading={saving} />
+      <ItemForm item={item} loading={saving} onSubmit={handleSubmit} />
     </div>
   );
 }

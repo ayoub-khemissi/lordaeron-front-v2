@@ -37,16 +37,17 @@ export function WowheadLink({ itemId, children, className }: WowheadLinkProps) {
     const timer = setTimeout(() => {
       window.$WowheadPower?.refreshLinks();
     }, 100);
+
     return () => clearTimeout(timer);
   }, [itemId, locale]);
 
   return (
     <a
       ref={ref}
-      href={`https://www.wowhead.com/wotlk/${localePath}item=${itemId}`}
-      target="_blank"
-      rel="noopener noreferrer"
       className={className}
+      href={`https://www.wowhead.com/wotlk/${localePath}item=${itemId}`}
+      rel="noopener noreferrer"
+      target="_blank"
       onClick={(e) => e.stopPropagation()}
     >
       {children}

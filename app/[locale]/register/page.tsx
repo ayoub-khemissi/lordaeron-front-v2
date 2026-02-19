@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import { Spinner } from "@heroui/spinner";
+
 import { RegisterForm } from "@/components/register-form";
 import { useAuth } from "@/lib/auth-context";
 
@@ -21,7 +22,7 @@ export default function RegisterPage() {
   if (loading || user) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }

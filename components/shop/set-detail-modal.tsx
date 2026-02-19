@@ -1,14 +1,22 @@
 "use client";
 
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
+import type { ShopSetLocalized } from "@/types";
+
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import { useTranslations } from "next-intl";
 
 import { PriceDisplay } from "./price-display";
+
 import { WowheadLink } from "@/components/wowhead-link";
 import { getQualityColor } from "@/lib/shop-utils";
-import type { ShopSetLocalized } from "@/types";
 
 interface SetDetailModalProps {
   set: ShopSetLocalized | null;
@@ -33,20 +41,24 @@ export function SetDetailModal({
 
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      size="2xl"
       classNames={{
         base: "bg-[#0d1117] border border-wow-gold/20",
         header: "border-b border-wow-gold/10",
         footer: "border-t border-wow-gold/10",
       }}
+      isOpen={isOpen}
+      size="2xl"
+      onClose={onClose}
     >
       <ModalContent>
         <ModalHeader className="flex items-center gap-3">
           {set.icon_url && (
             <div className="w-12 h-12 rounded-lg bg-wow-dark/50 border border-wow-gold/20 flex items-center justify-center overflow-hidden">
-              <img src={set.icon_url} alt={set.name} className="w-10 h-10 object-contain" />
+              <img
+                alt={set.name}
+                className="w-10 h-10 object-contain"
+                src={set.icon_url}
+              />
             </div>
           )}
           <div>
@@ -64,9 +76,9 @@ export function SetDetailModal({
 
           <div className="mb-4">
             <PriceDisplay
-              price={set.price}
-              discountedPrice={set.discounted_price}
               discountPercentage={set.discount_percentage}
+              discountedPrice={set.discounted_price}
+              price={set.price}
               size="lg"
             />
           </div>
@@ -81,15 +93,22 @@ export function SetDetailModal({
                 <div key={piece.id} className="flex items-center gap-3">
                   {piece.icon_url && (
                     <div className="w-8 h-8 rounded bg-wow-dark/30 border border-gray-700/50 flex items-center justify-center overflow-hidden shrink-0">
-                      <WowheadLink itemId={piece.item_id} className="flex items-center justify-center">
-                        <img src={piece.icon_url} alt="" className="w-7 h-7 object-contain" />
+                      <WowheadLink
+                        className="flex items-center justify-center"
+                        itemId={piece.item_id}
+                      >
+                        <img
+                          alt=""
+                          className="w-7 h-7 object-contain"
+                          src={piece.icon_url}
+                        />
                       </WowheadLink>
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
                     <WowheadLink
-                      itemId={piece.item_id}
                       className={`text-sm hover:text-wow-gold transition-colors ${getQualityColor(piece.quality)}`}
+                      itemId={piece.item_id}
                     >
                       {piece.name}
                     </WowheadLink>
@@ -102,51 +121,55 @@ export function SetDetailModal({
           {/* Restrictions */}
           {(set.class_ids || set.faction !== "both") && (
             <div className="bg-[#161b22] rounded-lg p-4 mb-4">
-              <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">{t("restrictions")}</p>
+              <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">
+                {t("restrictions")}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {set.faction !== "both" && (
                   <Chip
-                    size="sm"
                     className={
                       set.faction === "alliance"
                         ? "bg-wow-alliance/20 text-blue-300"
                         : "bg-wow-horde/20 text-red-300"
                     }
+                    size="sm"
                   >
                     {t("factionRestriction")}: {set.faction}
                   </Chip>
                 )}
                 {set.class_ids && (
-                  <Chip size="sm" className="bg-cyan-500/10 text-cyan-300">
-                    {t("classRestriction")}: {set.class_ids.map((id) => t(`className_${id}`)).join(", ")}
+                  <Chip className="bg-cyan-500/10 text-cyan-300" size="sm">
+                    {t("classRestriction")}:{" "}
+                    {set.class_ids.map((id) => t(`className_${id}`)).join(", ")}
                   </Chip>
                 )}
               </div>
             </div>
           )}
-
         </ModalBody>
 
         <ModalFooter className="flex-col items-stretch gap-3">
           {!hasCharacter && (
-            <p className="text-xs text-yellow-400/80 text-center">{t("noCharacterSelected")}</p>
+            <p className="text-xs text-yellow-400/80 text-center">
+              {t("noCharacterSelected")}
+            </p>
           )}
           <div className="flex justify-end gap-2">
-            <Button variant="light" onPress={onClose} className="text-gray-400">
+            <Button className="text-gray-400" variant="light" onPress={onClose}>
               {t("close")}
             </Button>
             <Button
-              onPress={onGift}
-              variant="bordered"
               className="border-purple-500/30 text-purple-400"
               isDisabled={!hasCharacter}
+              variant="bordered"
+              onPress={onGift}
             >
               {t("gift")}
             </Button>
             <Button
-              onPress={onBuy}
               className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
               isDisabled={!hasCharacter}
+              onPress={onBuy}
             >
               {t("buySet")}
             </Button>

@@ -1,5 +1,7 @@
 "use client";
 
+import type { ShopSetWithItems, ShopSetItem, Faction } from "@/types";
+
 import { useState, useEffect, useRef } from "react";
 import { Input, Textarea } from "@heroui/input";
 import { Select, SelectItem } from "@heroui/select";
@@ -9,7 +11,6 @@ import { Spinner } from "@heroui/spinner";
 import { useTranslations } from "next-intl";
 
 import { WowheadLink } from "@/components/wowhead-link";
-import type { ShopSetWithItems, ShopSetItem, Faction } from "@/types";
 
 interface SetFormProps {
   set?: ShopSetWithItems;
@@ -104,19 +105,26 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
     setPieces((prev) => prev.filter((p) => p.key !== key));
   };
 
-  const updatePiece = (key: string, field: keyof PieceForm, value: string | boolean) => {
+  const updatePiece = (
+    key: string,
+    field: keyof PieceForm,
+    value: string | boolean,
+  ) => {
     setPieces((prev) =>
       prev.map((p) => (p.key === key ? { ...p, [field]: value } : p)),
     );
   };
 
   // Auto-fetch item data when WoW Item ID changes
-  const debounceRefs = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const debounceRefs = useRef<Record<string, ReturnType<typeof setTimeout>>>(
+    {},
+  );
 
   const fetchItemData = (key: string, itemIdStr: string) => {
     if (debounceRefs.current[key]) clearTimeout(debounceRefs.current[key]);
 
     const id = parseInt(itemIdStr);
+
     if (!id || id <= 0) return;
 
     updatePiece(key, "fetching", true as unknown as string);
@@ -125,6 +133,7 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
       try {
         const res = await fetch(`/api/admin/wowhead-icon?item_id=${id}`);
         const data = await res.json();
+
         if (data.found && data.iconUrl) {
           setPieces((prev) =>
             prev.map((p) =>
@@ -146,7 +155,9 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
           );
         } else {
           setPieces((prev) =>
-            prev.map((p) => (p.key === key ? { ...p, fetching: false, found: false } : p)),
+            prev.map((p) =>
+              p.key === key ? { ...p, fetching: false, found: false } : p,
+            ),
           );
         }
       } catch {
@@ -168,6 +179,7 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
     e.preventDefault();
 
     const validPieces = pieces.filter((p) => parseInt(p.item_id) > 0);
+
     if (validPieces.length === 0) return;
 
     await onSubmit({
@@ -206,16 +218,17 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
   const inputClass = "bg-[#0d1117] border-gray-700";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl">
+    <form className="space-y-6 max-w-4xl" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Select
+          classNames={{ trigger: inputClass }}
           label={tc("faction")}
           selectedKeys={[form.faction]}
           onSelectionChange={(keys) => {
             const key = Array.from(keys)[0] as string;
+
             if (key) setForm({ ...form, faction: key as Faction });
           }}
-          classNames={{ trigger: inputClass }}
         >
           <SelectItem key="both">{tc("both")}</SelectItem>
           <SelectItem key="alliance">{tc("alliance")}</SelectItem>
@@ -225,89 +238,163 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
 
       {/* Localized names */}
       <div className="border border-gray-800 rounded-lg p-4">
-        <p className="text-sm text-gray-400 mb-3">{t("name")} ({tc("localized")})</p>
+        <p className="text-sm text-gray-400 mb-3">
+          {t("name")} ({tc("localized")})
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <Input label="EN" value={form.name_en} onValueChange={(v) => setForm({ ...form, name_en: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="FR" value={form.name_fr} onValueChange={(v) => setForm({ ...form, name_fr: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="ES" value={form.name_es} onValueChange={(v) => setForm({ ...form, name_es: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="DE" value={form.name_de} onValueChange={(v) => setForm({ ...form, name_de: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="IT" value={form.name_it} onValueChange={(v) => setForm({ ...form, name_it: v })} classNames={{ inputWrapper: inputClass }} isRequired />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="EN"
+            value={form.name_en}
+            onValueChange={(v) => setForm({ ...form, name_en: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="FR"
+            value={form.name_fr}
+            onValueChange={(v) => setForm({ ...form, name_fr: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="ES"
+            value={form.name_es}
+            onValueChange={(v) => setForm({ ...form, name_es: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="DE"
+            value={form.name_de}
+            onValueChange={(v) => setForm({ ...form, name_de: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="IT"
+            value={form.name_it}
+            onValueChange={(v) => setForm({ ...form, name_it: v })}
+          />
         </div>
       </div>
 
       {/* Localized descriptions */}
       <div className="border border-gray-800 rounded-lg p-4">
-        <p className="text-sm text-gray-400 mb-3">{tc("description")} ({tc("localized")})</p>
+        <p className="text-sm text-gray-400 mb-3">
+          {tc("description")} ({tc("localized")})
+        </p>
         <div className="grid grid-cols-1 gap-3">
-          <Textarea label="EN" value={form.description_en} onValueChange={(v) => setForm({ ...form, description_en: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="FR" value={form.description_fr} onValueChange={(v) => setForm({ ...form, description_fr: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="ES" value={form.description_es} onValueChange={(v) => setForm({ ...form, description_es: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="DE" value={form.description_de} onValueChange={(v) => setForm({ ...form, description_de: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="IT" value={form.description_it} onValueChange={(v) => setForm({ ...form, description_it: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="EN"
+            minRows={2}
+            value={form.description_en}
+            onValueChange={(v) => setForm({ ...form, description_en: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="FR"
+            minRows={2}
+            value={form.description_fr}
+            onValueChange={(v) => setForm({ ...form, description_fr: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="ES"
+            minRows={2}
+            value={form.description_es}
+            onValueChange={(v) => setForm({ ...form, description_es: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="DE"
+            minRows={2}
+            value={form.description_de}
+            onValueChange={(v) => setForm({ ...form, description_de: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="IT"
+            minRows={2}
+            value={form.description_it}
+            onValueChange={(v) => setForm({ ...form, description_it: v })}
+          />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
           label={t("price")}
+          type="number"
           value={form.price}
           onValueChange={(v) => setForm({ ...form, price: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          isRequired
         />
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
           label={`${t("discount")} (%)`}
+          type="number"
           value={form.discount_percentage}
           onValueChange={(v) => setForm({ ...form, discount_percentage: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          isRequired
         />
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
           label={tc("sortOrder")}
+          type="number"
           value={form.sort_order}
           onValueChange={(v) => setForm({ ...form, sort_order: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          isRequired
         />
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
+          description={tc("minLevelDesc")}
           label={tc("minLevel")}
+          max={80}
+          min={0}
+          type="number"
           value={form.min_level}
           onValueChange={(v) => setForm({ ...form, min_level: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          min={0}
-          max={80}
-          description={tc("minLevelDesc")}
-          isRequired
         />
       </div>
 
       <div className="flex items-start gap-4">
         <div className="flex-1">
           <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
             label={tc("iconUrl")}
+            placeholder="https://wow.zamimg.com/images/wow/icons/large/..."
             value={form.icon_url}
             onValueChange={(v) => setForm({ ...form, icon_url: v })}
-            classNames={{ inputWrapper: inputClass }}
-            placeholder="https://wow.zamimg.com/images/wow/icons/large/..."
-            isRequired
           />
         </div>
         {form.icon_url && (
           <div className="w-16 h-16 rounded-lg bg-[#0d1117] border border-gray-700 flex items-center justify-center overflow-hidden shrink-0 mt-1">
-            <img src={form.icon_url} alt="Icon preview" className="w-12 h-12 object-contain" />
+            <img
+              alt="Icon preview"
+              className="w-12 h-12 object-contain"
+              src={form.icon_url}
+            />
           </div>
         )}
       </div>
 
       <div className="flex flex-wrap gap-6">
-        <Switch isSelected={form.is_active} onValueChange={(v) => setForm({ ...form, is_active: v })}>
+        <Switch
+          isSelected={form.is_active}
+          onValueChange={(v) => setForm({ ...form, is_active: v })}
+        >
           <span className="text-gray-300 text-sm">{t("active")}</span>
         </Switch>
-        <Switch isSelected={form.is_highlighted} onValueChange={(v) => setForm({ ...form, is_highlighted: v })}>
+        <Switch
+          isSelected={form.is_highlighted}
+          onValueChange={(v) => setForm({ ...form, is_highlighted: v })}
+        >
           <span className="text-gray-300 text-sm">{t("highlighted")}</span>
         </Switch>
       </div>
@@ -315,22 +402,32 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
       {/* Set Items Section */}
       <div className="border border-gray-800 rounded-lg p-4">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-sm text-gray-400 font-medium">{t("pieces")} ({pieces.length})</p>
-          <Button size="sm" variant="flat" className="bg-wow-gold/10 text-wow-gold" onPress={addPiece}>
+          <p className="text-sm text-gray-400 font-medium">
+            {t("pieces")} ({pieces.length})
+          </p>
+          <Button
+            className="bg-wow-gold/10 text-wow-gold"
+            size="sm"
+            variant="flat"
+            onPress={addPiece}
+          >
             {t("addPiece")}
           </Button>
         </div>
 
         <div className="space-y-4">
           {pieces.map((piece, idx) => (
-            <div key={piece.key} className="bg-[#0d1117] rounded-lg p-4 border border-gray-800">
+            <div
+              key={piece.key}
+              className="bg-[#0d1117] rounded-lg p-4 border border-gray-800"
+            >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs text-gray-500">#{idx + 1}</span>
                 {pieces.length > 1 && (
                   <Button
+                    className="text-red-400 min-w-0 px-2"
                     size="sm"
                     variant="light"
-                    className="text-red-400 min-w-0 px-2"
                     onPress={() => removePiece(piece.key)}
                   >
                     {t("removePiece")}
@@ -341,36 +438,85 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="flex items-end gap-2">
                   <Input
+                    isRequired
+                    className="flex-1"
+                    classNames={{ inputWrapper: inputClass }}
                     label={tc("wowItemId")}
+                    min={0}
+                    type="number"
                     value={piece.item_id}
                     onValueChange={(v) => {
                       updatePiece(piece.key, "item_id", v);
                       fetchItemData(piece.key, v);
                     }}
-                    classNames={{ inputWrapper: inputClass }}
-                    type="number"
-                    min={0}
-                    className="flex-1"
-                    isRequired
                   />
-                  {piece.fetching && <Spinner size="sm" color="warning" className="mb-2" />}
-                  {!piece.fetching && piece.found && piece.icon_url && parseInt(piece.item_id) > 0 && (
-                    <WowheadLink itemId={parseInt(piece.item_id)} className="shrink-0 mb-1">
-                      <div className="w-10 h-10 rounded bg-[#161b22] border border-gray-700 hover:border-wow-gold/40 flex items-center justify-center overflow-hidden transition-colors">
-                        <img src={piece.icon_url} alt="" className="w-8 h-8 object-contain" />
-                      </div>
-                    </WowheadLink>
+                  {piece.fetching && (
+                    <Spinner className="mb-2" color="warning" size="sm" />
                   )}
+                  {!piece.fetching &&
+                    piece.found &&
+                    piece.icon_url &&
+                    parseInt(piece.item_id) > 0 && (
+                      <WowheadLink
+                        className="shrink-0 mb-1"
+                        itemId={parseInt(piece.item_id)}
+                      >
+                        <div className="w-10 h-10 rounded bg-[#161b22] border border-gray-700 hover:border-wow-gold/40 flex items-center justify-center overflow-hidden transition-colors">
+                          <img
+                            alt=""
+                            className="w-8 h-8 object-contain"
+                            src={piece.icon_url}
+                          />
+                        </div>
+                      </WowheadLink>
+                    )}
                 </div>
               </div>
               <div className="mt-3">
-                <p className="text-xs text-gray-500 mb-2">{t("name")} ({tc("localized")})</p>
+                <p className="text-xs text-gray-500 mb-2">
+                  {t("name")} ({tc("localized")})
+                </p>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-                  <Input label="EN" value={piece.name_en} onValueChange={(v) => updatePiece(piece.key, "name_en", v)} classNames={{ inputWrapper: inputClass }} isRequired size="sm" />
-                  <Input label="FR" value={piece.name_fr} onValueChange={(v) => updatePiece(piece.key, "name_fr", v)} classNames={{ inputWrapper: inputClass }} isRequired size="sm" />
-                  <Input label="ES" value={piece.name_es} onValueChange={(v) => updatePiece(piece.key, "name_es", v)} classNames={{ inputWrapper: inputClass }} isRequired size="sm" />
-                  <Input label="DE" value={piece.name_de} onValueChange={(v) => updatePiece(piece.key, "name_de", v)} classNames={{ inputWrapper: inputClass }} isRequired size="sm" />
-                  <Input label="IT" value={piece.name_it} onValueChange={(v) => updatePiece(piece.key, "name_it", v)} classNames={{ inputWrapper: inputClass }} isRequired size="sm" />
+                  <Input
+                    isRequired
+                    classNames={{ inputWrapper: inputClass }}
+                    label="EN"
+                    size="sm"
+                    value={piece.name_en}
+                    onValueChange={(v) => updatePiece(piece.key, "name_en", v)}
+                  />
+                  <Input
+                    isRequired
+                    classNames={{ inputWrapper: inputClass }}
+                    label="FR"
+                    size="sm"
+                    value={piece.name_fr}
+                    onValueChange={(v) => updatePiece(piece.key, "name_fr", v)}
+                  />
+                  <Input
+                    isRequired
+                    classNames={{ inputWrapper: inputClass }}
+                    label="ES"
+                    size="sm"
+                    value={piece.name_es}
+                    onValueChange={(v) => updatePiece(piece.key, "name_es", v)}
+                  />
+                  <Input
+                    isRequired
+                    classNames={{ inputWrapper: inputClass }}
+                    label="DE"
+                    size="sm"
+                    value={piece.name_de}
+                    onValueChange={(v) => updatePiece(piece.key, "name_de", v)}
+                  />
+                  <Input
+                    isRequired
+                    classNames={{ inputWrapper: inputClass }}
+                    label="IT"
+                    size="sm"
+                    value={piece.name_it}
+                    onValueChange={(v) => updatePiece(piece.key, "name_it", v)}
+                  />
                 </div>
               </div>
             </div>
@@ -379,9 +525,9 @@ export function SetForm({ set, onSubmit, loading }: SetFormProps) {
       </div>
 
       <Button
-        type="submit"
-        isLoading={loading}
         className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
+        isLoading={loading}
+        type="submit"
       >
         {isEdit ? t("save") : t("addSet")}
       </Button>

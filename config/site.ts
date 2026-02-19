@@ -2,8 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Lordaeron",
-  description:
-    "Lordaeron - Epic Progressive WoW Server",
+  description: "Lordaeron - Epic Progressive WoW Server",
   navItems: [
     { labelKey: "nav.howTo", href: "/how-to" },
     { labelKey: "nav.features", href: "/features" },

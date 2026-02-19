@@ -20,6 +20,7 @@ export default function AdminAuditPage() {
     try {
       const res = await fetch(`/api/admin/audit?limit=50&offset=${offset}`);
       const data = await res.json();
+
       if (data.error) {
         console.error("Audit log fetch error:", data.error);
       }
@@ -39,7 +40,7 @@ export default function AdminAuditPage() {
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -53,11 +54,11 @@ export default function AdminAuditPage() {
       {total > 50 && (
         <div className="flex justify-center gap-2 mt-4">
           <Button
+            className="text-gray-400"
+            isDisabled={offset === 0}
             size="sm"
             variant="light"
-            isDisabled={offset === 0}
             onPress={() => setOffset(Math.max(0, offset - 50))}
-            className="text-gray-400"
           >
             {tc("previous")}
           </Button>
@@ -65,11 +66,11 @@ export default function AdminAuditPage() {
             {offset + 1}-{Math.min(offset + 50, total)} / {total}
           </span>
           <Button
+            className="text-gray-400"
+            isDisabled={offset + 50 >= total}
             size="sm"
             variant="light"
-            isDisabled={offset + 50 >= total}
             onPress={() => setOffset(offset + 50)}
-            className="text-gray-400"
           >
             {tc("next")}
           </Button>

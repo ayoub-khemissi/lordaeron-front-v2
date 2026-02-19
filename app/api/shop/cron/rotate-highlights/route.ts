@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
 
     // Reset all current highlights
     await websiteDb.execute(
-      "UPDATE shop_items SET is_highlighted = 0, discount_percentage = 0 WHERE is_highlighted = 1"
+      "UPDATE shop_items SET is_highlighted = 0, discount_percentage = 0 WHERE is_highlighted = 1",
     );
 
     const selected: {
@@ -43,8 +43,9 @@ export async function GET(request: NextRequest) {
     for (const category of ITEM_CATEGORIES) {
       const [rows] = await websiteDb.execute<RowDataPacket[]>(
         "SELECT id FROM shop_items WHERE is_active = 1 AND category = ? ORDER BY RAND() LIMIT 1",
-        [category]
+        [category],
       );
+
       if (rows.length === 0) continue;
 
       const id = rows[0].id as number;
@@ -52,7 +53,7 @@ export async function GET(request: NextRequest) {
 
       await websiteDb.execute(
         "UPDATE shop_items SET is_highlighted = 1, discount_percentage = ? WHERE id = ?",
-        [discount, id]
+        [discount, id],
       );
       selected.push({ id, category, discount });
     }
@@ -60,6 +61,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ selected });
   } catch (error) {
     console.error("Cron rotate-highlights error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

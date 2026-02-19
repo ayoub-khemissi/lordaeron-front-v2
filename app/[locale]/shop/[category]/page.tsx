@@ -1,5 +1,7 @@
 "use client";
 
+import type { ShopItemLocalized, Character, ShopCategory } from "@/types";
+
 import { useState, useEffect, useCallback } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useParams, useRouter } from "next/navigation";
@@ -15,7 +17,6 @@ import { PurchaseModal } from "@/components/shop/purchase-modal";
 import { GiftModal } from "@/components/shop/gift-modal";
 import { CategoryFilterBar } from "@/components/shop/category-filter-bar";
 import { SHOP_CATEGORIES } from "@/lib/shop-utils";
-import type { ShopItemLocalized, Character, ShopCategory } from "@/types";
 
 export default function CategoryPage() {
   const t = useTranslations("shop");
@@ -27,19 +28,25 @@ export default function CategoryPage() {
 
   const [items, setItems] = useState<ShopItemLocalized[]>([]);
   const [characters, setCharacters] = useState<Character[]>([]);
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
+    null,
+  );
   const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("price");
 
   const [detailItem, setDetailItem] = useState<ShopItemLocalized | null>(null);
-  const [purchaseItem, setPurchaseItem] = useState<ShopItemLocalized | null>(null);
+  const [purchaseItem, setPurchaseItem] = useState<ShopItemLocalized | null>(
+    null,
+  );
   const [giftItem, setGiftItem] = useState<ShopItemLocalized | null>(null);
 
   // Validate category
   useEffect(() => {
-    if (!SHOP_CATEGORIES.includes(category as (typeof SHOP_CATEGORIES)[number])) {
+    if (
+      !SHOP_CATEGORIES.includes(category as (typeof SHOP_CATEGORIES)[number])
+    ) {
       router.push(`/${locale}/shop`);
     }
   }, [category, locale, router]);
@@ -49,6 +56,7 @@ export default function CategoryPage() {
     setLoading(true);
     try {
       const searchParams = new URLSearchParams({ locale, category });
+
       if (selectedCharacter) {
         searchParams.set("race_id", String(selectedCharacter.race));
         searchParams.set("class_id", String(selectedCharacter.class));
@@ -65,6 +73,7 @@ export default function CategoryPage() {
       const accountData = await accountRes.json();
 
       const chars = charsData.characters || [];
+
       setItems(itemsData.items || []);
       setCharacters(chars);
       if (!selectedCharacter && chars.length > 0) {
@@ -95,6 +104,7 @@ export default function CategoryPage() {
       }),
     });
     const data = await res.json();
+
     if (!res.ok) throw new Error(data.error || "serverError");
     fetchData();
   };
@@ -114,6 +124,7 @@ export default function CategoryPage() {
       }),
     });
     const data = await res.json();
+
     if (!res.ok) throw new Error(data.error || "serverError");
     fetchData();
   };
@@ -121,6 +132,7 @@ export default function CategoryPage() {
   const filteredItems = items
     .filter((item) => {
       if (!search) return true;
+
       return item.name.toLowerCase().includes(search.toLowerCase());
     })
     .sort((a, b) => {
@@ -139,7 +151,7 @@ export default function CategoryPage() {
   if (authLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -147,7 +159,9 @@ export default function CategoryPage() {
   if (!user) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-heading wow-gradient-text mb-4">{t("title")}</h1>
+        <h1 className="text-3xl font-heading wow-gradient-text mb-4">
+          {t("title")}
+        </h1>
         <p className="text-gray-400">{t("errors.unauthorized")}</p>
       </div>
     );
@@ -165,10 +179,10 @@ export default function CategoryPage() {
 
       <div className="flex items-center gap-3 mb-6">
         <Button
-          variant="light"
-          size="sm"
-          onPress={() => router.push(`/${locale}/shop`)}
           className="text-gray-400 hover:text-wow-gold"
+          size="sm"
+          variant="light"
+          onPress={() => router.push(`/${locale}/shop`)}
         >
           ← {t("allItems")}
         </Button>
@@ -179,50 +193,50 @@ export default function CategoryPage() {
 
       <CategoryFilterBar
         search={search}
-        onSearchChange={setSearch}
         sortBy={sortBy}
+        onSearchChange={setSearch}
         onSortChange={setSortBy}
       />
 
       {loading ? (
         <div className="flex justify-center py-16">
-          <Spinner size="lg" color="warning" />
+          <Spinner color="warning" size="lg" />
         </div>
       ) : (
         <ItemGrid items={filteredItems} onItemClick={setDetailItem} />
       )}
 
       <ItemDetailModal
-        item={detailItem}
+        hasCharacter={!!selectedCharacter}
         isOpen={!!detailItem}
-        onClose={() => setDetailItem(null)}
+        item={detailItem}
         onBuy={() => {
           setPurchaseItem(detailItem);
           setDetailItem(null);
         }}
+        onClose={() => setDetailItem(null)}
         onGift={() => {
           setGiftItem(detailItem);
           setDetailItem(null);
         }}
-        hasCharacter={!!selectedCharacter}
       />
 
       <PurchaseModal
-        item={purchaseItem}
+        balance={balance}
         character={selectedCharacter}
         isOpen={!!purchaseItem}
+        item={purchaseItem}
         onClose={() => setPurchaseItem(null)}
         onConfirm={handlePurchase}
-        balance={balance}
       />
 
       <GiftModal
-        item={giftItem}
+        balance={balance}
         character={selectedCharacter}
         isOpen={!!giftItem}
+        item={giftItem}
         onClose={() => setGiftItem(null)}
         onConfirm={handleGift}
-        balance={balance}
       />
     </div>
   );

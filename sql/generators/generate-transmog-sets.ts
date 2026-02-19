@@ -20,7 +20,6 @@ import path from "path";
 // ── Config ──────────────────────────────────────────────────────────────────
 
 const WOWHEAD_TOOLTIP_URL = "https://nether.wowhead.com/wotlk/tooltip/item/";
-const ICON_CDN = "https://wow.zamimg.com/images/wow/icons/large/";
 const FETCH_DELAY_MS = 150;
 
 // ── Types ───────────────────────────────────────────────────────────────────
@@ -120,11 +119,19 @@ function parseTransmogHtml(html: string): TransmogSet[] {
     const rowHtml = match[1];
 
     // Extract set name and quality from <a class="q3|q4 listview-cleartext">
-    const nameMatch = rowHtml.match(/<a class="(q\d) listview-cleartext"[^>]*>([^<]+)<\/a>/);
+    const nameMatch = rowHtml.match(
+      /<a class="(q\d) listview-cleartext"[^>]*>([^<]+)<\/a>/,
+    );
+
     if (!nameMatch) continue;
 
     const qualityClass = nameMatch[1];
-    const quality = qualityClass === "q4" ? 4 : qualityClass === "q3" ? 3 : parseInt(qualityClass.replace("q", ""));
+    const quality =
+      qualityClass === "q4"
+        ? 4
+        : qualityClass === "q3"
+          ? 3
+          : parseInt(qualityClass.replace("q", ""));
     const name = nameMatch[2].replace(/\s+/g, " ").trim();
 
     // Extract set type from <div class="small">
@@ -135,6 +142,7 @@ function parseTransmogHtml(html: string): TransmogSet[] {
     const tdRegex = /<td[^>]*>([\s\S]*?)<\/td>/g;
     const tds: string[] = [];
     let tdMatch: RegExpExecArray | null;
+
     while ((tdMatch = tdRegex.exec(rowHtml)) !== null) {
       tds.push(tdMatch[1].trim());
     }
@@ -164,11 +172,13 @@ function parseTransmogHtml(html: string): TransmogSet[] {
     const iconUrls: string[] = [];
 
     let itemIdMatch: RegExpExecArray | null;
+
     while ((itemIdMatch = itemIdRegex.exec(itemsHtml)) !== null) {
       itemIds.push(parseInt(itemIdMatch[1]));
     }
 
     let iconMatch: RegExpExecArray | null;
+
     while ((iconMatch = iconRegex.exec(itemsHtml)) !== null) {
       // Convert /small/ to /large/
       iconUrls.push(iconMatch[1].replace("/icons/small/", "/icons/large/"));
@@ -208,16 +218,8 @@ const localeCache = new Map<string, ItemLocale>();
 
 async function fetchItemLocales(itemId: number): Promise<ItemLocale> {
   const key = String(itemId);
-  if (localeCache.has(key)) return localeCache.get(key)!;
 
-  const locales: Locale5[] = ["en", "fr", "es", "de", "it"];
-  const wowheadLocales: Record<Locale5, string> = {
-    en: "",
-    fr: "fr/",
-    es: "es/",
-    de: "de/",
-    it: "",
-  };
+  if (localeCache.has(key)) return localeCache.get(key)!;
 
   const result: ItemLocale = {
     name_en: "",
@@ -234,8 +236,10 @@ async function fetchItemLocales(itemId: number): Promise<ItemLocale> {
       headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
       signal: AbortSignal.timeout(8000),
     });
+
     if (res.ok) {
       const data = await res.json();
+
       result.name_en = data.name || "";
       result.quality = data.quality ?? 0;
     }
@@ -243,12 +247,17 @@ async function fetchItemLocales(itemId: number): Promise<ItemLocale> {
 
   // Fetch FR
   try {
-    const res = await fetch(`https://nether.wowhead.com/wotlk/fr/tooltip/item/${itemId}`, {
-      headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
-      signal: AbortSignal.timeout(8000),
-    });
+    const res = await fetch(
+      `https://nether.wowhead.com/wotlk/fr/tooltip/item/${itemId}`,
+      {
+        headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
+        signal: AbortSignal.timeout(8000),
+      },
+    );
+
     if (res.ok) {
       const data = await res.json();
+
       result.name_fr = data.name || "";
     }
   } catch {}
@@ -256,12 +265,17 @@ async function fetchItemLocales(itemId: number): Promise<ItemLocale> {
 
   // Fetch ES
   try {
-    const res = await fetch(`https://nether.wowhead.com/wotlk/es/tooltip/item/${itemId}`, {
-      headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
-      signal: AbortSignal.timeout(8000),
-    });
+    const res = await fetch(
+      `https://nether.wowhead.com/wotlk/es/tooltip/item/${itemId}`,
+      {
+        headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
+        signal: AbortSignal.timeout(8000),
+      },
+    );
+
     if (res.ok) {
       const data = await res.json();
+
       result.name_es = data.name || "";
     }
   } catch {}
@@ -269,18 +283,24 @@ async function fetchItemLocales(itemId: number): Promise<ItemLocale> {
 
   // Fetch DE
   try {
-    const res = await fetch(`https://nether.wowhead.com/wotlk/de/tooltip/item/${itemId}`, {
-      headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
-      signal: AbortSignal.timeout(8000),
-    });
+    const res = await fetch(
+      `https://nether.wowhead.com/wotlk/de/tooltip/item/${itemId}`,
+      {
+        headers: { "User-Agent": "Lordaeron-Shop-Generator/1.0" },
+        signal: AbortSignal.timeout(8000),
+      },
+    );
+
     if (res.ok) {
       const data = await res.json();
+
       result.name_de = data.name || "";
     }
   } catch {}
   await sleep(FETCH_DELAY_MS);
 
   localeCache.set(key, result);
+
   return result;
 }
 
@@ -312,17 +332,22 @@ async function main() {
 
   process.stderr.write("Parsing transmog sets...\n");
   const sets = parseTransmogHtml(html);
+
   process.stderr.write(`Found ${sets.length} transmog sets\n\n`);
 
   const lines: string[] = [];
   const out = (line = "") => lines.push(line);
 
-  out("-- =============================================================================");
+  out(
+    "-- =============================================================================",
+  );
   out("-- Transmog Sets Seed — Auto-generated from doc/transmog.html");
   out(`-- Generated: ${new Date().toISOString()}`);
   out("-- Database: lordaeron_website");
   out("-- Pricing: 100 Soul Shards = 1 EUR");
-  out("-- =============================================================================");
+  out(
+    "-- =============================================================================",
+  );
   out();
   out("SET FOREIGN_KEY_CHECKS = 0;");
   out("DELETE FROM shop_set_items;");
@@ -332,20 +357,27 @@ async function main() {
 
   // Collect all unique item IDs to batch fetch
   const allItemIds = new Set<number>();
+
   for (const set of sets) {
     for (const item of set.items) {
       allItemIds.add(item.itemId);
     }
   }
 
-  process.stderr.write(`Fetching localized names for ${allItemIds.size} unique items...\n`);
+  process.stderr.write(
+    `Fetching localized names for ${allItemIds.size} unique items...\n`,
+  );
 
   // Fetch all item locales
   let fetchCount = 0;
+
   for (const itemId of allItemIds) {
     fetchCount++;
-    process.stderr.write(`  [${fetchCount}/${allItemIds.size}] Fetching item ${itemId}...`);
+    process.stderr.write(
+      `  [${fetchCount}/${allItemIds.size}] Fetching item ${itemId}...`,
+    );
     const locale = await fetchItemLocales(itemId);
+
     process.stderr.write(` ${locale.name_en || "(no name)"}\n`);
     await sleep(FETCH_DELAY_MS);
   }
@@ -354,14 +386,19 @@ async function main() {
   sets.sort((a, b) => {
     if (b.popularity !== a.popularity) return b.popularity - a.popularity;
     if (b.quality !== a.quality) return b.quality - a.quality;
+
     return a.name.localeCompare(b.name);
   });
 
   // ── Generate shop_sets SQL ──
 
-  out("-- ─────────────────────────────────────────────────────────────────────────────");
+  out(
+    "-- ─────────────────────────────────────────────────────────────────────────────",
+  );
   out(`-- SHOP_SETS (${sets.length} sets)`);
-  out("-- ─────────────────────────────────────────────────────────────────────────────");
+  out(
+    "-- ─────────────────────────────────────────────────────────────────────────────",
+  );
   out();
 
   for (let i = 0; i < sets.length; i++) {
@@ -392,9 +429,13 @@ async function main() {
 
   // ── Generate shop_set_items SQL ──
 
-  out("-- ─────────────────────────────────────────────────────────────────────────────");
+  out(
+    "-- ─────────────────────────────────────────────────────────────────────────────",
+  );
   out("-- SHOP_SET_ITEMS");
-  out("-- ─────────────────────────────────────────────────────────────────────────────");
+  out(
+    "-- ─────────────────────────────────────────────────────────────────────────────",
+  );
   out();
 
   for (let i = 0; i < sets.length; i++) {
@@ -427,7 +468,9 @@ async function main() {
 
   // Write file
   fs.writeFileSync(OUTPUT_FILE, lines.join("\n"), "utf-8");
-  process.stderr.write(`\nDone! ${sets.length} sets written to ${OUTPUT_FILE}\n`);
+  process.stderr.write(
+    `\nDone! ${sets.length} sets written to ${OUTPUT_FILE}\n`,
+  );
 }
 
 main().catch((err) => {

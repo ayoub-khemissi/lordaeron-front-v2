@@ -1,11 +1,18 @@
 "use client";
 
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@heroui/table";
+import type { ShopBan } from "@/types";
+
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@heroui/table";
 import { Chip } from "@heroui/chip";
 import { Button } from "@heroui/button";
 import { useTranslations } from "next-intl";
-
-import type { ShopBan } from "@/types";
 
 interface BanTableProps {
   bans: ShopBan[];
@@ -38,14 +45,22 @@ export function BanTable({ bans, onRemove }: BanTableProps) {
           <TableRow key={ban.id}>
             <TableCell className="text-gray-500">#{ban.id}</TableCell>
             <TableCell>{ban.account_id}</TableCell>
-            <TableCell className="max-w-[200px] truncate">{ban.reason}</TableCell>
+            <TableCell className="max-w-[200px] truncate">
+              {ban.reason}
+            </TableCell>
             <TableCell className="text-sm">
-              {ban.expires_at ? new Date(ban.expires_at).toLocaleDateString() : t("permanent")}
+              {ban.expires_at
+                ? new Date(ban.expires_at).toLocaleDateString()
+                : t("permanent")}
             </TableCell>
             <TableCell>
               <Chip
+                className={
+                  ban.is_active
+                    ? "bg-green-500/10 text-green-400"
+                    : "bg-gray-500/10 text-gray-400"
+                }
                 size="sm"
-                className={ban.is_active ? "bg-green-500/10 text-green-400" : "bg-gray-500/10 text-gray-400"}
               >
                 {ban.is_active ? t("active") : tc("inactive")}
               </Chip>
@@ -53,9 +68,9 @@ export function BanTable({ bans, onRemove }: BanTableProps) {
             <TableCell>
               {!!ban.is_active && (
                 <Button
+                  className="text-red-400 hover:text-red-300"
                   size="sm"
                   variant="light"
-                  className="text-red-400 hover:text-red-300"
                   onPress={() => onRemove(ban)}
                 >
                   {t("remove")}

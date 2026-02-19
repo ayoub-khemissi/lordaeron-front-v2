@@ -65,10 +65,10 @@ function FeatureCard({
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
+      whileInView={{ opacity: 1, y: 0 }}
     >
       <div className="relative overflow-hidden rounded-2xl group h-full glow-gold">
         {/* Background image */}
@@ -82,10 +82,10 @@ function FeatureCard({
           {/* WoW icon from local pack */}
           <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 border-2 border-wow-gold/40 glow-gold-strong bg-wow-darker/50">
             <img
-              src={iconUrl}
               alt=""
               className="w-full h-full object-cover"
               loading="lazy"
+              src={iconUrl}
             />
           </div>
 
@@ -109,11 +109,11 @@ export const FeaturesGrid = () => {
       {/* Unique Features */}
       <div>
         <motion.div
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-3xl font-bold wow-gradient-text mb-3">
             {t("featuresTitle")}
@@ -124,9 +124,9 @@ export const FeaturesGrid = () => {
           {features.map((feat, i) => (
             <FeatureCard
               key={feat.key}
+              bgImage={feat.bg}
               featureKey={feat.key}
               iconUrl={feat.icon}
-              bgImage={feat.bg}
               index={i}
             />
           ))}
@@ -136,11 +136,11 @@ export const FeaturesGrid = () => {
       {/* Quality of Life */}
       <div>
         <motion.div
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-3xl font-bold wow-ice-text mb-3">
             {t("qolTitle")}
@@ -151,9 +151,9 @@ export const FeaturesGrid = () => {
           {qol.map((feat, i) => (
             <FeatureCard
               key={feat.key}
+              bgImage={feat.bg}
               featureKey={feat.key}
               iconUrl={feat.icon}
-              bgImage={feat.bg}
               index={i}
             />
           ))}

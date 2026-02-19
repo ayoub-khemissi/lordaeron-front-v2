@@ -12,6 +12,7 @@ export function calculateDiscountedPrice(
   discountPercentage: number,
 ): number {
   if (discountPercentage <= 0) return price;
+
   return Math.floor(price * (1 - discountPercentage / 100));
 }
 
@@ -30,7 +31,10 @@ export function localizeShopItem(
     name: (item[nameKey] as string) || item.name_en,
     description: (item[descKey] as string) || item.description_en,
     price: item.price,
-    discounted_price: calculateDiscountedPrice(item.price, item.discount_percentage),
+    discounted_price: calculateDiscountedPrice(
+      item.price,
+      item.discount_percentage,
+    ),
     discount_percentage: item.discount_percentage,
     realm_ids: item.realm_ids,
     race_ids: item.race_ids,
@@ -56,20 +60,29 @@ export function getLocalizedName(
 ): string {
   const record = obj as Record<string, unknown>;
   const localized = record[`${prefix}_${locale}`] as string | undefined;
+
   return localized || (record[`${prefix}_en`] as string) || "";
 }
 
 export function getQualityColor(quality: number | null): string {
   switch (quality) {
-    case 0: return "text-gray-500";
-    case 1: return "text-gray-100";
-    case 2: return "text-green-400";
-    case 3: return "text-blue-400";
-    case 4: return "text-purple-400";
-    case 5: return "text-orange-400";
+    case 0:
+      return "text-gray-500";
+    case 1:
+      return "text-gray-100";
+    case 2:
+      return "text-green-400";
+    case 3:
+      return "text-blue-400";
+    case 4:
+      return "text-purple-400";
+    case 5:
+      return "text-orange-400";
     case 6:
-    case 7: return "text-wow-gold";
-    default: return "text-gray-100";
+    case 7:
+      return "text-wow-gold";
+    default:
+      return "text-gray-100";
   }
 }
 
@@ -126,7 +139,10 @@ export function localizeShopSet(
     name: (set[nameKey] as string) || set.name_en,
     description: (set[descKey] as string) || set.description_en,
     price: set.price,
-    discounted_price: calculateDiscountedPrice(set.price, set.discount_percentage),
+    discounted_price: calculateDiscountedPrice(
+      set.price,
+      set.discount_percentage,
+    ),
     discount_percentage: set.discount_percentage,
     class_ids: set.class_ids,
     faction: set.faction,

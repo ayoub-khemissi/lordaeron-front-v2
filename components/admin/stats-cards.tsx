@@ -59,9 +59,11 @@ export function StatsCards({
         <Card key={stat.label} className="bg-[#161b22] border border-gray-800">
           <CardBody className="p-4">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</p>
+              <p className="text-xs text-gray-400 uppercase tracking-wider">
+                {stat.label}
+              </p>
               {stat.icon ? (
-                <Image src={stat.icon} alt="" width={20} height={20} />
+                <Image alt="" height={20} src={stat.icon} width={20} />
               ) : (
                 <span className="text-lg">{stat.emoji}</span>
               )}

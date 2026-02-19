@@ -1,7 +1,8 @@
+import type { NewsRow } from "@/types";
+
 import { RowDataPacket } from "mysql2";
 
 import { websiteDb } from "@/lib/db";
-import type { NewsRow } from "@/types";
 
 export async function getLatestNews(limit: number = 5): Promise<NewsRow[]> {
   const [rows] = await websiteDb.execute<RowDataPacket[]>(
@@ -19,5 +20,6 @@ export async function getNewsById(id: number): Promise<NewsRow | null> {
   );
 
   if (rows.length === 0) return null;
+
   return rows[0] as NewsRow;
 }

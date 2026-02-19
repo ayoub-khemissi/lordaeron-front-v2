@@ -18,11 +18,15 @@ export async function GET(request: NextRequest) {
 
     for (const purchase of purchases) {
       const result = await retryPurchaseDelivery(purchase);
+
       if (result.success) {
         succeeded++;
       } else {
         failed++;
-        console.error(`Retry failed for purchase #${purchase.id}:`, result.message);
+        console.error(
+          `Retry failed for purchase #${purchase.id}:`,
+          result.message,
+        );
       }
     }
 
@@ -33,6 +37,7 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error("Cron retry-deliveries error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

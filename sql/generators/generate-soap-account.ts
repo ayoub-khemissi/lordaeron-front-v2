@@ -9,6 +9,7 @@ const verifier = calculateVerifier(USERNAME, PASSWORD, salt);
 const saltHex = Buffer.from(salt).toString("hex");
 const verifierHex = Buffer.from(verifier).toString("hex");
 
+// eslint-disable-next-line no-console
 console.log(`-- SOAP account for website shop delivery
 -- Database: auth
 

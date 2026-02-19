@@ -15,7 +15,17 @@ export default function AdminDashboardPage() {
     totalPurchases: number;
     averageOrderValue: number;
     activeItems: number;
-    topItems: { id: number; name_en: string; name_fr: string; name_es: string; name_de: string; name_it: string; item_id: number | null; count: number; revenue: number }[];
+    topItems: {
+      id: number;
+      name_en: string;
+      name_fr: string;
+      name_es: string;
+      name_de: string;
+      name_it: string;
+      item_id: number | null;
+      count: number;
+      revenue: number;
+    }[];
     trend: { period: string; count: number; revenue: number }[];
   } | null>(null);
   const [loading, setLoading] = useState(true);
@@ -25,6 +35,7 @@ export default function AdminDashboardPage() {
       try {
         const res = await fetch("/api/admin/stats?period=daily&days=30");
         const data = await res.json();
+
         setStats(data);
       } catch {
         // Silent fail
@@ -32,13 +43,14 @@ export default function AdminDashboardPage() {
         setLoading(false);
       }
     };
+
     fetchStats();
   }, []);
 
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <Spinner size="lg" color="warning" />
+        <Spinner color="warning" size="lg" />
       </div>
     );
   }
@@ -50,10 +62,10 @@ export default function AdminDashboardPage() {
       <h1 className="text-2xl font-heading text-gray-100 mb-6">{t("title")}</h1>
 
       <StatsCards
-        totalRevenue={stats.totalRevenue ?? 0}
-        totalPurchases={stats.totalPurchases ?? 0}
-        averageOrder={stats.averageOrderValue ?? 0}
         activeItems={stats.activeItems ?? 0}
+        averageOrder={stats.averageOrderValue ?? 0}
+        totalPurchases={stats.totalPurchases ?? 0}
+        totalRevenue={stats.totalRevenue ?? 0}
       />
 
       <SalesChart data={stats.trend || []} />

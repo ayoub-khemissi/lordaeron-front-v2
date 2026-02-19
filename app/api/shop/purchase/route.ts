@@ -1,23 +1,29 @@
+import type { PurchaseRequest, Character } from "@/types";
+
 import { NextRequest, NextResponse } from "next/server";
 
 import { verifySession } from "@/lib/auth";
 import { getShopItemById } from "@/lib/queries/shop-items";
 import { getShopSetById } from "@/lib/queries/shop-sets";
-import { createPurchase, updatePurchaseStatus } from "@/lib/queries/shop-purchases";
+import {
+  createPurchase,
+  updatePurchaseStatus,
+} from "@/lib/queries/shop-purchases";
 import { getActiveBan } from "@/lib/queries/shop-bans";
-import { getCharactersByAccount, getCharacterByExactName } from "@/lib/queries/characters";
+import {
+  getCharactersByAccount,
+  getCharacterByExactName,
+} from "@/lib/queries/characters";
 import { ALLIANCE_RACES } from "@/lib/shop-utils";
 import { sendItem, sendItems } from "@/lib/soap";
-import type { PurchaseRequest, Character } from "@/types";
 
-function checkFaction(
-  faction: string,
-  characterRace: number,
-): string | null {
+function checkFaction(faction: string, characterRace: number): string | null {
   if (faction === "both") return null;
   const isAlliance = ALLIANCE_RACES.includes(characterRace);
+
   if (faction === "alliance" && !isAlliance) return "factionRestricted";
   if (faction === "horde" && isAlliance) return "factionRestricted";
+
   return null;
 }
 
@@ -27,6 +33,7 @@ async function handleSetPurchase(
   character: Character,
 ) {
   const set = await getShopSetById(body.set_id!);
+
   if (!set || !set.is_active) {
     return NextResponse.json({ error: "setNotFound" }, { status: 404 });
   }
@@ -43,6 +50,7 @@ async function handleSetPurchase(
 
   // Check faction restriction
   const factionError = checkFaction(set.faction, character.race);
+
   if (factionError) {
     return NextResponse.json({ error: factionError }, { status: 400 });
   }
@@ -52,25 +60,44 @@ async function handleSetPurchase(
 
   if (body.is_gift) {
     if (!body.gift_to_character_name) {
-      return NextResponse.json({ error: "giftCharacterRequired" }, { status: 400 });
+      return NextResponse.json(
+        { error: "giftCharacterRequired" },
+        { status: 400 },
+      );
     }
 
-    const recipient = await getCharacterByExactName(body.gift_to_character_name);
+    const recipient = await getCharacterByExactName(
+      body.gift_to_character_name,
+    );
+
     if (!recipient) {
-      return NextResponse.json({ error: "giftRecipientNotFound" }, { status: 400 });
+      return NextResponse.json(
+        { error: "giftRecipientNotFound" },
+        { status: 400 },
+      );
     }
 
     if (set.class_ids && !set.class_ids.includes(recipient.class)) {
-      return NextResponse.json({ error: "giftRecipientClassRestricted" }, { status: 400 });
+      return NextResponse.json(
+        { error: "giftRecipientClassRestricted" },
+        { status: 400 },
+      );
     }
 
     const giftFactionError = checkFaction(set.faction, recipient.race);
+
     if (giftFactionError) {
-      return NextResponse.json({ error: "giftRecipientFactionRestricted" }, { status: 400 });
+      return NextResponse.json(
+        { error: "giftRecipientFactionRestricted" },
+        { status: 400 },
+      );
     }
 
     if (set.min_level > 0 && recipient.level < set.min_level) {
-      return NextResponse.json({ error: "giftRecipientLevelRestricted" }, { status: 400 });
+      return NextResponse.json(
+        { error: "giftRecipientLevelRestricted" },
+        { status: 400 },
+      );
     }
 
     recipientName = recipient.name;
@@ -95,9 +122,10 @@ async function handleSetPurchase(
     const subject = body.is_gift
       ? "Gift from the Lordaeron Shop"
       : "Lordaeron Shop";
-    const mailBody = body.is_gift && body.gift_message
-      ? body.gift_message
-      : "Thank you for your purchase!";
+    const mailBody =
+      body.is_gift && body.gift_message
+        ? body.gift_message
+        : "Thank you for your purchase!";
 
     const soapResult = await sendItems(
       recipientName,
@@ -109,6 +137,7 @@ async function handleSetPurchase(
     if (!soapResult.success) {
       console.error("SOAP set delivery failed:", soapResult.message);
       await updatePurchaseStatus(result.purchaseId!, "pending_delivery");
+
       return NextResponse.json({
         success: true,
         purchaseId: result.purchaseId,
@@ -126,12 +155,14 @@ async function handleSetPurchase(
 export async function POST(request: NextRequest) {
   try {
     const session = await verifySession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
 
     // Check ban
     const ban = await getActiveBan(session.id);
+
     if (ban) {
       return NextResponse.json({ error: "accountBanned" }, { status: 403 });
     }
@@ -149,6 +180,7 @@ export async function POST(request: NextRequest) {
     // Verify character belongs to account
     const characters = await getCharactersByAccount(session.id);
     const character = characters.find((c) => c.guid === body.character_guid);
+
     if (!character) {
       return NextResponse.json({ error: "characterNotFound" }, { status: 400 });
     }
@@ -160,6 +192,7 @@ export async function POST(request: NextRequest) {
 
     // ── Single item purchase ──
     const item = await getShopItemById(body.item_id!);
+
     if (!item || !item.is_active) {
       return NextResponse.json({ error: "itemNotFound" }, { status: 404 });
     }
@@ -178,41 +211,69 @@ export async function POST(request: NextRequest) {
     if (body.is_gift) {
       // Gifts not available for services
       if (item.category === "services") {
-        return NextResponse.json({ error: "giftNotAvailableForServices" }, { status: 400 });
+        return NextResponse.json(
+          { error: "giftNotAvailableForServices" },
+          { status: 400 },
+        );
       }
 
       if (!body.gift_to_character_name) {
-        return NextResponse.json({ error: "giftCharacterRequired" }, { status: 400 });
+        return NextResponse.json(
+          { error: "giftCharacterRequired" },
+          { status: 400 },
+        );
       }
 
       // Verify recipient exists
-      const recipient = await getCharacterByExactName(body.gift_to_character_name);
+      const recipient = await getCharacterByExactName(
+        body.gift_to_character_name,
+      );
+
       if (!recipient) {
-        return NextResponse.json({ error: "giftRecipientNotFound" }, { status: 400 });
+        return NextResponse.json(
+          { error: "giftRecipientNotFound" },
+          { status: 400 },
+        );
       }
 
       // Check restrictions on RECIPIENT
       if (item.race_ids && !item.race_ids.includes(recipient.race)) {
-        return NextResponse.json({ error: "giftRecipientRaceRestricted" }, { status: 400 });
+        return NextResponse.json(
+          { error: "giftRecipientRaceRestricted" },
+          { status: 400 },
+        );
       }
 
       if (item.class_ids && !item.class_ids.includes(recipient.class)) {
-        return NextResponse.json({ error: "giftRecipientClassRestricted" }, { status: 400 });
+        return NextResponse.json(
+          { error: "giftRecipientClassRestricted" },
+          { status: 400 },
+        );
       }
 
       if (item.faction !== "both") {
         const isRecipientAlliance = ALLIANCE_RACES.includes(recipient.race);
+
         if (item.faction === "alliance" && !isRecipientAlliance) {
-          return NextResponse.json({ error: "giftRecipientFactionRestricted" }, { status: 400 });
+          return NextResponse.json(
+            { error: "giftRecipientFactionRestricted" },
+            { status: 400 },
+          );
         }
         if (item.faction === "horde" && isRecipientAlliance) {
-          return NextResponse.json({ error: "giftRecipientFactionRestricted" }, { status: 400 });
+          return NextResponse.json(
+            { error: "giftRecipientFactionRestricted" },
+            { status: 400 },
+          );
         }
       }
 
       // Check min level on recipient
       if (item.min_level > 0 && recipient.level < item.min_level) {
-        return NextResponse.json({ error: "giftRecipientLevelRestricted" }, { status: 400 });
+        return NextResponse.json(
+          { error: "giftRecipientLevelRestricted" },
+          { status: 400 },
+        );
       }
 
       // Create purchase
@@ -244,6 +305,7 @@ export async function POST(request: NextRequest) {
         if (!soapResult.success) {
           console.error("SOAP delivery failed:", soapResult.message);
           await updatePurchaseStatus(result.purchaseId!, "pending_delivery");
+
           return NextResponse.json({
             success: true,
             purchaseId: result.purchaseId,
@@ -268,6 +330,7 @@ export async function POST(request: NextRequest) {
     }
 
     const factionError = checkFaction(item.faction, character.race);
+
     if (factionError) {
       return NextResponse.json({ error: factionError }, { status: 400 });
     }
@@ -302,6 +365,7 @@ export async function POST(request: NextRequest) {
       if (!soapResult.success) {
         console.error("SOAP delivery failed:", soapResult.message);
         await updatePurchaseStatus(result.purchaseId!, "pending_delivery");
+
         return NextResponse.json({
           success: true,
           purchaseId: result.purchaseId,
@@ -316,6 +380,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Purchase error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

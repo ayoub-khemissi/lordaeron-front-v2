@@ -10,6 +10,7 @@ export async function PUT(
 ) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -20,11 +21,14 @@ export async function PUT(
 
     const updated = await updateBan(banId, body);
 
-    await createAuditLog(session.id, "update_ban", "shop_ban", banId, { changes: body });
+    await createAuditLog(session.id, "update_ban", "shop_ban", banId, {
+      changes: body,
+    });
 
     return NextResponse.json({ success: updated });
   } catch (error) {
     console.error("Admin ban update error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }
@@ -35,6 +39,7 @@ export async function DELETE(
 ) {
   try {
     const session = await verifyAdminSession();
+
     if (!session) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
@@ -49,6 +54,7 @@ export async function DELETE(
     return NextResponse.json({ success: removed });
   } catch (error) {
     console.error("Admin ban delete error:", error);
+
     return NextResponse.json({ error: "serverError" }, { status: 500 });
   }
 }

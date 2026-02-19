@@ -1,5 +1,7 @@
 "use client";
 
+import type { ShopItem, ShopCategory, Faction } from "@/types";
+
 import { useState, useEffect, useRef } from "react";
 import { Input, Textarea } from "@heroui/input";
 import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
@@ -11,7 +13,6 @@ import { useTranslations } from "next-intl";
 
 import { SHOP_CATEGORIES, SERVICE_TYPES } from "@/lib/shop-utils";
 import { WowheadLink } from "@/components/wowhead-link";
-import type { ShopItem, ShopCategory, Faction } from "@/types";
 
 interface ItemFormProps {
   item?: ShopItem;
@@ -93,9 +94,11 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
     if (form.item_id === initialItemId.current) return;
 
     const id = parseInt(form.item_id);
+
     if (!id || id <= 0) {
       setFetchError("");
       setItemFound(false);
+
       return;
     }
 
@@ -108,6 +111,7 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
       try {
         const res = await fetch(`/api/admin/wowhead-icon?item_id=${id}`);
         const data = await res.json();
+
         if (data.found && data.iconUrl) {
           setItemFound(true);
           setForm((prev) => ({
@@ -137,16 +141,17 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
   const inputClass = "bg-[#0d1117] border-gray-700";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl">
+    <form className="space-y-6 max-w-3xl" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Select
+          classNames={{ trigger: inputClass }}
           label={t("category")}
           selectedKeys={[form.category]}
           onSelectionChange={(keys) => {
             const key = Array.from(keys)[0] as string;
+
             if (key) setForm({ ...form, category: key as ShopCategory });
           }}
-          classNames={{ trigger: inputClass }}
         >
           {SHOP_CATEGORIES.map((cat) => (
             <SelectItem key={cat}>{tCat(cat)}</SelectItem>
@@ -154,13 +159,14 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
         </Select>
 
         <Select
+          classNames={{ trigger: inputClass }}
           label={tc("faction")}
           selectedKeys={[form.faction]}
           onSelectionChange={(keys) => {
             const key = Array.from(keys)[0] as string;
+
             if (key) setForm({ ...form, faction: key as Faction });
           }}
-          classNames={{ trigger: inputClass }}
         >
           <SelectItem key="both">{tc("both")}</SelectItem>
           <SelectItem key="alliance">{tc("alliance")}</SelectItem>
@@ -170,23 +176,23 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Autocomplete
-          label={tc("serviceType")}
-          defaultInputValue={form.service_type}
-          onInputChange={(v) => setForm({ ...form, service_type: v })}
-          onSelectionChange={(key) => {
-            if (key) setForm({ ...form, service_type: String(key) });
-          }}
-          isDisabled={form.category !== "services"}
-          isRequired={form.category === "services"}
           allowsCustomValue
           classNames={{
             base: "max-w-full",
           }}
+          defaultInputValue={form.service_type}
           inputProps={{
             classNames: { inputWrapper: inputClass },
           }}
+          isDisabled={form.category !== "services"}
+          isRequired={form.category === "services"}
+          label={tc("serviceType")}
           popoverProps={{
             classNames: { content: "bg-[#161b22] border border-gray-700" },
+          }}
+          onInputChange={(v) => setForm({ ...form, service_type: v })}
+          onSelectionChange={(key) => {
+            if (key) setForm({ ...form, service_type: String(key) });
           }}
         >
           {SERVICE_TYPES.map((st) => (
@@ -200,114 +206,192 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
         </Autocomplete>
         <div className="flex items-end gap-3">
           <Input
-            label={tc("wowItemId")}
-            value={form.item_id}
-            onValueChange={(v) => setForm({ ...form, item_id: v })}
+            className="flex-1"
             classNames={{ inputWrapper: inputClass }}
             isDisabled={form.category === "services"}
             isRequired={form.category !== "services"}
-            type="number"
+            label={tc("wowItemId")}
             min={0}
-            className="flex-1"
+            type="number"
+            value={form.item_id}
+            onValueChange={(v) => setForm({ ...form, item_id: v })}
           />
           {fetchingIcon && (
             <div className="shrink-0 mb-2">
-              <Spinner size="sm" color="warning" />
+              <Spinner color="warning" size="sm" />
             </div>
           )}
-          {!fetchingIcon && itemFound && form.icon_url && form.item_id && parseInt(form.item_id) > 0 && (
-            <WowheadLink itemId={parseInt(form.item_id)} className="shrink-0 mb-1">
-              <div className="w-12 h-12 rounded-lg bg-[#0d1117] border border-gray-700 hover:border-wow-gold/40 flex items-center justify-center overflow-hidden transition-colors">
-                <img src={form.icon_url} alt="" className="w-10 h-10 object-contain" />
-              </div>
-            </WowheadLink>
-          )}
+          {!fetchingIcon &&
+            itemFound &&
+            form.icon_url &&
+            form.item_id &&
+            parseInt(form.item_id) > 0 && (
+              <WowheadLink
+                className="shrink-0 mb-1"
+                itemId={parseInt(form.item_id)}
+              >
+                <div className="w-12 h-12 rounded-lg bg-[#0d1117] border border-gray-700 hover:border-wow-gold/40 flex items-center justify-center overflow-hidden transition-colors">
+                  <img
+                    alt=""
+                    className="w-10 h-10 object-contain"
+                    src={form.icon_url}
+                  />
+                </div>
+              </WowheadLink>
+            )}
         </div>
-        {fetchError && <p className="text-xs text-red-400 -mt-3">{fetchError}</p>}
+        {fetchError && (
+          <p className="text-xs text-red-400 -mt-3">{fetchError}</p>
+        )}
       </div>
 
       {/* Localized names */}
       <div className="border border-gray-800 rounded-lg p-4">
-        <p className="text-sm text-gray-400 mb-3">{t("name")} ({tc("localized")})</p>
+        <p className="text-sm text-gray-400 mb-3">
+          {t("name")} ({tc("localized")})
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <Input label="EN" value={form.name_en} onValueChange={(v) => setForm({ ...form, name_en: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="FR" value={form.name_fr} onValueChange={(v) => setForm({ ...form, name_fr: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="ES" value={form.name_es} onValueChange={(v) => setForm({ ...form, name_es: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="DE" value={form.name_de} onValueChange={(v) => setForm({ ...form, name_de: v })} classNames={{ inputWrapper: inputClass }} isRequired />
-          <Input label="IT" value={form.name_it} onValueChange={(v) => setForm({ ...form, name_it: v })} classNames={{ inputWrapper: inputClass }} isRequired />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="EN"
+            value={form.name_en}
+            onValueChange={(v) => setForm({ ...form, name_en: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="FR"
+            value={form.name_fr}
+            onValueChange={(v) => setForm({ ...form, name_fr: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="ES"
+            value={form.name_es}
+            onValueChange={(v) => setForm({ ...form, name_es: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="DE"
+            value={form.name_de}
+            onValueChange={(v) => setForm({ ...form, name_de: v })}
+          />
+          <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
+            label="IT"
+            value={form.name_it}
+            onValueChange={(v) => setForm({ ...form, name_it: v })}
+          />
         </div>
       </div>
 
       {/* Localized descriptions */}
       <div className="border border-gray-800 rounded-lg p-4">
-        <p className="text-sm text-gray-400 mb-3">{tc("description")} ({tc("localized")})</p>
+        <p className="text-sm text-gray-400 mb-3">
+          {tc("description")} ({tc("localized")})
+        </p>
         <div className="grid grid-cols-1 gap-3">
-          <Textarea label="EN" value={form.description_en} onValueChange={(v) => setForm({ ...form, description_en: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="FR" value={form.description_fr} onValueChange={(v) => setForm({ ...form, description_fr: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="ES" value={form.description_es} onValueChange={(v) => setForm({ ...form, description_es: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="DE" value={form.description_de} onValueChange={(v) => setForm({ ...form, description_de: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
-          <Textarea label="IT" value={form.description_it} onValueChange={(v) => setForm({ ...form, description_it: v })} classNames={{ inputWrapper: inputClass }} minRows={2} />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="EN"
+            minRows={2}
+            value={form.description_en}
+            onValueChange={(v) => setForm({ ...form, description_en: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="FR"
+            minRows={2}
+            value={form.description_fr}
+            onValueChange={(v) => setForm({ ...form, description_fr: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="ES"
+            minRows={2}
+            value={form.description_es}
+            onValueChange={(v) => setForm({ ...form, description_es: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="DE"
+            minRows={2}
+            value={form.description_de}
+            onValueChange={(v) => setForm({ ...form, description_de: v })}
+          />
+          <Textarea
+            classNames={{ inputWrapper: inputClass }}
+            label="IT"
+            minRows={2}
+            value={form.description_it}
+            onValueChange={(v) => setForm({ ...form, description_it: v })}
+          />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
           label={t("price")}
+          type="number"
           value={form.price}
           onValueChange={(v) => setForm({ ...form, price: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          isRequired
         />
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
           label={`${t("discount")} (%)`}
+          type="number"
           value={form.discount_percentage}
           onValueChange={(v) => setForm({ ...form, discount_percentage: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          isRequired
         />
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
           label={tc("sortOrder")}
+          type="number"
           value={form.sort_order}
           onValueChange={(v) => setForm({ ...form, sort_order: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          isRequired
         />
         <Input
+          isRequired
+          classNames={{ inputWrapper: inputClass }}
+          description={tc("minLevelDesc")}
           label={tc("minLevel")}
+          max={80}
+          min={0}
+          type="number"
           value={form.min_level}
           onValueChange={(v) => setForm({ ...form, min_level: v })}
-          classNames={{ inputWrapper: inputClass }}
-          type="number"
-          min={0}
-          max={80}
-          description={tc("minLevelDesc")}
-          isRequired
         />
       </div>
 
       <div className="flex items-start gap-4">
         <div className="flex-1">
           <Input
+            isRequired
+            classNames={{ inputWrapper: inputClass }}
             label={tc("iconUrl")}
+            placeholder="https://wow.zamimg.com/images/wow/icons/large/..."
             value={form.icon_url}
             onValueChange={(v) => setForm({ ...form, icon_url: v })}
-            classNames={{ inputWrapper: inputClass }}
-            placeholder="https://wow.zamimg.com/images/wow/icons/large/..."
-            isRequired
           />
         </div>
         {form.icon_url && (
           <div className="w-16 h-16 rounded-lg bg-[#0d1117] border border-gray-700 flex items-center justify-center overflow-hidden shrink-0 mt-1">
             <img
-              src={form.icon_url}
               alt="Icon preview"
               className="w-12 h-12 object-contain"
+              src={form.icon_url}
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
-                (e.target as HTMLImageElement).parentElement!.innerHTML = '<span class="text-xs text-red-400">404</span>';
+                (e.target as HTMLImageElement).parentElement!.innerHTML =
+                  '<span class="text-xs text-red-400">404</span>';
               }}
             />
           </div>
@@ -315,15 +399,16 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
       </div>
 
       <Select
+        isRequired
+        className="max-w-xs"
+        classNames={{ trigger: inputClass }}
         label={tc("quality")}
         selectedKeys={form.quality !== "" ? [form.quality] : []}
         onSelectionChange={(keys) => {
           const key = Array.from(keys)[0] as string | undefined;
+
           setForm({ ...form, quality: key ?? "" });
         }}
-        classNames={{ trigger: inputClass }}
-        className="max-w-xs"
-        isRequired
       >
         <SelectItem key="0">{tQuality("0")}</SelectItem>
         <SelectItem key="1">{tQuality("1")}</SelectItem>
@@ -336,21 +421,30 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
       </Select>
 
       <div className="flex flex-wrap gap-6">
-        <Switch isSelected={form.is_active} onValueChange={(v) => setForm({ ...form, is_active: v })}>
+        <Switch
+          isSelected={form.is_active}
+          onValueChange={(v) => setForm({ ...form, is_active: v })}
+        >
           <span className="text-gray-300 text-sm">{t("active")}</span>
         </Switch>
-        <Switch isSelected={form.is_highlighted} onValueChange={(v) => setForm({ ...form, is_highlighted: v })}>
+        <Switch
+          isSelected={form.is_highlighted}
+          onValueChange={(v) => setForm({ ...form, is_highlighted: v })}
+        >
           <span className="text-gray-300 text-sm">{t("highlighted")}</span>
         </Switch>
-        <Switch isSelected={form.is_refundable} onValueChange={(v) => setForm({ ...form, is_refundable: v })}>
+        <Switch
+          isSelected={form.is_refundable}
+          onValueChange={(v) => setForm({ ...form, is_refundable: v })}
+        >
           <span className="text-gray-300 text-sm">{t("refundable")}</span>
         </Switch>
       </div>
 
       <Button
-        type="submit"
-        isLoading={loading}
         className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
+        isLoading={loading}
+        type="submit"
       >
         {isEdit ? t("save") : t("addItem")}
       </Button>

@@ -18,15 +18,22 @@ export function ShopHeader({ balance }: ShopHeaderProps) {
           <h1 className="text-3xl md:text-4xl font-heading wow-gradient-text mb-2">
             {t("title")}
           </h1>
-          <p className="text-gray-400 text-sm md:text-base">
-            {t("subtitle")}
-          </p>
+          <p className="text-gray-400 text-sm md:text-base">{t("subtitle")}</p>
         </div>
         <div className="glass rounded-xl px-6 py-4 flex items-center gap-3 glow-pulse-gold">
-          <Image src="/img/icons/soul-shard.svg" alt="Soul Shards" width={28} height={28} />
+          <Image
+            alt="Soul Shards"
+            height={28}
+            src="/img/icons/soul-shard.svg"
+            width={28}
+          />
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wider">{t("balance")}</p>
-            <p className="text-2xl font-bold text-purple-400">{balance.toLocaleString()}</p>
+            <p className="text-xs text-gray-400 uppercase tracking-wider">
+              {t("balance")}
+            </p>
+            <p className="text-2xl font-bold text-purple-400">
+              {balance.toLocaleString()}
+            </p>
           </div>
         </div>
       </div>

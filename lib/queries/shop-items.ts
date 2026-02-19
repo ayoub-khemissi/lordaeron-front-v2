@@ -1,7 +1,8 @@
+import type { ShopItem, ShopCategory } from "@/types";
+
 import { RowDataPacket, ResultSetHeader } from "mysql2";
 
 import { websiteDb } from "@/lib/db";
-import type { ShopItem, ShopCategory } from "@/types";
 
 export async function getShopItems(filters?: {
   category?: ShopCategory;
@@ -40,6 +41,7 @@ export async function getShopItemById(id: number): Promise<ShopItem | null> {
   );
 
   if (rows.length === 0) return null;
+
   return parseShopItemRow(rows[0] as ShopItem);
 }
 
@@ -172,9 +174,18 @@ export async function deactivateShopItem(id: number): Promise<boolean> {
 function parseShopItemRow(row: ShopItem): ShopItem {
   return {
     ...row,
-    realm_ids: typeof row.realm_ids === "string" ? JSON.parse(row.realm_ids) : row.realm_ids,
-    race_ids: typeof row.race_ids === "string" ? JSON.parse(row.race_ids) : row.race_ids,
-    class_ids: typeof row.class_ids === "string" ? JSON.parse(row.class_ids) : row.class_ids,
+    realm_ids:
+      typeof row.realm_ids === "string"
+        ? JSON.parse(row.realm_ids)
+        : row.realm_ids,
+    race_ids:
+      typeof row.race_ids === "string"
+        ? JSON.parse(row.race_ids)
+        : row.race_ids,
+    class_ids:
+      typeof row.class_ids === "string"
+        ? JSON.parse(row.class_ids)
+        : row.class_ids,
     is_highlighted: Boolean(row.is_highlighted),
     is_active: Boolean(row.is_active),
     is_refundable: Boolean(row.is_refundable),

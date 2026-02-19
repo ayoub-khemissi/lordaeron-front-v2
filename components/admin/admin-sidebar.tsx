@@ -24,7 +24,7 @@ export function AdminSidebar() {
   return (
     <aside className="w-64 min-h-screen bg-[#0d1117] border-r border-gray-800 flex flex-col">
       <div className="p-6 border-b border-gray-800">
-        <NextLink href={basePath} className="flex items-center gap-2">
+        <NextLink className="flex items-center gap-2" href={basePath}>
           <div className="w-8 h-8 rounded-md bg-gradient-to-br from-wow-gold to-wow-gold-dark flex items-center justify-center">
             <span className="text-black font-black text-sm">L</span>
           </div>
@@ -44,12 +44,12 @@ export function AdminSidebar() {
             return (
               <li key={item.key}>
                 <NextLink
-                  href={href}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-wow-gold/10 text-wow-gold border border-wow-gold/20"
                       : "text-gray-400 hover:text-gray-200 hover:bg-gray-800/50"
                   }`}
+                  href={href}
                 >
                   <span>{item.icon}</span>
                   <span>{t(item.key)}</span>
@@ -60,7 +60,9 @@ export function AdminSidebar() {
         </ul>
 
         <div className="mt-8">
-          <p className="text-xs text-gray-600 uppercase tracking-wider px-3 mb-2">{tc("comingSoon")}</p>
+          <p className="text-xs text-gray-600 uppercase tracking-wider px-3 mb-2">
+            {tc("comingSoon")}
+          </p>
           <div className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-600 cursor-not-allowed">
             <span>&#x1F4B0;</span>
             <span>{t("realMoney")}</span>
