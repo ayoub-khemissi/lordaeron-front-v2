@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import Script from "next/script";
@@ -10,6 +12,33 @@ import { fontSans, fontHeading } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AuthProvider } from "@/lib/auth-context";
+
+const ogLocaleMap: Record<string, string> = {
+  en: "en_US",
+  fr: "fr_FR",
+  es: "es_ES",
+  de: "de_DE",
+  it: "it_IT",
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const alternateLocale = routing.locales
+    .filter((l) => l !== locale)
+    .map((l) => ogLocaleMap[l] || l);
+
+  return {
+    openGraph: {
+      locale: ogLocaleMap[locale] || locale,
+      alternateLocale,
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

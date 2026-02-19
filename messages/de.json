@@ -360,6 +360,32 @@
       "quality": "Qualität"
     }
   },
+  "meta": {
+    "home": {
+      "title": "Lordaeron — Epic Progressive WoW-Server",
+      "description": "Tritt Lordaeron bei, dem ultimativen Epic Progressive WoW-Privatserver. Fortschritt von Vanilla über TBC bis WotLK mit einzigartigen Features, Transmog, Crossfaction und mehr."
+    },
+    "howTo": {
+      "title": "Wie man sich verbindet",
+      "description": "Erfahre, wie du dich in 4 einfachen Schritten mit Lordaeron verbindest: Lade den 3.3.5a-Client herunter, konfiguriere die Realmlist, erstelle ein Konto und starte."
+    },
+    "features": {
+      "title": "Server-Features",
+      "description": "Entdecke Lordaerons einzigartige Features: epische Raid-Progression, Transmog, Crossfaction-Gruppen, AOE-Beute, angepasste Raten und Lebensqualitätsverbesserungen."
+    },
+    "shop": {
+      "title": "Shop",
+      "description": "Durchstöbere den Lordaeron-Shop für Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeuge und Charakterdienste. Verbessere dein Abenteuer mit Soul Shards."
+    },
+    "shopCategory": {
+      "title": "{category} — Shop",
+      "description": "Durchstöbere {category}-Artikel im Lordaeron-Shop. Finde die beste Ausrüstung und Dienste für deine Charaktere."
+    },
+    "branding": {
+      "title": "Branding — OG-Bildvorschau",
+      "description": "Vorschau und Erstellung von Open Graph- und Twitter Card-Bildern für Lordaeron SEO."
+    }
+  },
   "footer": {
     "description": "Ein Epic Progressive WoW-Privatserver — von Vanilla bis WotLK.",
     "links": "Schnelllinks",
