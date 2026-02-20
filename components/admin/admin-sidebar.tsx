@@ -12,11 +12,11 @@ const NAV_ITEMS = [
   { key: "bans", href: "/bans", icon: "\uD83D\uDEAB" },
   { key: "audit", href: "/audit", icon: "\uD83D\uDCDD" },
   { key: "contactMessages", href: "/contact-messages", icon: "\uD83D\uDCE7" },
+  { key: "realMoney", href: "/real-money", icon: "\uD83D\uDCB0" },
 ];
 
 export function AdminSidebar() {
   const t = useTranslations("admin.nav");
-  const tc = useTranslations("admin.common");
   const locale = useLocale();
   const pathname = usePathname();
 
@@ -60,15 +60,6 @@ export function AdminSidebar() {
           })}
         </ul>
 
-        <div className="mt-8">
-          <p className="text-xs text-gray-600 uppercase tracking-wider px-3 mb-2">
-            {tc("comingSoon")}
-          </p>
-          <div className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-600 cursor-not-allowed">
-            <span>&#x1F4B0;</span>
-            <span>{t("realMoney")}</span>
-          </div>
-        </div>
       </nav>
     </aside>
   );
