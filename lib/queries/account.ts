@@ -1,4 +1,4 @@
-import type { Account } from "@/types";
+import type { Account, AccountBan, IpBan } from "@/types";
 
 import { RowDataPacket } from "mysql2";
 
@@ -26,6 +26,30 @@ export async function findAccountById(id: number): Promise<Account | null> {
   if (rows.length === 0) return null;
 
   return rows[0] as Account;
+}
+
+export async function getAccountBan(
+  accountId: number,
+): Promise<AccountBan | null> {
+  const [rows] = await authDb.execute<RowDataPacket[]>(
+    "SELECT id, bandate, unbandate, bannedby, banreason, active FROM account_banned WHERE id = ? AND active = 1 ORDER BY bandate DESC LIMIT 1",
+    [accountId],
+  );
+
+  if (rows.length === 0) return null;
+
+  return rows[0] as AccountBan;
+}
+
+export async function getIpBan(ip: string): Promise<IpBan | null> {
+  const [rows] = await authDb.execute<RowDataPacket[]>(
+    "SELECT ip, bandate, unbandate, bannedby, banreason FROM ip_banned WHERE ip = ? AND (unbandate > UNIX_TIMESTAMP() OR unbandate = bandate) ORDER BY bandate DESC LIMIT 1",
+    [ip],
+  );
+
+  if (rows.length === 0) return null;
+
+  return rows[0] as IpBan;
 }
 
 export async function createAccount(

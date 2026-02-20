@@ -157,7 +157,13 @@
     "realmInfo": "Informations du royaume",
     "realmName": "Nom du royaume",
     "realmStatus": "Statut",
-    "soulShards": "Soul Shards"
+    "soulShards": "Soul Shards",
+    "banned": "Compte banni",
+    "ipBanned": "IP bannie",
+    "banReason": "Raison",
+    "banDate": "Banni le",
+    "banExpires": "Expire le",
+    "permanent": "Permanent"
   },
   "shop": {
     "title": "Boutique",

@@ -84,6 +84,18 @@ export default function AccountPage() {
     null,
   );
   const [soulShards, setSoulShards] = useState<number>(0);
+  const [accountBan, setAccountBan] = useState<{
+    bandate: number;
+    unbandate: number;
+    bannedby: string;
+    banreason: string;
+  } | null>(null);
+  const [ipBan, setIpBan] = useState<{
+    bandate: number;
+    unbandate: number;
+    bannedby: string;
+    banreason: string;
+  } | null>(null);
 
   useEffect(() => {
     if (authLoading) return;
@@ -108,6 +120,8 @@ export default function AccountPage() {
         setCharacters(data.characters || []);
         setRealm(data.realm);
         setSoulShards(data.soulShards ?? 0);
+        setAccountBan(data.accountBan || null);
+        setIpBan(data.ipBan || null);
       } catch {
         router.replace(`/${locale}/login`);
       } finally {
@@ -151,6 +165,37 @@ export default function AccountPage() {
           <p className="text-gray-300">{t("subtitle")}</p>
           <div className="shimmer-line w-24 mx-auto mt-4" />
         </motion.div>
+
+        {/* Ban alerts */}
+        {(accountBan || ipBan) && (
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
+          >
+            {accountBan && (
+              <BanCard
+                bandate={accountBan.bandate}
+                banreason={accountBan.banreason}
+                locale={locale}
+                t={t}
+                type="account"
+                unbandate={accountBan.unbandate}
+              />
+            )}
+            {ipBan && (
+              <BanCard
+                bandate={ipBan.bandate}
+                banreason={ipBan.banreason}
+                locale={locale}
+                t={t}
+                type="ip"
+                unbandate={ipBan.unbandate}
+              />
+            )}
+          </motion.div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Account Info Card */}
@@ -368,6 +413,61 @@ export default function AccountPage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BanCard({
+  type,
+  bandate,
+  unbandate,
+  banreason,
+  locale,
+  t,
+}: {
+  type: "account" | "ip";
+  bandate: number;
+  unbandate: number;
+  banreason: string;
+  locale: string;
+  t: (key: string) => string;
+}) {
+  const isPermanent = unbandate === 0;
+  const banDateStr = new Date(bandate * 1000).toLocaleString(locale);
+  const unbanDateStr = isPermanent
+    ? null
+    : new Date(unbandate * 1000).toLocaleString(locale);
+
+  return (
+    <div className="rounded-2xl border border-red-500/30 bg-red-950/30 backdrop-blur-sm p-5">
+      <div className="flex items-start gap-3">
+        <span className="text-2xl mt-0.5">&#9888;</span>
+        <div className="flex-1 space-y-2">
+          <h3 className="text-red-400 font-bold text-lg">
+            {type === "account" ? t("banned") : t("ipBanned")}
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
+            <div>
+              <span className="text-gray-400">{t("banReason")}:</span>{" "}
+              <span className="text-gray-200">{banreason}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">{t("banDate")}:</span>{" "}
+              <span className="text-gray-200">{banDateStr}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">{t("banExpires")}:</span>{" "}
+              <span
+                className={
+                  isPermanent ? "text-red-400 font-semibold" : "text-gray-200"
+                }
+              >
+                {isPermanent ? t("permanent") : unbanDateStr}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 
 import { verifySession } from "@/lib/auth";
-import { findAccountById } from "@/lib/queries/account";
+import {
+  findAccountById,
+  getAccountBan,
+  getIpBan,
+} from "@/lib/queries/account";
 import { getCharactersByAccount } from "@/lib/queries/characters";
 import { getRealmStatus } from "@/lib/queries/server";
 import { getSoulShardBalance } from "@/lib/queries/soul-shards";
@@ -16,16 +20,21 @@ export async function GET() {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
 
-    const [account, characters, realm, soulShards] = await Promise.all([
-      findAccountById(session.id),
-      getCharactersByAccount(session.id),
-      getRealmStatus(),
-      getSoulShardBalance(session.id),
-    ]);
+    const [account, characters, realm, soulShards, accountBan] =
+      await Promise.all([
+        findAccountById(session.id),
+        getCharactersByAccount(session.id),
+        getRealmStatus(),
+        getSoulShardBalance(session.id),
+        getAccountBan(session.id),
+      ]);
 
     if (!account) {
       return NextResponse.json({ error: "accountNotFound" }, { status: 404 });
     }
+
+    // Check IP ban using account's last_ip
+    const ipBan = account.last_ip ? await getIpBan(account.last_ip) : null;
 
     return NextResponse.json({
       account: {
@@ -39,6 +48,22 @@ export async function GET() {
       characters,
       realm,
       soulShards,
+      accountBan: accountBan
+        ? {
+            bandate: accountBan.bandate,
+            unbandate: accountBan.unbandate,
+            bannedby: accountBan.bannedby,
+            banreason: accountBan.banreason,
+          }
+        : null,
+      ipBan: ipBan
+        ? {
+            bandate: ipBan.bandate,
+            unbandate: ipBan.unbandate,
+            bannedby: ipBan.bannedby,
+            banreason: ipBan.banreason,
+          }
+        : null,
     });
   } catch (error) {
     console.error("Account fetch error:", error);

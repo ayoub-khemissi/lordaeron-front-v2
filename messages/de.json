@@ -157,7 +157,13 @@
     "realmInfo": "Realm-Informationen",
     "realmName": "Realm-Name",
     "realmStatus": "Status",
-    "soulShards": "Soul Shards"
+    "soulShards": "Soul Shards",
+    "banned": "Konto gesperrt",
+    "ipBanned": "IP gesperrt",
+    "banReason": "Grund",
+    "banDate": "Gesperrt am",
+    "banExpires": "Läuft ab am",
+    "permanent": "Permanent"
   },
   "shop": {
     "title": "Shop",

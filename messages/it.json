@@ -157,7 +157,13 @@
     "realmInfo": "Informazioni reame",
     "realmName": "Nome reame",
     "realmStatus": "Stato",
-    "soulShards": "Soul Shards"
+    "soulShards": "Soul Shards",
+    "banned": "Account bannato",
+    "ipBanned": "IP bannato",
+    "banReason": "Motivo",
+    "banDate": "Bannato il",
+    "banExpires": "Scade il",
+    "permanent": "Permanente"
   },
   "shop": {
     "title": "Negozio",

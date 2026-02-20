@@ -86,6 +86,23 @@ export interface AccountInfo {
   expansion: number;
 }
 
+export interface AccountBan {
+  id: number;
+  bandate: number;
+  unbandate: number;
+  bannedby: string;
+  banreason: string;
+  active: number;
+}
+
+export interface IpBan {
+  ip: string;
+  bandate: number;
+  unbandate: number;
+  bannedby: string;
+  banreason: string;
+}
+
 export interface SoulShardBalance {
   account_id: number;
   balance: number;
