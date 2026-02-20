@@ -57,7 +57,7 @@ export default function ShopContent() {
   const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState("newest");
+  const [sortBy, setSortBy] = useState("price_desc");
   const [activeTab, setActiveTab] = useState("shop");
   const [showSetFilter, setShowSetFilter] = useState(true);
   const [showItemFilter, setShowItemFilter] = useState(true);
