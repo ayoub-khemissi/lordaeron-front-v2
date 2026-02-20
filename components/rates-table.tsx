@@ -64,10 +64,10 @@ export const RatesSection = () => {
   const t = useTranslations("features");
 
   return (
-    <div className="relative overflow-hidden rounded-3xl">
+    <div className="relative overflow-hidden rounded-3xl group">
       <Image
         alt=""
-        className="object-cover opacity-30"
+        className="object-cover opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-[opacity,scale] duration-700"
         fill={true}
         loading="lazy"
         sizes="(max-width: 768px) 100vw, 900px"
@@ -76,7 +76,7 @@ export const RatesSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-wow-darker/60 to-wow-darker/90" />
 
       <motion.div
-        className="relative glass-lite rounded-3xl p-8 sm:p-12"
+        className="relative p-8 sm:p-12"
         initial={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
@@ -119,10 +119,10 @@ export const RaidProgressionSection = () => {
   const t = useTranslations("features");
 
   return (
-    <div className="relative overflow-hidden rounded-3xl">
+    <div className="relative overflow-hidden rounded-3xl group">
       <Image
         alt=""
-        className="object-cover opacity-25"
+        className="object-cover opacity-25 group-hover:opacity-40 group-hover:scale-110 transition-[opacity,scale] duration-700"
         fill={true}
         loading="lazy"
         sizes="(max-width: 768px) 100vw, 900px"

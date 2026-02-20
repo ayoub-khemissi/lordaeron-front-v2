@@ -77,7 +77,7 @@ const FeatureCard = React.memo(function FeatureCard({
       <div className="relative overflow-hidden rounded-2xl group h-full glow-gold">
         <Image
           alt=""
-          className="absolute inset-0 object-cover opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-[opacity,transform] duration-700"
+          className="absolute inset-0 object-cover opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-[opacity,scale] duration-700"
           fill={true}
           loading="lazy"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
