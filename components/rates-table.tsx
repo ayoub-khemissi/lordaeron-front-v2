@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const rates = [
-  { key: "xp", value: "x10" },
+  { key: "xp", value: "x5" },
   { key: "honor", value: "x2" },
   { key: "professions", value: "x2" },
   { key: "reputation", value: "x2" },
