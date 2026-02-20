@@ -63,12 +63,13 @@ export default function HowToContent() {
               animate={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
             >
               <div className="relative overflow-hidden rounded-2xl group glow-gold">
                 {/* Background image */}
                 <img
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-45 group-hover:scale-105 transition-[opacity,transform] duration-700"
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-[opacity,scale] duration-700"
                   loading="lazy"
                   src={step.bg}
                 />
