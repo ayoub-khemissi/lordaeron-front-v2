@@ -8,6 +8,7 @@
     "account": "Mi Cuenta",
     "logout": "Cerrar sesión",
     "shop": "Tienda",
+    "news": "Noticias",
     "contact": "Contacto"
   },
   "home": {
@@ -22,6 +23,7 @@
     "horde": "Horda",
     "newsTitle": "Últimas noticias",
     "noNews": "No hay noticias disponibles aún.",
+    "viewAllNews": "Ver todas las noticias",
     "factionBalance": "Equilibrio de facciones"
   },
   "howTo": {
@@ -326,7 +328,7 @@
   },
   "admin": {
     "login": { "title": "Acceso Admin", "username": "Usuario", "password": "Contraseña", "submit": "Acceder", "error": "Credenciales inválidas" },
-    "nav": { "dashboard": "Panel", "items": "Artículos", "sets": "Sets", "purchases": "Compras", "bans": "Bans", "audit": "Registro", "contactMessages": "Mensajes de contacto", "realMoney": "Dinero real", "logout": "Salir" },
+    "nav": { "dashboard": "Panel", "items": "Artículos", "sets": "Sets", "purchases": "Compras", "bans": "Bans", "audit": "Registro", "contactMessages": "Mensajes de contacto", "news": "Noticias", "realMoney": "Dinero real", "logout": "Salir" },
     "dashboard": { "title": "Panel", "totalRevenue": "Ingresos totales", "totalPurchases": "Compras totales", "averageOrder": "Pedido medio", "activeItems": "Artículos activos", "salesTrend": "Tendencia de ventas", "topItems": "Mejores artículos", "recentPurchases": "Compras recientes" },
     "items": { "title": "Artículos de la tienda", "addItem": "Añadir artículo", "editItem": "Editar artículo", "name": "Nombre", "category": "Categoría", "price": "Precio", "discount": "Descuento", "status": "Estado", "active": "Activo", "inactive": "Inactivo", "highlighted": "Destacado", "actions": "Acciones", "save": "Guardar", "delete": "Desactivar", "refundable": "Reembolsable",
       "confirmDelete": "¿Seguro que quieres desactivar este artículo?" },
@@ -353,7 +355,25 @@
     },
     "purchases": { "title": "Historial de compras", "account": "Cuenta", "character": "Personaje", "item": "Artículo", "price": "Precio", "status": "Estado", "date": "Fecha", "refund": "Reembolsar", "confirmRefund": "¿Seguro que quieres reembolsar esta compra?", "refundSuccess": "Compra reembolsada con éxito", "actions": "Acciones", "retry": "Reintentar", "retrySuccess": "Reenvío de entrega exitoso", "retryFailed": "Fallo en el reenvío de entrega", "status_completed": "Completado", "status_refunded": "Reembolsado", "status_pending_refund": "Reembolso pendiente", "status_pending_delivery": "Entrega pendiente", "status_cancelled": "Cancelado", "reason_itemNotRefundable": "No reembolsable", "reason_refundExpired": "Plazo de 2h expirado", "reason_itemNotInInventory": "Objeto ya no en inventario", "reason_purchaseNotRefundable": "Compra no reembolsable", "reason_recipientNotFound": "Destinatario no encontrado", "reason_serverError": "Error del servidor", "reason_characterOnline": "Personaje en línea" },
     "bans": { "title": "Bans de la tienda", "addBan": "Añadir ban", "accountId": "ID de cuenta", "reason": "Razón", "expiresAt": "Expira el", "permanent": "Permanente", "active": "Activo", "actions": "Acciones", "remove": "Eliminar" },
-    "audit": { "title": "Registro de auditoría", "admin": "Admin", "action": "Acción", "target": "Objetivo", "details": "Detalles", "date": "Fecha", "action_create_item": "Crear artículo", "action_update_item": "Modificar artículo", "action_deactivate_item": "Desactivar artículo", "action_create_set": "Crear set", "action_update_set": "Modificar set", "action_deactivate_set": "Desactivar set", "action_create_ban": "Crear ban", "action_update_ban": "Modificar ban", "action_delete_ban": "Eliminar ban", "action_retry_delivery": "Reintentar entrega", "action_refund_purchase": "Reembolso", "target_shop_item": "Artículo", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Compra" },
+    "audit": { "title": "Registro de auditoría", "admin": "Admin", "action": "Acción", "target": "Objetivo", "details": "Detalles", "date": "Fecha", "action_create_item": "Crear artículo", "action_update_item": "Modificar artículo", "action_deactivate_item": "Desactivar artículo", "action_create_set": "Crear set", "action_update_set": "Modificar set", "action_deactivate_set": "Desactivar set", "action_create_ban": "Crear ban", "action_update_ban": "Modificar ban", "action_delete_ban": "Eliminar ban", "action_retry_delivery": "Reintentar entrega", "action_refund_purchase": "Reembolso", "target_shop_item": "Artículo", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Compra", "action_create_news": "Crear artículo", "action_update_news": "Modificar artículo", "action_delete_news": "Eliminar artículo", "target_news": "Noticia" },
+    "news": {
+      "title": "Artículos de noticias",
+      "addArticle": "Añadir artículo",
+      "editArticle": "Editar artículo",
+      "articleTitle": "Título",
+      "content": "Contenido",
+      "authorName": "Autor",
+      "publishedAt": "Publicado el",
+      "status": "Estado",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "scheduled": "Programado",
+      "actions": "Acciones",
+      "save": "Guardar",
+      "delete": "Eliminar",
+      "confirmDelete": "¿Seguro que quieres eliminar este artículo?",
+      "imageUrl": "URL de la imagen"
+    },
     "contactMessages": {
       "title": "Mensajes de contacto",
       "username": "Usuario",
@@ -432,6 +452,17 @@
       "minLevelDesc": "El personaje debe tener al menos este nivel para comprar",
       "quality": "Calidad"
     }
+  },
+  "news": {
+    "title": "Noticias",
+    "subtitle": "Mantente al día con las últimas noticias y actualizaciones de Lordaeron",
+    "loadMore": "Cargar más",
+    "backToNews": "Volver a noticias",
+    "by": "Por",
+    "noNews": "No hay noticias disponibles aún.",
+    "readMore": "Leer más",
+    "expand": "Expandir",
+    "collapse": "Contraer"
   },
   "contact": {
     "title": "Contáctanos",
@@ -628,6 +659,10 @@
     "rgpd": {
       "title": "Política de Privacidad (RGPD)",
       "description": "Lee la Política de Privacidad de Lordaeron. Descubre cómo recopilamos, usamos y protegemos tus datos personales en cumplimiento del RGPD."
+    },
+    "news": {
+      "title": "Noticias — Lordaeron",
+      "description": "Mantente al día con las últimas noticias, actualizaciones y anuncios de Lordaeron."
     }
   }
 }

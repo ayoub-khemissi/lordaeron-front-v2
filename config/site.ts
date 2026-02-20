@@ -8,11 +8,13 @@ export const siteConfig = {
   navItems: [
     { labelKey: "nav.howTo", href: "/how-to" },
     { labelKey: "nav.features", href: "/features" },
+    { labelKey: "nav.news", href: "/news" },
     { labelKey: "nav.shop", href: "/shop" },
   ],
   navMenuItems: [
     { labelKey: "nav.howTo", href: "/how-to" },
     { labelKey: "nav.features", href: "/features" },
+    { labelKey: "nav.news", href: "/news" },
     { labelKey: "nav.shop", href: "/shop" },
   ],
   links: {

@@ -8,6 +8,7 @@
     "account": "Mon Compte",
     "logout": "Déconnexion",
     "shop": "Boutique",
+    "news": "Actualités",
     "contact": "Contact"
   },
   "home": {
@@ -22,6 +23,7 @@
     "horde": "Horde",
     "newsTitle": "Dernières actualités",
     "noNews": "Aucune actualité disponible pour le moment.",
+    "viewAllNews": "Voir toutes les actualités",
     "factionBalance": "Équilibre des factions"
   },
   "howTo": {
@@ -326,7 +328,7 @@
   },
   "admin": {
     "login": { "title": "Connexion Admin", "username": "Nom d'utilisateur", "password": "Mot de passe", "submit": "Se connecter", "error": "Identifiants invalides" },
-    "nav": { "dashboard": "Tableau de bord", "items": "Articles", "sets": "Sets", "purchases": "Achats", "bans": "Bans", "audit": "Journal d'audit", "contactMessages": "Messages de contact", "realMoney": "Argent réel", "logout": "Déconnexion" },
+    "nav": { "dashboard": "Tableau de bord", "items": "Articles", "sets": "Sets", "purchases": "Achats", "bans": "Bans", "audit": "Journal d'audit", "contactMessages": "Messages de contact", "news": "Actualités", "realMoney": "Argent réel", "logout": "Déconnexion" },
     "dashboard": { "title": "Tableau de bord", "totalRevenue": "Revenu total", "totalPurchases": "Achats totaux", "averageOrder": "Panier moyen", "activeItems": "Articles actifs", "salesTrend": "Tendance des ventes", "topItems": "Meilleurs articles", "recentPurchases": "Achats récents" },
     "items": { "title": "Articles de la boutique", "addItem": "Ajouter un article", "editItem": "Modifier l'article", "name": "Nom", "category": "Catégorie", "price": "Prix", "discount": "Réduction", "status": "Statut", "active": "Actif", "inactive": "Inactif", "highlighted": "En vedette", "actions": "Actions", "save": "Sauvegarder", "delete": "Désactiver", "refundable": "Remboursable",
       "confirmDelete": "Êtes-vous sûr de vouloir désactiver cet article ?" },
@@ -353,7 +355,25 @@
     },
     "purchases": { "title": "Historique des achats", "account": "Compte", "character": "Personnage", "item": "Article", "price": "Prix", "status": "Statut", "date": "Date", "refund": "Rembourser", "confirmRefund": "Êtes-vous sûr de vouloir rembourser cet achat ?", "refundSuccess": "Achat remboursé avec succès", "actions": "Actions", "retry": "Réessayer", "retrySuccess": "Livraison relancée avec succès", "retryFailed": "Échec de la relance de livraison", "status_completed": "Complété", "status_refunded": "Remboursé", "status_pending_refund": "Remboursement en attente", "status_pending_delivery": "Livraison en attente", "status_cancelled": "Annulé", "reason_itemNotRefundable": "Non remboursable", "reason_refundExpired": "Délai de 2h dépassé", "reason_itemNotInInventory": "Objet plus dans l'inventaire", "reason_purchaseNotRefundable": "Achat non remboursable", "reason_recipientNotFound": "Destinataire introuvable", "reason_serverError": "Erreur serveur", "reason_characterOnline": "Personnage en ligne" },
     "bans": { "title": "Bans de la boutique", "addBan": "Ajouter un ban", "accountId": "ID du compte", "reason": "Raison", "expiresAt": "Expire le", "permanent": "Permanent", "active": "Actif", "actions": "Actions", "remove": "Supprimer" },
-    "audit": { "title": "Journal d'audit", "admin": "Admin", "action": "Action", "target": "Cible", "details": "Détails", "date": "Date", "action_create_item": "Création d'article", "action_update_item": "Modification d'article", "action_deactivate_item": "Désactivation d'article", "action_create_set": "Création de set", "action_update_set": "Modification de set", "action_deactivate_set": "Désactivation de set", "action_create_ban": "Création de ban", "action_update_ban": "Modification de ban", "action_delete_ban": "Suppression de ban", "action_retry_delivery": "Relance de livraison", "action_refund_purchase": "Remboursement", "target_shop_item": "Article", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Achat" },
+    "audit": { "title": "Journal d'audit", "admin": "Admin", "action": "Action", "target": "Cible", "details": "Détails", "date": "Date", "action_create_item": "Création d'article", "action_update_item": "Modification d'article", "action_deactivate_item": "Désactivation d'article", "action_create_set": "Création de set", "action_update_set": "Modification de set", "action_deactivate_set": "Désactivation de set", "action_create_ban": "Création de ban", "action_update_ban": "Modification de ban", "action_delete_ban": "Suppression de ban", "action_retry_delivery": "Relance de livraison", "action_refund_purchase": "Remboursement", "target_shop_item": "Article", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Achat", "action_create_news": "Création d'article", "action_update_news": "Modification d'article", "action_delete_news": "Suppression d'article", "target_news": "Actualité" },
+    "news": {
+      "title": "Articles d'actualité",
+      "addArticle": "Ajouter un article",
+      "editArticle": "Modifier l'article",
+      "articleTitle": "Titre",
+      "content": "Contenu",
+      "authorName": "Auteur",
+      "publishedAt": "Publié le",
+      "status": "Statut",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "scheduled": "Programmé",
+      "actions": "Actions",
+      "save": "Sauvegarder",
+      "delete": "Supprimer",
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet article ?",
+      "imageUrl": "URL de l'image"
+    },
     "contactMessages": {
       "title": "Messages de contact",
       "username": "Nom d'utilisateur",
@@ -432,6 +452,17 @@
       "minLevelDesc": "Le personnage doit avoir au moins ce niveau pour acheter",
       "quality": "Qualité"
     }
+  },
+  "news": {
+    "title": "Actualités",
+    "subtitle": "Restez informé des dernières nouvelles et mises à jour de Lordaeron",
+    "loadMore": "Charger plus",
+    "backToNews": "Retour aux actualités",
+    "by": "Par",
+    "noNews": "Aucune actualité disponible pour le moment.",
+    "readMore": "Lire la suite",
+    "expand": "Développer",
+    "collapse": "Réduire"
   },
   "contact": {
     "title": "Contactez-nous",
@@ -628,6 +659,10 @@
     "rgpd": {
       "title": "Politique de Confidentialité (RGPD)",
       "description": "Lisez la Politique de Confidentialité de Lordaeron. Découvrez comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD."
+    },
+    "news": {
+      "title": "Actualités — Lordaeron",
+      "description": "Restez informé des dernières nouvelles, mises à jour et annonces de Lordaeron."
     }
   }
 }

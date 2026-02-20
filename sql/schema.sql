@@ -24,8 +24,13 @@ CREATE TABLE IF NOT EXISTS news (
   content_de TEXT NOT NULL,
   content_it TEXT NOT NULL,
   image_url VARCHAR(512) DEFAULT NULL,
+  author_name VARCHAR(100) NOT NULL DEFAULT '',
+  published_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_is_active (is_active),
+  INDEX idx_published_at (published_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ── Soul Shards ──────────────────────────────────────────────────────────────

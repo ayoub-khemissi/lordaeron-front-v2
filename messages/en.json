@@ -8,6 +8,7 @@
     "account": "My Account",
     "logout": "Logout",
     "shop": "Shop",
+    "news": "News",
     "contact": "Contact"
   },
   "home": {
@@ -22,6 +23,7 @@
     "horde": "Horde",
     "newsTitle": "Latest News",
     "noNews": "No news available yet.",
+    "viewAllNews": "View all news",
     "factionBalance": "Faction Balance"
   },
   "howTo": {
@@ -340,6 +342,7 @@
       "bans": "Bans",
       "audit": "Audit Log",
       "contactMessages": "Contact Messages",
+      "news": "News",
       "realMoney": "Real Money",
       "logout": "Logout"
     },
@@ -452,7 +455,29 @@
       "target_shop_item": "Item",
       "target_shop_set": "Set",
       "target_shop_ban": "Ban",
-      "target_shop_purchase": "Purchase"
+      "target_shop_purchase": "Purchase",
+      "action_create_news": "Create article",
+      "action_update_news": "Update article",
+      "action_delete_news": "Delete article",
+      "target_news": "News"
+    },
+    "news": {
+      "title": "News Articles",
+      "addArticle": "Add Article",
+      "editArticle": "Edit Article",
+      "articleTitle": "Title",
+      "content": "Content",
+      "authorName": "Author",
+      "publishedAt": "Published At",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "scheduled": "Scheduled",
+      "actions": "Actions",
+      "save": "Save",
+      "delete": "Delete",
+      "confirmDelete": "Are you sure you want to delete this article?",
+      "imageUrl": "Image URL"
     },
     "contactMessages": {
       "title": "Contact Messages",
@@ -532,6 +557,17 @@
       "minLevelDesc": "Character must be at least this level to buy",
       "quality": "Quality"
     }
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "Stay up to date with the latest Lordaeron news and updates",
+    "loadMore": "Load more",
+    "backToNews": "Back to news",
+    "by": "By",
+    "noNews": "No news available yet.",
+    "readMore": "Read more",
+    "expand": "Expand",
+    "collapse": "Collapse"
   },
   "contact": {
     "title": "Contact Us",
@@ -728,6 +764,10 @@
     "rgpd": {
       "title": "Privacy Policy (GDPR)",
       "description": "Read the Lordaeron Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR."
+    },
+    "news": {
+      "title": "News — Lordaeron",
+      "description": "Stay up to date with the latest Lordaeron news, updates, and announcements."
     }
   }
 }

@@ -2,9 +2,13 @@
 
 import type { News } from "@/types";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import NextLink from "next/link";
+import { Button } from "@heroui/button";
+
+import { MarkdownRenderer } from "@/components/markdown-renderer";
 
 // Fallback images for news cards when no image_url
 const fallbackImages = [
@@ -15,18 +19,38 @@ const fallbackImages = [
 
 export const NewsSection = () => {
   const t = useTranslations("home");
+  const tNews = useTranslations("news");
   const locale = useLocale();
-  const [news, setNews] = useState<News[]>([]);
+  const [article, setArticle] = useState<News | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const collapsedHeight = 300;
+
+  const updateHeight = useCallback(() => {
+    if (!wrapperRef.current || !contentRef.current) return;
+    if (expanded) {
+      wrapperRef.current.style.height = `${contentRef.current.scrollHeight}px`;
+    } else {
+      wrapperRef.current.style.height = `${collapsedHeight}px`;
+    }
+  }, [expanded]);
+
+  useEffect(() => {
+    updateHeight();
+  }, [article, expanded, updateHeight]);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`/api/news?locale=${locale}&limit=3`);
+        const res = await fetch(`/api/news?locale=${locale}&limit=1`);
         const data = await res.json();
 
-        setNews(data);
+        if (Array.isArray(data) && data.length > 0) {
+          setArticle(data[0]);
+        }
       } catch {
-        setNews([]);
+        setArticle(null);
       }
     };
 
@@ -59,45 +83,83 @@ export const NewsSection = () => {
           <div className="shimmer-line w-24 mx-auto" />
         </motion.div>
 
-        {news.length === 0 ? (
+        {!article ? (
           <p className="text-center text-gray-400">{t("noNews")}</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {news.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                whileInView={{ opacity: 1, y: 0 }}
-              >
-                <div className="relative overflow-hidden rounded-2xl group h-full glow-gold">
-                  {/* Card background image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                    style={{
-                      backgroundImage: `url('${item.image_url || fallbackImages[index % fallbackImages.length]}')`,
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-wow-darker via-wow-darker/80 to-wow-darker/30" />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            <div className="relative overflow-hidden rounded-2xl glow-gold">
+              {/* Card background image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('${article.image_url || fallbackImages[0]}')`,
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-wow-darker via-wow-darker/90 to-wow-darker/60" />
 
-                  {/* Content */}
-                  <div className="relative glass border-wow-gold/10 rounded-2xl p-6 h-full flex flex-col justify-end min-h-[280px]">
-                    <h3 className="text-wow-gold font-bold text-lg mb-2 drop-shadow-lg">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-300/80 text-sm line-clamp-3 mb-3">
-                      {item.content}
-                    </p>
-                    <p className="text-gray-400 text-xs">
-                      {new Date(item.created_at).toLocaleDateString(locale)}
-                    </p>
-                  </div>
+              {/* Content */}
+              <div className="relative glass border-wow-gold/10 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold wow-gradient-text mb-2">
+                  {article.title}
+                </h3>
+                <div className="flex items-center gap-3 text-sm text-gray-400 mb-4">
+                  <span>
+                    {tNews("by")} {article.author_name}
+                  </span>
+                  <span>·</span>
+                  <span>
+                    {new Date(article.published_at).toLocaleDateString(locale)}
+                  </span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                <div
+                  ref={wrapperRef}
+                  className="relative overflow-hidden transition-[height] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                  style={{ height: collapsedHeight }}
+                >
+                  <div ref={contentRef} className="overflow-hidden pb-1">
+                    <MarkdownRenderer content={article.content} />
+                  </div>
+                  <AnimatePresence>
+                    {!expanded && (
+                      <motion.div
+                        animate={{ opacity: 1 }}
+                        className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(10,14,20,0.95)] to-transparent"
+                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div className="flex items-center gap-3 mt-4">
+                  <Button
+                    className="text-wow-gold border-wow-gold/30"
+                    size="sm"
+                    variant="bordered"
+                    onPress={() => setExpanded(!expanded)}
+                  >
+                    {expanded ? tNews("collapse") : tNews("expand")}
+                  </Button>
+                  <Button
+                    as={NextLink}
+                    className="text-wow-gold border-wow-gold/30"
+                    href={`/${locale}/news`}
+                    size="sm"
+                    variant="bordered"
+                  >
+                    {t("viewAllNews")}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         )}
       </div>
     </section>

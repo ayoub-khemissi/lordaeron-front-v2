@@ -8,6 +8,7 @@
     "account": "Mein Konto",
     "logout": "Abmelden",
     "shop": "Shop",
+    "news": "Neuigkeiten",
     "contact": "Kontakt"
   },
   "home": {
@@ -22,6 +23,7 @@
     "horde": "Horde",
     "newsTitle": "Neueste Nachrichten",
     "noNews": "Noch keine Nachrichten verfügbar.",
+    "viewAllNews": "Alle Neuigkeiten anzeigen",
     "factionBalance": "Fraktionsbalance"
   },
   "howTo": {
@@ -326,7 +328,7 @@
   },
   "admin": {
     "login": { "title": "Admin Login", "username": "Benutzername", "password": "Passwort", "submit": "Anmelden", "error": "Ungültige Anmeldedaten" },
-    "nav": { "dashboard": "Dashboard", "items": "Artikel", "sets": "Sets", "purchases": "Käufe", "bans": "Sperren", "audit": "Protokoll", "contactMessages": "Kontaktnachrichten", "realMoney": "Echtgeld", "logout": "Abmelden" },
+    "nav": { "dashboard": "Dashboard", "items": "Artikel", "sets": "Sets", "purchases": "Käufe", "bans": "Sperren", "audit": "Protokoll", "contactMessages": "Kontaktnachrichten", "news": "Neuigkeiten", "realMoney": "Echtgeld", "logout": "Abmelden" },
     "dashboard": { "title": "Dashboard", "totalRevenue": "Gesamtumsatz", "totalPurchases": "Gesamtkäufe", "averageOrder": "Durchschnitt", "activeItems": "Aktive Artikel", "salesTrend": "Verkaufstrend", "topItems": "Top Artikel", "recentPurchases": "Letzte Käufe" },
     "items": { "title": "Shop-Artikel", "addItem": "Artikel hinzufügen", "editItem": "Artikel bearbeiten", "name": "Name", "category": "Kategorie", "price": "Preis", "discount": "Rabatt", "status": "Status", "active": "Aktiv", "inactive": "Inaktiv", "highlighted": "Hervorgehoben", "actions": "Aktionen", "save": "Speichern", "delete": "Deaktivieren", "refundable": "Erstattbar",
       "confirmDelete": "Diesen Artikel wirklich deaktivieren?" },
@@ -353,7 +355,25 @@
     },
     "purchases": { "title": "Kaufhistorie", "account": "Konto", "character": "Charakter", "item": "Artikel", "price": "Preis", "status": "Status", "date": "Datum", "refund": "Erstatten", "confirmRefund": "Diesen Kauf wirklich erstatten?", "refundSuccess": "Kauf erfolgreich erstattet", "actions": "Aktionen", "retry": "Wiederholen", "retrySuccess": "Zustellungswiederholung erfolgreich", "retryFailed": "Zustellungswiederholung fehlgeschlagen", "status_completed": "Abgeschlossen", "status_refunded": "Erstattet", "status_pending_refund": "Erstattung ausstehend", "status_pending_delivery": "Lieferung ausstehend", "status_cancelled": "Storniert", "reason_itemNotRefundable": "Nicht erstattbar", "reason_refundExpired": "2h-Frist abgelaufen", "reason_itemNotInInventory": "Gegenstand nicht im Inventar", "reason_purchaseNotRefundable": "Kauf nicht erstattbar", "reason_recipientNotFound": "Empfänger nicht gefunden", "reason_serverError": "Serverfehler", "reason_characterOnline": "Charakter ist online" },
     "bans": { "title": "Shop-Sperren", "addBan": "Sperre hinzufügen", "accountId": "Konto-ID", "reason": "Grund", "expiresAt": "Läuft ab am", "permanent": "Permanent", "active": "Aktiv", "actions": "Aktionen", "remove": "Entfernen" },
-    "audit": { "title": "Audit-Protokoll", "admin": "Admin", "action": "Aktion", "target": "Ziel", "details": "Details", "date": "Datum", "action_create_item": "Artikel erstellen", "action_update_item": "Artikel bearbeiten", "action_deactivate_item": "Artikel deaktivieren", "action_create_set": "Set erstellen", "action_update_set": "Set bearbeiten", "action_deactivate_set": "Set deaktivieren", "action_create_ban": "Sperre erstellen", "action_update_ban": "Sperre bearbeiten", "action_delete_ban": "Sperre löschen", "action_retry_delivery": "Zustellung wiederholen", "action_refund_purchase": "Erstattung", "target_shop_item": "Artikel", "target_shop_set": "Set", "target_shop_ban": "Sperre", "target_shop_purchase": "Kauf" },
+    "audit": { "title": "Audit-Protokoll", "admin": "Admin", "action": "Aktion", "target": "Ziel", "details": "Details", "date": "Datum", "action_create_item": "Artikel erstellen", "action_update_item": "Artikel bearbeiten", "action_deactivate_item": "Artikel deaktivieren", "action_create_set": "Set erstellen", "action_update_set": "Set bearbeiten", "action_deactivate_set": "Set deaktivieren", "action_create_ban": "Sperre erstellen", "action_update_ban": "Sperre bearbeiten", "action_delete_ban": "Sperre löschen", "action_retry_delivery": "Zustellung wiederholen", "action_refund_purchase": "Erstattung", "target_shop_item": "Artikel", "target_shop_set": "Set", "target_shop_ban": "Sperre", "target_shop_purchase": "Kauf", "action_create_news": "Artikel erstellen", "action_update_news": "Artikel bearbeiten", "action_delete_news": "Artikel löschen", "target_news": "Neuigkeit" },
+    "news": {
+      "title": "Nachrichtenartikel",
+      "addArticle": "Artikel hinzufügen",
+      "editArticle": "Artikel bearbeiten",
+      "articleTitle": "Titel",
+      "content": "Inhalt",
+      "authorName": "Autor",
+      "publishedAt": "Veröffentlicht am",
+      "status": "Status",
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "scheduled": "Geplant",
+      "actions": "Aktionen",
+      "save": "Speichern",
+      "delete": "Löschen",
+      "confirmDelete": "Diesen Artikel wirklich löschen?",
+      "imageUrl": "Bild-URL"
+    },
     "contactMessages": {
       "title": "Kontaktnachrichten",
       "username": "Benutzername",
@@ -432,6 +452,17 @@
       "minLevelDesc": "Der Charakter muss mindestens diese Stufe haben",
       "quality": "Qualität"
     }
+  },
+  "news": {
+    "title": "Neuigkeiten",
+    "subtitle": "Bleiben Sie über die neuesten Lordaeron-Nachrichten und Updates informiert",
+    "loadMore": "Mehr laden",
+    "backToNews": "Zurück zu Neuigkeiten",
+    "by": "Von",
+    "noNews": "Noch keine Nachrichten verfügbar.",
+    "readMore": "Weiterlesen",
+    "expand": "Erweitern",
+    "collapse": "Einklappen"
   },
   "contact": {
     "title": "Kontaktieren Sie uns",
@@ -628,6 +659,10 @@
     "rgpd": {
       "title": "Datenschutzrichtlinie (DSGVO)",
       "description": "Lesen Sie die Datenschutzrichtlinie von Lordaeron. Erfahren Sie, wie wir Ihre personenbezogenen Daten DSGVO-konform erheben, verwenden und schützen."
+    },
+    "news": {
+      "title": "Neuigkeiten — Lordaeron",
+      "description": "Bleiben Sie über die neuesten Nachrichten, Updates und Ankündigungen von Lordaeron informiert."
     }
   }
 }

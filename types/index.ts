@@ -39,6 +39,8 @@ export interface News {
   title: string;
   content: string;
   image_url: string | null;
+  author_name: string;
+  published_at: string;
   created_at: string;
   updated_at: string;
 }
@@ -56,6 +58,9 @@ export interface NewsRow {
   content_de: string;
   content_it: string;
   image_url: string | null;
+  author_name: string;
+  published_at: string;
+  is_active: boolean;
   created_at: string;
   updated_at: string;
 }
