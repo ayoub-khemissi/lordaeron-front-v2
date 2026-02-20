@@ -30,7 +30,9 @@ export function ItemForm({ item, onSubmit, loading }: ItemFormProps) {
 
   const savedCategory =
     !isEdit && typeof window !== "undefined"
-      ? (localStorage.getItem("lordaeron_admin_last_category") as ShopCategory | null)
+      ? (localStorage.getItem(
+          "lordaeron_admin_last_category",
+        ) as ShopCategory | null)
       : null;
 
   const [form, setForm] = useState({

@@ -15,28 +15,16 @@ export async function POST(request: NextRequest) {
     const { subject, message } = await request.json();
 
     if (!subject || !subject.trim()) {
-      return NextResponse.json(
-        { error: "subjectRequired" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "subjectRequired" }, { status: 400 });
     }
     if (subject.length > 255) {
-      return NextResponse.json(
-        { error: "subjectTooLong" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "subjectTooLong" }, { status: 400 });
     }
     if (!message || !message.trim()) {
-      return NextResponse.json(
-        { error: "messageRequired" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "messageRequired" }, { status: 400 });
     }
     if (message.length > 5000) {
-      return NextResponse.json(
-        { error: "messageTooLong" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "messageTooLong" }, { status: 400 });
     }
 
     const account = await findAccountById(session.id);

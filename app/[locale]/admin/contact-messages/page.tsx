@@ -33,8 +33,9 @@ export default function AdminContactMessagesPage() {
   const [loading, setLoading] = useState(true);
   const [offset, setOffset] = useState(0);
   const [filter, setFilter] = useState<FilterStatus>("all");
-  const [selectedMessage, setSelectedMessage] =
-    useState<ContactMessage | null>(null);
+  const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(
+    null,
+  );
 
   const fetchMessages = useCallback(async () => {
     setLoading(true);
@@ -83,9 +84,7 @@ export default function AdminContactMessagesPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-heading text-gray-100 mb-6">
-        {t("title")}
-      </h1>
+      <h1 className="text-2xl font-heading text-gray-100 mb-6">{t("title")}</h1>
 
       <div className="flex gap-2 mb-6">
         {(["all", "unread", "read"] as FilterStatus[]).map((f) => (

@@ -16,9 +16,7 @@ export function ShardEconomyCard({
   const t = useTranslations("admin.realMoney");
 
   const spentPercent =
-    shardsPurchased > 0
-      ? Math.round((shardsSpent / shardsPurchased) * 100)
-      : 0;
+    shardsPurchased > 0 ? Math.round((shardsSpent / shardsPurchased) * 100) : 0;
 
   const items = [
     {
@@ -40,7 +38,10 @@ export function ShardEconomyCard({
       value: shardsBalance.toLocaleString(),
       color: "text-purple-400",
       barColor: "bg-purple-500",
-      percent: shardsPurchased > 0 ? Math.round((shardsBalance / shardsPurchased) * 100) : 0,
+      percent:
+        shardsPurchased > 0
+          ? Math.round((shardsBalance / shardsPurchased) * 100)
+          : 0,
     },
   ];
 

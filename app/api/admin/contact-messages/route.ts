@@ -25,7 +25,11 @@ export async function GET(request: NextRequest) {
         ? parseInt(searchParams.get("offset")!)
         : 0,
       isRead:
-        isReadParam === "true" ? true : isReadParam === "false" ? false : undefined,
+        isReadParam === "true"
+          ? true
+          : isReadParam === "false"
+            ? false
+            : undefined,
     });
 
     return NextResponse.json(result);

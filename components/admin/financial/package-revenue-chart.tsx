@@ -56,10 +56,7 @@ export function PackageRevenueChart({ data }: PackageRevenueChartProps) {
             stroke="#4b5563"
             tick={{ fill: "#6b7280", fontSize: 12 }}
           />
-          <YAxis
-            stroke="#4b5563"
-            tick={{ fill: "#6b7280", fontSize: 12 }}
-          />
+          <YAxis stroke="#4b5563" tick={{ fill: "#6b7280", fontSize: 12 }} />
           <Tooltip
             contentStyle={{
               backgroundColor: "#0d1117",

@@ -1,17 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-} from "@heroui/modal";
+import { Modal, ModalContent, ModalHeader, ModalBody } from "@heroui/modal";
 import { Spinner } from "@heroui/spinner";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
-import { SOUL_SHARD_PACKAGES, getSmallestPackageCoveringDeficit } from "@/lib/stripe";
+import {
+  SOUL_SHARD_PACKAGES,
+  getSmallestPackageCoveringDeficit,
+} from "@/lib/stripe";
 
 interface BuyShardsModalProps {
   isOpen: boolean;

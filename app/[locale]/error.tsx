@@ -30,9 +30,7 @@ export default function ErrorPage({
         <h1 className="text-3xl font-heading text-gray-100 mb-3">
           {t("errorTitle")}
         </h1>
-        <p className="text-gray-400 mb-10 leading-relaxed">
-          {t("errorDesc")}
-        </p>
+        <p className="text-gray-400 mb-10 leading-relaxed">{t("errorDesc")}</p>
 
         <button
           className="glass-gold glow-gold-strong rounded-full px-10 py-3.5 text-wow-gold font-bold text-sm tracking-wide uppercase hover:brightness-125 transition-all duration-300 cursor-pointer"

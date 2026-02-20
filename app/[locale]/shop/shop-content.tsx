@@ -76,8 +76,12 @@ export default function ShopContent() {
 
   // Buy Shards states
   const [buyShardOpen, setBuyShardOpen] = useState(false);
-  const [recommendedShards, setRecommendedShards] = useState<number | undefined>(undefined);
-  const [checkoutResult, setCheckoutResult] = useState<"success" | "cancelled" | null>(null);
+  const [recommendedShards, setRecommendedShards] = useState<
+    number | undefined
+  >(undefined);
+  const [checkoutResult, setCheckoutResult] = useState<
+    "success" | "cancelled" | null
+  >(null);
   const checkoutHandled = useRef(false);
 
   // Refund states

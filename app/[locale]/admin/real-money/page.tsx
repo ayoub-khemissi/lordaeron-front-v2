@@ -61,7 +61,14 @@ const PERIOD_OPTIONS = [
   { key: "monthly", days: 365 },
 ];
 
-const STATUS_OPTIONS = ["", "pending", "completed", "failed", "expired", "refunded"];
+const STATUS_OPTIONS = [
+  "",
+  "pending",
+  "completed",
+  "failed",
+  "expired",
+  "refunded",
+];
 
 export default function RealMoneyPage() {
   const t = useTranslations("admin.realMoney");

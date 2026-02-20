@@ -100,7 +100,6 @@ export default function GlobalError({
           </p>
 
           <button
-            onClick={reset}
             style={{
               background: "rgba(180, 140, 60, 0.15)",
               border: "1px solid rgba(180, 140, 60, 0.4)",
@@ -114,6 +113,7 @@ export default function GlobalError({
               textTransform: "uppercase",
               letterSpacing: "0.05em",
             }}
+            onClick={reset}
           >
             Try Again
           </button>

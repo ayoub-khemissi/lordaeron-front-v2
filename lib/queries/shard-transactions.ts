@@ -74,9 +74,7 @@ export async function completeShardTransaction(
   }
 }
 
-export async function expireTransaction(
-  sessionId: string,
-): Promise<void> {
+export async function expireTransaction(sessionId: string): Promise<void> {
   await websiteDb.execute(
     `UPDATE shard_transactions SET status = 'expired'
      WHERE stripe_checkout_session_id = ? AND status = 'pending'`,

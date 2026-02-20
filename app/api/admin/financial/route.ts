@@ -45,14 +45,19 @@ export async function GET(request: NextRequest) {
       | "monthly";
     const days = parseInt(searchParams.get("days") || "30");
 
-    const [kpis, statusDistribution, revenueTrend, revenueByPackage, topSpenders] =
-      await Promise.all([
-        getFinancialKPIs(),
-        getTransactionsByStatus(),
-        getRevenueTrend(period, days),
-        getRevenueByPackage(),
-        getTopSpenders(10),
-      ]);
+    const [
+      kpis,
+      statusDistribution,
+      revenueTrend,
+      revenueByPackage,
+      topSpenders,
+    ] = await Promise.all([
+      getFinancialKPIs(),
+      getTransactionsByStatus(),
+      getRevenueTrend(period, days),
+      getRevenueByPackage(),
+      getTopSpenders(10),
+    ]);
 
     return NextResponse.json({
       kpis,

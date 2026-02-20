@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
           session.id,
           typeof session.payment_intent === "string"
             ? session.payment_intent
-            : session.payment_intent?.id ?? null,
+            : (session.payment_intent?.id ?? null),
         );
         break;
       }

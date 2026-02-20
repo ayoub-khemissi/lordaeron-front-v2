@@ -63,8 +63,7 @@ export default function RootNotFound() {
               fontSize: "10rem",
               lineHeight: 1,
               fontWeight: 900,
-              background:
-                "linear-gradient(135deg, #d4a843, #f5e6a3, #b48c3c)",
+              background: "linear-gradient(135deg, #d4a843, #f5e6a3, #b48c3c)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               filter: "drop-shadow(0 0 40px rgba(180,140,60,0.3))",

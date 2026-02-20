@@ -37,9 +37,7 @@ export async function getFinancialKPIs() {
   const totalTransactions = revenueRows[0].total_transactions;
   const uniqueBuyers = revenueRows[0].unique_buyers;
   const avgTransactionCents =
-    totalTransactions > 0
-      ? Math.round(totalEurCents / totalTransactions)
-      : 0;
+    totalTransactions > 0 ? Math.round(totalEurCents / totalTransactions) : 0;
 
   const refundCount = refundRows[0].refund_count;
   const refundEurCents = refundRows[0].refund_eur_cents;
