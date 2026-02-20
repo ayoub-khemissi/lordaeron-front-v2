@@ -37,7 +37,7 @@ export const CookieBanner = () => {
           transition={{ duration: 0.3 }}
         >
           <div className="container mx-auto max-w-4xl">
-            <div className="glass glow-gold rounded-xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="glass glow-gold rounded-xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#1a1a2e]/95 backdrop-blur-md">
               <p className="text-gray-300 text-sm text-center sm:text-left">
                 {t("message")}{" "}
                 <NextLink
