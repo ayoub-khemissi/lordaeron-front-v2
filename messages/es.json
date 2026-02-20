@@ -120,6 +120,7 @@
   "common": {
     "online": "En línea",
     "offline": "Desconectado",
+    "uptime": "Tiempo activo",
     "loading": "Cargando...",
     "error": "Ha ocurrido un error",
     "submit": "Enviar",

@@ -120,6 +120,7 @@
   "common": {
     "online": "Online",
     "offline": "Offline",
+    "uptime": "Tempo di attività",
     "loading": "Caricamento...",
     "error": "Si è verificato un errore",
     "submit": "Invia",

@@ -52,3 +52,13 @@ export async function getTotalAccounts(): Promise<number> {
 
   return rows[0].total;
 }
+
+export async function getRealmUptime(): Promise<number | null> {
+  const [rows] = await authDb.execute<RowDataPacket[]>(
+    "SELECT starttime FROM uptime ORDER BY starttime DESC LIMIT 1",
+  );
+
+  if (rows.length === 0) return null;
+
+  return rows[0].starttime;
+}
