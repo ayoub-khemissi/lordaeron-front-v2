@@ -42,3 +42,6 @@ bun.lockb
 
 # claude code
 .claude
+
+# output
+sql/generators/output
