@@ -9,11 +9,6 @@ const WOWHEAD_ICON = "https://wow.zamimg.com/images/wow/icons/large";
 
 const features = [
   {
-    key: "transmog",
-    icon: `${WOWHEAD_ICON}/inv_misc_armorkit_17.jpg`,
-    bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
-  },
-  {
     key: "epicProgression",
     icon: `${WOWHEAD_ICON}/inv_misc_orb_02.jpg`,
     bg: "/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_Black_Temple_Illidan.jpg",
@@ -23,9 +18,11 @@ const features = [
     icon: `${WOWHEAD_ICON}/inv_misc_rune_08.jpg`,
     bg: "/img/Wrath of the Lich King Classic Cinematic Stills/Wrath_of_the_Lich_King_Classic_Cinematic_Still__(5).jpg",
   },
-];
-
-const qol = [
+  {
+    key: "transmog",
+    icon: `${WOWHEAD_ICON}/inv_misc_armorkit_17.jpg`,
+    bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
+  },
   {
     key: "dungeonNoLock",
     icon: `${WOWHEAD_ICON}/inv_misc_key_08.jpg`,
@@ -111,59 +108,29 @@ export const FeaturesGrid = () => {
   const t = useTranslations("features");
 
   return (
-    <div className="space-y-20">
-      {/* Unique Features */}
-      <div>
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h2 className="text-3xl font-bold wow-gradient-text mb-3">
-            {t("featuresTitle")}
-          </h2>
-          <div className="shimmer-line w-24 mx-auto" />
-        </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feat, i) => (
-            <FeatureCard
-              key={feat.key}
-              bgImage={feat.bg}
-              featureKey={feat.key}
-              iconUrl={feat.icon}
-              index={i}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Quality of Life */}
-      <div>
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h2 className="text-3xl font-bold wow-ice-text mb-3">
-            {t("qolTitle")}
-          </h2>
-          <div className="shimmer-line w-24 mx-auto" />
-        </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {qol.map((feat, i) => (
-            <FeatureCard
-              key={feat.key}
-              bgImage={feat.bg}
-              featureKey={feat.key}
-              iconUrl={feat.icon}
-              index={i}
-            />
-          ))}
-        </div>
+    <div>
+      <motion.div
+        className="text-center mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
+      >
+        <h2 className="text-3xl font-bold wow-gradient-text mb-3">
+          {t("featuresTitle")}
+        </h2>
+        <div className="shimmer-line w-24 mx-auto" />
+      </motion.div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((feat, i) => (
+          <FeatureCard
+            key={feat.key}
+            bgImage={feat.bg}
+            featureKey={feat.key}
+            iconUrl={feat.icon}
+            index={i}
+          />
+        ))}
       </div>
     </div>
   );
