@@ -17,6 +17,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@heroui/dropdown";
+import Image from "next/image";
 import NextLink from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -52,9 +53,13 @@ export const Navbar = () => {
             className="flex justify-start items-center gap-2 group"
             href={`/${locale}`}
           >
-            <div className="w-8 h-8 rounded-md bg-gradient-to-br from-wow-gold to-wow-gold-dark flex items-center justify-center glow-gold">
-              <span className="text-black font-black text-sm">L</span>
-            </div>
+            <Image
+              alt="Lordaeron"
+              className="drop-shadow-[0_0_6px_rgba(199,156,62,0.4)]"
+              height={32}
+              src="/img/logo/logo.png"
+              width={32}
+            />
             <span className="font-bold text-xl wow-gradient-text tracking-widest group-hover:drop-shadow-[0_0_8px_rgba(199,156,62,0.5)] transition-all">
               LORDAERON
             </span>

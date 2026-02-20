@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -27,9 +28,12 @@ export function AdminSidebar() {
     <aside className="w-64 min-h-screen bg-[#0d1117] border-r border-gray-800 flex flex-col">
       <div className="p-6 border-b border-gray-800">
         <NextLink className="flex items-center gap-2" href={basePath}>
-          <div className="w-8 h-8 rounded-md bg-gradient-to-br from-wow-gold to-wow-gold-dark flex items-center justify-center">
-            <span className="text-black font-black text-sm">L</span>
-          </div>
+          <Image
+            alt="Lordaeron"
+            height={32}
+            src="/img/logo/logo.png"
+            width={32}
+          />
           <span className="font-bold text-lg wow-gradient-text">ADMIN</span>
         </NextLink>
       </div>

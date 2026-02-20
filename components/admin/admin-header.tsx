@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@heroui/button";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -20,7 +21,17 @@ export function AdminHeader() {
 
   return (
     <header className="h-14 bg-[#0d1117] border-b border-gray-800 flex items-center justify-between px-6">
-      <div />
+      <div className="flex items-center gap-2">
+        <Image
+          alt="Lordaeron"
+          height={28}
+          src="/img/logo/logo.png"
+          width={28}
+        />
+        <span className="font-bold text-sm text-gray-300 tracking-widest">
+          LORDAERON
+        </span>
+      </div>
       <div className="flex items-center gap-4">
         <LocaleSwitcher />
         {admin && (
