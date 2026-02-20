@@ -61,16 +61,18 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-1 justify-start ml-6">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className="text-gray-200 hover:text-wow-gold px-3 py-2 rounded-lg hover:bg-wow-gold/5 transition-all duration-300 text-sm font-medium"
-                href={`/${locale}${item.href === "/" ? "" : item.href}`}
-              >
-                {t(item.labelKey)}
-              </NextLink>
-            </NavbarItem>
-          ))}
+          {siteConfig.navItems
+            .filter((item) => item.href !== "/shop" || user)
+            .map((item) => (
+              <NavbarItem key={item.href}>
+                <NextLink
+                  className="text-gray-200 hover:text-wow-gold px-3 py-2 rounded-lg hover:bg-wow-gold/5 transition-all duration-300 text-sm font-medium"
+                  href={`/${locale}${item.href === "/" ? "" : item.href}`}
+                >
+                  {t(item.labelKey)}
+                </NextLink>
+              </NavbarItem>
+            ))}
         </ul>
       </NavbarContent>
 
@@ -170,16 +172,18 @@ export const Navbar = () => {
 
       <NavbarMenu className="bg-wow-darker/95 backdrop-blur-xl pt-6 border-t border-wow-gold/10">
         <div className="mx-4 mt-2 flex flex-col gap-1">
-          {siteConfig.navMenuItems.map((item) => (
-            <NavbarMenuItem key={item.href}>
-              <NextLink
-                className="text-gray-200 hover:text-wow-gold transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5"
-                href={`/${locale}${item.href === "/" ? "" : item.href}`}
-              >
-                {t(item.labelKey)}
-              </NextLink>
-            </NavbarMenuItem>
-          ))}
+          {siteConfig.navMenuItems
+            .filter((item) => item.href !== "/shop" || user)
+            .map((item) => (
+              <NavbarMenuItem key={item.href}>
+                <NextLink
+                  className="text-gray-200 hover:text-wow-gold transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5"
+                  href={`/${locale}${item.href === "/" ? "" : item.href}`}
+                >
+                  {t(item.labelKey)}
+                </NextLink>
+              </NavbarMenuItem>
+            ))}
 
           {/* Mobile auth section */}
           <div className="shimmer-line w-full my-3" />
