@@ -122,22 +122,19 @@ export const ServerStats = () => {
           {t("factionBalance")}
         </p>
         <div className="relative max-w-2xl mx-auto">
-          <div className="flex h-5 rounded-full overflow-hidden glass border border-white/5">
+          <div className="relative h-5 rounded-full overflow-hidden glass border border-white/5">
+            {/* Horde fills the entire bar as background */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-red-600 to-wow-horde"
+              style={{ boxShadow: "0 0 15px rgba(179,0,0,0.4)" }}
+            />
+            {/* Alliance overlays from the left */}
             <motion.div
-              className="bg-gradient-to-r from-wow-alliance to-blue-400 rounded-l-full"
-              initial={{ width: 0 }}
+              animate={{ width: `${alliancePercent}%` }}
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-wow-alliance to-blue-400"
+              initial={{ width: "0%" }}
               style={{ boxShadow: "0 0 15px rgba(0,120,255,0.4)" }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              whileInView={{ width: `${alliancePercent}%` }}
-            />
-            <motion.div
-              className="bg-gradient-to-r from-red-600 to-wow-horde rounded-r-full"
-              initial={{ width: 0 }}
-              style={{ boxShadow: "0 0 15px rgba(179,0,0,0.4)" }}
-              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              whileInView={{ width: `${hordePercent}%` }}
             />
           </div>
           <div className="flex justify-between mt-2 text-xs font-medium">
