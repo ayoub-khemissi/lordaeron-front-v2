@@ -45,6 +45,23 @@ export async function getFactionBalance(): Promise<{
   };
 }
 
+export async function getTotalFactionBalance(): Promise<{
+  alliance: number;
+  horde: number;
+}> {
+  const [rows] = await charactersDb.execute<RowDataPacket[]>(
+    `SELECT
+      SUM(CASE WHEN race IN (1,3,4,7,11) THEN 1 ELSE 0 END) as alliance,
+      SUM(CASE WHEN race IN (2,5,6,8,10) THEN 1 ELSE 0 END) as horde
+    FROM characters`,
+  );
+
+  return {
+    alliance: rows[0].alliance || 0,
+    horde: rows[0].horde || 0,
+  };
+}
+
 export async function getTotalAccounts(): Promise<number> {
   const [rows] = await authDb.execute<RowDataPacket[]>(
     "SELECT COUNT(*) as total FROM account",

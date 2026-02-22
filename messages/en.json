@@ -24,7 +24,9 @@
     "newsTitle": "Latest News",
     "noNews": "No news available yet.",
     "viewAllNews": "View all news",
-    "factionBalance": "Faction Balance"
+    "factionBalance": "Faction Balance",
+    "live": "Live",
+    "total": "Total"
   },
   "howTo": {
     "title": "How to Connect",

@@ -4,19 +4,17 @@ import type { ServerStats as ServerStatsType } from "@/types";
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Background images for each stat card
 const statImages = [
   "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Dalaran_004_1080p_png_jpgcopy.jpg",
   "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Dalaran_007_1080p_png_jpgcopy.jpg",
-  "/img/World of Warcraft Classic 1920x1080/ClassicStormwind.jpg",
-  "/img/World of Warcraft Classic 1920x1080/ClassicOrgrimmar.jpg",
 ];
 
 export const ServerStats = () => {
   const t = useTranslations("home");
   const [stats, setStats] = useState<ServerStatsType | null>(null);
+  const [factionMode, setFactionMode] = useState<"live" | "total">("live");
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -26,7 +24,14 @@ export const ServerStats = () => {
 
         setStats(data);
       } catch {
-        setStats({ onlineCount: 0, totalAccounts: 0, alliance: 0, horde: 0 });
+        setStats({
+          onlineCount: 0,
+          totalAccounts: 0,
+          alliance: 0,
+          horde: 0,
+          totalAlliance: 0,
+          totalHorde: 0,
+        });
       }
     };
 
@@ -36,10 +41,13 @@ export const ServerStats = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const total = (stats?.alliance || 0) + (stats?.horde || 0);
-  const alliancePercent =
-    total > 0 ? ((stats?.alliance || 0) / total) * 100 : 50;
-  const hordePercent = total > 0 ? ((stats?.horde || 0) / total) * 100 : 50;
+  const alliance =
+    factionMode === "live" ? stats?.alliance || 0 : stats?.totalAlliance || 0;
+  const horde =
+    factionMode === "live" ? stats?.horde || 0 : stats?.totalHorde || 0;
+  const total = alliance + horde;
+  const alliancePercent = total > 0 ? (alliance / total) * 100 : 50;
+  const hordePercent = total > 0 ? (horde / total) * 100 : 50;
 
   const cards = [
     {
@@ -48,6 +56,12 @@ export const ServerStats = () => {
       color: "text-wow-blue-ice",
       glowClass: "glow-blue",
       borderClass: "border-wow-blue/20",
+      badge: (
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+        </span>
+      ),
     },
     {
       value: stats?.totalAccounts,
@@ -55,26 +69,14 @@ export const ServerStats = () => {
       color: "text-wow-gold-light",
       glowClass: "glow-gold",
       borderClass: "border-wow-gold/20",
-    },
-    {
-      value: stats?.alliance,
-      label: t("alliance"),
-      color: "text-wow-alliance",
-      glowClass: "glow-alliance",
-      borderClass: "border-wow-alliance/20",
-    },
-    {
-      value: stats?.horde,
-      label: t("horde"),
-      color: "text-wow-horde",
-      glowClass: "glow-horde",
-      borderClass: "border-wow-horde/20",
+      badge: null,
     },
   ];
 
   return (
     <section className="container mx-auto max-w-7xl px-6 py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* 2 stat cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
         {cards.map((card, index) => (
           <motion.div
             key={index}
@@ -87,20 +89,21 @@ export const ServerStats = () => {
             <div
               className={`relative overflow-hidden rounded-2xl ${card.glowClass} group`}
             >
-              {/* BG image */}
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-45 group-hover:scale-110 transition-all duration-700"
                 style={{ backgroundImage: `url('${statImages[index]}')` }}
               />
-              {/* Glass overlay */}
               <div
                 className={`relative glass ${card.borderClass} rounded-2xl text-center py-8 px-4`}
               >
-                <p
-                  className={`text-5xl font-black ${card.color} drop-shadow-lg`}
-                >
-                  {card.value ?? "..."}
-                </p>
+                <div className="flex items-center justify-center gap-2">
+                  {card.badge}
+                  <p
+                    className={`text-5xl font-black ${card.color} drop-shadow-lg`}
+                  >
+                    {card.value ?? "..."}
+                  </p>
+                </div>
                 <p className="text-gray-300 text-sm mt-2 uppercase tracking-wider font-medium">
                   {card.label}
                 </p>
@@ -110,39 +113,104 @@ export const ServerStats = () => {
         ))}
       </div>
 
-      {/* Faction balance bar */}
+      {/* Faction balance bar with toggle */}
       <motion.div
         className="mt-10"
         initial={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         <p className="text-center text-gray-300 text-sm mb-3 uppercase tracking-wider font-medium">
           {t("factionBalance")}
         </p>
+
+        {/* Toggle pill */}
+        <div className="flex justify-center mb-4">
+          <div className="inline-flex glass rounded-full p-1 border border-white/5">
+            {(["live", "total"] as const).map((mode) => (
+              <button
+                key={mode}
+                className={`relative px-4 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full transition-colors duration-200 ${
+                  factionMode === mode
+                    ? "text-wow-gold-light"
+                    : "text-gray-400 hover:text-gray-200"
+                }`}
+                onClick={() => setFactionMode(mode)}
+              >
+                {factionMode === mode && (
+                  <motion.div
+                    className="absolute inset-0 glass-gold rounded-full border border-wow-gold/20"
+                    layoutId="factionToggle"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative flex items-center gap-1.5">
+                  {mode === "live" && (
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
+                    </span>
+                  )}
+                  {t(mode)}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Faction bar */}
         <div className="relative max-w-2xl mx-auto">
+          {/* Counters */}
+          <div className="flex justify-between mb-2 text-sm font-bold">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`alliance-${factionMode}`}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-wow-alliance drop-shadow-[0_0_8px_rgba(0,120,255,0.5)]"
+                exit={{ opacity: 0, y: -4 }}
+                initial={{ opacity: 0, y: 4 }}
+                transition={{ duration: 0.2 }}
+              >
+                {t("alliance")} {alliance}
+              </motion.span>
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`horde-${factionMode}`}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-wow-horde drop-shadow-[0_0_8px_rgba(179,0,0,0.5)]"
+                exit={{ opacity: 0, y: -4 }}
+                initial={{ opacity: 0, y: 4 }}
+                transition={{ duration: 0.2 }}
+              >
+                {horde} {t("horde")}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+
+          {/* Bar */}
           <div className="relative h-5 rounded-full overflow-hidden glass border border-white/5">
-            {/* Horde fills the entire bar as background */}
             <div
               className="absolute inset-0 bg-gradient-to-r from-red-600 to-wow-horde"
               style={{ boxShadow: "0 0 15px rgba(179,0,0,0.4)" }}
             />
-            {/* Alliance overlays from the left */}
             <motion.div
               animate={{ width: `${alliancePercent}%` }}
               className="absolute inset-y-0 left-0 bg-gradient-to-r from-wow-alliance to-blue-400"
-              initial={{ width: "0%" }}
+              initial={false}
               style={{ boxShadow: "0 0 15px rgba(0,120,255,0.4)" }}
-              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             />
           </div>
+
+          {/* Percentages */}
           <div className="flex justify-between mt-2 text-xs font-medium">
             <span className="text-wow-alliance drop-shadow-[0_0_8px_rgba(0,120,255,0.5)]">
-              {t("alliance")} {alliancePercent.toFixed(0)}%
+              {alliancePercent.toFixed(0)}%
             </span>
             <span className="text-wow-horde drop-shadow-[0_0_8px_rgba(179,0,0,0.5)]">
-              {t("horde")} {hordePercent.toFixed(0)}%
+              {hordePercent.toFixed(0)}%
             </span>
           </div>
         </div>

@@ -24,7 +24,9 @@
     "newsTitle": "Últimas noticias",
     "noNews": "No hay noticias disponibles aún.",
     "viewAllNews": "Ver todas las noticias",
-    "factionBalance": "Equilibrio de facciones"
+    "factionBalance": "Equilibrio de facciones",
+    "live": "En vivo",
+    "total": "Total"
   },
   "howTo": {
     "title": "Cómo conectarse",

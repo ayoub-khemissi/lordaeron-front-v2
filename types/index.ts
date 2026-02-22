@@ -32,6 +32,8 @@ export interface ServerStats {
   totalAccounts: number;
   alliance: number;
   horde: number;
+  totalAlliance: number;
+  totalHorde: number;
 }
 
 export interface News {

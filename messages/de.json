@@ -24,7 +24,9 @@
     "newsTitle": "Neueste Nachrichten",
     "noNews": "Noch keine Nachrichten verfügbar.",
     "viewAllNews": "Alle Neuigkeiten anzeigen",
-    "factionBalance": "Fraktionsbalance"
+    "factionBalance": "Fraktionsbalance",
+    "live": "Live",
+    "total": "Gesamt"
   },
   "howTo": {
     "title": "Wie man sich verbindet",
