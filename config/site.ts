@@ -20,6 +20,6 @@ export const siteConfig = {
   links: {
     discord: "https://discord.gg/MqTzu6Qhn3",
   },
-  realmlist: "set realmlist logon.lordaeron.com",
+  realmlist: "set realmlist logon.lordaeron.eu",
   version: "3.3.5a (Build 12340)",
 };

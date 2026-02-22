@@ -37,7 +37,7 @@
     "step3Desc": "Regístrate en nuestro sitio web usando el formulario de registro. Tu cuenta estará lista al instante.",
     "step4Title": "¡Jugar!",
     "step4Desc": "Inicia WoW.exe, inicia sesión con tus credenciales, ¡y disfruta de Lordaeron!",
-    "realmlist": "set realmlist logon.lordaeron.com",
+    "realmlist": "set realmlist logon.lordaeron.eu",
     "copied": "¡Copiado!",
     "copyRealmlist": "Haz clic para copiar",
     "version": "Versión del cliente: 3.3.5a (Build 12340)"
