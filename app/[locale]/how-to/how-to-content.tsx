@@ -87,7 +87,7 @@ export default function HowToContent() {
                     </div>
                   </div>
 
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-baseline gap-3 mb-2">
                       <span className="text-wow-gold/50 text-sm font-mono">
                         0{index + 1}
@@ -104,8 +104,8 @@ export default function HowToContent() {
                       <div className="mt-5">
                         <Snippet
                           classNames={{
-                            base: "glass-blue border-wow-blue/20 w-full glow-blue",
-                            pre: "text-wow-blue-ice font-mono text-sm",
+                            base: "glass-blue border-wow-blue/20 w-full glow-blue overflow-x-auto",
+                            pre: "text-wow-blue-ice font-mono text-sm break-all",
                             copyButton: "text-wow-blue hover:text-wow-blue-ice",
                           }}
                           symbol=""
