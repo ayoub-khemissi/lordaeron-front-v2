@@ -22,7 +22,7 @@ export function RealmCharacterSelector({
 
   if (characters.length === 0) {
     return (
-      <div className="sticky top-16 z-40 glass rounded-xl p-4 mb-6 border border-wow-gold/10">
+      <div className="sticky top-16 z-30 glass rounded-xl p-4 mb-6 border border-wow-gold/10">
         <p className="text-sm text-yellow-400/80 text-center">
           {t("noCharacters")}
         </p>
@@ -31,7 +31,7 @@ export function RealmCharacterSelector({
   }
 
   return (
-    <div className="sticky top-16 z-40 glass rounded-xl p-4 mb-6 border border-wow-gold/10">
+    <div className="sticky top-16 z-30 glass rounded-xl p-4 mb-6 border border-wow-gold/10">
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <Select
           className="max-w-xs"
