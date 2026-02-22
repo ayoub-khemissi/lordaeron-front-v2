@@ -6,7 +6,12 @@ import { routing } from "./i18n/routing";
 const intlMiddleware = createMiddleware(routing);
 
 const protectedPaths = ["/account", "/shop"];
-const guestOnlyPaths = ["/login", "/register"];
+const guestOnlyPaths = [
+  "/login",
+  "/register",
+  "/forgot-password",
+  "/reset-password",
+];
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;

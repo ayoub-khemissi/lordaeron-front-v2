@@ -74,11 +74,58 @@
     "submit": "Accedi",
     "noAccount": "Non hai un account?",
     "registerLink": "Registrati qui",
+    "forgotPassword": "Password dimenticata?",
     "success": "Accesso effettuato!",
     "errors": {
       "usernameRequired": "Il nome utente è obbligatorio",
       "passwordRequired": "La password è obbligatoria",
       "invalidCredentials": "Nome utente o password non validi",
+      "serverError": "Errore del server. Riprova."
+    }
+  },
+  "forgotPassword": {
+    "title": "Password dimenticata",
+    "subtitle": "Reimposta la password del tuo account",
+    "email": "E-mail",
+    "submit": "Invia link",
+    "success": "Se esiste un account con questa e-mail, è stato inviato un link per il ripristino.",
+    "backToLogin": "Torna all'accesso",
+    "errors": {
+      "emailRequired": "L'e-mail è obbligatoria",
+      "emailInvalid": "Indirizzo e-mail non valido",
+      "serverError": "Errore del server. Riprova."
+    }
+  },
+  "resetPassword": {
+    "title": "Reimposta password",
+    "subtitle": "Scegli una nuova password",
+    "password": "Nuova password",
+    "confirmPassword": "Conferma password",
+    "submit": "Reimposta password",
+    "success": "La tua password è stata reimpostata con successo! Ora puoi accedere.",
+    "expired": "Questo link di ripristino non è valido o è scaduto.",
+    "requestNewLink": "Richiedi un nuovo link",
+    "backToLogin": "Torna all'accesso",
+    "errors": {
+      "passwordRequired": "La password è obbligatoria",
+      "passwordLength": "La password deve avere 6-16 caratteri",
+      "passwordMismatch": "Le password non corrispondono",
+      "serverError": "Errore del server. Riprova."
+    }
+  },
+  "changePassword": {
+    "title": "Cambia password",
+    "currentPassword": "Password attuale",
+    "newPassword": "Nuova password",
+    "confirmPassword": "Conferma password",
+    "submit": "Cambia password",
+    "success": "La tua password è stata cambiata con successo!",
+    "errors": {
+      "currentPasswordRequired": "La password attuale è obbligatoria",
+      "newPasswordRequired": "La nuova password è obbligatoria",
+      "passwordLength": "La password deve avere 6-16 caratteri",
+      "passwordMismatch": "Le password non corrispondono",
+      "invalidCurrentPassword": "La password attuale non è corretta",
       "serverError": "Errore del server. Riprova."
     }
   },

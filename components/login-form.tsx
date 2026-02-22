@@ -121,6 +121,15 @@ export const LoginForm = () => {
               onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
 
+            <div className="text-right -mt-1">
+              <NextLink
+                className="text-wow-gold/70 hover:text-wow-gold hover:underline transition-colors text-xs"
+                href={`/${locale}/forgot-password`}
+              >
+                {t("forgotPassword")}
+              </NextLink>
+            </div>
+
             {errors.server && (
               <p className="text-danger text-sm text-center">{errors.server}</p>
             )}

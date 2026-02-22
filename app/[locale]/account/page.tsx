@@ -18,6 +18,7 @@ import {
 import { Chip } from "@heroui/chip";
 
 import { useAuth } from "@/lib/auth-context";
+import { ChangePasswordForm } from "@/components/change-password-form";
 
 const RACE_NAMES: Record<number, string> = {
   1: "Human",
@@ -295,6 +296,9 @@ export default function AccountPage() {
                 </div>
               </motion.div>
             )}
+
+            {/* Change Password */}
+            <ChangePasswordForm />
           </motion.div>
 
           {/* Characters Table */}

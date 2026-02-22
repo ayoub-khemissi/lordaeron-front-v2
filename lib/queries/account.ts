@@ -52,6 +52,30 @@ export async function getIpBan(ip: string): Promise<IpBan | null> {
   return rows[0] as IpBan;
 }
 
+export async function findAccountByEmail(
+  email: string,
+): Promise<Account | null> {
+  const [rows] = await authDb.execute<RowDataPacket[]>(
+    "SELECT id, username, email, salt, verifier, joindate, last_ip, expansion FROM account WHERE email = ?",
+    [email],
+  );
+
+  if (rows.length === 0) return null;
+
+  return rows[0] as Account;
+}
+
+export async function updateAccountPassword(
+  accountId: number,
+  salt: Uint8Array,
+  verifier: Uint8Array,
+): Promise<void> {
+  await authDb.execute(
+    "UPDATE account SET salt = ?, verifier = ? WHERE id = ?",
+    [salt, verifier, accountId],
+  );
+}
+
 export async function createAccount(
   username: string,
   email: string,

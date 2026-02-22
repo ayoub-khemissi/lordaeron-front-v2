@@ -74,11 +74,58 @@
     "submit": "Anmelden",
     "noAccount": "Hast du kein Konto?",
     "registerLink": "Hier registrieren",
+    "forgotPassword": "Passwort vergessen?",
     "success": "Anmeldung erfolgreich!",
     "errors": {
       "usernameRequired": "Benutzername ist erforderlich",
       "passwordRequired": "Passwort ist erforderlich",
       "invalidCredentials": "Ungültiger Benutzername oder Passwort",
+      "serverError": "Serverfehler. Bitte versuche es erneut."
+    }
+  },
+  "forgotPassword": {
+    "title": "Passwort vergessen",
+    "subtitle": "Setze dein Kontopasswort zurück",
+    "email": "E-Mail",
+    "submit": "Link senden",
+    "success": "Wenn ein Konto mit dieser E-Mail existiert, wurde ein Link zum Zurücksetzen gesendet.",
+    "backToLogin": "Zurück zur Anmeldung",
+    "errors": {
+      "emailRequired": "E-Mail ist erforderlich",
+      "emailInvalid": "Ungültige E-Mail-Adresse",
+      "serverError": "Serverfehler. Bitte versuche es erneut."
+    }
+  },
+  "resetPassword": {
+    "title": "Passwort zurücksetzen",
+    "subtitle": "Wähle ein neues Passwort",
+    "password": "Neues Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "submit": "Passwort zurücksetzen",
+    "success": "Dein Passwort wurde erfolgreich zurückgesetzt! Du kannst dich jetzt anmelden.",
+    "expired": "Dieser Link ist ungültig oder abgelaufen.",
+    "requestNewLink": "Neuen Link anfordern",
+    "backToLogin": "Zurück zur Anmeldung",
+    "errors": {
+      "passwordRequired": "Passwort ist erforderlich",
+      "passwordLength": "Passwort muss 6-16 Zeichen lang sein",
+      "passwordMismatch": "Passwörter stimmen nicht überein",
+      "serverError": "Serverfehler. Bitte versuche es erneut."
+    }
+  },
+  "changePassword": {
+    "title": "Passwort ändern",
+    "currentPassword": "Aktuelles Passwort",
+    "newPassword": "Neues Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "submit": "Passwort ändern",
+    "success": "Dein Passwort wurde erfolgreich geändert!",
+    "errors": {
+      "currentPasswordRequired": "Aktuelles Passwort ist erforderlich",
+      "newPasswordRequired": "Neues Passwort ist erforderlich",
+      "passwordLength": "Passwort muss 6-16 Zeichen lang sein",
+      "passwordMismatch": "Passwörter stimmen nicht überein",
+      "invalidCurrentPassword": "Aktuelles Passwort ist falsch",
       "serverError": "Serverfehler. Bitte versuche es erneut."
     }
   },
