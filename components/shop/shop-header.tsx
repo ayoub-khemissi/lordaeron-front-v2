@@ -22,10 +22,10 @@ export function ShopHeader({ balance, onBuyShards }: ShopHeaderProps) {
           </h1>
           <p className="text-gray-400 text-sm md:text-base">{t("subtitle")}</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col-reverse sm:flex-row items-center gap-3">
           {onBuyShards && (
             <Button
-              className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold h-auto py-3 px-5"
+              className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold h-auto py-3 px-5 w-full sm:w-auto"
               onPress={onBuyShards}
             >
               {t("buyShards")}
