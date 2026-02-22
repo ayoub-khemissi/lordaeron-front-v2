@@ -37,6 +37,7 @@ export const Navbar = () => {
 
   const handleLogout = async () => {
     await logout();
+    router.refresh();
     router.push(`/${locale}`);
   };
 
