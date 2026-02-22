@@ -63,10 +63,12 @@ export function BuyShardsModal({
   return (
     <Modal
       classNames={{
-        base: "bg-[#0d1117] border border-wow-gold/20 max-w-2xl",
+        base: "bg-[#0d1117] border border-wow-gold/20 max-w-2xl max-h-[90dvh]",
         header: "border-b border-wow-gold/10",
+        body: "overflow-y-auto",
       }}
       isOpen={isOpen}
+      scrollBehavior="inside"
       size="2xl"
       onClose={handleClose}
     >
