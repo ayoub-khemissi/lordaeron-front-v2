@@ -55,9 +55,11 @@ CREATE USER 'lordaeron'@'localhost' IDENTIFIED BY '<STRONG_PASSWORD>';
 -- Website database (full access)
 GRANT ALL PRIVILEGES ON lordaeron_website.* TO 'lordaeron'@'localhost';
 
--- TrinityCore databases (read-only is enough for the website)
-GRANT SELECT ON auth.* TO 'lordaeron'@'localhost';
-GRANT SELECT ON characters.* TO 'lordaeron'@'localhost';
+-- TrinityCore auth database (SELECT for login, INSERT for registration)
+GRANT SELECT, INSERT ON auth.* TO 'lordaeron'@'localhost';
+
+-- TrinityCore characters database (SELECT for character lists, DELETE for shop refunds)
+GRANT SELECT, DELETE ON characters.* TO 'lordaeron'@'localhost';
 
 FLUSH PRIVILEGES;
 EXIT;
