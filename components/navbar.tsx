@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
@@ -32,6 +33,7 @@ export const Navbar = () => {
   const locale = useLocale();
   const router = useRouter();
   const { user, loading, logout } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -44,8 +46,10 @@ export const Navbar = () => {
         base: "bg-wow-darker/60 backdrop-blur-xl border-b border-wow-gold/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
         wrapper: "px-4 sm:px-6",
       }}
+      isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
+      onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -184,6 +188,7 @@ export const Navbar = () => {
                 <NextLink
                   className="text-gray-200 hover:text-wow-gold transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5"
                   href={`/${locale}${item.href === "/" ? "" : item.href}`}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {t(item.labelKey)}
                 </NextLink>
@@ -199,6 +204,7 @@ export const Navbar = () => {
                 <NextLink
                   className="text-wow-gold hover:text-wow-gold-light transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5 font-medium"
                   href={`/${locale}/account`}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {t("nav.account")}
                 </NextLink>
@@ -206,7 +212,10 @@ export const Navbar = () => {
               <NavbarMenuItem>
                 <button
                   className="text-red-400 hover:text-red-300 transition-all text-lg block py-2 px-3 rounded-lg hover:bg-red-500/5 w-full text-left"
-                  onClick={handleLogout}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleLogout();
+                  }}
                 >
                   {t("nav.logout")}
                 </button>
@@ -218,6 +227,7 @@ export const Navbar = () => {
                 <NextLink
                   className="text-gray-400 hover:text-wow-blue transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-blue/5"
                   href={`/${locale}/login`}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {t("nav.login")}
                 </NextLink>
@@ -226,6 +236,7 @@ export const Navbar = () => {
                 <NextLink
                   className="text-wow-gold hover:text-wow-gold-light transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5 font-medium"
                   href={`/${locale}/register`}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {t("nav.register")}
                 </NextLink>
