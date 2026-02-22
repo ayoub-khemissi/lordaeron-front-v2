@@ -8,7 +8,7 @@ Web application for the **Lordaeron** World of Warcraft 3.3.5a private server �
 - **UI** — HeroUI v2 + Tailwind CSS 4 + Framer Motion
 - **Language** — TypeScript 5
 - **Database** — MySQL 8 (mysql2) — 3 connection pools (auth, characters, website)
-- **Auth** — JWT (jose) + SRP6 password hashing
+- **Auth** — JWT (jose) + SRP6 password hashing + email-based password reset (nodemailer)
 - **Payments** — Stripe Checkout
 - **i18n** — next-intl (English, French, Spanish, German, Italian)
 - **Charts** — Recharts
@@ -18,7 +18,7 @@ Web application for the **Lordaeron** World of Warcraft 3.3.5a private server �
 - **Shop** — Browse and purchase in-game items, sets, services (XP boosts, character changes, VIP). Items delivered via WoW SOAP.
 - **Soul Shards** — Virtual currency purchased through Stripe, used to buy shop items. Gift system between players.
 - **Daily Highlights** — Automated daily deals with random discounts per category.
-- **Account** — Registration, login, purchase history, character selection.
+- **Account** — Registration, login, password reset via email, password change, purchase history, character selection.
 - **Admin Panel** — Item/set/news management, sales analytics, financial reports, ban system, audit log.
 - **News** — Multilingual news articles with Markdown rendering.
 - **Server Status** — Live player count and realm status.
@@ -37,6 +37,8 @@ i18n/                Locale routing and request config
 lib/                 Core utilities
   queries/           Database query functions
   auth.ts            JWT session management
+  email.ts           SMTP email sending (nodemailer)
+  email-templates/   Email templates (password reset, ...)
   db.ts              MySQL connection pools
   soap.ts            WoW SOAP client
   srp6.ts            SRP6 password hashing
@@ -103,6 +105,14 @@ JWT_SECRET=
 
 # Cron
 CRON_SECRET=
+
+# SMTP (emails)
+SMTP_HOST=smtp-relay.brevo.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=
+SMTP_PASSWORD=
+SMTP_FROM=Lordaeron <no-reply@lordaeron.eu>
 
 # Stripe
 STRIPE_SECRET_KEY=

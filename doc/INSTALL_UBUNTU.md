@@ -55,8 +55,8 @@ CREATE USER 'lordaeron'@'localhost' IDENTIFIED BY '<STRONG_PASSWORD>';
 -- Website database (full access)
 GRANT ALL PRIVILEGES ON lordaeron_website.* TO 'lordaeron'@'localhost';
 
--- TrinityCore auth database (SELECT for login, INSERT for registration)
-GRANT SELECT, INSERT ON auth.* TO 'lordaeron'@'localhost';
+-- TrinityCore auth database (SELECT for login, INSERT for registration, UPDATE for password reset/change)
+GRANT SELECT, INSERT, UPDATE ON auth.* TO 'lordaeron'@'localhost';
 
 -- TrinityCore characters database (SELECT for character lists, DELETE for shop refunds)
 GRANT SELECT, DELETE ON characters.* TO 'lordaeron'@'localhost';
@@ -127,6 +127,14 @@ JWT_SECRET=<RANDOM_64_CHAR_STRING>
 
 # ── Cron ──
 CRON_SECRET=<RANDOM_TOKEN>
+
+# ── SMTP (emails) ──
+SMTP_HOST=smtp-relay.brevo.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=<SMTP_USER>
+SMTP_PASSWORD=<SMTP_PASSWORD>
+SMTP_FROM=Lordaeron <no-reply@lordaeron.eu>
 
 # ── Stripe (payments) ──
 STRIPE_SECRET_KEY=sk_live_...
