@@ -17,3 +17,14 @@ VALUES ('SOAPWEBSITE', X'2ec210a925754113fb1a24c3b24e00948dea3786de5720181d736af
 
 INSERT INTO `account_access` (`AccountID`, `SecurityLevel`, `RealmID`, `Comment`)
 VALUES ((SELECT `id` FROM `account` WHERE `username` = 'SOAPWEBSITE'), 3, -1, 'Website SOAP delivery');
+
+-- ── 3. Game Master account ─────────────────────────────────────────────────
+-- Database: auth
+-- GM level 3 (Administrator), expansion 2 (WotLK), all realms
+-- Generated via: pnpm exec tsx sql/generators/generate-soap-account.ts (same SRP6 lib)
+
+INSERT INTO `account` (`username`, `salt`, `verifier`, `email`, `expansion`)
+VALUES ('ADMIN', X'5d1f5a3fca36028361899702f204b99ec110153dd12b647c8b6753e578f44f71', X'865023b6dde1ba8df128af53e1c68dd263dd49a306c3cf80c4c3cadfd70af545', 'admin@lordaeron.eu', 2);
+
+INSERT INTO `account_access` (`AccountID`, `SecurityLevel`, `RealmID`, `Comment`)
+VALUES ((SELECT `id` FROM `account` WHERE `username` = 'ADMIN'), 3, -1, 'Server Administrator');
