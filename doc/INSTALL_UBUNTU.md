@@ -145,7 +145,34 @@ Import the schema into the `lordaeron_website` database:
 mysql -u lordaeron -p lordaeron_website < sql/schema.sql
 ```
 
-> Check the `sql/` folder for the latest schema and seed files.
+### Import shop data
+
+The shop SQL files contain `DROP TABLE` statements that conflict with foreign keys created by the schema. Disable FK checks during import:
+
+```bash
+mysql -u lordaeron -p lordaeron_website -e "SET FOREIGN_KEY_CHECKS=0; SOURCE sql/shop_items.sql; SET FOREIGN_KEY_CHECKS=1;"
+mysql -u lordaeron -p lordaeron_website -e "SET FOREIGN_KEY_CHECKS=0; SOURCE sql/shop_sets.sql; SET FOREIGN_KEY_CHECKS=1;"
+mysql -u lordaeron -p lordaeron_website -e "SET FOREIGN_KEY_CHECKS=0; SOURCE sql/shop_set_items.sql; SET FOREIGN_KEY_CHECKS=1;"
+```
+
+### Seed data
+
+The `sql/seed.sql` file contains entries for **two** databases:
+
+1. **`lordaeron_website`** — admin account for the shop back-office
+2. **`auth`** (TrinityCore) — SOAP account used for in-game deliveries
+
+Import them separately:
+
+```bash
+# Admin account → lordaeron_website
+mysql -u lordaeron -p lordaeron_website < sql/seed.sql   # only the INSERT into shop_admins will apply
+
+# SOAP account → auth (requires a user with write access to auth)
+mysql -u trinity -p auth -e "SOURCE sql/seed.sql;"       # only the INSERT into account/account_access will apply
+```
+
+> Alternatively, run the relevant `INSERT` statements from `sql/seed.sql` manually against each database.
 
 ## 9. Build and start
 
