@@ -20,9 +20,6 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get("category") as ShopCategory | null;
     const locale = searchParams.get("locale") || "en";
-    const realmId = searchParams.get("realm_id")
-      ? parseInt(searchParams.get("realm_id")!)
-      : null;
     const raceId = searchParams.get("race_id")
       ? parseInt(searchParams.get("race_id")!)
       : null;
@@ -42,27 +39,41 @@ export async function GET(request: NextRequest) {
       hasDiscount: hasDiscount || undefined,
     });
 
-    // Filter by realm/race/class/faction restrictions
-    const filtered = items.filter((item) => {
-      if (realmId && item.realm_ids && !item.realm_ids.includes(realmId))
-        return false;
-      if (raceId && item.race_ids && !item.race_ids.includes(raceId))
-        return false;
-      if (classId && item.class_ids && !item.class_ids.includes(classId))
-        return false;
-      if (raceId && item.faction !== "both") {
+    // Mark each item with eligibility instead of filtering
+    const localized = items.map((item) => {
+      const base = localizeShopItem(item, locale);
+      let eligible = true;
+      let restriction_reason: string | null = null;
+
+      if (level && item.min_level > 0 && level < item.min_level) {
+        eligible = false;
+        restriction_reason = "level";
+      } else if (
+        classId &&
+        item.class_ids &&
+        !item.class_ids.includes(classId)
+      ) {
+        eligible = false;
+        restriction_reason = "class";
+      } else if (raceId && item.race_ids && !item.race_ids.includes(raceId)) {
+        eligible = false;
+        restriction_reason = "race";
+      } else if (raceId && item.faction !== "both") {
         const isAlliance = ALLIANCE_RACES.includes(raceId);
         const isHorde = HORDE_RACES.includes(raceId);
 
-        if (item.faction === "alliance" && !isAlliance) return false;
-        if (item.faction === "horde" && !isHorde) return false;
+        if (item.faction === "alliance" && !isAlliance) {
+          eligible = false;
+          restriction_reason = "faction";
+        }
+        if (item.faction === "horde" && !isHorde) {
+          eligible = false;
+          restriction_reason = "faction";
+        }
       }
-      if (level && item.min_level > 0 && level < item.min_level) return false;
 
-      return true;
+      return { ...base, eligible, restriction_reason };
     });
-
-    const localized = filtered.map((item) => localizeShopItem(item, locale));
 
     return NextResponse.json({ items: localized });
   } catch (error) {

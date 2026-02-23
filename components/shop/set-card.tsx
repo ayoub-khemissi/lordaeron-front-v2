@@ -16,10 +16,12 @@ interface SetCardProps {
 
 export function SetCard({ set, onClick }: SetCardProps) {
   const t = useTranslations("shop");
+  const isIneligible = set.eligible === false;
 
   return (
     <button
-      className="glass border-wow-gold/10 hover:border-wow-gold/30 rounded-xl p-4 text-left transition-all duration-200 cursor-pointer group w-full"
+      className={`glass border-wow-gold/10 hover:border-wow-gold/30 rounded-xl p-4 text-left transition-all duration-200 cursor-pointer group w-full ${isIneligible ? "opacity-50 grayscale pointer-events-none" : ""}`}
+      disabled={isIneligible}
       type="button"
       onClick={onClick}
     >
@@ -88,8 +90,24 @@ export function SetCard({ set, onClick }: SetCardProps) {
       </div>
 
       {/* Restriction chips */}
-      {(set.class_ids || set.faction !== "both" || set.min_level > 0) && (
+      {(isIneligible ||
+        set.class_ids ||
+        set.faction !== "both" ||
+        set.min_level > 0) && (
         <div className="flex flex-wrap gap-1 mb-3">
+          {isIneligible && set.restriction_reason && (
+            <Chip
+              className="bg-red-500/20 text-red-400 border-red-500/30 text-[10px]"
+              size="sm"
+              variant="bordered"
+            >
+              {set.restriction_reason === "level"
+                ? t("restrictionLevel", { level: set.min_level })
+                : set.restriction_reason === "class"
+                  ? t("restrictionClass")
+                  : t("restrictionFaction")}
+            </Chip>
+          )}
           {set.min_level > 0 && (
             <Chip
               className="bg-orange-500/10 text-orange-300 text-[10px]"

@@ -203,6 +203,8 @@ export interface ShopItemLocalized {
   is_refundable: boolean;
   min_level: number;
   sort_order: number;
+  eligible?: boolean;
+  restriction_reason?: string | null;
 }
 
 export interface ShopPurchase {
@@ -349,6 +351,8 @@ export interface ShopSetLocalized {
   min_level: number;
   sort_order: number;
   items: ShopSetItemLocalized[];
+  eligible?: boolean;
+  restriction_reason?: string | null;
 }
 
 export interface ShopSetItemLocalized {

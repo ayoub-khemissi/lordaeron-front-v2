@@ -19,11 +19,12 @@ interface ItemCardProps {
 export function ItemCard({ item, onClick }: ItemCardProps) {
   const t = useTranslations("shop");
   const tHome = useTranslations("home");
+  const isIneligible = item.eligible === false;
 
   return (
     <Card
-      isPressable
-      className="glass border-wow-gold/10 hover:border-wow-gold/30 transition-all duration-300 hover:glow-gold group"
+      className={`glass border-wow-gold/10 hover:border-wow-gold/30 transition-all duration-300 hover:glow-gold group ${isIneligible ? "opacity-50 grayscale pointer-events-none" : ""}`}
+      isPressable={!isIneligible}
       onPress={onClick}
     >
       <CardBody className="p-4 pb-2">
@@ -84,6 +85,21 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
         )}
 
         <div className="flex flex-wrap gap-1">
+          {isIneligible && item.restriction_reason && (
+            <Chip
+              className="bg-red-500/20 text-red-400 border-red-500/30"
+              size="sm"
+              variant="bordered"
+            >
+              {item.restriction_reason === "level"
+                ? t("restrictionLevel", { level: item.min_level })
+                : item.restriction_reason === "class"
+                  ? t("restrictionClass")
+                  : item.restriction_reason === "race"
+                    ? t("restrictionRace")
+                    : t("restrictionFaction")}
+            </Chip>
+          )}
           {item.faction !== "both" && (
             <Chip
               className={

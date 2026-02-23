@@ -14,6 +14,8 @@ interface CategoryFilterBarProps {
   onShowSetsChange?: (value: boolean) => void;
   showItems?: boolean;
   onShowItemsChange?: (value: boolean) => void;
+  showUnavailable?: boolean;
+  onShowUnavailableChange?: (value: boolean) => void;
 }
 
 export function CategoryFilterBar({
@@ -25,6 +27,8 @@ export function CategoryFilterBar({
   onShowSetsChange,
   showItems,
   onShowItemsChange,
+  showUnavailable,
+  onShowUnavailableChange,
 }: CategoryFilterBarProps) {
   const t = useTranslations("shop");
 
@@ -69,26 +73,38 @@ export function CategoryFilterBar({
           <SelectItem key="quality_desc">{t("sortQualityDesc")}</SelectItem>
         </Select>
       </div>
-      {onShowSetsChange && onShowItemsChange && (
-        <div className="flex gap-4">
+      <div className="flex gap-4">
+        {onShowSetsChange && onShowItemsChange && (
+          <>
+            <Checkbox
+              classNames={{ label: "text-sm text-gray-300" }}
+              isSelected={showSets}
+              size="sm"
+              onValueChange={onShowSetsChange}
+            >
+              {t("filterSets")}
+            </Checkbox>
+            <Checkbox
+              classNames={{ label: "text-sm text-gray-300" }}
+              isSelected={showItems}
+              size="sm"
+              onValueChange={onShowItemsChange}
+            >
+              {t("filterItems")}
+            </Checkbox>
+          </>
+        )}
+        {onShowUnavailableChange && (
           <Checkbox
             classNames={{ label: "text-sm text-gray-300" }}
-            isSelected={showSets}
+            isSelected={showUnavailable}
             size="sm"
-            onValueChange={onShowSetsChange}
+            onValueChange={onShowUnavailableChange}
           >
-            {t("filterSets")}
+            {t("showUnavailable")}
           </Checkbox>
-          <Checkbox
-            classNames={{ label: "text-sm text-gray-300" }}
-            isSelected={showItems}
-            size="sm"
-            onValueChange={onShowItemsChange}
-          >
-            {t("filterItems")}
-          </Checkbox>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

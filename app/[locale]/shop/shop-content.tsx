@@ -61,6 +61,7 @@ export default function ShopContent() {
   const [activeTab, setActiveTab] = useState("shop");
   const [showSetFilter, setShowSetFilter] = useState(true);
   const [showItemFilter, setShowItemFilter] = useState(true);
+  const [showUnavailable, setShowUnavailable] = useState(false);
   const [prefsLoaded, setPrefsLoaded] = useState(false);
 
   // Modal states
@@ -110,6 +111,7 @@ export default function ShopContent() {
       const setParams = new URLSearchParams({ locale });
 
       if (selectedCharacter) {
+        setParams.set("race_id", String(selectedCharacter.race));
         setParams.set("class_id", String(selectedCharacter.class));
         setParams.set("level", String(selectedCharacter.level));
       }
@@ -175,6 +177,8 @@ export default function ShopContent() {
           setShowSetFilter(prefs.showSets);
         if (typeof prefs.showItems === "boolean")
           setShowItemFilter(prefs.showItems);
+        if (typeof prefs.showUnavailable === "boolean")
+          setShowUnavailable(prefs.showUnavailable);
       }
     } catch {
       // Ignore parse errors
@@ -192,12 +196,13 @@ export default function ShopContent() {
           sortBy,
           showSets: showSetFilter,
           showItems: showItemFilter,
+          showUnavailable,
         }),
       );
     } catch {
       // Ignore storage errors
     }
-  }, [sortBy, showSetFilter, showItemFilter, prefsLoaded]);
+  }, [sortBy, showSetFilter, showItemFilter, showUnavailable, prefsLoaded]);
 
   // Handle checkout return from Stripe
   useEffect(() => {
@@ -371,6 +376,7 @@ export default function ShopContent() {
   // Filter & sort items
   const filteredItems = items
     .filter((item) => {
+      if (!showUnavailable && item.eligible === false) return false;
       if (!search) return true;
 
       return item.name.toLowerCase().includes(search.toLowerCase());
@@ -380,14 +386,19 @@ export default function ShopContent() {
   // Filter & sort sets
   const filteredSets = sets
     .filter((s) => {
+      if (!showUnavailable && s.eligible === false) return false;
       if (!search) return true;
 
       return s.name.toLowerCase().includes(search.toLowerCase());
     })
     .sort(sortFn);
 
-  const highlightedItems = items.filter((i) => i.is_highlighted);
-  const highlightedSets = sets.filter((s) => s.is_highlighted);
+  const highlightedItems = items.filter(
+    (i) => i.is_highlighted && (showUnavailable || i.eligible !== false),
+  );
+  const highlightedSets = sets.filter(
+    (s) => s.is_highlighted && (showUnavailable || s.eligible !== false),
+  );
   // Show sets only on the transmog category, combined with user filter
   const showSetsSection = selectedCategory === "transmog" && showSetFilter;
 
@@ -527,8 +538,10 @@ export default function ShopContent() {
 
           <CategoryFilterBar
             search={search}
+            showUnavailable={showUnavailable}
             sortBy={sortBy}
             onSearchChange={setSearch}
+            onShowUnavailableChange={setShowUnavailable}
             onSortChange={setSortBy}
             {...(selectedCategory === "transmog"
               ? {
