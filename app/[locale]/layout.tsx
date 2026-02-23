@@ -13,6 +13,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AuthProvider } from "@/lib/auth-context";
 import { CookieBanner } from "@/components/cookie-banner";
+import { VotePanel } from "@/components/vote-panel";
 
 const ogLocaleMap: Record<string, string> = {
   en: "en_US",
@@ -85,6 +86,7 @@ export default async function LocaleLayout({
             <AuthProvider>
               <div className="relative flex flex-col min-h-screen">
                 <Navbar />
+                <VotePanel />
                 <main className="flex-grow">{children}</main>
                 <Footer />
                 <CookieBanner />

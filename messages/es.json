@@ -729,5 +729,15 @@
     "desc2": "El servidor ofrece tasas mejoradas (x5 XP, x2 Honor, x2 Profesiones, x2 Reputación) para una experiencia de subida de nivel más rápida pero equilibrada. Los raids se reinician cada 2 días para mantener la progresión, y las mazmorras no tienen bloqueo para poder hacerlas tantas veces como quieras.",
     "desc3": "Las mejoras de calidad de vida incluyen Transmogrificación, agrupación Crossfaction (Alianza y Horda juegan juntos), Botín AOE, aprendizaje automático de hechizos, y un sistema único de Tank como DPS — inscribirse como Tank en mazmorras mientras se permanece en especialización DPS para encontrar grupo más rápido, con un bonus automático de vida y amenaza.",
     "desc4": "Una tienda cosmética opcional impulsada por Fragmentos de alma ofrece monturas, sets de transmog, herencias, bolsas, mascotas, juguetes y servicios de personaje. No se requiere ninguna compra para disfrutar de la experiencia completa del juego."
+  },
+  "vote": {
+    "title": "Vota por nosotros",
+    "reward": "+{shards} Fragmentos de alma",
+    "vote": "Votar",
+    "voted": "Votado",
+    "cooldown": "Próximo voto en",
+    "loginToVote": "Inicia sesión para votar",
+    "collapse": "Ocultar",
+    "expand": "Votar"
   }
 }

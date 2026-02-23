@@ -729,5 +729,15 @@
     "desc2": "Il server offre tassi migliorati (x5 XP, x2 Onore, x2 Professioni, x2 Reputazione) per un'esperienza di livellamento più veloce ma equilibrata. I raid si resettano ogni 2 giorni per mantenere la progressione, e i dungeon non hanno blocco per poterli fare quante volte si vuole.",
     "desc3": "Le funzionalità di comfort includono Transmogrificazione, raggruppamento Crossfaction (Alleanza e Orda giocano insieme), Bottino AOE, apprendimento automatico degli incantesimi, e un sistema unico di Tank come DPS — iscriversi come Tank nei dungeon restando nella specializzazione DPS per trovare gruppo più velocemente, con un bonus automatico a vita e minaccia.",
     "desc4": "Un negozio cosmetico opzionale alimentato dai Frammenti d'anima offre cavalcature, set di transmog, cimeli, borse, mascotte, giocattoli e servizi per i personaggi. Nessun acquisto è richiesto per godere dell'esperienza di gioco completa."
+  },
+  "vote": {
+    "title": "Vota per noi",
+    "reward": "+{shards} Frammenti d'anima",
+    "vote": "Vota",
+    "voted": "Votato",
+    "cooldown": "Prossimo voto tra",
+    "loginToVote": "Accedi per votare",
+    "collapse": "Nascondi",
+    "expand": "Vota"
   }
 }

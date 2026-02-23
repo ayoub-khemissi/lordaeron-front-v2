@@ -251,3 +251,35 @@ CREATE TABLE IF NOT EXISTS password_reset_tokens (
   INDEX idx_account_id (account_id),
   INDEX idx_expires_at (expires_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ── Vote Sites ─────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS vote_sites (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  slug VARCHAR(50) NOT NULL UNIQUE,
+  vote_url VARCHAR(512) NOT NULL,
+  image_url VARCHAR(512) NULL,
+  pingback_key VARCHAR(255) NOT NULL,
+  reward_shards INT UNSIGNED NOT NULL DEFAULT 10,
+  cooldown_hours INT UNSIGNED NOT NULL DEFAULT 12,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  sort_order INT NOT NULL DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ── Vote Logs ──────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS vote_logs (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  account_id INT UNSIGNED NOT NULL,
+  site_id INT UNSIGNED NOT NULL,
+  voter_ip VARCHAR(45) NULL,
+  success TINYINT(1) NOT NULL DEFAULT 0,
+  reason VARCHAR(255) NULL,
+  rewarded TINYINT(1) NOT NULL DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_account_site (account_id, site_id),
+  INDEX idx_created_at (created_at),
+  CONSTRAINT fk_vote_log_site FOREIGN KEY (site_id) REFERENCES vote_sites(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

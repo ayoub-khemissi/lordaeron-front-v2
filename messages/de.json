@@ -729,5 +729,15 @@
     "desc2": "Der Server bietet verbesserte Raten (x5 XP, x2 Ehre, x2 Berufe, x2 Ruf) für ein schnelleres aber ausgewogenes Leveling-Erlebnis. Raids werden alle 2 Tage zurückgesetzt, um die Progression voranzutreiben, und Dungeons haben keine Sperre — du kannst sie so oft machen wie du willst.",
     "desc3": "Komfort-Features umfassen Transmogrifikation, Crossfaction-Gruppen (Allianz und Horde spielen zusammen), AOE-Beute, automatisches Zauberlernen und ein einzigartiges Tank-als-DPS-System — als Tank in Dungeons anmelden, während man in der DPS-Spezialisierung bleibt, für schnelleres Gruppenfinden mit automatischem Bonus auf Leben und Bedrohung.",
     "desc4": "Ein optionaler kosmetischer Shop mit Seelensplittern bietet Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeug und Charakter-Dienste. Kein Kauf ist erforderlich, um das volle Spielerlebnis zu genießen."
+  },
+  "vote": {
+    "title": "Stimme für uns",
+    "reward": "+{shards} Seelensplitter",
+    "vote": "Abstimmen",
+    "voted": "Abgestimmt",
+    "cooldown": "Nächste Abstimmung in",
+    "loginToVote": "Einloggen zum Abstimmen",
+    "collapse": "Ausblenden",
+    "expand": "Vote"
   }
 }

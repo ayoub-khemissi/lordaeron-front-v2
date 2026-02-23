@@ -835,5 +835,15 @@
     "desc2": "The server features enhanced rates (x5 XP, x2 Honor, x2 Professions, x2 Reputation) for a faster but balanced leveling experience. Raids reset every 2 days to keep progression moving, and dungeons have no lockout so you can run them as many times as you want.",
     "desc3": "Quality-of-life features include Transmogrification, Crossfaction grouping (Alliance and Horde play together), AOE Loot, Autolearn Spells, and a unique Tank as DPS system — queue as Tank in dungeons while staying in your DPS spec for faster group finding, with an automatic bonus to health and threat.",
     "desc4": "An optional cosmetic shop powered by Soul Shards offers mounts, transmog sets, heirlooms, bags, pets, toys, and character services. No purchase is required to enjoy the full game experience."
+  },
+  "vote": {
+    "title": "Vote for Us",
+    "reward": "+{shards} Soul Shards",
+    "vote": "Vote",
+    "voted": "Voted",
+    "cooldown": "Next vote in",
+    "loginToVote": "Login to vote",
+    "collapse": "Hide",
+    "expand": "Vote"
   }
 }
