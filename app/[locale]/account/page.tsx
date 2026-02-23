@@ -396,7 +396,7 @@ export default function AccountPage() {
                               <TableCell>
                                 <span className="flex items-center gap-1.5">
                                   <span
-                                    className={`w-2 h-2 rounded-full ${char.online ? "bg-green-400" : "bg-default-600"}`}
+                                    className={`w-2 h-2 shrink-0 rounded-full ${char.online ? "bg-green-400" : "bg-default-600"}`}
                                   />
                                   <span
                                     className={`text-xs ${char.online ? "text-green-400" : "text-gray-400"}`}
