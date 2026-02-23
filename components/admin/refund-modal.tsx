@@ -59,7 +59,7 @@ export function RefundModal({
                   {t("character")}: {purchase.character_name}
                 </p>
                 <p>
-                  {t("price")}: {purchase.price_paid} Soul Shards
+                  {t("price")}: {purchase.price_paid} {t("soulShards")}
                 </p>
               </div>
               {error && (

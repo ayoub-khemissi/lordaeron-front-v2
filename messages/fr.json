@@ -203,7 +203,7 @@
     "realmInfo": "Informations du royaume",
     "realmName": "Nom du royaume",
     "realmStatus": "Statut",
-    "soulShards": "Soul Shards",
+    "soulShards": "Éclats d'âme",
     "banned": "Compte banni",
     "ipBanned": "IP bannie",
     "banReason": "Raison",
@@ -301,9 +301,9 @@
     "actions": "Actions",
     "refund": "Rembourser",
     "confirmRefund": "Confirmer le remboursement",
-    "confirmRefundDesc": "Êtes-vous sûr ? Les Soul Shards seront recrédités sur votre compte.",
+    "confirmRefundDesc": "Êtes-vous sûr ? Les Éclats d'âme seront recrédités sur votre compte.",
     "refundSuccess": "Remboursement réussi !",
-    "refundSuccessDesc": "Les Soul Shards ont été recrédités sur votre compte.",
+    "refundSuccessDesc": "Les Éclats d'âme ont été recrédités sur votre compte.",
     "statusCompleted": "Terminé",
     "statusRefunded": "Remboursé",
     "statusPending": "En attente",
@@ -344,16 +344,16 @@
       "6": "6 — Artéfact (or)",
       "7": "7 — Héritage (or)"
     },
-    "buyShards": "Acheter des Soul Shards",
-    "buyShardsTitle": "Acheter des Soul Shards",
+    "buyShards": "Acheter des Éclats d'âme",
+    "buyShardsTitle": "Acheter des Éclats d'âme",
     "buyShardsSubtitle": "Choisissez un forfait pour recharger votre solde",
-    "needMoreShards": "Il vous manque {count} Soul Shards",
-    "soulShards": "Soul Shards",
+    "needMoreShards": "Il vous manque {count} Éclats d'âme",
+    "soulShards": "Éclats d'âme",
     "bestValue": "Meilleure offre",
     "recommended": "Recommandé",
     "popular": "Populaire",
     "redirectingToStripe": "Redirection vers le paiement...",
-    "checkoutSuccess": "Paiement réussi ! Vos Soul Shards ont été crédités.",
+    "checkoutSuccess": "Paiement réussi ! Vos Éclats d'âme ont été crédités.",
     "checkoutCancelled": "Paiement annulé. Aucun frais n'a été débité.",
     "errors": {
       "unauthorized": "Veuillez vous connecter pour accéder à la boutique",
@@ -362,7 +362,7 @@
       "accountBanned": "Votre compte est banni de la boutique",
       "itemNotFound": "Article introuvable",
       "characterNotFound": "Personnage introuvable",
-      "insufficientBalance": "Solde de Soul Shards insuffisant",
+      "insufficientBalance": "Solde de Éclats d'âme insuffisant",
       "realmRestricted": "Article non disponible sur ce royaume",
       "raceRestricted": "Article non disponible pour cette race",
       "classRestricted": "Article non disponible pour cette classe",
@@ -411,7 +411,7 @@
       "removePiece": "Retirer",
       "setNotFound": "Set introuvable"
     },
-    "purchases": { "title": "Historique des achats", "account": "Compte", "character": "Personnage", "item": "Article", "price": "Prix", "status": "Statut", "date": "Date", "refund": "Rembourser", "confirmRefund": "Êtes-vous sûr de vouloir rembourser cet achat ?", "refundSuccess": "Achat remboursé avec succès", "actions": "Actions", "retry": "Réessayer", "retrySuccess": "Livraison relancée avec succès", "retryFailed": "Échec de la relance de livraison", "status_completed": "Complété", "status_refunded": "Remboursé", "status_pending_refund": "Remboursement en attente", "status_pending_delivery": "Livraison en attente", "status_cancelled": "Annulé", "reason_itemNotRefundable": "Non remboursable", "reason_refundExpired": "Délai de 2h dépassé", "reason_itemNotInInventory": "Objet plus dans l'inventaire", "reason_purchaseNotRefundable": "Achat non remboursable", "reason_recipientNotFound": "Destinataire introuvable", "reason_serverError": "Erreur serveur", "reason_characterOnline": "Personnage en ligne" },
+    "purchases": { "title": "Historique des achats", "account": "Compte", "character": "Personnage", "item": "Article", "price": "Prix", "status": "Statut", "date": "Date", "refund": "Rembourser", "confirmRefund": "Êtes-vous sûr de vouloir rembourser cet achat ?", "refundSuccess": "Achat remboursé avec succès", "actions": "Actions", "retry": "Réessayer", "retrySuccess": "Livraison relancée avec succès", "retryFailed": "Échec de la relance de livraison", "status_completed": "Complété", "status_refunded": "Remboursé", "status_pending_refund": "Remboursement en attente", "status_pending_delivery": "Livraison en attente", "status_cancelled": "Annulé", "reason_itemNotRefundable": "Non remboursable", "reason_refundExpired": "Délai de 2h dépassé", "reason_itemNotInInventory": "Objet plus dans l'inventaire", "reason_purchaseNotRefundable": "Achat non remboursable", "reason_recipientNotFound": "Destinataire introuvable", "reason_serverError": "Erreur serveur", "reason_characterOnline": "Personnage en ligne", "soulShards": "Éclats d'âme" },
     "bans": { "title": "Bans de la boutique", "addBan": "Ajouter un ban", "accountId": "ID du compte", "reason": "Raison", "expiresAt": "Expire le", "permanent": "Permanent", "active": "Actif", "actions": "Actions", "remove": "Supprimer" },
     "audit": { "title": "Journal d'audit", "admin": "Admin", "action": "Action", "target": "Cible", "details": "Détails", "date": "Date", "action_create_item": "Création d'article", "action_update_item": "Modification d'article", "action_deactivate_item": "Désactivation d'article", "action_create_set": "Création de set", "action_update_set": "Modification de set", "action_deactivate_set": "Désactivation de set", "action_create_ban": "Création de ban", "action_update_ban": "Modification de ban", "action_delete_ban": "Suppression de ban", "action_retry_delivery": "Relance de livraison", "action_refund_purchase": "Remboursement", "target_shop_item": "Article", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Achat", "action_create_news": "Création d'article", "action_update_news": "Modification d'article", "action_delete_news": "Suppression d'article", "target_news": "Actualité" },
     "news": {
@@ -554,7 +554,7 @@
       },
       "access": {
         "title": "2. Accès et éligibilité",
-        "content": "Lordaeron est un serveur privé World of Warcraft gratuit (free-to-play). Vous devez avoir au moins 13 ans pour créer un compte et utiliser nos services.\n\nL'accès au serveur est fourni gratuitement. Des objets cosmétiques et de confort optionnels peuvent être achetés via notre boutique en jeu avec des Soul Shards, notre monnaie virtuelle. Aucun achat n'est requis pour profiter pleinement de l'expérience de jeu."
+        "content": "Lordaeron est un serveur privé World of Warcraft gratuit (free-to-play). Vous devez avoir au moins 13 ans pour créer un compte et utiliser nos services.\n\nL'accès au serveur est fourni gratuitement. Des objets cosmétiques et de confort optionnels peuvent être achetés via notre boutique en jeu avec des Éclats d'âme, notre monnaie virtuelle. Aucun achat n'est requis pour profiter pleinement de l'expérience de jeu."
       },
       "account": {
         "title": "3. Responsabilités du compte",
@@ -574,7 +574,7 @@
       },
       "termination": {
         "title": "7. Résiliation de compte",
-        "content": "Nous nous réservons le droit de suspendre ou de résilier votre compte à tout moment, avec ou sans motif, avec ou sans préavis. Les raisons de résiliation peuvent inclure, sans s'y limiter :\n\n- Violation de ces Conditions Générales d'Utilisation\n- Violation du Code de conduite\n- Triche, exploitation ou utilisation de logiciels non autorisés\n- Activité frauduleuse ou rétrofacturation sur les achats de Soul Shards\n\nVous pouvez demander la suppression de votre compte à tout moment en nous contactant via le formulaire de contact."
+        "content": "Nous nous réservons le droit de suspendre ou de résilier votre compte à tout moment, avec ou sans motif, avec ou sans préavis. Les raisons de résiliation peuvent inclure, sans s'y limiter :\n\n- Violation de ces Conditions Générales d'Utilisation\n- Violation du Code de conduite\n- Triche, exploitation ou utilisation de logiciels non autorisés\n- Activité frauduleuse ou rétrofacturation sur les achats de Éclats d'âme\n\nVous pouvez demander la suppression de votre compte à tout moment en nous contactant via le formulaire de contact."
       },
       "modifications": {
         "title": "8. Modifications des conditions",
@@ -592,24 +592,24 @@
         "content": "Ces Conditions Générales de Vente régissent tous les achats effectués via la boutique du site Lordaeron. En effectuant un achat, vous acceptez ces conditions.\n\nLe vendeur est l'équipe du projet Lordaeron. Toutes les transactions sont traitées en Euros (EUR) et sont soumises aux taxes et réglementations applicables."
       },
       "soulShards": {
-        "title": "2. Soul Shards — Monnaie virtuelle",
-        "content": "Les Soul Shards sont la monnaie virtuelle de Lordaeron, utilisée exclusivement dans notre boutique en jeu. Les Soul Shards n'ont aucune valeur monétaire réelle et ne peuvent pas être échangés contre de la monnaie réelle.\n\nLes Soul Shards sont non-transférables entre comptes. Ils sont liés au compte qui les a achetés et ne peuvent pas être offerts, échangés ou vendus à d'autres joueurs.\n\nL'équipe Lordaeron se réserve le droit de modifier les packages de Soul Shards, les tarifs et la disponibilité à tout moment."
+        "title": "2. Éclats d'âme — Monnaie virtuelle",
+        "content": "Les Éclats d'âme sont la monnaie virtuelle de Lordaeron, utilisée exclusivement dans notre boutique en jeu. Les Éclats d'âme n'ont aucune valeur monétaire réelle et ne peuvent pas être échangés contre de la monnaie réelle.\n\nLes Éclats d'âme sont non-transférables entre comptes. Ils sont liés au compte qui les a achetés et ne peuvent pas être offerts, échangés ou vendus à d'autres joueurs.\n\nL'équipe Lordaeron se réserve le droit de modifier les packages de Éclats d'âme, les tarifs et la disponibilité à tout moment."
       },
       "pricing": {
         "title": "3. Tarification et packages",
-        "content": "Tous les prix sont affichés en Euros (EUR) et incluent les taxes applicables. Les packages de Soul Shards disponibles et leurs prix sont affichés sur la page de la boutique.\n\nLes prix sont susceptibles de changer sans préavis. Le prix au moment de l'achat est le prix qui s'applique à votre transaction."
+        "content": "Tous les prix sont affichés en Euros (EUR) et incluent les taxes applicables. Les packages de Éclats d'âme disponibles et leurs prix sont affichés sur la page de la boutique.\n\nLes prix sont susceptibles de changer sans préavis. Le prix au moment de l'achat est le prix qui s'applique à votre transaction."
       },
       "payment": {
         "title": "4. Paiement",
-        "content": "Tous les paiements sont traités de manière sécurisée par Stripe, un processeur de paiement certifié PCI DSS Niveau 1. Nous ne stockons pas vos informations de carte bancaire sur nos serveurs.\n\nLes méthodes de paiement acceptées incluent les cartes de crédit (Visa, Mastercard, American Express), les cartes de débit et d'autres méthodes supportées par Stripe dans votre région.\n\nLes paiements sont traités immédiatement après confirmation. Les Soul Shards sont crédités sur votre compte dès que le paiement est confirmé par Stripe."
+        "content": "Tous les paiements sont traités de manière sécurisée par Stripe, un processeur de paiement certifié PCI DSS Niveau 1. Nous ne stockons pas vos informations de carte bancaire sur nos serveurs.\n\nLes méthodes de paiement acceptées incluent les cartes de crédit (Visa, Mastercard, American Express), les cartes de débit et d'autres méthodes supportées par Stripe dans votre région.\n\nLes paiements sont traités immédiatement après confirmation. Les Éclats d'âme sont crédités sur votre compte dès que le paiement est confirmé par Stripe."
       },
       "delivery": {
         "title": "5. Livraison",
-        "content": "Les Soul Shards sont livrés numériquement et instantanément sur votre compte Lordaeron après confirmation du paiement.\n\nLes objets en jeu achetés avec des Soul Shards sont livrés directement dans la boîte aux lettres ou l'inventaire du personnage sélectionné dans les secondes suivant l'achat.\n\nSi vous ne recevez pas vos Soul Shards ou objets dans un délai raisonnable, veuillez nous contacter via le formulaire de contact."
+        "content": "Les Éclats d'âme sont livrés numériquement et instantanément sur votre compte Lordaeron après confirmation du paiement.\n\nLes objets en jeu achetés avec des Éclats d'âme sont livrés directement dans la boîte aux lettres ou l'inventaire du personnage sélectionné dans les secondes suivant l'achat.\n\nSi vous ne recevez pas vos Éclats d'âme ou objets dans un délai raisonnable, veuillez nous contacter via le formulaire de contact."
       },
       "refund": {
         "title": "6. Politique de remboursement",
-        "content": "Achats de Soul Shards : Conformément à la Directive européenne 2011/83/UE relative aux droits des consommateurs, vous reconnaissez que la livraison du contenu numérique commence immédiatement après l'achat. En complétant un achat, vous consentez expressément à cette livraison immédiate et renoncez à votre droit de rétractation de 14 jours.\n\nAchats d'objets en jeu : Les objets achetés avec des Soul Shards peuvent être remboursés dans les 2 heures suivant l'achat, à condition que l'objet reste dans l'inventaire du personnage et n'ait pas été utilisé, équipé ou transféré. Les Soul Shards seront recrédités sur votre compte en cas de remboursement réussi.\n\nRétrofacturation : Initier une rétrofacturation auprès de votre banque sans nous contacter au préalable peut entraîner la suspension de votre compte. Veuillez d'abord nous contacter si vous avez un problème avec une transaction."
+        "content": "Achats de Éclats d'âme : Conformément à la Directive européenne 2011/83/UE relative aux droits des consommateurs, vous reconnaissez que la livraison du contenu numérique commence immédiatement après l'achat. En complétant un achat, vous consentez expressément à cette livraison immédiate et renoncez à votre droit de rétractation de 14 jours.\n\nAchats d'objets en jeu : Les objets achetés avec des Éclats d'âme peuvent être remboursés dans les 2 heures suivant l'achat, à condition que l'objet reste dans l'inventaire du personnage et n'ait pas été utilisé, équipé ou transféré. Les Éclats d'âme seront recrédités sur votre compte en cas de remboursement réussi.\n\nRétrofacturation : Initier une rétrofacturation auprès de votre banque sans nous contacter au préalable peut entraîner la suspension de votre compte. Veuillez d'abord nous contacter si vous avez un problème avec une transaction."
       },
       "shopItems": {
         "title": "7. Articles et services de la boutique",
@@ -632,11 +632,11 @@
       },
       "dataCollected": {
         "title": "2. Données collectées",
-        "content": "Nous collectons les données personnelles suivantes :\n\n- Informations de compte : nom d'utilisateur, adresse e-mail\n- Données de connexion : adresse IP, horodatages de connexion\n- Données de jeu : noms de personnages, niveaux, temps de jeu, activité en jeu\n- Données d'achat : historique des transactions, solde de Soul Shards, références de paiement (nous ne stockons pas les détails de carte bancaire)\n- Données de contact : messages envoyés via le formulaire de contact\n\nNous ne collectons pas de données personnelles sensibles (origine raciale, opinions politiques, données de santé, etc.)."
+        "content": "Nous collectons les données personnelles suivantes :\n\n- Informations de compte : nom d'utilisateur, adresse e-mail\n- Données de connexion : adresse IP, horodatages de connexion\n- Données de jeu : noms de personnages, niveaux, temps de jeu, activité en jeu\n- Données d'achat : historique des transactions, solde de Éclats d'âme, références de paiement (nous ne stockons pas les détails de carte bancaire)\n- Données de contact : messages envoyés via le formulaire de contact\n\nNous ne collectons pas de données personnelles sensibles (origine raciale, opinions politiques, données de santé, etc.)."
       },
       "purposes": {
         "title": "3. Finalités du traitement",
-        "content": "Vos données personnelles sont traitées aux fins suivantes :\n\n- Création de compte et authentification\n- Fourniture et maintenance du service de jeu\n- Traitement des achats en boutique et gestion des soldes de Soul Shards\n- Assurer la sécurité du serveur et prévenir la triche\n- Réponse aux demandes de support via le formulaire de contact\n- Envoi d'annonces de service importantes (ex. : maintenance, mises à jour)"
+        "content": "Vos données personnelles sont traitées aux fins suivantes :\n\n- Création de compte et authentification\n- Fourniture et maintenance du service de jeu\n- Traitement des achats en boutique et gestion des soldes de Éclats d'âme\n- Assurer la sécurité du serveur et prévenir la triche\n- Réponse aux demandes de support via le formulaire de contact\n- Envoi d'annonces de service importantes (ex. : maintenance, mises à jour)"
       },
       "legalBasis": {
         "title": "4. Base légale",
@@ -692,7 +692,7 @@
     },
     "shop": {
       "title": "Boutique",
-      "description": "Parcourez la boutique Lordaeron pour des montures, sets transmog, héritage, sacs, mascottes, jouets et services de personnage. Améliorez votre aventure avec des Soul Shards."
+      "description": "Parcourez la boutique Lordaeron pour des montures, sets transmog, héritage, sacs, mascottes, jouets et services de personnage. Améliorez votre aventure avec des Éclats d'âme."
     },
     "shopCategory": {
       "title": "{category} — Boutique",
@@ -712,7 +712,7 @@
     },
     "cgv": {
       "title": "Conditions Générales de Vente",
-      "description": "Lisez les CGV de Lordaeron. Découvrez les Soul Shards, les méthodes de paiement, la politique de remboursement et les achats en boutique."
+      "description": "Lisez les CGV de Lordaeron. Découvrez les Éclats d'âme, les méthodes de paiement, la politique de remboursement et les achats en boutique."
     },
     "rgpd": {
       "title": "Politique de Confidentialité (RGPD)",

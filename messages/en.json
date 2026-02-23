@@ -479,7 +479,8 @@
       "reason_purchaseNotRefundable": "Purchase not refundable",
       "reason_recipientNotFound": "Recipient not found",
       "reason_serverError": "Server error",
-      "reason_characterOnline": "Character is online"
+      "reason_characterOnline": "Character is online",
+      "soulShards": "Soul Shards"
     },
     "bans": {
       "title": "Shop Bans",

@@ -203,7 +203,7 @@
     "realmInfo": "Informazioni reame",
     "realmName": "Nome reame",
     "realmStatus": "Stato",
-    "soulShards": "Soul Shards",
+    "soulShards": "Frammenti d'anima",
     "banned": "Account bannato",
     "ipBanned": "IP bannato",
     "banReason": "Motivo",
@@ -301,9 +301,9 @@
     "actions": "Azioni",
     "refund": "Rimborsa",
     "confirmRefund": "Conferma rimborso",
-    "confirmRefundDesc": "Sei sicuro? I Soul Shards verranno accreditati sul tuo account.",
+    "confirmRefundDesc": "Sei sicuro? I Frammenti d'anima verranno accreditati sul tuo account.",
     "refundSuccess": "Rimborso riuscito!",
-    "refundSuccessDesc": "I Soul Shards sono stati accreditati sul tuo account.",
+    "refundSuccessDesc": "I Frammenti d'anima sono stati accreditati sul tuo account.",
     "statusCompleted": "Completato",
     "statusRefunded": "Rimborsato",
     "statusPending": "In attesa",
@@ -344,16 +344,16 @@
       "6": "6 — Artefatto (oro)",
       "7": "7 — Cimelio (oro)"
     },
-    "buyShards": "Acquista Soul Shards",
-    "buyShardsTitle": "Acquista Soul Shards",
+    "buyShards": "Acquista Frammenti d'anima",
+    "buyShardsTitle": "Acquista Frammenti d'anima",
     "buyShardsSubtitle": "Seleziona un pacchetto per ricaricare il tuo saldo",
-    "needMoreShards": "Ti servono {count} Soul Shards in più",
-    "soulShards": "Soul Shards",
+    "needMoreShards": "Ti servono {count} Frammenti d'anima in più",
+    "soulShards": "Frammenti d'anima",
     "bestValue": "Miglior offerta",
     "recommended": "Consigliato",
     "popular": "Popolare",
     "redirectingToStripe": "Reindirizzamento al pagamento...",
-    "checkoutSuccess": "Pagamento riuscito! I tuoi Soul Shards sono stati accreditati.",
+    "checkoutSuccess": "Pagamento riuscito! I tuoi Frammenti d'anima sono stati accreditati.",
     "checkoutCancelled": "Pagamento annullato. Non è stato addebitato alcun importo.",
     "errors": {
       "unauthorized": "Accedi per accedere al negozio",
@@ -362,7 +362,7 @@
       "accountBanned": "Il tuo account è bannato dal negozio",
       "itemNotFound": "Articolo non trovato",
       "characterNotFound": "Personaggio non trovato",
-      "insufficientBalance": "Saldo Soul Shards insufficiente",
+      "insufficientBalance": "Saldo Frammenti d'anima insufficiente",
       "realmRestricted": "Articolo non disponibile su questo reame",
       "raceRestricted": "Articolo non disponibile per questa razza",
       "classRestricted": "Articolo non disponibile per questa classe",
@@ -411,7 +411,7 @@
       "removePiece": "Rimuovi",
       "setNotFound": "Set non trovato"
     },
-    "purchases": { "title": "Cronologia acquisti", "account": "Account", "character": "Personaggio", "item": "Articolo", "price": "Prezzo", "status": "Stato", "date": "Data", "refund": "Rimborsa", "confirmRefund": "Sei sicuro di voler rimborsare questo acquisto?", "refundSuccess": "Acquisto rimborsato con successo", "actions": "Azioni", "retry": "Riprova", "retrySuccess": "Nuovo tentativo di consegna riuscito", "retryFailed": "Nuovo tentativo di consegna fallito", "status_completed": "Completato", "status_refunded": "Rimborsato", "status_pending_refund": "Rimborso in sospeso", "status_pending_delivery": "Consegna in sospeso", "status_cancelled": "Annullato", "reason_itemNotRefundable": "Non rimborsabile", "reason_refundExpired": "Termine di 2h scaduto", "reason_itemNotInInventory": "Oggetto non nell'inventario", "reason_purchaseNotRefundable": "Acquisto non rimborsabile", "reason_recipientNotFound": "Destinatario non trovato", "reason_serverError": "Errore del server", "reason_characterOnline": "Personaggio in linea" },
+    "purchases": { "title": "Cronologia acquisti", "account": "Account", "character": "Personaggio", "item": "Articolo", "price": "Prezzo", "status": "Stato", "date": "Data", "refund": "Rimborsa", "confirmRefund": "Sei sicuro di voler rimborsare questo acquisto?", "refundSuccess": "Acquisto rimborsato con successo", "actions": "Azioni", "retry": "Riprova", "retrySuccess": "Nuovo tentativo di consegna riuscito", "retryFailed": "Nuovo tentativo di consegna fallito", "status_completed": "Completato", "status_refunded": "Rimborsato", "status_pending_refund": "Rimborso in sospeso", "status_pending_delivery": "Consegna in sospeso", "status_cancelled": "Annullato", "reason_itemNotRefundable": "Non rimborsabile", "reason_refundExpired": "Termine di 2h scaduto", "reason_itemNotInInventory": "Oggetto non nell'inventario", "reason_purchaseNotRefundable": "Acquisto non rimborsabile", "reason_recipientNotFound": "Destinatario non trovato", "reason_serverError": "Errore del server", "reason_characterOnline": "Personaggio in linea", "soulShards": "Frammenti d'anima" },
     "bans": { "title": "Ban del negozio", "addBan": "Aggiungi ban", "accountId": "ID account", "reason": "Motivo", "expiresAt": "Scade il", "permanent": "Permanente", "active": "Attivo", "actions": "Azioni", "remove": "Rimuovi" },
     "audit": { "title": "Registro audit", "admin": "Admin", "action": "Azione", "target": "Obiettivo", "details": "Dettagli", "date": "Data", "action_create_item": "Creazione articolo", "action_update_item": "Modifica articolo", "action_deactivate_item": "Disattivazione articolo", "action_create_set": "Creazione set", "action_update_set": "Modifica set", "action_deactivate_set": "Disattivazione set", "action_create_ban": "Creazione ban", "action_update_ban": "Modifica ban", "action_delete_ban": "Eliminazione ban", "action_retry_delivery": "Nuovo tentativo di consegna", "action_refund_purchase": "Rimborso", "target_shop_item": "Articolo", "target_shop_set": "Set", "target_shop_ban": "Ban", "target_shop_purchase": "Acquisto", "action_create_news": "Creazione articolo", "action_update_news": "Modifica articolo", "action_delete_news": "Eliminazione articolo", "target_news": "Notizia" },
     "news": {
@@ -554,7 +554,7 @@
       },
       "access": {
         "title": "2. Accesso e idoneità",
-        "content": "Lordaeron è un server privato World of Warcraft gratuito (free-to-play). Devi avere almeno 13 anni per creare un account e utilizzare i nostri servizi.\n\nL'accesso al server è fornito gratuitamente. Oggetti cosmetici e di comodità opzionali possono essere acquistati tramite il nostro negozio in-game utilizzando i Soul Shards, la nostra valuta virtuale. Non è richiesto alcun acquisto per godere dell'esperienza di gioco completa."
+        "content": "Lordaeron è un server privato World of Warcraft gratuito (free-to-play). Devi avere almeno 13 anni per creare un account e utilizzare i nostri servizi.\n\nL'accesso al server è fornito gratuitamente. Oggetti cosmetici e di comodità opzionali possono essere acquistati tramite il nostro negozio in-game utilizzando i Frammenti d'anima, la nostra valuta virtuale. Non è richiesto alcun acquisto per godere dell'esperienza di gioco completa."
       },
       "account": {
         "title": "3. Responsabilità dell'account",
@@ -574,7 +574,7 @@
       },
       "termination": {
         "title": "7. Terminazione dell'account",
-        "content": "Ci riserviamo il diritto di sospendere o terminare il tuo account in qualsiasi momento, con o senza causa, con o senza preavviso. I motivi di terminazione possono includere, ma non sono limitati a:\n\n- Violazione di questi Termini di Utilizzo\n- Violazione del Codice di Condotta\n- Cheating, sfruttamento o utilizzo di software non autorizzato\n- Attività fraudolenta o chargeback sugli acquisti di Soul Shards\n\nPuoi richiedere la cancellazione del tuo account in qualsiasi momento contattandoci tramite il modulo di contatto."
+        "content": "Ci riserviamo il diritto di sospendere o terminare il tuo account in qualsiasi momento, con o senza causa, con o senza preavviso. I motivi di terminazione possono includere, ma non sono limitati a:\n\n- Violazione di questi Termini di Utilizzo\n- Violazione del Codice di Condotta\n- Cheating, sfruttamento o utilizzo di software non autorizzato\n- Attività fraudolenta o chargeback sugli acquisti di Frammenti d'anima\n\nPuoi richiedere la cancellazione del tuo account in qualsiasi momento contattandoci tramite il modulo di contatto."
       },
       "modifications": {
         "title": "8. Modifiche ai termini",
@@ -592,24 +592,24 @@
         "content": "Queste Condizioni di Vendita regolano tutti gli acquisti effettuati tramite il negozio del sito web di Lordaeron. Effettuando un acquisto, accetti queste condizioni.\n\nIl venditore è il team del progetto Lordaeron. Tutte le transazioni sono elaborate in Euro (EUR) e sono soggette alle tasse e ai regolamenti applicabili."
       },
       "soulShards": {
-        "title": "2. Soul Shards — Valuta virtuale",
-        "content": "I Soul Shards sono la valuta virtuale di Lordaeron utilizzata esclusivamente nel nostro negozio in-game. I Soul Shards non hanno valore monetario reale e non possono essere scambiati con valuta reale.\n\nI Soul Shards non sono trasferibili tra account. Sono legati all'account che li ha acquistati e non possono essere regalati, scambiati o venduti ad altri giocatori.\n\nIl team di Lordaeron si riserva il diritto di modificare i pacchetti di Soul Shards, i prezzi e la disponibilità in qualsiasi momento."
+        "title": "2. Frammenti d'anima — Valuta virtuale",
+        "content": "I Frammenti d'anima sono la valuta virtuale di Lordaeron utilizzata esclusivamente nel nostro negozio in-game. I Frammenti d'anima non hanno valore monetario reale e non possono essere scambiati con valuta reale.\n\nI Frammenti d'anima non sono trasferibili tra account. Sono legati all'account che li ha acquistati e non possono essere regalati, scambiati o venduti ad altri giocatori.\n\nIl team di Lordaeron si riserva il diritto di modificare i pacchetti di Frammenti d'anima, i prezzi e la disponibilità in qualsiasi momento."
       },
       "pricing": {
         "title": "3. Prezzi e pacchetti",
-        "content": "Tutti i prezzi sono visualizzati in Euro (EUR) e includono le tasse applicabili. I pacchetti di Soul Shards disponibili e i loro prezzi sono visualizzati nella pagina del negozio.\n\nI prezzi sono soggetti a modifiche senza preavviso. Il prezzo al momento dell'acquisto è il prezzo che si applica alla tua transazione."
+        "content": "Tutti i prezzi sono visualizzati in Euro (EUR) e includono le tasse applicabili. I pacchetti di Frammenti d'anima disponibili e i loro prezzi sono visualizzati nella pagina del negozio.\n\nI prezzi sono soggetti a modifiche senza preavviso. Il prezzo al momento dell'acquisto è il prezzo che si applica alla tua transazione."
       },
       "payment": {
         "title": "4. Pagamento",
-        "content": "Tutti i pagamenti sono elaborati in modo sicuro tramite Stripe, un processore di pagamenti certificato PCI DSS Livello 1. Non memorizziamo le informazioni della tua carta di credito sui nostri server.\n\nI metodi di pagamento accettati includono carte di credito (Visa, Mastercard, American Express), carte di debito e altri metodi supportati da Stripe nella tua regione.\n\nI pagamenti vengono elaborati immediatamente dopo la conferma. I Soul Shards vengono accreditati sul tuo account non appena il pagamento viene confermato da Stripe."
+        "content": "Tutti i pagamenti sono elaborati in modo sicuro tramite Stripe, un processore di pagamenti certificato PCI DSS Livello 1. Non memorizziamo le informazioni della tua carta di credito sui nostri server.\n\nI metodi di pagamento accettati includono carte di credito (Visa, Mastercard, American Express), carte di debito e altri metodi supportati da Stripe nella tua regione.\n\nI pagamenti vengono elaborati immediatamente dopo la conferma. I Frammenti d'anima vengono accreditati sul tuo account non appena il pagamento viene confermato da Stripe."
       },
       "delivery": {
         "title": "5. Consegna",
-        "content": "I Soul Shards vengono consegnati digitalmente e istantaneamente sul tuo account Lordaeron dopo la conferma del pagamento.\n\nGli oggetti in-game acquistati con i Soul Shards vengono consegnati direttamente nella casella postale o nell'inventario del personaggio selezionato entro pochi secondi dall'acquisto.\n\nSe non ricevi i tuoi Soul Shards o gli oggetti entro un tempo ragionevole, contattaci tramite il modulo di contatto."
+        "content": "I Frammenti d'anima vengono consegnati digitalmente e istantaneamente sul tuo account Lordaeron dopo la conferma del pagamento.\n\nGli oggetti in-game acquistati con i Frammenti d'anima vengono consegnati direttamente nella casella postale o nell'inventario del personaggio selezionato entro pochi secondi dall'acquisto.\n\nSe non ricevi i tuoi Frammenti d'anima o gli oggetti entro un tempo ragionevole, contattaci tramite il modulo di contatto."
       },
       "refund": {
         "title": "6. Politica di rimborso",
-        "content": "Acquisti di Soul Shards: In conformità con la Direttiva UE 2011/83/UE sui diritti dei consumatori, riconosci che la consegna del contenuto digitale inizia immediatamente dopo l'acquisto. Completando un acquisto, acconsenti espressamente a questa consegna immediata e rinunci al tuo diritto di recesso di 14 giorni.\n\nAcquisti di oggetti in-game: Gli oggetti acquistati con i Soul Shards possono essere rimborsati entro 2 ore dall'acquisto, a condizione che l'oggetto rimanga nell'inventario del personaggio e non sia stato usato, equipaggiato o trasferito. I Soul Shards verranno riaccreditati sul tuo account in caso di rimborso riuscito.\n\nChargeback: Avviare un chargeback con la tua banca senza averci contattato prima può comportare la sospensione del tuo account. Contattaci prima se hai problemi con una transazione."
+        "content": "Acquisti di Frammenti d'anima: In conformità con la Direttiva UE 2011/83/UE sui diritti dei consumatori, riconosci che la consegna del contenuto digitale inizia immediatamente dopo l'acquisto. Completando un acquisto, acconsenti espressamente a questa consegna immediata e rinunci al tuo diritto di recesso di 14 giorni.\n\nAcquisti di oggetti in-game: Gli oggetti acquistati con i Frammenti d'anima possono essere rimborsati entro 2 ore dall'acquisto, a condizione che l'oggetto rimanga nell'inventario del personaggio e non sia stato usato, equipaggiato o trasferito. I Frammenti d'anima verranno riaccreditati sul tuo account in caso di rimborso riuscito.\n\nChargeback: Avviare un chargeback con la tua banca senza averci contattato prima può comportare la sospensione del tuo account. Contattaci prima se hai problemi con una transazione."
       },
       "shopItems": {
         "title": "7. Articoli e servizi del negozio",
@@ -632,11 +632,11 @@
       },
       "dataCollected": {
         "title": "2. Dati raccolti",
-        "content": "Raccogliamo i seguenti dati personali:\n\n- Informazioni dell'account: nome utente, indirizzo e-mail\n- Dati di connessione: indirizzo IP, timestamp di accesso\n- Dati di gioco: nomi dei personaggi, livelli, tempo di gioco, attività in-game\n- Dati di acquisto: cronologia delle transazioni, saldo Soul Shards, riferimenti di pagamento (non memorizziamo i dati della carta di credito)\n- Dati di contatto: messaggi inviati tramite il modulo di contatto\n\nNon raccogliamo dati personali sensibili (origine razziale, opinioni politiche, dati sanitari, ecc.)."
+        "content": "Raccogliamo i seguenti dati personali:\n\n- Informazioni dell'account: nome utente, indirizzo e-mail\n- Dati di connessione: indirizzo IP, timestamp di accesso\n- Dati di gioco: nomi dei personaggi, livelli, tempo di gioco, attività in-game\n- Dati di acquisto: cronologia delle transazioni, saldo Frammenti d'anima, riferimenti di pagamento (non memorizziamo i dati della carta di credito)\n- Dati di contatto: messaggi inviati tramite il modulo di contatto\n\nNon raccogliamo dati personali sensibili (origine razziale, opinioni politiche, dati sanitari, ecc.)."
       },
       "purposes": {
         "title": "3. Finalità del trattamento",
-        "content": "I tuoi dati personali vengono trattati per le seguenti finalità:\n\n- Creazione dell'account e autenticazione\n- Fornitura e manutenzione del servizio di gioco\n- Elaborazione degli acquisti nel negozio e gestione dei saldi Soul Shards\n- Garantire la sicurezza del server e prevenire il cheating\n- Risposta alle richieste di supporto tramite il modulo di contatto\n- Invio di annunci importanti del servizio (es. manutenzione, aggiornamenti)"
+        "content": "I tuoi dati personali vengono trattati per le seguenti finalità:\n\n- Creazione dell'account e autenticazione\n- Fornitura e manutenzione del servizio di gioco\n- Elaborazione degli acquisti nel negozio e gestione dei saldi Frammenti d'anima\n- Garantire la sicurezza del server e prevenire il cheating\n- Risposta alle richieste di supporto tramite il modulo di contatto\n- Invio di annunci importanti del servizio (es. manutenzione, aggiornamenti)"
       },
       "legalBasis": {
         "title": "4. Base giuridica",
@@ -692,7 +692,7 @@
     },
     "shop": {
       "title": "Negozio",
-      "description": "Esplora il negozio di Lordaeron per cavalcature, set di transmog, cimeli, borse, mascotte, giocattoli e servizi per i personaggi. Migliora la tua avventura con i Soul Shards."
+      "description": "Esplora il negozio di Lordaeron per cavalcature, set di transmog, cimeli, borse, mascotte, giocattoli e servizi per i personaggi. Migliora la tua avventura con i Frammenti d'anima."
     },
     "shopCategory": {
       "title": "{category} — Negozio",
@@ -712,7 +712,7 @@
     },
     "cgv": {
       "title": "Condizioni di Vendita",
-      "description": "Leggi le Condizioni di Vendita di Lordaeron. Scopri i Soul Shards, i metodi di pagamento, la politica di rimborso e gli acquisti nel negozio."
+      "description": "Leggi le Condizioni di Vendita di Lordaeron. Scopri i Frammenti d'anima, i metodi di pagamento, la politica di rimborso e gli acquisti nel negozio."
     },
     "rgpd": {
       "title": "Informativa sulla Privacy (GDPR)",

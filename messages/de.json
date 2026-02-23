@@ -203,7 +203,7 @@
     "realmInfo": "Realm-Informationen",
     "realmName": "Realm-Name",
     "realmStatus": "Status",
-    "soulShards": "Soul Shards",
+    "soulShards": "Seelensplitter",
     "banned": "Konto gesperrt",
     "ipBanned": "IP gesperrt",
     "banReason": "Grund",
@@ -301,9 +301,9 @@
     "actions": "Aktionen",
     "refund": "Erstatten",
     "confirmRefund": "Erstattung bestätigen",
-    "confirmRefundDesc": "Bist du sicher? Die Soul Shards werden deinem Konto gutgeschrieben.",
+    "confirmRefundDesc": "Bist du sicher? Die Seelensplitter werden deinem Konto gutgeschrieben.",
     "refundSuccess": "Erstattung erfolgreich!",
-    "refundSuccessDesc": "Die Soul Shards wurden deinem Konto gutgeschrieben.",
+    "refundSuccessDesc": "Die Seelensplitter wurden deinem Konto gutgeschrieben.",
     "statusCompleted": "Abgeschlossen",
     "statusRefunded": "Erstattet",
     "statusPending": "Ausstehend",
@@ -344,16 +344,16 @@
       "6": "6 — Artefakt (gold)",
       "7": "7 — Erbstück (gold)"
     },
-    "buyShards": "Soul Shards kaufen",
-    "buyShardsTitle": "Soul Shards kaufen",
+    "buyShards": "Seelensplitter kaufen",
+    "buyShardsTitle": "Seelensplitter kaufen",
     "buyShardsSubtitle": "Wähle ein Paket, um dein Guthaben aufzuladen",
-    "needMoreShards": "Dir fehlen {count} Soul Shards",
-    "soulShards": "Soul Shards",
+    "needMoreShards": "Dir fehlen {count} Seelensplitter",
+    "soulShards": "Seelensplitter",
     "bestValue": "Bestes Angebot",
     "recommended": "Empfohlen",
     "popular": "Beliebt",
     "redirectingToStripe": "Weiterleitung zur Zahlung...",
-    "checkoutSuccess": "Zahlung erfolgreich! Deine Soul Shards wurden gutgeschrieben.",
+    "checkoutSuccess": "Zahlung erfolgreich! Deine Seelensplitter wurden gutgeschrieben.",
     "checkoutCancelled": "Zahlung abgebrochen. Es wurden keine Kosten erhoben.",
     "errors": {
       "unauthorized": "Bitte melde dich an, um den Shop zu nutzen",
@@ -362,7 +362,7 @@
       "accountBanned": "Dein Konto ist vom Shop gesperrt",
       "itemNotFound": "Artikel nicht gefunden",
       "characterNotFound": "Charakter nicht gefunden",
-      "insufficientBalance": "Nicht genügend Soul Shards",
+      "insufficientBalance": "Nicht genügend Seelensplitter",
       "realmRestricted": "Artikel auf diesem Realm nicht verfügbar",
       "raceRestricted": "Artikel für diese Rasse nicht verfügbar",
       "classRestricted": "Artikel für diese Klasse nicht verfügbar",
@@ -411,7 +411,7 @@
       "removePiece": "Entfernen",
       "setNotFound": "Set nicht gefunden"
     },
-    "purchases": { "title": "Kaufhistorie", "account": "Konto", "character": "Charakter", "item": "Artikel", "price": "Preis", "status": "Status", "date": "Datum", "refund": "Erstatten", "confirmRefund": "Diesen Kauf wirklich erstatten?", "refundSuccess": "Kauf erfolgreich erstattet", "actions": "Aktionen", "retry": "Wiederholen", "retrySuccess": "Zustellungswiederholung erfolgreich", "retryFailed": "Zustellungswiederholung fehlgeschlagen", "status_completed": "Abgeschlossen", "status_refunded": "Erstattet", "status_pending_refund": "Erstattung ausstehend", "status_pending_delivery": "Lieferung ausstehend", "status_cancelled": "Storniert", "reason_itemNotRefundable": "Nicht erstattbar", "reason_refundExpired": "2h-Frist abgelaufen", "reason_itemNotInInventory": "Gegenstand nicht im Inventar", "reason_purchaseNotRefundable": "Kauf nicht erstattbar", "reason_recipientNotFound": "Empfänger nicht gefunden", "reason_serverError": "Serverfehler", "reason_characterOnline": "Charakter ist online" },
+    "purchases": { "title": "Kaufhistorie", "account": "Konto", "character": "Charakter", "item": "Artikel", "price": "Preis", "status": "Status", "date": "Datum", "refund": "Erstatten", "confirmRefund": "Diesen Kauf wirklich erstatten?", "refundSuccess": "Kauf erfolgreich erstattet", "actions": "Aktionen", "retry": "Wiederholen", "retrySuccess": "Zustellungswiederholung erfolgreich", "retryFailed": "Zustellungswiederholung fehlgeschlagen", "status_completed": "Abgeschlossen", "status_refunded": "Erstattet", "status_pending_refund": "Erstattung ausstehend", "status_pending_delivery": "Lieferung ausstehend", "status_cancelled": "Storniert", "reason_itemNotRefundable": "Nicht erstattbar", "reason_refundExpired": "2h-Frist abgelaufen", "reason_itemNotInInventory": "Gegenstand nicht im Inventar", "reason_purchaseNotRefundable": "Kauf nicht erstattbar", "reason_recipientNotFound": "Empfänger nicht gefunden", "reason_serverError": "Serverfehler", "reason_characterOnline": "Charakter ist online", "soulShards": "Seelensplitter" },
     "bans": { "title": "Shop-Sperren", "addBan": "Sperre hinzufügen", "accountId": "Konto-ID", "reason": "Grund", "expiresAt": "Läuft ab am", "permanent": "Permanent", "active": "Aktiv", "actions": "Aktionen", "remove": "Entfernen" },
     "audit": { "title": "Audit-Protokoll", "admin": "Admin", "action": "Aktion", "target": "Ziel", "details": "Details", "date": "Datum", "action_create_item": "Artikel erstellen", "action_update_item": "Artikel bearbeiten", "action_deactivate_item": "Artikel deaktivieren", "action_create_set": "Set erstellen", "action_update_set": "Set bearbeiten", "action_deactivate_set": "Set deaktivieren", "action_create_ban": "Sperre erstellen", "action_update_ban": "Sperre bearbeiten", "action_delete_ban": "Sperre löschen", "action_retry_delivery": "Zustellung wiederholen", "action_refund_purchase": "Erstattung", "target_shop_item": "Artikel", "target_shop_set": "Set", "target_shop_ban": "Sperre", "target_shop_purchase": "Kauf", "action_create_news": "Artikel erstellen", "action_update_news": "Artikel bearbeiten", "action_delete_news": "Artikel löschen", "target_news": "Neuigkeit" },
     "news": {
@@ -554,7 +554,7 @@
       },
       "access": {
         "title": "2. Zugang und Berechtigung",
-        "content": "Lordaeron ist ein kostenloser (Free-to-Play) World of Warcraft Privatserver. Sie müssen mindestens 13 Jahre alt sein, um ein Konto zu erstellen und unsere Dienste zu nutzen.\n\nDer Zugang zum Server wird kostenlos bereitgestellt. Optionale kosmetische und Komfort-Gegenstände können über unseren In-Game-Shop mit Soul Shards, unserer virtuellen Währung, erworben werden. Es ist kein Kauf erforderlich, um das volle Spielerlebnis zu genießen."
+        "content": "Lordaeron ist ein kostenloser (Free-to-Play) World of Warcraft Privatserver. Sie müssen mindestens 13 Jahre alt sein, um ein Konto zu erstellen und unsere Dienste zu nutzen.\n\nDer Zugang zum Server wird kostenlos bereitgestellt. Optionale kosmetische und Komfort-Gegenstände können über unseren In-Game-Shop mit Seelensplitter, unserer virtuellen Währung, erworben werden. Es ist kein Kauf erforderlich, um das volle Spielerlebnis zu genießen."
       },
       "account": {
         "title": "3. Kontoverantwortlichkeiten",
@@ -574,7 +574,7 @@
       },
       "termination": {
         "title": "7. Kontokündigung",
-        "content": "Wir behalten uns das Recht vor, Ihr Konto jederzeit mit oder ohne Grund, mit oder ohne Vorankündigung zu sperren oder zu kündigen. Gründe für die Kündigung können unter anderem sein:\n\n- Verstoß gegen diese Nutzungsbedingungen\n- Verstoß gegen den Verhaltenskodex\n- Cheaten, Exploiten oder Verwenden nicht autorisierter Software\n- Betrügerische Aktivitäten oder Rückbuchungen bei Soul Shard-Käufen\n\nSie können jederzeit die Löschung Ihres Kontos beantragen, indem Sie uns über das Kontaktformular kontaktieren."
+        "content": "Wir behalten uns das Recht vor, Ihr Konto jederzeit mit oder ohne Grund, mit oder ohne Vorankündigung zu sperren oder zu kündigen. Gründe für die Kündigung können unter anderem sein:\n\n- Verstoß gegen diese Nutzungsbedingungen\n- Verstoß gegen den Verhaltenskodex\n- Cheaten, Exploiten oder Verwenden nicht autorisierter Software\n- Betrügerische Aktivitäten oder Rückbuchungen bei Seelensplitter-Käufen\n\nSie können jederzeit die Löschung Ihres Kontos beantragen, indem Sie uns über das Kontaktformular kontaktieren."
       },
       "modifications": {
         "title": "8. Änderungen der Bedingungen",
@@ -592,24 +592,24 @@
         "content": "Diese Verkaufsbedingungen gelten für alle Käufe, die über den Lordaeron-Website-Shop getätigt werden. Durch einen Kauf akzeptieren Sie diese Bedingungen.\n\nDer Verkäufer ist das Lordaeron-Projektteam. Alle Transaktionen werden in Euro (EUR) abgewickelt und unterliegen den geltenden Steuern und Vorschriften."
       },
       "soulShards": {
-        "title": "2. Soul Shards — Virtuelle Währung",
-        "content": "Soul Shards sind Lordaerons virtuelle Währung, die ausschließlich in unserem In-Game-Shop verwendet wird. Soul Shards haben keinen realen Geldwert und können nicht gegen echte Währung eingetauscht werden.\n\nSoul Shards sind nicht zwischen Konten übertragbar. Sie sind an das Konto gebunden, das sie gekauft hat, und können nicht verschenkt, getauscht oder an andere Spieler verkauft werden.\n\nDas Lordaeron-Team behält sich das Recht vor, Soul Shard-Pakete, Preise und Verfügbarkeit jederzeit zu ändern."
+        "title": "2. Seelensplitter — Virtuelle Währung",
+        "content": "Seelensplitter sind Lordaerons virtuelle Währung, die ausschließlich in unserem In-Game-Shop verwendet wird. Seelensplitter haben keinen realen Geldwert und können nicht gegen echte Währung eingetauscht werden.\n\nSeelensplitter sind nicht zwischen Konten übertragbar. Sie sind an das Konto gebunden, das sie gekauft hat, und können nicht verschenkt, getauscht oder an andere Spieler verkauft werden.\n\nDas Lordaeron-Team behält sich das Recht vor, Seelensplitter-Pakete, Preise und Verfügbarkeit jederzeit zu ändern."
       },
       "pricing": {
         "title": "3. Preise und Pakete",
-        "content": "Alle Preise werden in Euro (EUR) angezeigt und enthalten die geltenden Steuern. Die verfügbaren Soul Shard-Pakete und ihre Preise werden auf der Shop-Seite angezeigt.\n\nPreise können ohne vorherige Ankündigung geändert werden. Der Preis zum Zeitpunkt des Kaufs ist der für Ihre Transaktion geltende Preis."
+        "content": "Alle Preise werden in Euro (EUR) angezeigt und enthalten die geltenden Steuern. Die verfügbaren Seelensplitter-Pakete und ihre Preise werden auf der Shop-Seite angezeigt.\n\nPreise können ohne vorherige Ankündigung geändert werden. Der Preis zum Zeitpunkt des Kaufs ist der für Ihre Transaktion geltende Preis."
       },
       "payment": {
         "title": "4. Zahlung",
-        "content": "Alle Zahlungen werden sicher über Stripe abgewickelt, einen PCI DSS Level 1 zertifizierten Zahlungsabwickler. Wir speichern keine Kreditkarteninformationen auf unseren Servern.\n\nAkzeptierte Zahlungsmethoden umfassen Kreditkarten (Visa, Mastercard, American Express), Debitkarten und andere von Stripe in Ihrer Region unterstützte Methoden.\n\nZahlungen werden sofort nach Bestätigung verarbeitet. Soul Shards werden Ihrem Konto gutgeschrieben, sobald die Zahlung von Stripe bestätigt wird."
+        "content": "Alle Zahlungen werden sicher über Stripe abgewickelt, einen PCI DSS Level 1 zertifizierten Zahlungsabwickler. Wir speichern keine Kreditkarteninformationen auf unseren Servern.\n\nAkzeptierte Zahlungsmethoden umfassen Kreditkarten (Visa, Mastercard, American Express), Debitkarten und andere von Stripe in Ihrer Region unterstützte Methoden.\n\nZahlungen werden sofort nach Bestätigung verarbeitet. Seelensplitter werden Ihrem Konto gutgeschrieben, sobald die Zahlung von Stripe bestätigt wird."
       },
       "delivery": {
         "title": "5. Lieferung",
-        "content": "Soul Shards werden nach erfolgreicher Zahlungsbestätigung digital und sofort auf Ihr Lordaeron-Konto geliefert.\n\nMit Soul Shards gekaufte In-Game-Gegenstände werden innerhalb von Sekunden nach dem Kauf direkt in das Postfach oder Inventar des ausgewählten Charakters geliefert.\n\nWenn Sie Ihre Soul Shards oder Gegenstände nicht innerhalb einer angemessenen Zeit erhalten, kontaktieren Sie uns bitte über das Kontaktformular."
+        "content": "Seelensplitter werden nach erfolgreicher Zahlungsbestätigung digital und sofort auf Ihr Lordaeron-Konto geliefert.\n\nMit Seelensplitter gekaufte In-Game-Gegenstände werden innerhalb von Sekunden nach dem Kauf direkt in das Postfach oder Inventar des ausgewählten Charakters geliefert.\n\nWenn Sie Ihre Seelensplitter oder Gegenstände nicht innerhalb einer angemessenen Zeit erhalten, kontaktieren Sie uns bitte über das Kontaktformular."
       },
       "refund": {
         "title": "6. Rückerstattungsrichtlinie",
-        "content": "Soul Shard-Käufe: Gemäß der EU-Richtlinie 2011/83/EU über Verbraucherrechte erkennen Sie an, dass die Lieferung digitaler Inhalte unmittelbar nach dem Kauf beginnt. Durch den Abschluss eines Kaufs stimmen Sie dieser sofortigen Lieferung ausdrücklich zu und verzichten auf Ihr 14-tägiges Widerrufsrecht.\n\nIn-Game-Gegenstand-Käufe: Mit Soul Shards gekaufte Gegenstände können innerhalb von 2 Stunden nach dem Kauf erstattet werden, sofern der Gegenstand im Inventar des Charakters verbleibt und nicht verwendet, ausgerüstet oder übertragen wurde. Die Soul Shards werden bei erfolgreicher Rückerstattung Ihrem Konto gutgeschrieben.\n\nRückbuchungen: Eine Rückbuchung über Ihre Bank ohne vorherige Kontaktaufnahme mit uns kann zur Sperrung Ihres Kontos führen. Bitte kontaktieren Sie uns zuerst, wenn Sie Probleme mit einer Transaktion haben."
+        "content": "Seelensplitter-Käufe: Gemäß der EU-Richtlinie 2011/83/EU über Verbraucherrechte erkennen Sie an, dass die Lieferung digitaler Inhalte unmittelbar nach dem Kauf beginnt. Durch den Abschluss eines Kaufs stimmen Sie dieser sofortigen Lieferung ausdrücklich zu und verzichten auf Ihr 14-tägiges Widerrufsrecht.\n\nIn-Game-Gegenstand-Käufe: Mit Seelensplitter gekaufte Gegenstände können innerhalb von 2 Stunden nach dem Kauf erstattet werden, sofern der Gegenstand im Inventar des Charakters verbleibt und nicht verwendet, ausgerüstet oder übertragen wurde. Die Seelensplitter werden bei erfolgreicher Rückerstattung Ihrem Konto gutgeschrieben.\n\nRückbuchungen: Eine Rückbuchung über Ihre Bank ohne vorherige Kontaktaufnahme mit uns kann zur Sperrung Ihres Kontos führen. Bitte kontaktieren Sie uns zuerst, wenn Sie Probleme mit einer Transaktion haben."
       },
       "shopItems": {
         "title": "7. Shop-Artikel und Dienste",
@@ -632,11 +632,11 @@
       },
       "dataCollected": {
         "title": "2. Erhobene Daten",
-        "content": "Wir erheben die folgenden personenbezogenen Daten:\n\n- Kontoinformationen: Benutzername, E-Mail-Adresse\n- Verbindungsdaten: IP-Adresse, Anmeldezeitstempel\n- Spieldaten: Charakternamen, Level, Spielzeit, In-Game-Aktivität\n- Kaufdaten: Transaktionshistorie, Soul Shard-Guthaben, Zahlungsreferenzen (wir speichern keine Kreditkartendaten)\n- Kontaktdaten: Nachrichten über das Kontaktformular\n\nWir erheben keine sensiblen personenbezogenen Daten (rassische Herkunft, politische Meinungen, Gesundheitsdaten usw.)."
+        "content": "Wir erheben die folgenden personenbezogenen Daten:\n\n- Kontoinformationen: Benutzername, E-Mail-Adresse\n- Verbindungsdaten: IP-Adresse, Anmeldezeitstempel\n- Spieldaten: Charakternamen, Level, Spielzeit, In-Game-Aktivität\n- Kaufdaten: Transaktionshistorie, Seelensplitter-Guthaben, Zahlungsreferenzen (wir speichern keine Kreditkartendaten)\n- Kontaktdaten: Nachrichten über das Kontaktformular\n\nWir erheben keine sensiblen personenbezogenen Daten (rassische Herkunft, politische Meinungen, Gesundheitsdaten usw.)."
       },
       "purposes": {
         "title": "3. Zwecke der Verarbeitung",
-        "content": "Ihre personenbezogenen Daten werden für folgende Zwecke verarbeitet:\n\n- Kontoerstellung und Authentifizierung\n- Bereitstellung und Wartung des Spieldienstes\n- Verarbeitung von Shop-Käufen und Verwaltung von Soul Shard-Guthaben\n- Gewährleistung der Serversicherheit und Verhinderung von Betrug\n- Beantwortung von Support-Anfragen über das Kontaktformular\n- Versand wichtiger Dienstankündigungen (z.B. Wartung, Updates)"
+        "content": "Ihre personenbezogenen Daten werden für folgende Zwecke verarbeitet:\n\n- Kontoerstellung und Authentifizierung\n- Bereitstellung und Wartung des Spieldienstes\n- Verarbeitung von Shop-Käufen und Verwaltung von Seelensplitter-Guthaben\n- Gewährleistung der Serversicherheit und Verhinderung von Betrug\n- Beantwortung von Support-Anfragen über das Kontaktformular\n- Versand wichtiger Dienstankündigungen (z.B. Wartung, Updates)"
       },
       "legalBasis": {
         "title": "4. Rechtsgrundlage",
@@ -692,7 +692,7 @@
     },
     "shop": {
       "title": "Shop",
-      "description": "Durchstöbern Sie den Lordaeron-Shop für Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeug und Charakter-Dienste. Verbessern Sie Ihr Abenteuer mit Soul Shards."
+      "description": "Durchstöbern Sie den Lordaeron-Shop für Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeug und Charakter-Dienste. Verbessern Sie Ihr Abenteuer mit Seelensplitter."
     },
     "shopCategory": {
       "title": "{category} — Shop",
@@ -712,7 +712,7 @@
     },
     "cgv": {
       "title": "Verkaufsbedingungen",
-      "description": "Lesen Sie die Verkaufsbedingungen von Lordaeron. Erfahren Sie mehr über Soul Shards, Zahlungsmethoden, Rückerstattungsrichtlinien und Shop-Käufe."
+      "description": "Lesen Sie die Verkaufsbedingungen von Lordaeron. Erfahren Sie mehr über Seelensplitter, Zahlungsmethoden, Rückerstattungsrichtlinien und Shop-Käufe."
     },
     "rgpd": {
       "title": "Datenschutzrichtlinie (DSGVO)",
