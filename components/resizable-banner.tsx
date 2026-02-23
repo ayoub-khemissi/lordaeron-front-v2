@@ -112,7 +112,7 @@ export const ResizableBanner = () => {
       </div>
 
       {/* Banner + resize handle */}
-      <div className="relative inline-block" ref={containerRef}>
+      <div ref={containerRef} className="relative inline-block">
         <div
           className="relative overflow-hidden border border-wow-gold/20"
           style={{ width, height }}
