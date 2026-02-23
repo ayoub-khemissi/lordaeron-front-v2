@@ -74,7 +74,18 @@ export const ServerStats = () => {
   ];
 
   return (
-    <section className="container mx-auto max-w-7xl px-6 py-16">
+    <section className="relative py-16 overflow-hidden">
+      {/* Section background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-15"
+        style={{
+          backgroundImage:
+            "url('/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Dalaran_004_1080p_png_jpgcopy.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-wow-darker via-transparent to-wow-darker" />
+
+      <div className="relative container mx-auto max-w-7xl px-6">
       {/* 2 stat cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
         {cards.map((card, index) => (
@@ -215,6 +226,7 @@ export const ServerStats = () => {
           </div>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 };

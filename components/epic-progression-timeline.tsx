@@ -199,29 +199,9 @@ export const EpicProgressionTimeline = () => {
 
   return (
     <section className="relative overflow-hidden">
-      {/* ── Section header ── */}
-      <div className="relative py-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-wow-darker to-[#080c15]" />
-        <motion.div
-          className="relative text-center px-6"
-          initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold wow-gradient-text mb-3">
-            {t("epicProgressionTitle")}
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-4">
-            {t("epicProgressionDesc")}
-          </p>
-          <div className="shimmer-line w-24 mx-auto" />
-        </motion.div>
-      </div>
-
       {/* ── Expansion sections ── */}
-      {expansions.map((exp) => (
-        <div key={exp.name} className="relative py-12 md:py-20 overflow-hidden">
+      {expansions.map((exp, ei) => (
+        <div key={exp.name} className={`relative overflow-hidden ${ei === 0 ? "pt-20 pb-12 md:pt-28 md:pb-20" : "py-12 md:py-20"}`}>
           {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-fixed opacity-15"
@@ -231,6 +211,25 @@ export const EpicProgressionTimeline = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-wow-darker via-transparent to-wow-darker" />
 
           <div className="relative container mx-auto max-w-5xl px-6">
+            {/* Section header (inside first expansion for seamless bg) */}
+            {ei === 0 && (
+              <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
+              >
+                <h2 className="text-3xl sm:text-4xl font-bold wow-gradient-text mb-3 pb-1">
+                  {t("epicProgressionTitle")}
+                </h2>
+                <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-4">
+                  {t("epicProgressionDesc")}
+                </p>
+                <div className="shimmer-line w-24 mx-auto" />
+              </motion.div>
+            )}
+
             {/* Expansion title */}
             <motion.h3
               className={`text-2xl sm:text-3xl font-bold text-center mb-10 md:mb-14 ${exp.theme.title}`}
