@@ -11,7 +11,6 @@ const rates = [
   { key: "reputation", value: "x2" },
 ];
 
-
 export const RatesSection = () => {
   const t = useTranslations("features");
 
@@ -66,4 +65,3 @@ export const RatesSection = () => {
     </div>
   );
 };
-

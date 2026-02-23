@@ -216,7 +216,10 @@ export const EpicProgressionTimeline = () => {
     <section className="relative overflow-hidden">
       {/* ── Expansion sections ── */}
       {expansions.map((exp, ei) => (
-        <div key={exp.name} className={`relative overflow-hidden ${ei === 0 ? "pt-20 pb-12 md:pt-28 md:pb-20" : "py-12 md:py-20"}`}>
+        <div
+          key={exp.name}
+          className={`relative overflow-hidden ${ei === 0 ? "pt-20 pb-12 md:pt-28 md:pb-20" : "py-12 md:py-20"}`}
+        >
           {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-fixed opacity-15"

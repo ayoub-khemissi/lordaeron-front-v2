@@ -43,6 +43,7 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar
+      shouldHideOnScroll
       classNames={{
         base: "bg-wow-darker/60 backdrop-blur-xl border-b border-wow-gold/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
         wrapper: "px-4 sm:px-6",
@@ -50,7 +51,6 @@ export const Navbar = () => {
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
-      shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
