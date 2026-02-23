@@ -722,5 +722,12 @@
       "title": "Notizie — Lordaeron",
       "description": "Rimani aggiornato sulle ultime notizie, aggiornamenti e annunci di Lordaeron."
     }
+  },
+  "branding": {
+    "sectionTitle": "Descrizione del server",
+    "desc1": "Lordaeron è un server WoW Epic Progressive gratuito (free-to-play) sulla patch 3.3.5a. I giocatori progrediscono attraverso ogni livello di raid nell'ordine di uscita — da Vanilla passando per The Burning Crusade fino a Wrath of the Lich King — sconfiggendo il/i boss finale/i di ogni livello per sbloccare il successivo.",
+    "desc2": "Il server offre tassi migliorati (x5 XP, x2 Onore, x2 Professioni, x2 Reputazione) per un'esperienza di livellamento più veloce ma equilibrata. I raid si resettano ogni 2 giorni per mantenere la progressione, e i dungeon non hanno blocco per poterli fare quante volte si vuole.",
+    "desc3": "Le funzionalità di comfort includono Transmogrificazione, raggruppamento Crossfaction (Alleanza e Orda giocano insieme), Bottino AOE, apprendimento automatico degli incantesimi, e un sistema unico di Tank come DPS — iscriversi come Tank nei dungeon restando nella specializzazione DPS per trovare gruppo più velocemente, con un bonus automatico a vita e minaccia.",
+    "desc4": "Un negozio cosmetico opzionale alimentato dai Frammenti d'anima offre cavalcature, set di transmog, cimeli, borse, mascotte, giocattoli e servizi per i personaggi. Nessun acquisto è richiesto per godere dell'esperienza di gioco completa."
   }
 }

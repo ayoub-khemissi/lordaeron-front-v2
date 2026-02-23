@@ -4,6 +4,8 @@ import { getTranslations } from "next-intl/server";
 
 import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { ResizableBanner } from "@/components/resizable-banner";
+import { BrandingDescription } from "@/components/branding-description";
 
 export async function generateMetadata({
   params,
@@ -33,6 +35,17 @@ export default function BrandingPage() {
           <code className="text-wow-gold">public/img/og/</code>
         </p>
       </div>
+
+      {/* Server Description */}
+      <BrandingDescription />
+
+      {/* Resizable Banner — default 468x60 */}
+      <section className="space-y-3">
+        <h2 className="text-lg font-heading text-gray-300">
+          Banner — <span className="text-wow-gold">468 x 60</span>
+        </h2>
+        <ResizableBanner />
+      </section>
 
       {/* Open Graph Card — 1200x630 */}
       <section className="space-y-3">
