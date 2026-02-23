@@ -74,7 +74,7 @@ export default function HowToContent() {
                   src={step.bg}
                 />
 
-                <div className="relative glass border-wow-gold/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start">
+                <div className="relative glass border-wow-gold/10 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start overflow-hidden">
                   {/* Step WoW icon */}
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-wow-gold/40 glow-gold bg-wow-darker/50">
@@ -96,7 +96,7 @@ export default function HowToContent() {
                         {t(`${step.key}Title`)}
                       </h3>
                     </div>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-gray-300 text-sm leading-relaxed break-words">
                       {t(`${step.key}Desc`)}
                     </p>
 
@@ -104,9 +104,10 @@ export default function HowToContent() {
                       <div className="mt-5">
                         <Snippet
                           classNames={{
-                            base: "glass-blue border-wow-blue/20 w-full glow-blue overflow-x-auto",
-                            pre: "text-wow-blue-ice font-mono text-sm break-all",
-                            copyButton: "text-wow-blue hover:text-wow-blue-ice",
+                            base: "glass-blue border-wow-blue/20 w-full glow-blue relative text-center",
+                            pre: "text-wow-blue-ice font-mono text-sm break-all whitespace-normal",
+                            copyButton:
+                              "absolute -top-3.5 -right-3.5 sm:relative sm:top-auto sm:right-auto text-wow-blue hover:text-wow-blue-ice",
                           }}
                           symbol=""
                           variant="bordered"
