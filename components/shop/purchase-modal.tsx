@@ -69,11 +69,13 @@ export function PurchaseModal({
   return (
     <Modal
       classNames={{
-        base: "bg-[#0d1117] border border-wow-gold/20",
+        base: "bg-[#0d1117] border border-wow-gold/20 max-h-[90dvh]",
         header: "border-b border-wow-gold/10",
+        body: "overflow-y-auto",
         footer: "border-t border-wow-gold/10",
       }}
       isOpen={isOpen}
+      scrollBehavior="inside"
       onClose={handleClose}
     >
       <ModalContent>

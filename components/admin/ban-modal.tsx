@@ -53,8 +53,12 @@ export function BanModal({ isOpen, onClose, onSubmit }: BanModalProps) {
 
   return (
     <Modal
-      classNames={{ base: "bg-[#161b22] border border-gray-800" }}
+      classNames={{
+        base: "bg-[#161b22] border border-gray-800 max-h-[90dvh]",
+        body: "overflow-y-auto",
+      }}
       isOpen={isOpen}
+      scrollBehavior="inside"
       onClose={onClose}
     >
       <ModalContent>
