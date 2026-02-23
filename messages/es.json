@@ -139,8 +139,6 @@
     "ratesTitle": "Tasas del servidor",
     "ratesSubtitle": "Tasas equilibradas para una experiencia mejorada",
     "featuresTitle": "Características épicas",
-    "progressionTitle": "Progresión de raids",
-    "progressionSubtitle": "Progresa a través de todos los raids de WoW en orden",
     "rate": "Tasa",
     "value": "Valor",
     "xp": "Experiencia (XP)",
@@ -162,10 +160,7 @@
     "aoeLoot": "Botín AOE",
     "aoeLootDesc": "Recoge el botín de todos los cadáveres cercanos con un solo clic",
     "autolearnSpells": "Aprendizaje automático de hechizos",
-    "autolearnSpellsDesc": "Aprende automáticamente nuevos hechizos al subir de nivel",
-    "tier": "Nivel",
-    "raids": "Raids",
-    "ilvl": "Nivel de objeto"
+    "autolearnSpellsDesc": "Aprende automáticamente nuevos hechizos al subir de nivel"
   },
   "common": {
     "online": "En línea",

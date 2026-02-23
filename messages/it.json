@@ -139,8 +139,6 @@
     "ratesTitle": "Tassi del server",
     "ratesSubtitle": "Tassi equilibrati per un'esperienza migliorata",
     "featuresTitle": "Caratteristiche epiche",
-    "progressionTitle": "Progressione raid",
-    "progressionSubtitle": "Progredisci attraverso tutti i raid di WoW in ordine",
     "rate": "Tasso",
     "value": "Valore",
     "xp": "Esperienza (XP)",
@@ -162,10 +160,7 @@
     "aoeLoot": "Bottino AOE",
     "aoeLootDesc": "Raccogli il bottino da tutti i cadaveri vicini con un solo clic",
     "autolearnSpells": "Apprendimento auto incantesimi",
-    "autolearnSpellsDesc": "Impara automaticamente nuovi incantesimi salendo di livello",
-    "tier": "Livello",
-    "raids": "Raid",
-    "ilvl": "Livello oggetto"
+    "autolearnSpellsDesc": "Impara automaticamente nuovi incantesimi salendo di livello"
   },
   "common": {
     "online": "Online",

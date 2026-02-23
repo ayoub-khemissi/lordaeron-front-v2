@@ -11,6 +11,7 @@ type Boss = { name: string; image: string };
 type Tier = {
   label: string;
   raid: string;
+  ilvl: string;
   bosses: Boss[];
   transition?: boolean;
 };
@@ -38,22 +39,26 @@ const expansions = [
       {
         label: "Tier 1",
         raid: "Molten Core",
+        ilvl: "61-70",
         bosses: [{ name: "Ragnaros", image: "ragnaros.jpeg" }],
       },
       {
         label: "Tier 2",
         raid: "Blackwing Lair",
+        ilvl: "73-83",
         bosses: [{ name: "Nefarian", image: "nefarian.jpg" }],
       },
       {
         label: "Transition",
         raid: "Zul'Gurub",
+        ilvl: "65-68",
         bosses: [{ name: "Hakkar", image: "hakkar.jpg" }],
         transition: true,
       },
       {
         label: "Tier 2.5",
         raid: "AQ40 / AQ20",
+        ilvl: "66-88",
         bosses: [
           { name: "C'Thun", image: "cthun.jpg" },
           { name: "Ossirian", image: "ossirian.jpg" },
@@ -76,6 +81,7 @@ const expansions = [
       {
         label: "Tier 4",
         raid: "Karazhan / Gruul / Magtheridon",
+        ilvl: "115-125",
         bosses: [
           { name: "Malchezaar", image: "malchezaar.jpg" },
           { name: "Gruul", image: "gruul.jpg" },
@@ -85,6 +91,7 @@ const expansions = [
       {
         label: "Tier 5",
         raid: "SSC / The Eye",
+        ilvl: "128-133",
         bosses: [
           { name: "Lady Vashj", image: "vashj.jpg" },
           { name: "Kael'thas", image: "kaelthas.jpg" },
@@ -93,6 +100,7 @@ const expansions = [
       {
         label: "Tier 6",
         raid: "Hyjal / Black Temple",
+        ilvl: "141-151",
         bosses: [
           { name: "Archimonde", image: "archimonde.jpg" },
           { name: "Illidan", image: "illidan.jpg" },
@@ -101,12 +109,14 @@ const expansions = [
       {
         label: "Transition",
         raid: "Zul'Aman",
+        ilvl: "128-141",
         bosses: [{ name: "Zul'jin", image: "zuljin.jpg" }],
         transition: true,
       },
       {
         label: "Tier 6.5",
         raid: "Sunwell Plateau",
+        ilvl: "154-164",
         bosses: [{ name: "Kil'jaeden", image: "kiljaeden.jpg" }],
       },
     ] satisfies Tier[],
@@ -126,6 +136,7 @@ const expansions = [
       {
         label: "Tier 7",
         raid: "Naxx / Malygos / Sartharion",
+        ilvl: "200-213",
         bosses: [
           { name: "Kel'Thuzad", image: "kelthuzad.jpg" },
           { name: "Malygos", image: "malygos.jpg" },
@@ -135,11 +146,13 @@ const expansions = [
       {
         label: "Tier 8",
         raid: "Ulduar",
+        ilvl: "219-239",
         bosses: [{ name: "Yogg-Saron", image: "yoggsaron.jpg" }],
       },
       {
         label: "Tier 9",
         raid: "ToC / Onyxia",
+        ilvl: "232-258",
         bosses: [
           { name: "Anub'arak", image: "anubarak.jpg" },
           { name: "Onyxia", image: "onyxia.jpg" },
@@ -148,11 +161,13 @@ const expansions = [
       {
         label: "Tier 10",
         raid: "Icecrown Citadel",
+        ilvl: "251-277",
         bosses: [{ name: "The Lich King", image: "lichking.jpg" }],
       },
       {
         label: "Final",
         raid: "Ruby Sanctum",
+        ilvl: "258-284",
         bosses: [{ name: "Halion", image: "halion.jpg" }],
       },
     ] satisfies Tier[],
@@ -280,6 +295,9 @@ export const EpicProgressionTimeline = () => {
                             <span className="text-sm text-gray-400 mt-0.5">
                               {tier.raid}
                             </span>
+                            <span className="text-[11px] text-gray-500 mt-0.5">
+                              ilvl {tier.ilvl}
+                            </span>
                           </div>
                         )}
                       </div>
@@ -312,6 +330,9 @@ export const EpicProgressionTimeline = () => {
                             </span>
                             <span className="text-sm text-gray-400 mt-0.5">
                               {tier.raid}
+                            </span>
+                            <span className="text-[11px] text-gray-500 mt-0.5">
+                              ilvl {tier.ilvl}
                             </span>
                           </div>
                         )}
@@ -360,6 +381,10 @@ export const EpicProgressionTimeline = () => {
                       {/* Raid name */}
                       <span className="text-xs text-gray-400 text-center">
                         {tier.raid}
+                      </span>
+                      {/* ilvl */}
+                      <span className="text-[10px] text-gray-500 text-center mt-0.5">
+                        ilvl {tier.ilvl}
                       </span>
                       {/* Boss names */}
                       <span className="text-[10px] text-gray-500 text-center mt-0.5">

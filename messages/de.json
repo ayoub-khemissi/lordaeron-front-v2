@@ -139,8 +139,6 @@
     "ratesTitle": "Server-Raten",
     "ratesSubtitle": "Ausgewogene Raten für ein verbessertes Erlebnis",
     "featuresTitle": "Epische Features",
-    "progressionTitle": "Raid-Progression",
-    "progressionSubtitle": "Durchlaufe alle WoW-Raids der Reihe nach",
     "rate": "Rate",
     "value": "Wert",
     "xp": "Erfahrung (XP)",
@@ -162,10 +160,7 @@
     "aoeLoot": "AOE-Beute",
     "aoeLootDesc": "Sammle Beute von allen nahen Leichen mit einem Klick",
     "autolearnSpells": "Auto-Zauberlernen",
-    "autolearnSpellsDesc": "Lerne automatisch neue Zauber beim Aufleveln",
-    "tier": "Stufe",
-    "raids": "Raids",
-    "ilvl": "Gegenstandsstufe"
+    "autolearnSpellsDesc": "Lerne automatisch neue Zauber beim Aufleveln"
   },
   "common": {
     "online": "Online",

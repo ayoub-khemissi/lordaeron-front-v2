@@ -139,8 +139,6 @@
     "ratesTitle": "Server Rates",
     "ratesSubtitle": "Balanced rates for an enhanced experience",
     "featuresTitle": "Epic Features",
-    "progressionTitle": "Raid Progression",
-    "progressionSubtitle": "Progress through all WoW raids in order",
     "rate": "Rate",
     "value": "Value",
     "xp": "Experience (XP)",
@@ -162,10 +160,7 @@
     "aoeLoot": "AOE Loot",
     "aoeLootDesc": "Loot all nearby corpses with a single click",
     "autolearnSpells": "Autolearn Spells",
-    "autolearnSpellsDesc": "Automatically learn new spells as you level up",
-    "tier": "Tier",
-    "raids": "Raids",
-    "ilvl": "Item Level"
+    "autolearnSpellsDesc": "Automatically learn new spells as you level up"
   },
   "common": {
     "online": "Online",

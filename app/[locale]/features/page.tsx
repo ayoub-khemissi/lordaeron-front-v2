@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { FeaturesGrid } from "@/components/features-grid";
-import { RatesSection, RaidProgressionSection } from "@/components/rates-table";
+import { RatesSection } from "@/components/rates-table";
 import { JsonLd } from "@/components/json-ld";
 import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
@@ -63,7 +63,6 @@ export default async function FeaturesPage({
       <div className="relative container mx-auto max-w-7xl px-6 py-16 space-y-20">
         <RatesSection />
         <FeaturesGrid />
-        <RaidProgressionSection />
       </div>
     </div>
   );

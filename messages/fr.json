@@ -139,8 +139,6 @@
     "ratesTitle": "Rates du serveur",
     "ratesSubtitle": "Des rates équilibrés pour une expérience améliorée",
     "featuresTitle": "Fonctionnalités épiques",
-    "progressionTitle": "Progression des raids",
-    "progressionSubtitle": "Progressez à travers tous les raids WoW dans l'ordre",
     "rate": "Taux",
     "value": "Valeur",
     "xp": "Expérience (XP)",
@@ -162,10 +160,7 @@
     "aoeLoot": "Loot AOE",
     "aoeLootDesc": "Récupérez le butin de tous les cadavres proches en un seul clic",
     "autolearnSpells": "Apprentissage auto des sorts",
-    "autolearnSpellsDesc": "Apprenez automatiquement de nouveaux sorts en montant de niveau",
-    "tier": "Palier",
-    "raids": "Raids",
-    "ilvl": "Niveau d'objet"
+    "autolearnSpellsDesc": "Apprenez automatiquement de nouveaux sorts en montant de niveau"
   },
   "common": {
     "online": "En ligne",
