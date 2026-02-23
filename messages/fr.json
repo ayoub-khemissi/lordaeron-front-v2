@@ -26,7 +26,9 @@
     "viewAllNews": "Voir toutes les actualités",
     "factionBalance": "Équilibre des factions",
     "live": "En direct",
-    "total": "Total"
+    "total": "Total",
+    "epicProgressionTitle": "Epic Progression",
+    "epicProgressionDesc": "Terrassez le dernier boss de chaque palier pour débloquer le suivant. Progressez à travers tous les raids WoW dans l'ordre — de Vanilla en passant par TBC jusqu'à Wrath of the Lich King."
   },
   "howTo": {
     "title": "Comment se connecter",

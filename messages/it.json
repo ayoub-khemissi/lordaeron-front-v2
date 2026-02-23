@@ -26,7 +26,9 @@
     "viewAllNews": "Vedi tutte le notizie",
     "factionBalance": "Equilibrio fazioni",
     "live": "In diretta",
-    "total": "Totale"
+    "total": "Totale",
+    "epicProgressionTitle": "Epic Progression",
+    "epicProgressionDesc": "Sconfiggi il boss finale di ogni livello per sbloccare il successivo. Progredisci attraverso tutti i raid di WoW in ordine — da Vanilla passando per TBC fino a Wrath of the Lich King."
   },
   "howTo": {
     "title": "Come connettersi",

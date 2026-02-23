@@ -26,7 +26,9 @@
     "viewAllNews": "Ver todas las noticias",
     "factionBalance": "Equilibrio de facciones",
     "live": "En vivo",
-    "total": "Total"
+    "total": "Total",
+    "epicProgressionTitle": "Epic Progression",
+    "epicProgressionDesc": "Derrota al último jefe de cada nivel para desbloquear el siguiente. Progresa a través de todos los raids de WoW en orden — desde Vanilla pasando por TBC hasta Wrath of the Lich King."
   },
   "howTo": {
     "title": "Cómo conectarse",

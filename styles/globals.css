@@ -52,6 +52,14 @@ h4 {
   background-clip: text;
 }
 
+/* ── Fel green gradient text (TBC) ── */
+.wow-fel-text {
+  background: linear-gradient(135deg, #4ade80 0%, #86efac 50%, #4ade80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* ── Glassmorphism card ── */
 .glass {
   background: rgba(10, 14, 20, 0.55);

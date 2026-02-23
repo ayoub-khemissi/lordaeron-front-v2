@@ -26,7 +26,9 @@
     "viewAllNews": "Alle Neuigkeiten anzeigen",
     "factionBalance": "Fraktionsbalance",
     "live": "Live",
-    "total": "Gesamt"
+    "total": "Gesamt",
+    "epicProgressionTitle": "Epic Progression",
+    "epicProgressionDesc": "Besiege den letzten Boss jeder Stufe, um die nächste freizuschalten. Durchlaufe alle WoW-Raids der Reihe nach — von Vanilla über TBC bis Wrath of the Lich King."
   },
   "howTo": {
     "title": "Wie man sich verbindet",

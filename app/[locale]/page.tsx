@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { HeroBanner, heroBackgrounds } from "@/components/hero-banner";
 import { ServerStatus } from "@/components/server-status";
 import { ServerStats } from "@/components/server-stats";
+import { EpicProgressionTimeline } from "@/components/epic-progression-timeline";
 import { NewsSection } from "@/components/news-section";
 import { JsonLd } from "@/components/json-ld";
 import { buildPageMetadata } from "@/lib/seo";
@@ -61,6 +62,7 @@ export default function HomePage() {
         <ServerStatus />
       </div>
       <ServerStats />
+      <EpicProgressionTimeline />
       <NewsSection />
     </div>
   );
