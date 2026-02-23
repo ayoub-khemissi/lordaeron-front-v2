@@ -40,6 +40,7 @@ export default function HomePage() {
           name: siteConfig.name,
           url: siteConfig.baseUrl,
           description: siteConfig.description,
+          inLanguage: ["en", "fr", "de", "es", "it"],
           potentialAction: {
             "@type": "SearchAction",
             target: `${siteConfig.baseUrl}/en/shop?q={search_term_string}`,
@@ -55,6 +56,28 @@ export default function HomePage() {
           url: siteConfig.baseUrl,
           logo: `${siteConfig.baseUrl}/img/og/og-default.png`,
           sameAs: [siteConfig.links.discord],
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          name: "Lordaeron — Epic Progressive WoW Server",
+          description:
+            "Free-to-play Epic Progressive WoW 3.3.5a private server. Progress through Vanilla, TBC, and WotLK raids in order with transmog, crossfaction, x5 XP, 2-day raid resets, and more.",
+          url: siteConfig.baseUrl,
+          gamePlatform: "PC",
+          applicationCategory: "Game",
+          operatingSystem: "Windows, macOS",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+          },
+          genre: ["MMORPG", "Role-playing game"],
+          keywords:
+            "WoW private server, 3.3.5a, WotLK, progressive, transmog, crossfaction, free to play, Vanilla, TBC, Wrath of the Lich King",
         }}
       />
       <HeroBanner bgImage={bgImage} />

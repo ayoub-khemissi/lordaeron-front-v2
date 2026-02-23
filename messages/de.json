@@ -679,48 +679,48 @@
   },
   "meta": {
     "home": {
-      "title": "Lordaeron — Epic Progressive WoW-Server",
-      "description": "Treten Sie Lordaeron bei, dem ultimativen Epic Progressive WoW-Privatserver. Fortschritt von Vanilla über TBC bis WotLK mit einzigartigen Features, Transmog, Crossfaction und mehr."
+      "title": "Lordaeron — Kostenloser Epic Progressive WoW 3.3.5a Privatserver",
+      "description": "Tritt Lordaeron bei, einem kostenlosen WoW 3.3.5a Privatserver mit epischer Raid-Progression von Vanilla über TBC bis WotLK. Transmog, Crossfaction, x5 XP, 2-Tage-Raid-Resets, AOE-Loot und mehr."
     },
     "howTo": {
-      "title": "Wie man sich verbindet",
-      "description": "Erfahren Sie, wie Sie sich in 4 einfachen Schritten mit Lordaeron verbinden: Client 3.3.5a herunterladen, Realmlist einrichten, Konto erstellen und losspielen."
+      "title": "Verbindung zu Lordaeron — WoW 3.3.5a Privatserver",
+      "description": "Verbinde dich mit dem WoW-Privatserver Lordaeron in 4 Schritten: 3.3.5a WotLK-Client herunterladen, Realmlist einrichten, kostenloses Konto erstellen und das epische Abenteuer starten."
     },
     "features": {
-      "title": "Server-Features",
-      "description": "Entdecken Sie Lordaerons einzigartige Features: epische Raid-Progression, Transmog, Crossfaction-Gruppen, AOE-Loot, angepasste Raten und Lebensqualitäts-Verbesserungen."
+      "title": "Server-Features — Transmog, Crossfaction, Progressive Raids & Mehr",
+      "description": "Entdecke Lordaerons Features: episches progressives Raidsystem von Vanilla bis WotLK, Transmogrifikation, Crossfaction, AOE-Loot, x5 XP, 2-Tage-Resets, Tank als DPS und Auto-Zauberlernen."
     },
     "shop": {
-      "title": "Shop",
-      "description": "Durchstöbern Sie den Lordaeron-Shop für Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeug und Charakter-Dienste. Verbessern Sie Ihr Abenteuer mit Seelensplitter."
+      "title": "Shop — Reittiere, Transmog, Erbstücke & Dienste",
+      "description": "Durchstöbere den Lordaeron WoW-Shop: Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeug und Charakter-Dienste (Namensänderung, Rassenwechsel, Fraktionswechsel)."
     },
     "shopCategory": {
-      "title": "{category} — Shop",
-      "description": "Durchstöbern Sie {category}-Artikel im Lordaeron-Shop. Finden Sie die beste Ausrüstung und Dienste für Ihre Charaktere."
+      "title": "{category} — Lordaeron WoW Shop",
+      "description": "Durchstöbere {category} im Shop des WoW 3.3.5a Privatservers Lordaeron. Reittiere, Transmog, Erbstücke und Charakter-Dienste."
     },
     "branding": {
       "title": "Branding — OG-Bildvorschau",
       "description": "Vorschau und Generierung von Open Graph- und Twitter Card-Bildern für Lordaeron-SEO."
     },
     "contact": {
-      "title": "Kontaktieren Sie uns",
-      "description": "Nehmen Sie Kontakt mit dem Lordaeron-Team auf. Senden Sie uns eine Nachricht für Support, Feedback oder Fragen zum Server."
+      "title": "Kontakt — Lordaeron WoW Server Support",
+      "description": "Kontaktiere das Team des WoW-Privatservers Lordaeron für Support, Fehlerberichte, Feedback oder Fragen zum progressiven Server."
     },
     "cgu": {
-      "title": "Nutzungsbedingungen",
-      "description": "Lesen Sie die Nutzungsbedingungen von Lordaeron. Erfahren Sie mehr über Kontoverantwortlichkeiten, Verhaltenskodex und Serverregeln."
+      "title": "Nutzungsbedingungen — Lordaeron WoW Server",
+      "description": "Nutzungsbedingungen des WoW-Privatservers Lordaeron. Kontoverantwortung, Verhaltenskodex und Serverregeln für Spieler."
     },
     "cgv": {
-      "title": "Verkaufsbedingungen",
-      "description": "Lesen Sie die Verkaufsbedingungen von Lordaeron. Erfahren Sie mehr über Seelensplitter, Zahlungsmethoden, Rückerstattungsrichtlinien und Shop-Käufe."
+      "title": "Verkaufsbedingungen — Lordaeron WoW Server",
+      "description": "Lordaeron Verkaufsbedingungen: Seelensplitter (virtuelle Währung), sichere Zahlung über Stripe, Rückerstattungsrichtlinie und Shop-Käufe."
     },
     "rgpd": {
-      "title": "Datenschutzrichtlinie (DSGVO)",
-      "description": "Lesen Sie die Datenschutzrichtlinie von Lordaeron. Erfahren Sie, wie wir Ihre personenbezogenen Daten DSGVO-konform erheben, verwenden und schützen."
+      "title": "Datenschutzrichtlinie (DSGVO) — Lordaeron WoW Server",
+      "description": "Datenschutzrichtlinie des WoW-Privatservers Lordaeron. Erhebung, Nutzung und Schutz deiner personenbezogenen Daten DSGVO-konform."
     },
     "news": {
-      "title": "Neuigkeiten — Lordaeron",
-      "description": "Bleiben Sie über die neuesten Nachrichten, Updates und Ankündigungen von Lordaeron informiert."
+      "title": "Neuigkeiten & Updates — Lordaeron WoW Server",
+      "description": "Neueste Nachrichten, Patchnotes, Events und Ankündigungen von Lordaeron, dem epischen progressiven WoW 3.3.5a Privatserver."
     }
   },
   "branding": {

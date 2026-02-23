@@ -31,10 +31,14 @@ type PageEntry = {
 
 const pages: PageEntry[] = [
   { path: "", priority: 1.0, changeFrequency: "daily" },
-  { path: "/how-to", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/features", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/how-to", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/features", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/news", priority: 0.8, changeFrequency: "daily" },
   { path: "/shop", priority: 0.7, changeFrequency: "weekly" },
-  { path: "/branding", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/contact", priority: 0.5, changeFrequency: "yearly" },
+  { path: "/terms-of-use", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/terms-of-sale", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
   ...shopCategories.map(
     (cat): PageEntry => ({
       path: `/shop/${cat}`,

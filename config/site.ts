@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Lordaeron",
-  description: "Lordaeron - Epic Progressive WoW Server",
+  description:
+    "Lordaeron — Free-to-play Epic Progressive WoW 3.3.5a private server. Progress from Vanilla through TBC to WotLK with transmog, crossfaction, x5 rates, and more.",
   baseUrl: "https://www.lordaeron.eu",
   tagline: "The Ultimate Epic Progressive WoW Experience",
   navItems: [

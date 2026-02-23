@@ -679,48 +679,48 @@
   },
   "meta": {
     "home": {
-      "title": "Lordaeron — Serveur WoW Epic Progressive",
-      "description": "Rejoignez Lordaeron, le serveur privé WoW Epic Progressive ultime. Progressez de Vanilla à WotLK en passant par TBC avec des fonctionnalités uniques, transmog, crossfaction et plus."
+      "title": "Lordaeron — Serveur Privé WoW 3.3.5a Epic Progressive Gratuit",
+      "description": "Rejoignez Lordaeron, serveur privé WoW 3.3.5a gratuit avec progression épique des raids de Vanilla à TBC puis WotLK. Transmog, crossfaction, x5 XP, resets raids 2 jours, loot AOE et plus."
     },
     "howTo": {
-      "title": "Comment se connecter",
-      "description": "Apprenez à vous connecter à Lordaeron en 4 étapes simples : téléchargez le client 3.3.5a, configurez le realmlist, créez un compte et commencez à jouer."
+      "title": "Comment se connecter à Lordaeron — Serveur Privé WoW 3.3.5a",
+      "description": "Connectez-vous au serveur privé WoW Lordaeron en 4 étapes : téléchargez le client 3.3.5a WotLK, configurez le realmlist, créez un compte gratuit et lancez votre aventure progressive."
     },
     "features": {
-      "title": "Fonctionnalités du serveur",
-      "description": "Découvrez les fonctionnalités uniques de Lordaeron : progression épique des raids, transmog, crossfaction, loot AOE, rates personnalisés et améliorations de qualité de vie."
+      "title": "Fonctionnalités — Transmog, Crossfaction, Raids Progressifs & Plus",
+      "description": "Découvrez Lordaeron : système de raids progressifs de Vanilla à WotLK, transmogrification, crossfaction, loot AOE, x5 XP, resets 2 jours, Tank en DPS et apprentissage auto des sorts."
     },
     "shop": {
-      "title": "Boutique",
-      "description": "Parcourez la boutique Lordaeron pour des montures, sets transmog, héritage, sacs, mascottes, jouets et services de personnage. Améliorez votre aventure avec des Éclats d'âme."
+      "title": "Boutique — Montures, Transmog, Héritage & Services",
+      "description": "Parcourez la boutique Lordaeron : montures, sets transmog, héritage, sacs, mascottes, jouets et services de personnage (changement de nom, race, faction)."
     },
     "shopCategory": {
-      "title": "{category} — Boutique",
-      "description": "Parcourez les articles {category} dans la boutique Lordaeron. Trouvez le meilleur équipement et les meilleurs services pour vos personnages."
+      "title": "{category} — Boutique Lordaeron WoW",
+      "description": "Parcourez les {category} dans la boutique du serveur privé WoW 3.3.5a Lordaeron. Montures, transmog, héritage et services de personnage."
     },
     "branding": {
       "title": "Branding — Aperçu des images OG",
       "description": "Prévisualisez et générez les images Open Graph et Twitter Card pour le SEO de Lordaeron."
     },
     "contact": {
-      "title": "Contactez-nous",
-      "description": "Contactez l'équipe Lordaeron. Envoyez-nous un message pour le support, vos retours ou toute question sur le serveur."
+      "title": "Contact — Support Serveur WoW Lordaeron",
+      "description": "Contactez l'équipe du serveur privé WoW Lordaeron pour le support, signaler un bug, donner votre avis ou poser des questions sur le serveur progressif."
     },
     "cgu": {
-      "title": "Conditions Générales d'Utilisation",
-      "description": "Lisez les CGU de Lordaeron. Découvrez les responsabilités de compte, le code de conduite et les règles du serveur."
+      "title": "Conditions Générales d'Utilisation — Serveur WoW Lordaeron",
+      "description": "CGU du serveur privé WoW Lordaeron. Responsabilités du compte, code de conduite et règles du serveur pour les joueurs."
     },
     "cgv": {
-      "title": "Conditions Générales de Vente",
-      "description": "Lisez les CGV de Lordaeron. Découvrez les Éclats d'âme, les méthodes de paiement, la politique de remboursement et les achats en boutique."
+      "title": "Conditions Générales de Vente — Serveur WoW Lordaeron",
+      "description": "CGV de Lordaeron : Éclats d'âme (monnaie virtuelle), paiement sécurisé via Stripe, politique de remboursement et achats en boutique."
     },
     "rgpd": {
-      "title": "Politique de Confidentialité (RGPD)",
-      "description": "Lisez la Politique de Confidentialité de Lordaeron. Découvrez comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD."
+      "title": "Politique de Confidentialité (RGPD) — Serveur WoW Lordaeron",
+      "description": "Politique de confidentialité du serveur privé WoW Lordaeron. Collecte, utilisation et protection de vos données personnelles conformément au RGPD."
     },
     "news": {
-      "title": "Actualités — Lordaeron",
-      "description": "Restez informé des dernières nouvelles, mises à jour et annonces de Lordaeron."
+      "title": "Actualités & Mises à jour — Serveur WoW Lordaeron",
+      "description": "Dernières actualités, notes de patch, événements et annonces de Lordaeron, le serveur privé WoW 3.3.5a epic progressive."
     }
   },
   "branding": {

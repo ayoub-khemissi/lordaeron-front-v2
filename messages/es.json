@@ -679,48 +679,48 @@
   },
   "meta": {
     "home": {
-      "title": "Lordaeron — Servidor WoW Epic Progressive",
-      "description": "Únete a Lordaeron, el servidor privado WoW Epic Progressive definitivo. Progresa de Vanilla a WotLK pasando por TBC con características únicas, transmog, crossfaction y más."
+      "title": "Lordaeron — Servidor Privado WoW 3.3.5a Epic Progressive Gratis",
+      "description": "Únete a Lordaeron, servidor privado WoW 3.3.5a gratuito con progresión épica de raids de Vanilla a TBC y WotLK. Transmog, crossfaction, x5 XP, resets de raids cada 2 días, loot AOE y más."
     },
     "howTo": {
-      "title": "Cómo conectarse",
-      "description": "Aprende a conectarte a Lordaeron en 4 simples pasos: descarga el cliente 3.3.5a, configura el realmlist, crea una cuenta y empieza a jugar."
+      "title": "Cómo conectarse a Lordaeron — Servidor Privado WoW 3.3.5a",
+      "description": "Conéctate al servidor privado WoW Lordaeron en 4 pasos: descarga el cliente 3.3.5a WotLK, configura el realmlist, crea una cuenta gratis y comienza tu aventura progresiva."
     },
     "features": {
-      "title": "Características del servidor",
-      "description": "Descubre las características únicas de Lordaeron: progresión épica de raids, transmog, agrupación crossfaction, loot AOE, rates personalizados y mejoras de calidad de vida."
+      "title": "Características — Transmog, Crossfaction, Raids Progresivos y Más",
+      "description": "Descubre Lordaeron: sistema de raids progresivos de Vanilla a WotLK, transmogrificación, crossfaction, loot AOE, x5 XP, resets cada 2 días, Tank como DPS y aprendizaje automático de hechizos."
     },
     "shop": {
-      "title": "Tienda",
-      "description": "Explora la tienda de Lordaeron para monturas, sets de transmog, herencias, bolsas, mascotas, juguetes y servicios de personaje. Mejora tu aventura con Fragmentos de alma."
+      "title": "Tienda — Monturas, Transmog, Herencias y Servicios",
+      "description": "Explora la tienda WoW de Lordaeron: monturas, sets de transmog, herencias, bolsas, mascotas, juguetes y servicios de personaje (cambio de nombre, raza, facción)."
     },
     "shopCategory": {
-      "title": "{category} — Tienda",
-      "description": "Explora los artículos de {category} en la tienda de Lordaeron. Encuentra el mejor equipo y servicios para tus personajes."
+      "title": "{category} — Tienda Lordaeron WoW",
+      "description": "Explora {category} en la tienda del servidor privado WoW 3.3.5a Lordaeron. Monturas, transmog, herencias y servicios de personaje."
     },
     "branding": {
       "title": "Branding — Vista previa de imágenes OG",
       "description": "Previsualiza y genera las imágenes Open Graph y Twitter Card para el SEO de Lordaeron."
     },
     "contact": {
-      "title": "Contáctanos",
-      "description": "Ponte en contacto con el equipo de Lordaeron. Envíanos un mensaje para soporte, comentarios o cualquier pregunta sobre el servidor."
+      "title": "Contacto — Soporte Servidor WoW Lordaeron",
+      "description": "Contacta al equipo del servidor privado WoW Lordaeron para soporte, reportar errores, dar tu opinión o hacer preguntas sobre el servidor progresivo."
     },
     "cgu": {
-      "title": "Términos de Uso",
-      "description": "Lee los Términos de Uso de Lordaeron. Conoce las responsabilidades de cuenta, el código de conducta y las reglas del servidor."
+      "title": "Términos de Uso — Servidor WoW Lordaeron",
+      "description": "Términos de uso del servidor privado WoW Lordaeron. Responsabilidades de cuenta, código de conducta y reglas del servidor para jugadores."
     },
     "cgv": {
-      "title": "Términos de Venta",
-      "description": "Lee los Términos de Venta de Lordaeron. Conoce los Fragmentos de alma, los métodos de pago, la política de reembolso y las compras en la tienda."
+      "title": "Términos de Venta — Servidor WoW Lordaeron",
+      "description": "Términos de venta de Lordaeron: Fragmentos de alma (moneda virtual), pago seguro vía Stripe, política de reembolso y compras en tienda."
     },
     "rgpd": {
-      "title": "Política de Privacidad (RGPD)",
-      "description": "Lee la Política de Privacidad de Lordaeron. Descubre cómo recopilamos, usamos y protegemos tus datos personales en cumplimiento del RGPD."
+      "title": "Política de Privacidad (RGPD) — Servidor WoW Lordaeron",
+      "description": "Política de privacidad del servidor privado WoW Lordaeron. Recopilación, uso y protección de tus datos personales conforme al RGPD."
     },
     "news": {
-      "title": "Noticias — Lordaeron",
-      "description": "Mantente al día con las últimas noticias, actualizaciones y anuncios de Lordaeron."
+      "title": "Noticias y Actualizaciones — Servidor WoW Lordaeron",
+      "description": "Últimas noticias, notas de parche, eventos y anuncios de Lordaeron, el servidor privado WoW 3.3.5a epic progressive."
     }
   },
   "branding": {

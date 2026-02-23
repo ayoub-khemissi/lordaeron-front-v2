@@ -785,48 +785,48 @@
   },
   "meta": {
     "home": {
-      "title": "Lordaeron — Epic Progressive WoW Server",
-      "description": "Join Lordaeron, the ultimate Epic Progressive WoW private server. Progress from Vanilla through TBC to WotLK with unique features, transmog, crossfaction, and more."
+      "title": "Lordaeron — Free Epic Progressive WoW 3.3.5a Private Server",
+      "description": "Join Lordaeron, a free-to-play WoW 3.3.5a private server with epic progressive raid progression from Vanilla to TBC to WotLK. Transmog, crossfaction, x5 XP, 2-day raid resets, AOE loot, and more."
     },
     "howTo": {
-      "title": "How to Connect",
-      "description": "Learn how to connect to Lordaeron in 4 simple steps: download the 3.3.5a client, set the realmlist, create an account, and start playing."
+      "title": "How to Connect to Lordaeron — WoW 3.3.5a Private Server",
+      "description": "Connect to Lordaeron WoW private server in 4 steps: download the 3.3.5a WotLK client, set the realmlist, create a free account, and start your epic progressive adventure."
     },
     "features": {
-      "title": "Server Features",
-      "description": "Discover Lordaeron's unique features: epic raid progression, transmog, crossfaction grouping, AOE loot, custom rates, and quality-of-life improvements."
+      "title": "Server Features — Transmog, Crossfaction, Progressive Raids & More",
+      "description": "Explore Lordaeron's features: epic progressive raid system from Vanilla to WotLK, transmogrification, crossfaction grouping, AOE loot, x5 XP rates, 2-day raid resets, Tank as DPS, and autolearn spells."
     },
     "shop": {
-      "title": "Shop",
-      "description": "Browse the Lordaeron shop for mounts, transmog sets, heirlooms, bags, pets, toys, and character services. Enhance your adventure with Soul Shards."
+      "title": "Shop — Mounts, Transmog, Heirlooms & Services",
+      "description": "Browse the Lordaeron WoW shop for mounts, transmog sets, heirlooms, bags, pets, toys, and character services like name change, race change, and faction transfer."
     },
     "shopCategory": {
-      "title": "{category} — Shop",
-      "description": "Browse {category} items in the Lordaeron shop. Find the best gear and services for your characters."
+      "title": "{category} — Lordaeron WoW Shop",
+      "description": "Browse {category} in the Lordaeron WoW 3.3.5a private server shop. Find mounts, transmog, heirlooms, and character services for your adventure."
     },
     "branding": {
       "title": "Branding — OG Image Preview",
       "description": "Preview and generate Open Graph and Twitter Card images for Lordaeron SEO."
     },
     "contact": {
-      "title": "Contact Us",
-      "description": "Get in touch with the Lordaeron team. Send us a message for support, feedback, or any questions about the server."
+      "title": "Contact Us — Lordaeron WoW Server Support",
+      "description": "Contact the Lordaeron WoW private server team for support, bug reports, feedback, or questions about the epic progressive server."
     },
     "cgu": {
-      "title": "Terms of Use",
-      "description": "Read the Lordaeron Terms of Use. Learn about account responsibilities, code of conduct, and server rules."
+      "title": "Terms of Use — Lordaeron WoW Server",
+      "description": "Read the Lordaeron WoW private server Terms of Use. Account responsibilities, code of conduct, and server rules for players."
     },
     "cgv": {
-      "title": "Terms of Sale",
-      "description": "Read the Lordaeron Terms of Sale. Learn about Soul Shards, payment methods, refund policy, and shop purchases."
+      "title": "Terms of Sale — Lordaeron WoW Server",
+      "description": "Lordaeron Terms of Sale: Soul Shards virtual currency, payment methods via Stripe, refund policy, and in-game shop purchases."
     },
     "rgpd": {
-      "title": "Privacy Policy (GDPR)",
-      "description": "Read the Lordaeron Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR."
+      "title": "Privacy Policy (GDPR) — Lordaeron WoW Server",
+      "description": "Lordaeron WoW private server Privacy Policy. How we collect, use, and protect your personal data in full GDPR compliance."
     },
     "news": {
-      "title": "News — Lordaeron",
-      "description": "Stay up to date with the latest Lordaeron news, updates, and announcements."
+      "title": "News & Updates — Lordaeron WoW Server",
+      "description": "Latest news, patch notes, events, and announcements from Lordaeron, the epic progressive WoW 3.3.5a private server."
     }
   },
   "branding": {
