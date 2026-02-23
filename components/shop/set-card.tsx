@@ -20,7 +20,7 @@ export function SetCard({ set, onClick }: SetCardProps) {
 
   return (
     <button
-      className={`glass border-wow-gold/10 hover:border-wow-gold/30 rounded-xl p-4 text-left transition-all duration-200 cursor-pointer group w-full ${isIneligible ? "opacity-50 grayscale pointer-events-none" : ""}`}
+      className={`glass border-wow-gold/10 hover:border-wow-gold/30 rounded-xl p-4 text-left transition-all duration-200 cursor-pointer group w-full ${isIneligible ? "opacity-75 saturate-[0.25]" : ""}`}
       disabled={isIneligible}
       type="button"
       onClick={onClick}
