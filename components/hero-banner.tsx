@@ -34,7 +34,7 @@ export const HeroBanner = ({ bgImage }: { bgImage: string }) => {
   const encodedBgImage = encodeURI(bgImage);
 
   return (
-    <section className="relative w-full min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-dvh flex items-center justify-center overflow-hidden pb-16">
       {/* Background image (server-rendered) */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"

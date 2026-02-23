@@ -50,6 +50,7 @@ export const Navbar = () => {
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
+      shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
