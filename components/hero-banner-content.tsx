@@ -5,9 +5,12 @@ import { useTranslations, useLocale } from "next-intl";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 
+import { useAuth } from "@/lib/auth-context";
+
 export const HeroBannerContent = () => {
   const t = useTranslations("home");
   const locale = useLocale();
+  const { user } = useAuth();
 
   return (
     <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
@@ -60,15 +63,17 @@ export const HeroBannerContent = () => {
         >
           {t("cta")}
         </Button>
-        <Button
-          as={NextLink}
-          className="border-wow-blue/30 text-wow-blue font-semibold text-lg px-10 h-14 hover:bg-wow-blue/10 hover:border-wow-blue/50 hover:shadow-[0_0_30px_rgba(79,195,247,0.15)] transition-all duration-300 backdrop-blur-sm"
-          href={`/${locale}/register`}
-          size="lg"
-          variant="bordered"
-        >
-          {t("ctaRegister")}
-        </Button>
+        {!user && (
+          <Button
+            as={NextLink}
+            className="border-wow-blue/30 text-wow-blue font-semibold text-lg px-10 h-14 hover:bg-wow-blue/10 hover:border-wow-blue/50 hover:shadow-[0_0_30px_rgba(79,195,247,0.15)] transition-all duration-300 backdrop-blur-sm"
+            href={`/${locale}/register`}
+            size="lg"
+            variant="bordered"
+          >
+            {t("ctaRegister")}
+          </Button>
+        )}
       </motion.div>
 
       {/* Decorative bottom line */}
