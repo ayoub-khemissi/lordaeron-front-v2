@@ -230,12 +230,12 @@ export function VotePanel() {
   const { user, loading: authLoading } = useAuth();
   const [sites, setSites] = useState<VoteSite[]>([]);
   const [desktopCollapsed, setDesktopCollapsed] = useState(() => {
-    if (typeof window === "undefined") return true;
+    if (typeof window === "undefined") return false;
 
     try {
-      return localStorage.getItem("vote-panel-collapsed") !== "false";
+      return localStorage.getItem("vote-panel-collapsed") === "true";
     } catch {
-      return true;
+      return false;
     }
   });
   const [mobileOpen, setMobileOpen] = useState(false);
