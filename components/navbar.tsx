@@ -58,6 +58,7 @@ export const Navbar = () => {
           <NextLink
             className="flex justify-start items-center gap-2 group"
             href={`/${locale}`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <Image
               alt="Lordaeron"
