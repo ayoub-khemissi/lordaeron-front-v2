@@ -239,6 +239,7 @@
     "restrictionClass": "Klasse inkompatibel",
     "restrictionRace": "Rasse inkompatibel",
     "restrictionFaction": "Fraktion inkompatibel",
+    "restrictionHeirloomMaxLevel": "Erfordert einen Charakter auf Stufe 80",
     "unavailable": "Nicht verfügbar",
     "noItems": "Keine Artikel in dieser Kategorie verfügbar",
     "noSets": "Keine Item-Sets verfügbar",
@@ -381,6 +382,7 @@
       "levelRestricted": "Die Stufe deines Charakters ist zu niedrig für diesen Gegenstand.",
       "giftRecipientLevelRestricted": "Die Stufe des Empfängers ist zu niedrig für diesen Gegenstand.",
       "setNotFound": "Set nicht gefunden",
+      "heirloomMaxLevelRequired": "Du musst einen Charakter auf Stufe 80 haben, um Erbstücke zu kaufen.",
       "serverError": "Serverfehler. Bitte versuche es erneut."
     }
   },

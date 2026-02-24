@@ -239,6 +239,7 @@
     "restrictionClass": "Clase incompatible",
     "restrictionRace": "Raza incompatible",
     "restrictionFaction": "Facción incompatible",
+    "restrictionHeirloomMaxLevel": "Requiere un personaje Nv. 80",
     "unavailable": "No disponible",
     "noItems": "No hay artículos disponibles en esta categoría",
     "noSets": "No hay sets de items disponibles",
@@ -381,6 +382,7 @@
       "levelRestricted": "El nivel de tu personaje es demasiado bajo para este artículo.",
       "giftRecipientLevelRestricted": "El nivel del destinatario es demasiado bajo para este artículo.",
       "setNotFound": "Set no encontrado",
+      "heirloomMaxLevelRequired": "Debes tener un personaje nivel 80 para comprar objetos reliquia.",
       "serverError": "Error del servidor. Inténtalo de nuevo."
     }
   },

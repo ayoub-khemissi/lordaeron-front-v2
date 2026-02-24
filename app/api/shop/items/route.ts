@@ -31,6 +31,7 @@ export async function GET(request: NextRequest) {
       : null;
     const highlightedOnly = searchParams.get("highlighted") === "true";
     const hasDiscount = searchParams.get("discount") === "true";
+    const hasMaxLevel = searchParams.get("has_max_level") === "true";
 
     const items = await getShopItems({
       category: category || undefined,
@@ -45,7 +46,10 @@ export async function GET(request: NextRequest) {
       let eligible = true;
       let restriction_reason: string | null = null;
 
-      if (level && item.min_level > 0 && level < item.min_level) {
+      if (item.category === "heirlooms" && !hasMaxLevel) {
+        eligible = false;
+        restriction_reason = "heirloom_max_level";
+      } else if (level && item.min_level > 0 && level < item.min_level) {
         eligible = false;
         restriction_reason = "level";
       } else if (

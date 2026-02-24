@@ -197,6 +197,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "itemNotFound" }, { status: 404 });
     }
 
+    // Heirloom max level check
+    if (
+      item.category === "heirlooms" &&
+      !characters.some((c) => c.level >= 80)
+    ) {
+      return NextResponse.json(
+        { error: "heirloomMaxLevelRequired" },
+        { status: 400 },
+      );
+    }
+
     // Check realm restriction
     if (item.realm_ids && !item.realm_ids.includes(body.realm_id)) {
       return NextResponse.json({ error: "realmRestricted" }, { status: 400 });

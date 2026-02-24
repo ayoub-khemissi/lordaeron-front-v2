@@ -239,6 +239,7 @@
     "restrictionClass": "Classe incompatible",
     "restrictionRace": "Race incompatible",
     "restrictionFaction": "Faction incompatible",
+    "restrictionHeirloomMaxLevel": "Nécessite un personnage Nv. 80",
     "unavailable": "Indisponible",
     "noItems": "Aucun article disponible dans cette catégorie",
     "noSets": "Aucun set d'items disponible",
@@ -381,6 +382,7 @@
       "levelRestricted": "Le niveau de votre personnage est trop bas pour cet article.",
       "giftRecipientLevelRestricted": "Le niveau du destinataire est trop bas pour cet article.",
       "setNotFound": "Set introuvable",
+      "heirloomMaxLevelRequired": "Vous devez avoir un personnage niveau 80 pour acheter des objets héritage.",
       "serverError": "Erreur serveur. Veuillez réessayer."
     }
   },

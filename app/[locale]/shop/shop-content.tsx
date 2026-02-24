@@ -108,6 +108,10 @@ export default function ShopContent() {
         params.set("level", String(selectedCharacter.level));
       }
 
+      const hasMaxLevel = characters.some((c) => c.level >= 80);
+
+      params.set("has_max_level", String(hasMaxLevel));
+
       const setParams = new URLSearchParams({ locale });
 
       if (selectedCharacter) {

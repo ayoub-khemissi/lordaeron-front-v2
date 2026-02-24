@@ -91,13 +91,15 @@ export function ItemCard({ item, onClick }: ItemCardProps) {
               size="sm"
               variant="bordered"
             >
-              {item.restriction_reason === "level"
-                ? t("restrictionLevel", { level: item.min_level })
-                : item.restriction_reason === "class"
-                  ? t("restrictionClass")
-                  : item.restriction_reason === "race"
-                    ? t("restrictionRace")
-                    : t("restrictionFaction")}
+              {item.restriction_reason === "heirloom_max_level"
+                ? t("restrictionHeirloomMaxLevel")
+                : item.restriction_reason === "level"
+                  ? t("restrictionLevel", { level: item.min_level })
+                  : item.restriction_reason === "class"
+                    ? t("restrictionClass")
+                    : item.restriction_reason === "race"
+                      ? t("restrictionRace")
+                      : t("restrictionFaction")}
             </Chip>
           )}
           {item.faction !== "both" && (

@@ -181,7 +181,7 @@ export function ItemDetailModal({
             {item.category !== "services" && (
               <Button
                 className="border-purple-500/30 text-purple-400"
-                isDisabled={!hasCharacter}
+                isDisabled={!hasCharacter || item.eligible === false}
                 variant="bordered"
                 onPress={onGift}
               >
@@ -190,7 +190,7 @@ export function ItemDetailModal({
             )}
             <Button
               className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold"
-              isDisabled={!hasCharacter}
+              isDisabled={!hasCharacter || item.eligible === false}
               onPress={onBuy}
             >
               {t("buyNow")}
