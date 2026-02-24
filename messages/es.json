@@ -737,6 +737,9 @@
     "voted": "Votado",
     "cooldown": "Próximo voto en",
     "loginToVote": "Inicia sesión para votar",
+    "earnShards": "Vota y gana Fragmentos de alma",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
     "collapse": "Ocultar",
     "expand": "Votar"
   }

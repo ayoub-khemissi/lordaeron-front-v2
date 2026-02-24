@@ -737,6 +737,9 @@
     "voted": "Votato",
     "cooldown": "Prossimo voto tra",
     "loginToVote": "Accedi per votare",
+    "earnShards": "Vota e guadagna Frammenti d'anima",
+    "login": "Accedi",
+    "register": "Registrati",
     "collapse": "Nascondi",
     "expand": "Vota"
   }

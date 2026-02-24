@@ -843,6 +843,9 @@
     "voted": "Voted",
     "cooldown": "Next vote in",
     "loginToVote": "Login to vote",
+    "earnShards": "Vote & earn Soul Shards",
+    "login": "Login",
+    "register": "Register",
     "collapse": "Hide",
     "expand": "Vote"
   }

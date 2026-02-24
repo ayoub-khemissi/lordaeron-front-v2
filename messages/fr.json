@@ -737,6 +737,9 @@
     "voted": "Voté",
     "cooldown": "Prochain vote dans",
     "loginToVote": "Connectez-vous pour voter",
+    "earnShards": "Votez et gagnez des Éclats d'âme",
+    "login": "Connexion",
+    "register": "Inscription",
     "collapse": "Masquer",
     "expand": "Vote"
   }

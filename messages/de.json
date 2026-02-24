@@ -737,6 +737,9 @@
     "voted": "Abgestimmt",
     "cooldown": "Nächste Abstimmung in",
     "loginToVote": "Einloggen zum Abstimmen",
+    "earnShards": "Stimme ab und verdiene Seelensplitter",
+    "login": "Anmelden",
+    "register": "Registrieren",
     "collapse": "Ausblenden",
     "expand": "Vote"
   }

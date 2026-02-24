@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 import { useAuth } from "@/lib/auth-context";
 
@@ -225,6 +226,34 @@ function VoteSiteCard({
   );
 }
 
+function GuestPrompt() {
+  const t = useTranslations("vote");
+  const locale = useLocale();
+
+  return (
+    <div className="flex flex-col items-center gap-2 py-3 px-2 text-center">
+      <ShardIcon className="w-8 h-8" />
+      <p className="text-[11px] text-gray-400 leading-tight">
+        {t("earnShards")}
+      </p>
+      <div className="flex gap-2 w-full">
+        <Link
+          className="flex-1 rounded-md py-1.5 text-[10px] font-semibold bg-purple-500/15 text-purple-400 border border-purple-400/25 hover:bg-purple-500/25 transition-all text-center"
+          href={`/${locale}/login`}
+        >
+          {t("login")}
+        </Link>
+        <Link
+          className="flex-1 rounded-md py-1.5 text-[10px] font-semibold bg-wow-gold/10 text-wow-gold border border-wow-gold/20 hover:bg-wow-gold/20 transition-all text-center"
+          href={`/${locale}/register`}
+        >
+          {t("register")}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export function VotePanel() {
   const t = useTranslations("vote");
   const { user, loading: authLoading } = useAuth();
@@ -240,6 +269,9 @@ export function VotePanel() {
   });
   const [mobileOpen, setMobileOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+
+  const isGuest = !authLoading && !user;
+  const isReady = !!user && loaded && sites.length > 0;
 
   const toggleDesktop = useCallback((value: boolean) => {
     setDesktopCollapsed(value);
@@ -310,7 +342,7 @@ export function VotePanel() {
     [],
   );
 
-  if (authLoading || !user || !loaded || sites.length === 0) return null;
+  if (authLoading || (!isGuest && !isReady)) return null;
 
   const availableCount = sites.filter((s) => s.canVote).length;
 
@@ -364,11 +396,19 @@ export function VotePanel() {
               </button>
             </div>
 
-            <div className="p-2 space-y-2">
-              {sites.map((site) => (
-                <VoteSiteCard key={site.id} site={site} onClaim={handleClaim} />
-              ))}
-            </div>
+            {isGuest ? (
+              <GuestPrompt />
+            ) : (
+              <div className="p-2 space-y-2">
+                {sites.map((site) => (
+                  <VoteSiteCard
+                    key={site.id}
+                    site={site}
+                    onClaim={handleClaim}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -383,7 +423,7 @@ export function VotePanel() {
           onClick={() => setMobileOpen(true)}
         >
           <ShardIcon className="w-6 h-6" />
-          {availableCount > 0 && (
+          {!isGuest && availableCount > 0 && (
             <span className="absolute -top-1 -right-1 bg-purple-500 text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
               {availableCount}
             </span>
@@ -427,15 +467,19 @@ export function VotePanel() {
                 </button>
               </div>
 
-              <div className="p-4 space-y-2.5 max-h-[60vh] overflow-y-auto">
-                {sites.map((site) => (
-                  <VoteSiteCard
-                    key={site.id}
-                    site={site}
-                    onClaim={handleClaim}
-                  />
-                ))}
-              </div>
+              {isGuest ? (
+                <GuestPrompt />
+              ) : (
+                <div className="p-4 space-y-2.5 max-h-[60vh] overflow-y-auto">
+                  {sites.map((site) => (
+                    <VoteSiteCard
+                      key={site.id}
+                      site={site}
+                      onClaim={handleClaim}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </>
         )}
