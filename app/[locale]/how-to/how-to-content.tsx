@@ -24,6 +24,11 @@ const steps = [
   },
   {
     key: "step4",
+    icon: `${WOWHEAD_ICON}/inv_misc_enggizmos_27.jpg`,
+    bg: "/img/World of Warcraft Classic 1920x1080/ClassicLaunch_WoW_STV_1920x1080.jpg",
+  },
+  {
+    key: "step5",
     icon: `${WOWHEAD_ICON}/inv_misc_horn_02.jpg`,
     bg: "/img/Wrath Classic Fall of the Lich King Launch Screenshots/WoW_WrathClassic_Fall_of_the_Lich_King_(5)_png_jpgcopy.jpg",
   },
