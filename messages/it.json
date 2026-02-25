@@ -10,7 +10,9 @@
     "shop": "Negozio",
     "news": "Notizie",
     "contact": "Contatto",
-    "epicProgression": "Epic Progression"
+    "epicProgression": "Epic Progression",
+    "armory": "Armeria",
+    "comingSoon": "Presto"
   },
   "home": {
     "title": "Benvenuto su Lordaeron",
@@ -154,8 +156,8 @@
     "tankAsDpsDesc": "Nei dungeon, puoi iscriverti come Tank restando nella tua specializzazione DPS. Troverai un gruppo molto più velocemente e riceverai un bonus automatico a vita e minaccia, ma i tuoi danni saranno ridotti. Non disponibile nei raid.",
     "dungeonNoLock": "Dungeon senza blocco",
     "dungeonNoLockDesc": "Nessun blocco sui dungeon, falli quante volte vuoi",
-    "raidReset": "Reset raid (2 giorni)",
-    "raidResetDesc": "Tutti i raid si resettano ogni 2 giorni per una progressione più veloce",
+    "raidReset": "Reset raid (2x/settimana)",
+    "raidResetDesc": "Tutti i raid si resettano ogni mercoledì e domenica alle 5 di mattina per una progressione più veloce",
     "crossfaction": "Crossfaction",
     "crossfactionDesc": "Raggruppa con giocatori di Alleanza e Orda",
     "aoeLoot": "Bottino AOE",
@@ -683,7 +685,7 @@
   "meta": {
     "home": {
       "title": "Lordaeron — Server Privato WoW 3.3.5a Epic Progressive Gratuito",
-      "description": "Unisciti a Lordaeron, server privato WoW 3.3.5a gratuito con progressione epica dei raid da Vanilla a TBC e WotLK. Transmog, crossfaction, x5 XP, reset raid ogni 2 giorni, loot AOE e altro."
+      "description": "Unisciti a Lordaeron, server privato WoW 3.3.5a gratuito con progressione epica dei raid da Vanilla a TBC e WotLK. Transmog, crossfaction, x5 XP, reset raid 2x/settimana, loot AOE e altro."
     },
     "howTo": {
       "title": "Come connettersi a Lordaeron — Server Privato WoW 3.3.5a",
@@ -691,7 +693,7 @@
     },
     "features": {
       "title": "Funzionalità — Transmog, Crossfaction, Raid Progressivi e Altro",
-      "description": "Scopri Lordaeron: sistema di raid progressivi da Vanilla a WotLK, transmogrificazione, crossfaction, loot AOE, x5 XP, reset ogni 2 giorni, Tank come DPS e apprendimento automatico incantesimi."
+      "description": "Scopri Lordaeron: sistema di raid progressivi da Vanilla a WotLK, transmogrificazione, crossfaction, loot AOE, x5 XP, reset 2x/settimana, Tank come DPS e apprendimento automatico incantesimi."
     },
     "shop": {
       "title": "Negozio — Cavalcature, Transmog, Cimeli e Servizi",
@@ -733,7 +735,7 @@
   "branding": {
     "sectionTitle": "Descrizione del server",
     "desc1": "Lordaeron è un server WoW Epic Progressive gratuito (free-to-play) sulla patch 3.3.5a. I giocatori progrediscono attraverso ogni livello di raid nell'ordine di uscita — da Vanilla passando per The Burning Crusade fino a Wrath of the Lich King — sconfiggendo il/i boss finale/i di ogni livello per sbloccare il successivo.",
-    "desc2": "Il server offre tassi migliorati (x5 XP, x2 Onore, x2 Professioni, x2 Reputazione) per un'esperienza di livellamento più veloce ma equilibrata. I raid si resettano ogni 2 giorni per mantenere la progressione, e i dungeon non hanno blocco per poterli fare quante volte si vuole.",
+    "desc2": "Il server offre tassi migliorati (x5 XP, x2 Onore, x2 Professioni, x2 Reputazione) per un'esperienza di livellamento più veloce ma equilibrata. I raid si resettano ogni mercoledì e domenica alle 5 di mattina per mantenere la progressione, e i dungeon non hanno blocco per poterli fare quante volte si vuole.",
     "desc3": "Le funzionalità di comfort includono Transmogrificazione, raggruppamento Crossfaction (Alleanza e Orda giocano insieme), Bottino AOE, apprendimento automatico degli incantesimi, e un sistema unico di Tank come DPS — iscriversi come Tank nei dungeon restando nella specializzazione DPS per trovare gruppo più velocemente, con un bonus automatico a vita e minaccia.",
     "desc4": "Un negozio cosmetico opzionale alimentato dai Frammenti d'anima offre cavalcature, set di transmog, cimeli, borse, mascotte, giocattoli e servizi per i personaggi. Nessun acquisto è richiesto per godere dell'esperienza di gioco completa."
   },
@@ -784,5 +786,54 @@
     "questDesc": "Per avanzare da un livello al successivo, devi completare una missione data dal capo della tua fazione. Dopo aver sconfitto il boss finale di un livello, torna dal NPC per convalidare la tua uccisione e sbloccare il contenuto successivo. In Vanilla, parla con Varian Wrynn (Alleanza) o Thrall (Orda). In TBC, cerca A'dal a Shattrath. In WotLK, presentati da Rhonin a Dalaran.",
     "timelineTitle": "Cronologia della progressione",
     "learnMore": "Scopri di più"
+  },
+  "armory": {
+    "title": "Armeria",
+    "searchPlaceholder": "Cerca personaggio...",
+    "noResults": "Nessun personaggio trovato",
+    "level": "Livello",
+    "guild": "Gilda",
+    "equipment": "Equipaggiamento",
+    "stats": "Statistiche",
+    "pvp": "PvP",
+    "professions": "Professioni",
+    "achievements": "Imprese",
+    "honorKills": "Uccisioni onorevoli",
+    "arenaPoints": "Punti arena",
+    "honorPoints": "Punti onore",
+    "rating": "Valutazione",
+    "notFound": "Personaggio non trovato",
+    "online": "Online",
+    "offline": "Offline",
+    "emptySlot": "Vuoto",
+    "attributes": "Attributi",
+    "defense": "Difesa",
+    "melee": "Mischia",
+    "ranged": "Distanza",
+    "spell": "Incantesimo",
+    "health": "Salute",
+    "mana": "Mana",
+    "strength": "Forza",
+    "agility": "Agilità",
+    "stamina": "Resistenza",
+    "intellect": "Intelletto",
+    "spirit": "Spirito",
+    "armor": "Armatura",
+    "dodge": "Schivata",
+    "parry": "Parata",
+    "block": "Blocco",
+    "crit": "Critico",
+    "attackPower": "Potenza d'attacco",
+    "spellPower": "Potenza magica",
+    "resilience": "Resilienza",
+    "played": "Tempo giocato",
+    "arena": "Arena",
+    "personalRating": "Valutazione personale",
+    "seasonGames": "Partite stagionali",
+    "seasonWins": "Vittorie stagionali",
+    "weekGames": "Partite settimanali",
+    "weekWins": "Vittorie settimanali",
+    "noArenaTeams": "Nessun team arena",
+    "noProfessions": "Nessuna professione"
   }
 }

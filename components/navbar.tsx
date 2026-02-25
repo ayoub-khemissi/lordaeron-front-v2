@@ -75,16 +75,27 @@ export const Navbar = () => {
         <ul className="hidden lg:flex gap-1 justify-start ml-6">
           {siteConfig.navItems
             .filter((item) => item.href !== "/shop" || user)
-            .map((item) => (
-              <NavbarItem key={item.href}>
-                <NextLink
-                  className="text-gray-200 hover:text-wow-gold px-3 py-2 rounded-lg hover:bg-wow-gold/5 transition-all duration-300 text-sm font-medium"
-                  href={`/${locale}${item.href === "/" ? "" : item.href}`}
-                >
-                  {t(item.labelKey)}
-                </NextLink>
-              </NavbarItem>
-            ))}
+            .map((item) =>
+              item.comingSoon ? (
+                <NavbarItem key={item.href}>
+                  <span className="text-gray-500 px-3 py-2 rounded-lg text-sm font-medium cursor-default flex items-center gap-1.5">
+                    {t(item.labelKey)}
+                    <span className="text-[10px] font-semibold uppercase bg-wow-gold/15 text-wow-gold border border-wow-gold/20 rounded px-1.5 py-0.5 leading-none">
+                      {t("nav.comingSoon")}
+                    </span>
+                  </span>
+                </NavbarItem>
+              ) : (
+                <NavbarItem key={item.href}>
+                  <NextLink
+                    className="text-gray-200 hover:text-wow-gold px-3 py-2 rounded-lg hover:bg-wow-gold/5 transition-all duration-300 text-sm font-medium"
+                    href={`/${locale}${item.href === "/" ? "" : item.href}`}
+                  >
+                    {t(item.labelKey)}
+                  </NextLink>
+                </NavbarItem>
+              ),
+            )}
         </ul>
       </NavbarContent>
 
@@ -186,17 +197,28 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-1">
           {siteConfig.navMenuItems
             .filter((item) => item.href !== "/shop" || user)
-            .map((item) => (
-              <NavbarMenuItem key={item.href}>
-                <NextLink
-                  className="text-gray-200 hover:text-wow-gold transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5"
-                  href={`/${locale}${item.href === "/" ? "" : item.href}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t(item.labelKey)}
-                </NextLink>
-              </NavbarMenuItem>
-            ))}
+            .map((item) =>
+              item.comingSoon ? (
+                <NavbarMenuItem key={item.href}>
+                  <span className="text-gray-500 text-lg block py-2 px-3 rounded-lg cursor-default flex items-center gap-2">
+                    {t(item.labelKey)}
+                    <span className="text-[10px] font-semibold uppercase bg-wow-gold/15 text-wow-gold border border-wow-gold/20 rounded px-1.5 py-0.5 leading-none">
+                      {t("nav.comingSoon")}
+                    </span>
+                  </span>
+                </NavbarMenuItem>
+              ) : (
+                <NavbarMenuItem key={item.href}>
+                  <NextLink
+                    className="text-gray-200 hover:text-wow-gold transition-all text-lg block py-2 px-3 rounded-lg hover:bg-wow-gold/5"
+                    href={`/${locale}${item.href === "/" ? "" : item.href}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {t(item.labelKey)}
+                  </NextLink>
+                </NavbarMenuItem>
+              ),
+            )}
 
           {/* Mobile auth section */}
           <div className="shimmer-line w-full my-3" />

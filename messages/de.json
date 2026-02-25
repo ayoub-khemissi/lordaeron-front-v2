@@ -10,7 +10,9 @@
     "shop": "Shop",
     "news": "Neuigkeiten",
     "contact": "Kontakt",
-    "epicProgression": "Epic Progression"
+    "epicProgression": "Epic Progression",
+    "armory": "Waffenkammer",
+    "comingSoon": "Bald"
   },
   "home": {
     "title": "Willkommen auf Lordaeron",
@@ -154,8 +156,8 @@
     "tankAsDpsDesc": "In Dungeons kannst du als Tank queuen und dabei in deiner DPS-Spezialisierung bleiben. Du findest viel schneller eine Gruppe und erhältst einen automatischen Bonus auf Leben und Bedrohung, aber dein Schaden wird reduziert. Nicht verfügbar in Raids.",
     "dungeonNoLock": "Dungeons ohne Sperre",
     "dungeonNoLockDesc": "Keine Sperre bei Dungeons, mache sie so oft du willst",
-    "raidReset": "Raid-Reset (2 Tage)",
-    "raidResetDesc": "Alle Raids werden alle 2 Tage zurückgesetzt für schnellere Progression",
+    "raidReset": "Raid-Reset (2x/Woche)",
+    "raidResetDesc": "Alle Raids werden jeden Mittwoch und Sonntag um 5 Uhr morgens zurückgesetzt für schnellere Progression",
     "crossfaction": "Crossfaction",
     "crossfactionDesc": "Gruppiere dich mit Spielern von Allianz und Horde",
     "aoeLoot": "AOE-Beute",
@@ -683,7 +685,7 @@
   "meta": {
     "home": {
       "title": "Lordaeron — Kostenloser Epic Progressive WoW 3.3.5a Privatserver",
-      "description": "Tritt Lordaeron bei, einem kostenlosen WoW 3.3.5a Privatserver mit epischer Raid-Progression von Vanilla über TBC bis WotLK. Transmog, Crossfaction, x5 XP, 2-Tage-Raid-Resets, AOE-Loot und mehr."
+      "description": "Tritt Lordaeron bei, einem kostenlosen WoW 3.3.5a Privatserver mit epischer Raid-Progression von Vanilla über TBC bis WotLK. Transmog, Crossfaction, x5 XP, 2x/Woche Raid-Resets, AOE-Loot und mehr."
     },
     "howTo": {
       "title": "Verbindung zu Lordaeron — WoW 3.3.5a Privatserver",
@@ -691,7 +693,7 @@
     },
     "features": {
       "title": "Server-Features — Transmog, Crossfaction, Progressive Raids & Mehr",
-      "description": "Entdecke Lordaerons Features: episches progressives Raidsystem von Vanilla bis WotLK, Transmogrifikation, Crossfaction, AOE-Loot, x5 XP, 2-Tage-Resets, Tank als DPS und Auto-Zauberlernen."
+      "description": "Entdecke Lordaerons Features: episches progressives Raidsystem von Vanilla bis WotLK, Transmogrifikation, Crossfaction, AOE-Loot, x5 XP, 2x/Woche Resets, Tank als DPS und Auto-Zauberlernen."
     },
     "shop": {
       "title": "Shop — Reittiere, Transmog, Erbstücke & Dienste",
@@ -733,7 +735,7 @@
   "branding": {
     "sectionTitle": "Serverbeschreibung",
     "desc1": "Lordaeron ist ein kostenloser (Free-to-Play) Epic Progressive WoW-Server auf Patch 3.3.5a. Spieler durchlaufen jeden Raid-Stufe in der Erscheinungsreihenfolge — von Vanilla über The Burning Crusade bis Wrath of the Lich King — indem sie den/die Endboss(e) jeder Stufe besiegen, um die nächste freizuschalten.",
-    "desc2": "Der Server bietet verbesserte Raten (x5 XP, x2 Ehre, x2 Berufe, x2 Ruf) für ein schnelleres aber ausgewogenes Leveling-Erlebnis. Raids werden alle 2 Tage zurückgesetzt, um die Progression voranzutreiben, und Dungeons haben keine Sperre — du kannst sie so oft machen wie du willst.",
+    "desc2": "Der Server bietet verbesserte Raten (x5 XP, x2 Ehre, x2 Berufe, x2 Ruf) für ein schnelleres aber ausgewogenes Leveling-Erlebnis. Raids werden jeden Mittwoch und Sonntag um 5 Uhr morgens zurückgesetzt, um die Progression voranzutreiben, und Dungeons haben keine Sperre — du kannst sie so oft machen wie du willst.",
     "desc3": "Komfort-Features umfassen Transmogrifikation, Crossfaction-Gruppen (Allianz und Horde spielen zusammen), AOE-Beute, automatisches Zauberlernen und ein einzigartiges Tank-als-DPS-System — als Tank in Dungeons anmelden, während man in der DPS-Spezialisierung bleibt, für schnelleres Gruppenfinden mit automatischem Bonus auf Leben und Bedrohung.",
     "desc4": "Ein optionaler kosmetischer Shop mit Seelensplittern bietet Reittiere, Transmog-Sets, Erbstücke, Taschen, Begleiter, Spielzeug und Charakter-Dienste. Kein Kauf ist erforderlich, um das volle Spielerlebnis zu genießen."
   },
@@ -784,5 +786,54 @@
     "questDesc": "Um von einer Stufe zur nächsten aufzusteigen, musst du eine Quest deines Fraktionsanführers abschließen. Nachdem du den Endboss einer Stufe besiegt hast, kehre zum Quest-NPC zurück, um deinen Kill zu bestätigen und den nächsten Inhalt freizuschalten. In Vanilla sprich mit Varian Wrynn (Allianz) oder Thrall (Horde). In TBC suche A'dal in Shattrath auf. In WotLK melde dich bei Rhonin in Dalaran.",
     "timelineTitle": "Progressions-Zeitachse",
     "learnMore": "Mehr erfahren"
+  },
+  "armory": {
+    "title": "Waffenkammer",
+    "searchPlaceholder": "Charakter suchen...",
+    "noResults": "Keine Charaktere gefunden",
+    "level": "Stufe",
+    "guild": "Gilde",
+    "equipment": "Ausrüstung",
+    "stats": "Werte",
+    "pvp": "PvP",
+    "professions": "Berufe",
+    "achievements": "Erfolge",
+    "honorKills": "Ehrenhafte Siege",
+    "arenaPoints": "Arenapunkte",
+    "honorPoints": "Ehrenpunkte",
+    "rating": "Wertung",
+    "notFound": "Charakter nicht gefunden",
+    "online": "Online",
+    "offline": "Offline",
+    "emptySlot": "Leer",
+    "attributes": "Attribute",
+    "defense": "Verteidigung",
+    "melee": "Nahkampf",
+    "ranged": "Fernkampf",
+    "spell": "Zauber",
+    "health": "Gesundheit",
+    "mana": "Mana",
+    "strength": "Stärke",
+    "agility": "Beweglichkeit",
+    "stamina": "Ausdauer",
+    "intellect": "Intelligenz",
+    "spirit": "Willenskraft",
+    "armor": "Rüstung",
+    "dodge": "Ausweichen",
+    "parry": "Parieren",
+    "block": "Blocken",
+    "crit": "Kritisch",
+    "attackPower": "Angriffskraft",
+    "spellPower": "Zaubermacht",
+    "resilience": "Abhärtung",
+    "played": "Spielzeit",
+    "arena": "Arena",
+    "personalRating": "Persönliche Wertung",
+    "seasonGames": "Saisonspiele",
+    "seasonWins": "Saisonsiege",
+    "weekGames": "Wochenspiele",
+    "weekWins": "Wochensiege",
+    "noArenaTeams": "Keine Arena-Teams",
+    "noProfessions": "Keine Berufe"
   }
 }

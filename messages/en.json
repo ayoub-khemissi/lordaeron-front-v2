@@ -10,7 +10,9 @@
     "shop": "Shop",
     "news": "News",
     "contact": "Contact",
-    "epicProgression": "Epic Progression"
+    "epicProgression": "Epic Progression",
+    "armory": "Armory",
+    "comingSoon": "Soon"
   },
   "home": {
     "title": "Welcome to Lordaeron",
@@ -156,8 +158,8 @@
     "tankAsDpsDesc": "In dungeons, you can queue as Tank while staying in your DPS spec. You'll find a group much faster and receive an automatic bonus to health and threat, but your damage will be reduced. Not available in raids.",
     "dungeonNoLock": "Dungeons No Lock",
     "dungeonNoLockDesc": "No lockout on dungeons, run them as many times as you want",
-    "raidReset": "Raid Reset (2 Days)",
-    "raidResetDesc": "All raids reset every 2 days for faster progression",
+    "raidReset": "Raid Reset (2x/week)",
+    "raidResetDesc": "All raids reset every Wednesday and Sunday at 5 AM for faster progression",
     "crossfaction": "Crossfaction",
     "crossfactionDesc": "Group up with players from both Alliance and Horde",
     "aoeLoot": "AOE Loot",
@@ -791,7 +793,7 @@
   "meta": {
     "home": {
       "title": "Lordaeron — Free Epic Progressive WoW 3.3.5a Private Server",
-      "description": "Join Lordaeron, a free-to-play WoW 3.3.5a private server with epic progressive raid progression from Vanilla to TBC to WotLK. Transmog, crossfaction, x5 XP, 2-day raid resets, AOE loot, and more."
+      "description": "Join Lordaeron, a free-to-play WoW 3.3.5a private server with epic progressive raid progression from Vanilla to TBC to WotLK. Transmog, crossfaction, x5 XP, twice-weekly raid resets, AOE loot, and more."
     },
     "howTo": {
       "title": "How to Connect to Lordaeron — WoW 3.3.5a Private Server",
@@ -799,7 +801,7 @@
     },
     "features": {
       "title": "Server Features — Transmog, Crossfaction, Progressive Raids & More",
-      "description": "Explore Lordaeron's features: epic progressive raid system from Vanilla to WotLK, transmogrification, crossfaction grouping, AOE loot, x5 XP rates, 2-day raid resets, Tank as DPS, and autolearn spells."
+      "description": "Explore Lordaeron's features: epic progressive raid system from Vanilla to WotLK, transmogrification, crossfaction grouping, AOE loot, x5 XP rates, twice-weekly raid resets, Tank as DPS, and autolearn spells."
     },
     "shop": {
       "title": "Shop — Mounts, Transmog, Heirlooms & Services",
@@ -841,7 +843,7 @@
   "branding": {
     "sectionTitle": "Server Description",
     "desc1": "Lordaeron is a free-to-play Epic Progressive WoW server running on patch 3.3.5a. Players progress through every raid tier in release order — from Vanilla through The Burning Crusade to Wrath of the Lich King — by defeating the final boss(es) of each tier to unlock the next.",
-    "desc2": "The server features enhanced rates (x5 XP, x2 Honor, x2 Professions, x2 Reputation) for a faster but balanced leveling experience. Raids reset every 2 days to keep progression moving, and dungeons have no lockout so you can run them as many times as you want.",
+    "desc2": "The server features enhanced rates (x5 XP, x2 Honor, x2 Professions, x2 Reputation) for a faster but balanced leveling experience. Raids reset every Wednesday and Sunday at 5 AM to keep progression moving, and dungeons have no lockout so you can run them as many times as you want.",
     "desc3": "Quality-of-life features include Transmogrification, Crossfaction grouping (Alliance and Horde play together), AOE Loot, Autolearn Spells, and a unique Tank as DPS system — queue as Tank in dungeons while staying in your DPS spec for faster group finding, with an automatic bonus to health and threat.",
     "desc4": "An optional cosmetic shop powered by Soul Shards offers mounts, transmog sets, heirlooms, bags, pets, toys, and character services. No purchase is required to enjoy the full game experience."
   },
@@ -892,5 +894,54 @@
     "questDesc": "To advance from one tier to the next, you must complete a quest given by your faction's leader. After defeating the final boss of a tier, return to the quest NPC to validate your kill and unlock the next content tier. In Vanilla, speak to Varian Wrynn (Alliance) or Thrall (Horde). In TBC, seek out A'dal in Shattrath City. In WotLK, report to Rhonin in Dalaran.",
     "timelineTitle": "Progression Timeline",
     "learnMore": "Learn more"
+  },
+  "armory": {
+    "title": "Armory",
+    "searchPlaceholder": "Search character...",
+    "noResults": "No characters found",
+    "level": "Level",
+    "guild": "Guild",
+    "equipment": "Equipment",
+    "stats": "Stats",
+    "pvp": "PvP",
+    "professions": "Professions",
+    "achievements": "Achievements",
+    "honorKills": "Honorable Kills",
+    "arenaPoints": "Arena Points",
+    "honorPoints": "Honor Points",
+    "rating": "Rating",
+    "notFound": "Character not found",
+    "online": "Online",
+    "offline": "Offline",
+    "emptySlot": "Empty",
+    "attributes": "Attributes",
+    "defense": "Defense",
+    "melee": "Melee",
+    "ranged": "Ranged",
+    "spell": "Spell",
+    "health": "Health",
+    "mana": "Mana",
+    "strength": "Strength",
+    "agility": "Agility",
+    "stamina": "Stamina",
+    "intellect": "Intellect",
+    "spirit": "Spirit",
+    "armor": "Armor",
+    "dodge": "Dodge",
+    "parry": "Parry",
+    "block": "Block",
+    "crit": "Crit",
+    "attackPower": "Attack Power",
+    "spellPower": "Spell Power",
+    "resilience": "Resilience",
+    "played": "Time Played",
+    "arena": "Arena",
+    "personalRating": "Personal Rating",
+    "seasonGames": "Season Games",
+    "seasonWins": "Season Wins",
+    "weekGames": "Week Games",
+    "weekWins": "Week Wins",
+    "noArenaTeams": "No arena teams",
+    "noProfessions": "No professions"
   }
 }

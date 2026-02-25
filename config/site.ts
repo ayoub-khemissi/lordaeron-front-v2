@@ -11,6 +11,7 @@ export const siteConfig = {
     { labelKey: "nav.features", href: "/features" },
     { labelKey: "nav.epicProgression", href: "/epic-progression" },
     { labelKey: "nav.news", href: "/news" },
+    { labelKey: "nav.armory", href: "/armory", comingSoon: true },
     { labelKey: "nav.shop", href: "/shop" },
   ],
   navMenuItems: [
@@ -18,6 +19,7 @@ export const siteConfig = {
     { labelKey: "nav.features", href: "/features" },
     { labelKey: "nav.epicProgression", href: "/epic-progression" },
     { labelKey: "nav.news", href: "/news" },
+    { labelKey: "nav.armory", href: "/armory", comingSoon: true },
     { labelKey: "nav.shop", href: "/shop" },
   ],
   links: {
