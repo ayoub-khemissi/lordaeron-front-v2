@@ -3,6 +3,7 @@
 import { Link } from "@heroui/link";
 import { useTranslations, useLocale } from "next-intl";
 import NextLink from "next/link";
+import Image from "next/image";
 
 import { DiscordIcon } from "@/components/icons";
 import { useAuth } from "@/lib/auth-context";
@@ -30,9 +31,21 @@ export const Footer = () => {
         <div className="container mx-auto max-w-7xl px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
-              <h3 className="text-xl font-black wow-gradient-text mb-3 tracking-widest">
-                LORDAERON
-              </h3>
+              <NextLink
+                className="flex items-center gap-2 mb-3 group"
+                href={`/${locale}`}
+              >
+                <Image
+                  alt="Lordaeron"
+                  className="drop-shadow-[0_0_6px_rgba(199,156,62,0.4)]"
+                  height={32}
+                  src="/img/logo/logo.png"
+                  width={32}
+                />
+                <span className="font-heading text-xl font-black wow-gradient-text tracking-widest uppercase">
+                  Lordaeron
+                </span>
+              </NextLink>
               <p className="text-gray-400 text-sm leading-relaxed">
                 {t("description")}
               </p>
@@ -44,7 +57,6 @@ export const Footer = () => {
               </h4>
               <ul className="space-y-2">
                 {[
-                  { label: tNav("home"), href: `/${locale}` },
                   { label: tNav("howTo"), href: `/${locale}/how-to` },
                   { label: tNav("features"), href: `/${locale}/features` },
                   {

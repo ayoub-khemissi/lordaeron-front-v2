@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import NextLink from "next/link";
 import { Button } from "@heroui/button";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -22,15 +23,21 @@ export function AdminHeader() {
   return (
     <header className="h-14 bg-[#0d1117] border-b border-gray-800 flex items-center justify-between px-6">
       <div className="flex items-center gap-2">
-        <Image
-          alt="Lordaeron"
-          height={28}
-          src="/img/logo/logo.png"
-          width={28}
-        />
-        <span className="font-bold text-sm text-gray-300 tracking-widest">
-          LORDAERON
-        </span>
+        <NextLink
+          className="flex justify-start items-center gap-2 group"
+          href={`/${locale}`}
+        >
+          <Image
+            alt="Lordaeron"
+            className="drop-shadow-[0_0_6px_rgba(199,156,62,0.4)]"
+            height={28}
+            src="/img/logo/logo.png"
+            width={28}
+          />
+          <span className="font-heading text-sm font-black wow-gradient-text tracking-widest uppercase">
+            Lordaeron
+          </span>
+        </NextLink>
       </div>
       <div className="flex items-center gap-4">
         <LocaleSwitcher />

@@ -30,11 +30,14 @@ export function AdminSidebar() {
         <NextLink className="flex items-center gap-2" href={basePath}>
           <Image
             alt="Lordaeron"
+            className="drop-shadow-[0_0_6px_rgba(199,156,62,0.4)]"
             height={32}
             src="/img/logo/logo.png"
             width={32}
           />
-          <span className="font-bold text-lg wow-gradient-text">ADMIN</span>
+          <span className="font-heading font-bold text-lg wow-gradient-text uppercase">
+            Dashboard
+          </span>
         </NextLink>
       </div>
 

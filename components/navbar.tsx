@@ -67,8 +67,8 @@ export const Navbar = () => {
               src="/img/logo/logo.png"
               width={32}
             />
-            <span className="font-bold text-xl wow-gradient-text tracking-widest group-hover:drop-shadow-[0_0_8px_rgba(199,156,62,0.5)] transition-all">
-              LORDAERON
+            <span className="font-heading text-xl font-black wow-gradient-text tracking-widest uppercase">
+              Lordaeron
             </span>
           </NextLink>
         </NavbarBrand>
