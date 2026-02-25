@@ -9,7 +9,8 @@
     "logout": "Abmelden",
     "shop": "Shop",
     "news": "Neuigkeiten",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "epicProgression": "Epic Progression"
   },
   "home": {
     "title": "Willkommen auf Lordaeron",
@@ -723,6 +724,10 @@
     "news": {
       "title": "Neuigkeiten & Updates — Lordaeron WoW Server",
       "description": "Neueste Nachrichten, Patchnotes, Events und Ankündigungen von Lordaeron, dem epischen progressiven WoW 3.3.5a Privatserver."
+    },
+    "epicProgression": {
+      "title": "Epic Progression — Lordaeron WoW Server",
+      "description": "Entdecke Lordaerons Epic Progression System: Besiege jeden Raid-Endboss der Reihe nach, von Vanilla über TBC bis WotLK. Progression pro Charakter, Stufen-Beschränkungen und Fraktionsführer-Quests."
     }
   },
   "branding": {
@@ -744,5 +749,40 @@
     "register": "Registrieren",
     "collapse": "Ausblenden",
     "expand": "Vote"
+  },
+  "epicProgression": {
+    "title": "Epic Progression",
+    "subtitle": "Durchlaufe jede WoW-Raidstufe — von Molten Core bis zur Eiskronenzitadelle",
+    "introTitle": "Was ist Epic Progression?",
+    "introDesc": "Epic Progression ist Lordaerons zentrales Spielsystem. Jeder Charakter muss den/die Endboss(e) einer Raidstufe besiegen, um die nächste freizuschalten. Die Progression ist pro Charakter — nicht pro Account oder Server. Jeder Held schreibt seine eigene Geschichte, von den Tiefen des Geschmolzenen Kerns bis zum eisigen Thron des Lichkönigs. Alles läuft auf einer WotLK 3.3.5a-Konfiguration — Zauber, Talente, Quests — aber der Inhalt wird progressiv freigeschaltet.",
+    "dkTitle": "Todesritter & Vanilla",
+    "dkDesc": "Todesritter sind wie gewohnt ab Stufe 55 verfügbar, unterliegen aber ebenfalls der Epic Progression. Die Werte ihrer Startausrüstung wurden angepasst, damit sie während der Vanilla-Stufe nicht zu stark sind.",
+    "stayOnTierTitle": "Auf deiner Stufe bleiben",
+    "stayOnTierDesc": "Du bist nie gezwungen weiterzugehen. Du kannst die letzte Quest einfach nicht abgeben und so lange auf deiner aktuellen Stufe bleiben, wie du möchtest. So kannst du Gilden gründen, Freunde sammeln und gemeinsam in eurem Tempo fortschreiten, bevor ihr zur nächsten Erweiterung wechselt.",
+    "paliersTitle": "Die 3 Erweiterungsstufen",
+    "vanillaTitle": "Vanilla",
+    "vanillaDesc": "Beginne deine Reise im klassischen Azeroth. Erobere den Geschmolzenen Kern, den Pechschwingenhort, Zul'Gurub und den Tempel von Ahn'Qiraj. Besiege die Endbosse jedes Raids, um durch die Stufen aufzusteigen.",
+    "vanillaTiers": "Tier 1 (Molten Core) → Tier 2 (BWL) → Übergang (ZG) → Tier 2.5 (AQ40)",
+    "vanillaNpc": "Quest-NPC: Varian Wrynn (Allianz) & Thrall (Horde)",
+    "tbcTitle": "The Burning Crusade",
+    "tbcDesc": "Durchschreite das Dunkle Portal in die Scherbenwelt. Von Karazhan bis zum Sonnenbrunnenplateau — stelle dich den ikonischsten Bossen der Brennenden Legion und Illidans Streitkräften.",
+    "tbcTiers": "Tier 4 (Kara/Gruul/Mag) → Tier 5 (SSC/Auge) → Tier 6 (Hyjal/BT) → Übergang (ZA) → Tier 6.5 (Sunwell)",
+    "tbcNpc": "Quest-NPC: A'dal (Shattrath)",
+    "wotlkTitle": "Wrath of the Lich King",
+    "wotlkDesc": "Marschiere nach Nordend und stelle dich der größten Bedrohung, die Azeroth je gesehen hat. Von den Hallen von Naxxramas bis zum Gipfel der Eiskronenzitadelle — dein Weg führt zum Lichkönig selbst.",
+    "wotlkTiers": "Tier 7 (Naxx/Maly/Sarth) → Tier 8 (Ulduar) → Tier 9 (ToC/Ony) → Tier 10 (ICC) → Final (RS)",
+    "wotlkNpc": "Quest-NPC: Rhonin (Dalaran)",
+    "restrictionsTitle": "Stufenübergreifende Beschränkungen",
+    "restrictionsDesc": "Um faire Progression zu gewährleisten und Boosting zu verhindern, können Spieler verschiedener Stufen nicht auf bestimmte Weise interagieren:",
+    "restrictionGroup": "Keine Gruppe mit Spielern einer anderen Stufe",
+    "restrictionTrade": "Kein Handel mit Spielern einer anderen Stufe",
+    "restrictionAH": "Keine Auktionshaus-Transaktionen zwischen Stufen",
+    "restrictionGuildBank": "Kein Gildenbank-Zugriff über Stufen hinweg",
+    "restrictionMail": "Keine Post zwischen Spielern verschiedener Stufen",
+    "restrictionsWhy": "Diese Beschränkungen existieren, um die Integrität der Progression zu bewahren. Sie verhindern Boosting, stellen sicher, dass jeder Spieler seinen Fortschritt verdient, und erhalten die Herausforderung und Komplexität jeder Stufe.",
+    "questTitle": "Wie man fortschreitet",
+    "questDesc": "Um von einer Stufe zur nächsten aufzusteigen, musst du eine Quest deines Fraktionsanführers abschließen. Nachdem du den Endboss einer Stufe besiegt hast, kehre zum Quest-NPC zurück, um deinen Kill zu bestätigen und den nächsten Inhalt freizuschalten. In Vanilla sprich mit Varian Wrynn (Allianz) oder Thrall (Horde). In TBC suche A'dal in Shattrath auf. In WotLK melde dich bei Rhonin in Dalaran.",
+    "timelineTitle": "Progressions-Zeitachse",
+    "learnMore": "Mehr erfahren"
   }
 }

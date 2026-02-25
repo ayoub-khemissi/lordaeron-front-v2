@@ -2,7 +2,8 @@
 
 import { Fragment } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import NextLink from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const IMG = "/img/epic-progressive";
@@ -209,8 +210,14 @@ const BossPortrait = ({
   </motion.div>
 );
 
-export const EpicProgressionTimeline = () => {
+export const EpicProgressionTimeline = ({
+  standalone = false,
+}: {
+  standalone?: boolean;
+}) => {
   const t = useTranslations("home");
+  const te = useTranslations("epicProgression");
+  const locale = useLocale();
 
   return (
     <section className="relative overflow-hidden">
@@ -218,7 +225,7 @@ export const EpicProgressionTimeline = () => {
       {expansions.map((exp, ei) => (
         <div
           key={exp.name}
-          className={`relative overflow-hidden ${ei === 0 ? "pt-20 pb-12 md:pt-28 md:pb-20" : "py-12 md:py-20"}`}
+          className={`relative overflow-hidden ${ei === 0 ? (standalone ? "pb-12 md:pb-20" : "pt-20 pb-12 md:pt-28 md:pb-20") : "py-12 md:py-20"}`}
         >
           {/* Background image */}
           <div
@@ -230,7 +237,7 @@ export const EpicProgressionTimeline = () => {
 
           <div className="relative container mx-auto max-w-5xl px-6">
             {/* Section header (inside first expansion for seamless bg) */}
-            {ei === 0 && (
+            {ei === 0 && !standalone && (
               <motion.div
                 className="text-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
@@ -244,7 +251,13 @@ export const EpicProgressionTimeline = () => {
                 <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-4">
                   {t("epicProgressionDesc")}
                 </p>
-                <div className="shimmer-line w-24 mx-auto" />
+                <div className="shimmer-line w-24 mx-auto mb-5" />
+                <NextLink
+                  className="inline-block text-sm text-wow-gold hover:text-wow-gold-light transition-colors underline underline-offset-4"
+                  href={`/${locale}/epic-progression`}
+                >
+                  {te("learnMore")} &rarr;
+                </NextLink>
               </motion.div>
             )}
 

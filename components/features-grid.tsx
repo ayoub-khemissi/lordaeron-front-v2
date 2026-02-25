@@ -2,16 +2,23 @@
 
 import React from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import NextLink from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const WOWHEAD_ICON = "https://wow.zamimg.com/images/wow/icons/large";
 
-const features = [
+const features: {
+  key: string;
+  icon: string;
+  bg: string;
+  link?: string;
+}[] = [
   {
     key: "epicProgression",
     icon: `${WOWHEAD_ICON}/inv_misc_orb_02.jpg`,
     bg: "/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_Black_Temple_Illidan.jpg",
+    link: "/epic-progression",
   },
   {
     key: "tankAsDps",
@@ -55,13 +62,17 @@ const FeatureCard = React.memo(function FeatureCard({
   iconUrl,
   bgImage,
   index,
+  link,
 }: {
   featureKey: string;
   iconUrl: string;
   bgImage: string;
   index: number;
+  link?: string;
 }) {
   const t = useTranslations("features");
+  const te = useTranslations("epicProgression");
+  const locale = useLocale();
 
   return (
     <motion.div
@@ -98,6 +109,15 @@ const FeatureCard = React.memo(function FeatureCard({
           <p className="text-gray-300 text-sm leading-relaxed">
             {t(`${featureKey}Desc`)}
           </p>
+
+          {link && (
+            <NextLink
+              className="mt-4 text-sm text-wow-gold hover:text-wow-gold-light transition-colors underline underline-offset-4"
+              href={`/${locale}${link}`}
+            >
+              {te("learnMore")} &rarr;
+            </NextLink>
+          )}
         </div>
       </div>
     </motion.div>
@@ -129,6 +149,7 @@ export const FeaturesGrid = () => {
             featureKey={feat.key}
             iconUrl={feat.icon}
             index={i}
+            link={feat.link}
           />
         ))}
       </div>

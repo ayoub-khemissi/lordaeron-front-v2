@@ -33,6 +33,7 @@ const pages: PageEntry[] = [
   { path: "", priority: 1.0, changeFrequency: "daily" },
   { path: "/how-to", priority: 0.9, changeFrequency: "monthly" },
   { path: "/features", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/epic-progression", priority: 0.9, changeFrequency: "monthly" },
   { path: "/news", priority: 0.8, changeFrequency: "daily" },
   { path: "/shop", priority: 0.7, changeFrequency: "weekly" },
   { path: "/contact", priority: 0.5, changeFrequency: "yearly" },

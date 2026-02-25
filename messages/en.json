@@ -9,7 +9,8 @@
     "logout": "Logout",
     "shop": "Shop",
     "news": "News",
-    "contact": "Contact"
+    "contact": "Contact",
+    "epicProgression": "Epic Progression"
   },
   "home": {
     "title": "Welcome to Lordaeron",
@@ -829,6 +830,10 @@
     "news": {
       "title": "News & Updates — Lordaeron WoW Server",
       "description": "Latest news, patch notes, events, and announcements from Lordaeron, the epic progressive WoW 3.3.5a private server."
+    },
+    "epicProgression": {
+      "title": "Epic Progression — Lordaeron WoW Server",
+      "description": "Discover Lordaeron's Epic Progression system: defeat every final raid boss in order from Vanilla through TBC to WotLK. Per-character progression, tier restrictions, and faction leader quests."
     }
   },
   "branding": {
@@ -850,5 +855,40 @@
     "register": "Register",
     "collapse": "Hide",
     "expand": "Vote"
+  },
+  "epicProgression": {
+    "title": "Epic Progression",
+    "subtitle": "Progress through every WoW raid tier — from Molten Core to Icecrown Citadel",
+    "introTitle": "What is Epic Progression?",
+    "introDesc": "Epic Progression is Lordaeron's core gameplay system. Each character must defeat the final boss(es) of a raid tier to unlock the next one. Progression is per-character — not per-account or per-server. Every hero writes their own story, from the depths of Molten Core to the frozen throne of the Lich King. Everything runs on a WotLK 3.3.5a configuration — spells, talents, quests — but the content is unlocked progressively.",
+    "dkTitle": "Death Knights & Vanilla",
+    "dkDesc": "Death Knights are available as usual from level 55, but they are also subject to Epic Progression. Their starting gear stats have been rebalanced so they are not overpowered during the Vanilla tier.",
+    "stayOnTierTitle": "Stay on Your Tier",
+    "stayOnTierDesc": "You are never forced to move on. You can choose not to turn in the final quest and stay on your current tier as long as you want. This lets you create guilds, gather friends, and progress together at your own pace before moving to the next expansion.",
+    "paliersTitle": "The 3 Expansion Tiers",
+    "vanillaTitle": "Vanilla",
+    "vanillaDesc": "Begin your journey in classic Azeroth. Conquer Molten Core, Blackwing Lair, Zul'Gurub, and the Temple of Ahn'Qiraj. Defeat the final bosses of each raid to advance through the tiers.",
+    "vanillaTiers": "Tier 1 (Molten Core) → Tier 2 (BWL) → Transition (ZG) → Tier 2.5 (AQ40)",
+    "vanillaNpc": "Quest NPCs: Varian Wrynn (Alliance) & Thrall (Horde)",
+    "tbcTitle": "The Burning Crusade",
+    "tbcDesc": "Step through the Dark Portal into Outland. From Karazhan to the Sunwell Plateau, face the most iconic bosses of the Burning Legion and Illidan's forces.",
+    "tbcTiers": "Tier 4 (Kara/Gruul/Mag) → Tier 5 (SSC/Eye) → Tier 6 (Hyjal/BT) → Transition (ZA) → Tier 6.5 (Sunwell)",
+    "tbcNpc": "Quest NPC: A'dal (Shattrath City)",
+    "wotlkTitle": "Wrath of the Lich King",
+    "wotlkDesc": "March to Northrend and face the greatest threat Azeroth has ever known. From the halls of Naxxramas to the pinnacle of Icecrown Citadel, your path leads to the Lich King himself.",
+    "wotlkTiers": "Tier 7 (Naxx/Maly/Sarth) → Tier 8 (Ulduar) → Tier 9 (ToC/Ony) → Tier 10 (ICC) → Final (RS)",
+    "wotlkNpc": "Quest NPC: Rhonin (Dalaran)",
+    "restrictionsTitle": "Cross-Tier Restrictions",
+    "restrictionsDesc": "To ensure fair progression and prevent boosting, players from different tiers cannot interact in certain ways:",
+    "restrictionGroup": "No grouping with players on a different tier",
+    "restrictionTrade": "No trading with players on a different tier",
+    "restrictionAH": "No Auction House transactions between tiers",
+    "restrictionGuildBank": "No Guild Bank access across tiers",
+    "restrictionMail": "No mail between players on different tiers",
+    "restrictionsWhy": "These restrictions exist to preserve the integrity of progression. They prevent boosting, ensure every player earns their progress, and maintain the challenge and complexity of each tier.",
+    "questTitle": "How to Progress",
+    "questDesc": "To advance from one tier to the next, you must complete a quest given by your faction's leader. After defeating the final boss of a tier, return to the quest NPC to validate your kill and unlock the next content tier. In Vanilla, speak to Varian Wrynn (Alliance) or Thrall (Horde). In TBC, seek out A'dal in Shattrath City. In WotLK, report to Rhonin in Dalaran.",
+    "timelineTitle": "Progression Timeline",
+    "learnMore": "Learn more"
   }
 }

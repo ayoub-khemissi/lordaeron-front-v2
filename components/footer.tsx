@@ -47,6 +47,10 @@ export const Footer = () => {
                   { label: tNav("home"), href: `/${locale}` },
                   { label: tNav("howTo"), href: `/${locale}/how-to` },
                   { label: tNav("features"), href: `/${locale}/features` },
+                  {
+                    label: tNav("epicProgression"),
+                    href: `/${locale}/epic-progression`,
+                  },
                   user
                     ? { label: tNav("account"), href: `/${locale}/account` }
                     : { label: tNav("register"), href: `/${locale}/register` },

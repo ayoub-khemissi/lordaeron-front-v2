@@ -9,7 +9,8 @@
     "logout": "Esci",
     "shop": "Negozio",
     "news": "Notizie",
-    "contact": "Contatto"
+    "contact": "Contatto",
+    "epicProgression": "Epic Progression"
   },
   "home": {
     "title": "Benvenuto su Lordaeron",
@@ -723,6 +724,10 @@
     "news": {
       "title": "Notizie e Aggiornamenti — Server WoW Lordaeron",
       "description": "Ultime notizie, note di patch, eventi e annunci di Lordaeron, il server privato WoW 3.3.5a epic progressive."
+    },
+    "epicProgression": {
+      "title": "Epic Progression — Server WoW Lordaeron",
+      "description": "Scopri il sistema Epic Progression di Lordaeron: sconfiggi ogni boss finale dei raid in ordine, da Vanilla a TBC fino a WotLK. Progressione per personaggio, restrizioni tra livelli e missioni dei capi fazione."
     }
   },
   "branding": {
@@ -744,5 +749,40 @@
     "register": "Registrati",
     "collapse": "Nascondi",
     "expand": "Vota"
+  },
+  "epicProgression": {
+    "title": "Epic Progression",
+    "subtitle": "Progredisci attraverso ogni livello di raid WoW — da Molten Core alla Cittadella della Corona di Ghiaccio",
+    "introTitle": "Cos'è l'Epic Progression?",
+    "introDesc": "L'Epic Progression è il sistema di gioco centrale di Lordaeron. Ogni personaggio deve sconfiggere il/i boss finale/i di un livello di raid per sbloccare il successivo. La progressione è per personaggio — non per account o per server. Ogni eroe scrive la propria storia, dalle profondità del Nucleo di Magma al trono ghiacciato del Re dei Lich. Il tutto funziona su una configurazione WotLK 3.3.5a — incantesimi, talenti, missioni — ma il contenuto viene sbloccato progressivamente.",
+    "dkTitle": "Cavalieri della Morte e Vanilla",
+    "dkDesc": "I Cavalieri della Morte sono disponibili normalmente dal livello 55, ma sono anch'essi soggetti all'Epic Progression. Le statistiche del loro equipaggiamento iniziale sono state ribilanciate per non essere troppo potenti durante il livello Vanilla.",
+    "stayOnTierTitle": "Resta al tuo livello",
+    "stayOnTierDesc": "Non sei mai obbligato ad avanzare. Puoi scegliere di non consegnare la missione finale e restare al tuo livello attuale per tutto il tempo che desideri. Questo ti permette di creare gilde, riunire amici e progredire insieme al vostro ritmo prima di passare all'espansione successiva.",
+    "paliersTitle": "I 3 livelli di espansione",
+    "vanillaTitle": "Vanilla",
+    "vanillaDesc": "Inizia il tuo viaggio nell'Azeroth classica. Conquista il Nucleo di Magma, il Covo dell'Ala Nera, Zul'Gurub e il Tempio di Ahn'Qiraj. Sconfiggi i boss finali di ogni raid per avanzare tra i livelli.",
+    "vanillaTiers": "Tier 1 (Molten Core) → Tier 2 (BWL) → Transizione (ZG) → Tier 2.5 (AQ40)",
+    "vanillaNpc": "NPC missione: Varian Wrynn (Alleanza) & Thrall (Orda)",
+    "tbcTitle": "The Burning Crusade",
+    "tbcDesc": "Attraversa il Portale Oscuro verso le Terre Esterne. Da Karazhan all'Altopiano del Pozzo del Sole, affronta i boss più iconici della Legione Infuocata e delle forze di Illidan.",
+    "tbcTiers": "Tier 4 (Kara/Gruul/Mag) → Tier 5 (SSC/Occhio) → Tier 6 (Hyjal/BT) → Transizione (ZA) → Tier 6.5 (Sunwell)",
+    "tbcNpc": "NPC missione: A'dal (Shattrath)",
+    "wotlkTitle": "Wrath of the Lich King",
+    "wotlkDesc": "Marcia su Nordania e affronta la più grande minaccia che Azeroth abbia mai conosciuto. Dalle sale di Naxxramas alla vetta della Cittadella della Corona di Ghiaccio, il tuo cammino conduce al Re dei Lich in persona.",
+    "wotlkTiers": "Tier 7 (Naxx/Maly/Sarth) → Tier 8 (Ulduar) → Tier 9 (ToC/Ony) → Tier 10 (ICC) → Finale (RS)",
+    "wotlkNpc": "NPC missione: Rhonin (Dalaran)",
+    "restrictionsTitle": "Restrizioni tra livelli",
+    "restrictionsDesc": "Per garantire una progressione equa e prevenire il boosting, i giocatori di livelli diversi non possono interagire in certi modi:",
+    "restrictionGroup": "Nessun gruppo con giocatori di un livello diverso",
+    "restrictionTrade": "Nessuno scambio con giocatori di un livello diverso",
+    "restrictionAH": "Nessuna transazione alla Casa d'Aste tra livelli",
+    "restrictionGuildBank": "Nessun accesso alla Banca di Gilda tra livelli",
+    "restrictionMail": "Nessuna posta tra giocatori di livelli diversi",
+    "restrictionsWhy": "Queste restrizioni esistono per preservare l'integrità della progressione. Prevengono il boosting, assicurano che ogni giocatore guadagni il proprio progresso e mantengono la sfida e la complessità di ogni livello.",
+    "questTitle": "Come progredire",
+    "questDesc": "Per avanzare da un livello al successivo, devi completare una missione data dal capo della tua fazione. Dopo aver sconfitto il boss finale di un livello, torna dal NPC per convalidare la tua uccisione e sbloccare il contenuto successivo. In Vanilla, parla con Varian Wrynn (Alleanza) o Thrall (Orda). In TBC, cerca A'dal a Shattrath. In WotLK, presentati da Rhonin a Dalaran.",
+    "timelineTitle": "Cronologia della progressione",
+    "learnMore": "Scopri di più"
   }
 }
