@@ -72,7 +72,7 @@ export const Navbar = () => {
             </span>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-1 justify-start ml-6">
+        <ul className="hidden lg:flex gap-1 justify-start items-center ml-6">
           {siteConfig.navItems
             .filter((item) => item.href !== "/shop" || user)
             .map((item) =>

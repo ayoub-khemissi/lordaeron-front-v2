@@ -16,6 +16,7 @@ import {
   TableCell,
 } from "@heroui/table";
 import { Chip } from "@heroui/chip";
+import NextLink from "next/link";
 
 import { useAuth } from "@/lib/auth-context";
 import { ChangePasswordForm } from "@/components/change-password-form";
@@ -353,9 +354,12 @@ export default function AccountPage() {
                           return (
                             <TableRow key={char.guid}>
                               <TableCell>
-                                <span className="font-semibold text-gray-200">
+                                <NextLink
+                                  className="font-semibold text-gray-200 hover:text-wow-gold transition-colors"
+                                  href={`/${locale}/armory/${char.name}`}
+                                >
                                   {char.name}
-                                </span>
+                                </NextLink>
                               </TableCell>
                               <TableCell>
                                 <span

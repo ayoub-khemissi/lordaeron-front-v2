@@ -12,6 +12,7 @@ const guestOnlyPaths = [
   "/forgot-password",
   "/reset-password",
 ];
+const blockedPaths = ["/armory"];
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -22,6 +23,14 @@ export default function middleware(request: NextRequest) {
   const localeMatch = pathname.match(/^\/(fr|en|es|de|it)(\/|$)/);
   const locale = localeMatch ? localeMatch[1] : "en";
   const session = request.cookies.get("lordaeron_session");
+
+  const isBlocked = blockedPaths.some(
+    (p) => pathWithoutLocale === p || pathWithoutLocale.startsWith(p + "/"),
+  );
+
+  if (isBlocked) {
+    return NextResponse.redirect(new URL(`/${locale}`, request.url));
+  }
 
   const isProtected = protectedPaths.some(
     (p) => pathWithoutLocale === p || pathWithoutLocale.startsWith(p + "/"),

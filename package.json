@@ -81,7 +81,8 @@
     "react-markdown": "^10.1.0",
     "recharts": "^3.7.0",
     "remark-gfm": "^4.0.1",
-    "stripe": "^20.3.1"
+    "stripe": "^20.3.1",
+    "wow-model-viewer": "^1.5.3"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.2",

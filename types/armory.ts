@@ -1,0 +1,85 @@
+export interface ArmorySearchResult {
+  guid: number;
+  name: string;
+  race: number;
+  class: number;
+  level: number;
+  gender: number;
+  online: number;
+}
+
+export interface ArmoryCharacter {
+  guid: number;
+  name: string;
+  race: number;
+  class: number;
+  gender: number;
+  level: number;
+  online: number;
+  totaltime: number;
+  zone: number;
+  // Appearance
+  skin: number;
+  face: number;
+  hairStyle: number;
+  hairColor: number;
+  facialStyle: number;
+  // PvP
+  totalKills: number;
+  totalHonorPoints: number;
+  arenaPoints: number;
+  // Equipment
+  equipmentCache: string;
+  // Guild
+  guildId: number | null;
+  guildName: string | null;
+  guildRankName: string | null;
+}
+
+export interface ArmoryStats {
+  guid: number;
+  maxhealth: number;
+  maxpower1: number; // mana
+  maxpower2: number; // rage
+  maxpower3: number; // energy
+  strength: number;
+  agility: number;
+  stamina: number;
+  intellect: number;
+  spirit: number;
+  armor: number;
+  blockPct: number;
+  dodgePct: number;
+  parryPct: number;
+  critPct: number;
+  rangedCritPct: number;
+  spellCritPct: number;
+  attackPower: number;
+  rangedAttackPower: number;
+  spellPower: number;
+  resilience: number;
+}
+
+export interface ArmoryProfession {
+  skill: number;
+  value: number;
+  max: number;
+}
+
+export interface ArenaTeamInfo {
+  name: string;
+  type: number;
+  rating: number;
+  personalRating: number;
+  seasonGames: number;
+  seasonWins: number;
+  weekGames: number;
+  weekWins: number;
+}
+
+export interface EquipmentSlot {
+  slot: number;
+  itemEntry: number;
+  /** Item display ID from item_template (enriched server-side) */
+  displayId: number;
+}

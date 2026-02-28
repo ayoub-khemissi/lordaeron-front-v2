@@ -13,6 +13,19 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        // Serve empty bone files (don't exist on wrath CDN, crash viewer)
+        source: "/modelviewer/:env/bone/:id.bone",
+        destination: "/api/modelviewer/bone/:id",
+      },
+      {
+        source: "/modelviewer/:path*",
+        destination: "https://wow.zamimg.com/modelviewer/:path*",
+      },
+    ];
+  },
 };
 
 module.exports = withNextIntl(nextConfig);
