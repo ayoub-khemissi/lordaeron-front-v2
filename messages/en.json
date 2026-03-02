@@ -231,6 +231,7 @@
     "insufficientShards": "Not enough Soul Shards.",
     "tooManyCharacters": "You already have the maximum number of characters (10).",
     "deletedOn": "Deleted on",
+    "daysRemaining": "{days}d left",
     "cancel": "Cancel"
   },
   "shop": {

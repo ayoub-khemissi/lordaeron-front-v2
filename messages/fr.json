@@ -231,6 +231,7 @@
     "insufficientShards": "Éclats d'âme insuffisants.",
     "tooManyCharacters": "Vous avez déjà le nombre maximum de personnages (10).",
     "deletedOn": "Supprimé le",
+    "daysRemaining": "{days}j restants",
     "cancel": "Annuler"
   },
   "shop": {

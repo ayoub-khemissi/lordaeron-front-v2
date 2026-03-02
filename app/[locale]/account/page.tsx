@@ -445,18 +445,10 @@ export default function AccountPage() {
                 )}
               </div>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Deleted Characters Section */}
-        {deletedCharacters.length > 0 && (
-          <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            transition={{ delay: 0.3 }}
-          >
-            <div className="relative overflow-hidden rounded-2xl glow-gold">
+            {/* Deleted Characters Section */}
+            {deletedCharacters.length > 0 && (
+            <div className="relative overflow-hidden rounded-2xl glow-gold mt-6">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-15"
                 style={{
@@ -539,11 +531,26 @@ export default function AccountPage() {
                               </span>
                             </TableCell>
                             <TableCell>
-                              <span className="text-gray-400 text-sm">
-                                {new Date(
-                                  char.deleteDate * 1000,
-                                ).toLocaleDateString(locale)}
-                              </span>
+                              <div className="flex flex-col">
+                                <span className="text-gray-400 text-sm">
+                                  {new Date(
+                                    char.deleteDate * 1000,
+                                  ).toLocaleDateString(locale)}
+                                </span>
+                                <span className="text-red-400 text-xs">
+                                  {t("daysRemaining", {
+                                    days: Math.max(
+                                      0,
+                                      30 -
+                                        Math.floor(
+                                          (Date.now() / 1000 -
+                                            char.deleteDate) /
+                                            86400,
+                                        ),
+                                    ),
+                                  })}
+                                </span>
+                              </div>
                             </TableCell>
                             <TableCell>
                               <Button
@@ -565,8 +572,9 @@ export default function AccountPage() {
                 </div>
               </div>
             </div>
+            )}
           </motion.div>
-        )}
+        </div>
 
         {/* Restore Character Modal */}
         <RestoreCharacterModal

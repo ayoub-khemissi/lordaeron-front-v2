@@ -229,6 +229,7 @@
     "insufficientShards": "Fragmentos de alma insuficientes.",
     "tooManyCharacters": "Ya tienes el número máximo de personajes (10).",
     "deletedOn": "Eliminado el",
+    "daysRemaining": "{days}d restantes",
     "cancel": "Cancelar"
   },
   "shop": {
