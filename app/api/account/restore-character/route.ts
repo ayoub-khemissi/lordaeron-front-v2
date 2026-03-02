@@ -108,7 +108,13 @@ export async function POST(request: Request) {
     }
 
     // Restore character on charactersDb
-    const restored = await restoreCharacter(guid, finalName, session.id);
+    let restored = false;
+
+    try {
+      restored = await restoreCharacter(guid, finalName, session.id);
+    } catch (restoreError) {
+      console.error("Restore character error:", restoreError);
+    }
 
     if (!restored) {
       // Compensatory transaction: re-credit the shards
