@@ -1,4 +1,4 @@
-import type { Character } from "@/types";
+import type { Character, DeletedCharacter } from "@/types";
 
 import { RowDataPacket } from "mysql2";
 
@@ -144,4 +144,69 @@ export async function removeInventoryItem(itemGuid: number): Promise<void> {
   await charactersDb.execute("DELETE FROM item_instance WHERE guid = ?", [
     itemGuid,
   ]);
+}
+
+export async function getDeletedCharactersByAccount(
+  accountId: number,
+): Promise<DeletedCharacter[]> {
+  const [rows] = await charactersDb.execute<RowDataPacket[]>(
+    `SELECT guid, deleteInfos_Name AS name, deleteDate, race, class, level, gender
+     FROM characters
+     WHERE deleteDate IS NOT NULL AND deleteInfos_Account = ?
+     ORDER BY deleteDate DESC`,
+    [accountId],
+  );
+
+  return rows as DeletedCharacter[];
+}
+
+export async function getDeletedCharacterByGuid(
+  guid: number,
+): Promise<(DeletedCharacter & { accountId: number }) | null> {
+  const [rows] = await charactersDb.execute<RowDataPacket[]>(
+    `SELECT guid, deleteInfos_Name AS name, deleteInfos_Account AS accountId,
+            deleteDate, race, class, level, gender
+     FROM characters WHERE guid = ? AND deleteDate IS NOT NULL`,
+    [guid],
+  );
+
+  if (rows.length === 0) return null;
+
+  return rows[0] as DeletedCharacter & { accountId: number };
+}
+
+export async function getActiveCharacterCount(
+  accountId: number,
+): Promise<number> {
+  const [rows] = await charactersDb.execute<RowDataPacket[]>(
+    "SELECT COUNT(*) AS count FROM characters WHERE account = ? AND deleteDate IS NULL",
+    [accountId],
+  );
+
+  return rows[0].count;
+}
+
+export async function isCharacterNameTaken(name: string): Promise<boolean> {
+  const [rows] = await charactersDb.execute<RowDataPacket[]>(
+    "SELECT 1 FROM characters WHERE name = ? LIMIT 1",
+    [name],
+  );
+
+  return rows.length > 0;
+}
+
+export async function restoreCharacter(
+  guid: number,
+  name: string,
+  accountId: number,
+): Promise<boolean> {
+  const [result] = await charactersDb.execute<RowDataPacket[]>(
+    `UPDATE characters
+     SET name = ?, account = ?, deleteDate = NULL,
+         deleteInfos_Name = NULL, deleteInfos_Account = NULL
+     WHERE guid = ? AND deleteDate IS NOT NULL AND deleteInfos_Account = ?`,
+    [name, accountId, guid, accountId],
+  );
+
+  return (result as unknown as { affectedRows: number }).affectedRows > 0;
 }

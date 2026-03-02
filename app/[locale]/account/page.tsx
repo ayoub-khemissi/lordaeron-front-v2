@@ -1,6 +1,6 @@
 "use client";
 
-import type { Character, AccountInfo } from "@/types";
+import type { Character, AccountInfo, DeletedCharacter } from "@/types";
 
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
@@ -16,51 +16,18 @@ import {
   TableCell,
 } from "@heroui/table";
 import { Chip } from "@heroui/chip";
+import { Button } from "@heroui/button";
 import NextLink from "next/link";
 
 import { useAuth } from "@/lib/auth-context";
 import { ChangePasswordForm } from "@/components/change-password-form";
-
-const RACE_NAMES: Record<number, string> = {
-  1: "Human",
-  2: "Orc",
-  3: "Dwarf",
-  4: "Night Elf",
-  5: "Undead",
-  6: "Tauren",
-  7: "Gnome",
-  8: "Troll",
-  10: "Blood Elf",
-  11: "Draenei",
-};
-
-const CLASS_NAMES: Record<number, string> = {
-  1: "Warrior",
-  2: "Paladin",
-  3: "Hunter",
-  4: "Rogue",
-  5: "Priest",
-  6: "Death Knight",
-  7: "Shaman",
-  8: "Mage",
-  9: "Warlock",
-  11: "Druid",
-};
-
-const CLASS_COLORS: Record<number, string> = {
-  1: "#C79C6E",
-  2: "#F58CBA",
-  3: "#ABD473",
-  4: "#FFF569",
-  5: "#FFFFFF",
-  6: "#C41F3B",
-  7: "#0070DE",
-  8: "#69CCF0",
-  9: "#9482C9",
-  11: "#FF7D0A",
-};
-
-const ALLIANCE_RACES = [1, 3, 4, 7, 11];
+import { RestoreCharacterModal } from "@/components/restore-character-modal";
+import {
+  RACE_NAMES,
+  CLASS_NAMES,
+  CLASS_COLORS,
+  ALLIANCE_RACES,
+} from "@/lib/shop-utils";
 
 function formatPlayTime(seconds: number): string {
   const days = Math.floor(seconds / 86400);
@@ -98,6 +65,13 @@ export default function AccountPage() {
     bannedby: string;
     banreason: string;
   } | null>(null);
+  const [deletedCharacters, setDeletedCharacters] = useState<
+    DeletedCharacter[]
+  >([]);
+  const [restoreCost, setRestoreCost] = useState(0);
+  const [restoreModalOpen, setRestoreModalOpen] = useState(false);
+  const [selectedDeletedChar, setSelectedDeletedChar] =
+    useState<DeletedCharacter | null>(null);
 
   useEffect(() => {
     if (authLoading) return;
@@ -109,7 +83,10 @@ export default function AccountPage() {
 
     const fetchAccount = async () => {
       try {
-        const res = await fetch("/api/account");
+        const [res, deletedRes] = await Promise.all([
+          fetch("/api/account"),
+          fetch("/api/account/deleted-characters"),
+        ]);
 
         if (res.status === 401) {
           router.replace(`/${locale}/login`);
@@ -124,6 +101,13 @@ export default function AccountPage() {
         setSoulShards(data.soulShards ?? 0);
         setAccountBan(data.accountBan || null);
         setIpBan(data.ipBan || null);
+
+        if (deletedRes.ok) {
+          const deletedData = await deletedRes.json();
+
+          setDeletedCharacters(deletedData.deletedCharacters || []);
+          setRestoreCost(deletedData.restoreCost || 0);
+        }
       } catch {
         router.replace(`/${locale}/login`);
       } finally {
@@ -133,6 +117,47 @@ export default function AccountPage() {
 
     fetchAccount();
   }, [authUser, authLoading, locale, router]);
+
+  const refreshData = async () => {
+    const [res, deletedRes] = await Promise.all([
+      fetch("/api/account"),
+      fetch("/api/account/deleted-characters"),
+    ]);
+
+    if (res.ok) {
+      const data = await res.json();
+
+      setAccount(data.account);
+      setCharacters(data.characters || []);
+      setSoulShards(data.soulShards ?? 0);
+    }
+    if (deletedRes.ok) {
+      const deletedData = await deletedRes.json();
+
+      setDeletedCharacters(deletedData.deletedCharacters || []);
+    }
+  };
+
+  const handleRestore = async (
+    guid: number,
+    newName?: string,
+  ): Promise<{ success: boolean; error?: string; name?: string }> => {
+    const res = await fetch("/api/account/restore-character", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ guid, newName }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      await refreshData();
+
+      return { success: true, name: data.name };
+    }
+
+    return { success: false, error: data.error };
+  };
 
   if (authLoading || loading) {
     return (
@@ -422,6 +447,139 @@ export default function AccountPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Deleted Characters Section */}
+        {deletedCharacters.length > 0 && (
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="relative overflow-hidden rounded-2xl glow-gold">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-15"
+                style={{
+                  backgroundImage:
+                    "url('/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_BlackTemple_Entrance.jpg')",
+                }}
+              />
+              <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
+                <div className="flex items-center justify-between mb-5">
+                  <h2 className="text-lg font-bold wow-gradient-text">
+                    {t("deletedCharacters")}
+                  </h2>
+                  <span className="text-xs text-gray-400 flex items-center gap-1">
+                    <img
+                      alt="Soul Shard"
+                      className="w-3.5 h-3.5"
+                      src="/img/icons/soul-shard.svg"
+                    />
+                    {t("restoreCost", { cost: restoreCost })}
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <Table
+                    aria-label="Deleted Characters"
+                    classNames={{
+                      wrapper: "bg-transparent shadow-none p-0",
+                      th: "bg-wow-darker/60 text-wow-gold text-xs uppercase tracking-wider border-b border-wow-gold/10",
+                      td: "border-b border-white/5 py-3",
+                      tr: "hover:bg-white/[0.02] transition-colors",
+                    }}
+                  >
+                    <TableHeader>
+                      <TableColumn>{t("name")}</TableColumn>
+                      <TableColumn>{t("level")}</TableColumn>
+                      <TableColumn>{t("race")}</TableColumn>
+                      <TableColumn>{t("class")}</TableColumn>
+                      <TableColumn>{t("deletedOn")}</TableColumn>
+                      <TableColumn>{""}</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                      {deletedCharacters.map((char) => {
+                        const faction = ALLIANCE_RACES.includes(char.race)
+                          ? "alliance"
+                          : "horde";
+
+                        return (
+                          <TableRow key={char.guid}>
+                            <TableCell>
+                              <span className="font-semibold text-gray-500 line-through">
+                                {char.name}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <span className="text-gray-400">
+                                {char.level}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <Chip
+                                classNames={{
+                                  base: `${faction === "alliance" ? "bg-wow-alliance/10 border border-wow-alliance/20" : "bg-wow-horde/10 border border-wow-horde/20"}`,
+                                  content: `text-xs font-medium ${faction === "alliance" ? "text-wow-alliance" : "text-wow-horde"}`,
+                                }}
+                                size="sm"
+                                variant="flat"
+                              >
+                                {RACE_NAMES[char.race] || `Race ${char.race}`}
+                              </Chip>
+                            </TableCell>
+                            <TableCell>
+                              <span
+                                className="font-medium text-sm"
+                                style={{
+                                  color: CLASS_COLORS[char.class] || "#ffffff",
+                                }}
+                              >
+                                {CLASS_NAMES[char.class] ||
+                                  `Class ${char.class}`}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <span className="text-gray-400 text-sm">
+                                {new Date(
+                                  char.deleteDate * 1000,
+                                ).toLocaleDateString(locale)}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <Button
+                                className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold text-xs"
+                                size="sm"
+                                onPress={() => {
+                                  setSelectedDeletedChar(char);
+                                  setRestoreModalOpen(true);
+                                }}
+                              >
+                                {t("restoreCharacter")}
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Restore Character Modal */}
+        <RestoreCharacterModal
+          balance={soulShards}
+          character={selectedDeletedChar}
+          isOpen={restoreModalOpen}
+          restoreCost={restoreCost}
+          onClose={() => {
+            setRestoreModalOpen(false);
+            setSelectedDeletedChar(null);
+          }}
+          onRestore={handleRestore}
+        />
       </div>
     </div>
   );

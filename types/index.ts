@@ -79,6 +79,16 @@ export interface Character {
   zone: number;
 }
 
+export interface DeletedCharacter {
+  guid: number;
+  name: string;
+  race: number;
+  class: number;
+  level: number;
+  gender: number;
+  deleteDate: number;
+}
+
 export interface AccountInfo {
   id: number;
   username: string;

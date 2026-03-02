@@ -183,3 +183,18 @@ export const SHOP_CATEGORIES = [
   "pets",
   "toys",
 ] as const;
+
+export const CLASS_COLORS: Record<number, string> = {
+  1: "#C79C6E",
+  2: "#F58CBA",
+  3: "#ABD473",
+  4: "#FFF569",
+  5: "#FFFFFF",
+  6: "#C41F3B",
+  7: "#0070DE",
+  8: "#69CCF0",
+  9: "#9482C9",
+  11: "#FF7D0A",
+};
+
+export const RESTORE_CHARACTER_COST = 50;
