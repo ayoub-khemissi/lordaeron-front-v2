@@ -448,130 +448,131 @@ export default function AccountPage() {
 
             {/* Deleted Characters Section */}
             {deletedCharacters.length > 0 && (
-            <div className="relative overflow-hidden rounded-2xl glow-gold mt-6">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-15"
-                style={{
-                  backgroundImage:
-                    "url('/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_BlackTemple_Entrance.jpg')",
-                }}
-              />
-              <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
-                <div className="flex items-center justify-between mb-5">
-                  <h2 className="text-lg font-bold wow-gradient-text">
-                    {t("deletedCharacters")}
-                  </h2>
-                  <span className="text-xs text-gray-400 flex items-center gap-1">
-                    <img
-                      alt="Soul Shard"
-                      className="w-3.5 h-3.5"
-                      src="/img/icons/soul-shard.svg"
-                    />
-                    {t("restoreCost", { cost: restoreCost })}
-                  </span>
-                </div>
+              <div className="relative overflow-hidden rounded-2xl glow-gold mt-6">
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-15"
+                  style={{
+                    backgroundImage:
+                      "url('/img/Burning Crusade Classic  Black Temple Screenshots 1080/BCC_BlackTemple_Entrance.jpg')",
+                  }}
+                />
+                <div className="relative glass border-wow-gold/15 rounded-2xl p-6">
+                  <div className="flex items-center justify-between mb-5">
+                    <h2 className="text-lg font-bold wow-gradient-text">
+                      {t("deletedCharacters")}
+                    </h2>
+                    <span className="text-xs text-gray-400 flex items-center gap-1">
+                      <img
+                        alt="Soul Shard"
+                        className="w-3.5 h-3.5"
+                        src="/img/icons/soul-shard.svg"
+                      />
+                      {t("restoreCost", { cost: restoreCost })}
+                    </span>
+                  </div>
 
-                <div className="overflow-x-auto">
-                  <Table
-                    aria-label="Deleted Characters"
-                    classNames={{
-                      wrapper: "bg-transparent shadow-none p-0",
-                      th: "bg-wow-darker/60 text-wow-gold text-xs uppercase tracking-wider border-b border-wow-gold/10",
-                      td: "border-b border-white/5 py-3",
-                      tr: "hover:bg-white/[0.02] transition-colors",
-                    }}
-                  >
-                    <TableHeader>
-                      <TableColumn>{t("name")}</TableColumn>
-                      <TableColumn>{t("level")}</TableColumn>
-                      <TableColumn>{t("race")}</TableColumn>
-                      <TableColumn>{t("class")}</TableColumn>
-                      <TableColumn>{t("deletedOn")}</TableColumn>
-                      <TableColumn>{""}</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      {deletedCharacters.map((char) => {
-                        const faction = ALLIANCE_RACES.includes(char.race)
-                          ? "alliance"
-                          : "horde";
+                  <div className="overflow-x-auto">
+                    <Table
+                      aria-label="Deleted Characters"
+                      classNames={{
+                        wrapper: "bg-transparent shadow-none p-0",
+                        th: "bg-wow-darker/60 text-wow-gold text-xs uppercase tracking-wider border-b border-wow-gold/10",
+                        td: "border-b border-white/5 py-3",
+                        tr: "hover:bg-white/[0.02] transition-colors",
+                      }}
+                    >
+                      <TableHeader>
+                        <TableColumn>{t("name")}</TableColumn>
+                        <TableColumn>{t("level")}</TableColumn>
+                        <TableColumn>{t("race")}</TableColumn>
+                        <TableColumn>{t("class")}</TableColumn>
+                        <TableColumn>{t("deletedOn")}</TableColumn>
+                        <TableColumn>{""}</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {deletedCharacters.map((char) => {
+                          const faction = ALLIANCE_RACES.includes(char.race)
+                            ? "alliance"
+                            : "horde";
 
-                        return (
-                          <TableRow key={char.guid}>
-                            <TableCell>
-                              <span className="font-semibold text-gray-500 line-through">
-                                {char.name}
-                              </span>
-                            </TableCell>
-                            <TableCell>
-                              <span className="text-gray-400">
-                                {char.level}
-                              </span>
-                            </TableCell>
-                            <TableCell>
-                              <Chip
-                                classNames={{
-                                  base: `${faction === "alliance" ? "bg-wow-alliance/10 border border-wow-alliance/20" : "bg-wow-horde/10 border border-wow-horde/20"}`,
-                                  content: `text-xs font-medium ${faction === "alliance" ? "text-wow-alliance" : "text-wow-horde"}`,
-                                }}
-                                size="sm"
-                                variant="flat"
-                              >
-                                {RACE_NAMES[char.race] || `Race ${char.race}`}
-                              </Chip>
-                            </TableCell>
-                            <TableCell>
-                              <span
-                                className="font-medium text-sm"
-                                style={{
-                                  color: CLASS_COLORS[char.class] || "#ffffff",
-                                }}
-                              >
-                                {CLASS_NAMES[char.class] ||
-                                  `Class ${char.class}`}
-                              </span>
-                            </TableCell>
-                            <TableCell>
-                              <div className="flex flex-col">
-                                <span className="text-gray-400 text-sm">
-                                  {new Date(
-                                    char.deleteDate * 1000,
-                                  ).toLocaleDateString(locale)}
+                          return (
+                            <TableRow key={char.guid}>
+                              <TableCell>
+                                <span className="font-semibold text-gray-500 line-through">
+                                  {char.name}
                                 </span>
-                                <span className="text-red-400 text-xs">
-                                  {t("daysRemaining", {
-                                    days: Math.max(
-                                      0,
-                                      30 -
-                                        Math.floor(
-                                          (Date.now() / 1000 -
-                                            char.deleteDate) /
-                                            86400,
-                                        ),
-                                    ),
-                                  })}
+                              </TableCell>
+                              <TableCell>
+                                <span className="text-gray-400">
+                                  {char.level}
                                 </span>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <Button
-                                className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold text-xs"
-                                size="sm"
-                                onPress={() => {
-                                  setSelectedDeletedChar(char);
-                                  setRestoreModalOpen(true);
-                                }}
-                              >
-                                {t("restoreCharacter")}
-                              </Button>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
+                              </TableCell>
+                              <TableCell>
+                                <Chip
+                                  classNames={{
+                                    base: `${faction === "alliance" ? "bg-wow-alliance/10 border border-wow-alliance/20" : "bg-wow-horde/10 border border-wow-horde/20"}`,
+                                    content: `text-xs font-medium ${faction === "alliance" ? "text-wow-alliance" : "text-wow-horde"}`,
+                                  }}
+                                  size="sm"
+                                  variant="flat"
+                                >
+                                  {RACE_NAMES[char.race] || `Race ${char.race}`}
+                                </Chip>
+                              </TableCell>
+                              <TableCell>
+                                <span
+                                  className="font-medium text-sm"
+                                  style={{
+                                    color:
+                                      CLASS_COLORS[char.class] || "#ffffff",
+                                  }}
+                                >
+                                  {CLASS_NAMES[char.class] ||
+                                    `Class ${char.class}`}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex flex-col">
+                                  <span className="text-gray-400 text-sm">
+                                    {new Date(
+                                      char.deleteDate * 1000,
+                                    ).toLocaleDateString(locale)}
+                                  </span>
+                                  <span className="text-red-400 text-xs">
+                                    {t("daysRemaining", {
+                                      days: Math.max(
+                                        0,
+                                        30 -
+                                          Math.floor(
+                                            (Date.now() / 1000 -
+                                              char.deleteDate) /
+                                              86400,
+                                          ),
+                                      ),
+                                    })}
+                                  </span>
+                                </div>
+                              </TableCell>
+                              <TableCell>
+                                <Button
+                                  className="bg-gradient-to-r from-wow-gold to-wow-gold-light text-black font-bold text-xs"
+                                  size="sm"
+                                  onPress={() => {
+                                    setSelectedDeletedChar(char);
+                                    setRestoreModalOpen(true);
+                                  }}
+                                >
+                                  {t("restoreCharacter")}
+                                </Button>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  </div>
                 </div>
               </div>
-            </div>
             )}
           </motion.div>
         </div>
