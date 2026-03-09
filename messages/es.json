@@ -894,6 +894,7 @@
     "scaled_melee": "Daño cuerpo a cuerpo — reducido antes del registro de combate",
     "scaled_spell": "Daño de hechizos — reducido antes del registro de combate",
     "scaled_dot": "DoT / HoT — los efectos periódicos se reducen proporcionalmente",
+    "scaled_xp": "Experiencia — la XP de las muertes de criaturas se reduce proporcionalmente",
     "scaled_lootItems": "Objetos de botín — equipo y fichas de set reducidos (mín 1 conservado)",
     "scaled_lootGold": "Oro — reducido proporcionalmente",
     "notScaledTitle": "Qué NO se escala",
@@ -909,6 +910,7 @@
     "cfgMinRaid": "Mín jugadores (Raid)",
     "cfgMinDungeon": "Mín jugadores (Mazmorra)",
     "cfgScaleLoot": "Escalado de botín",
+    "cfgScaleXP": "Escalado de XP",
     "cfgScaleDungeons": "Escalado de mazmorras",
     "cfgEnabled": "Activado"
   }

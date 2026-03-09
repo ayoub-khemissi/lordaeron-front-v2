@@ -1002,6 +1002,7 @@
     "scaled_melee": "Melee damage — reduced before combat log display",
     "scaled_spell": "Spell damage — reduced before combat log display",
     "scaled_dot": "DoT / HoT ticks — periodic effects scaled proportionally",
+    "scaled_xp": "Experience — XP from creature kills reduced proportionally",
     "scaled_lootItems": "Loot items — equipment and tier tokens reduced (min 1 kept)",
     "scaled_lootGold": "Gold drops — reduced proportionally",
     "notScaledTitle": "What Is NOT Scaled",
@@ -1017,6 +1018,7 @@
     "cfgMinRaid": "Min Players (Raid)",
     "cfgMinDungeon": "Min Players (Dungeon)",
     "cfgScaleLoot": "Scale Loot",
+    "cfgScaleXP": "Scale XP",
     "cfgScaleDungeons": "Scale Dungeons",
     "cfgEnabled": "Enabled"
   }

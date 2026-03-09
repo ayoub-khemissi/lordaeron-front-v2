@@ -894,6 +894,7 @@
     "scaled_melee": "Danno da mischia — ridotto prima della visualizzazione nel registro",
     "scaled_spell": "Danno da incantesimi — ridotto prima della visualizzazione nel registro",
     "scaled_dot": "DoT / HoT — gli effetti periodici vengono ridotti proporzionalmente",
+    "scaled_xp": "Esperienza — XP dalle uccisioni di creature ridotta proporzionalmente",
     "scaled_lootItems": "Oggetti del bottino — equipaggiamento e gettoni set ridotti (min 1 conservato)",
     "scaled_lootGold": "Oro — ridotto proporzionalmente",
     "notScaledTitle": "Cosa NON viene scalato",
@@ -909,6 +910,7 @@
     "cfgMinRaid": "Min giocatori (Raid)",
     "cfgMinDungeon": "Min giocatori (Dungeon)",
     "cfgScaleLoot": "Scaling del bottino",
+    "cfgScaleXP": "Scaling dell'XP",
     "cfgScaleDungeons": "Scaling dei dungeon",
     "cfgEnabled": "Attivato"
   }

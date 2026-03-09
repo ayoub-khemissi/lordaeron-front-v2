@@ -143,6 +143,7 @@ const SCALED_STATS = [
   { key: "melee", icon: `${WOWHEAD_ICON}/ability_warrior_savageblow.jpg` },
   { key: "spell", icon: `${WOWHEAD_ICON}/spell_fire_fireball02.jpg` },
   { key: "dot", icon: `${WOWHEAD_ICON}/spell_shadow_curseofsargeras.jpg` },
+  { key: "xp", icon: `${WOWHEAD_ICON}/spell_holy_aspiration.jpg` },
   { key: "lootItems", icon: `${WOWHEAD_ICON}/inv_chest_plate01.jpg` },
   { key: "lootGold", icon: `${WOWHEAD_ICON}/inv_misc_coin_02.jpg` },
 ];
@@ -830,6 +831,7 @@ export default function RaidScalingContent() {
                     value: SERVER.minPlayersDungeon.toString(),
                   },
                   { label: t("cfgScaleLoot"), value: t("cfgEnabled") },
+                  { label: t("cfgScaleXP"), value: t("cfgEnabled") },
                   { label: t("cfgScaleDungeons"), value: t("cfgEnabled") },
                 ].map((cfg) => (
                   <div

@@ -896,6 +896,7 @@
     "scaled_melee": "Dégâts de mêlée — réduits avant l'affichage dans le journal de combat",
     "scaled_spell": "Dégâts de sorts — réduits avant l'affichage dans le journal de combat",
     "scaled_dot": "DoT / HoT — les effets périodiques sont réduits proportionnellement",
+    "scaled_xp": "Expérience — l'XP des kills de créatures est réduite proportionnellement",
     "scaled_lootItems": "Objets de butin — équipement et jetons de set réduits (min 1 conservé)",
     "scaled_lootGold": "Or — réduit proportionnellement",
     "notScaledTitle": "Ce qui n'est PAS affecté",
@@ -911,6 +912,7 @@
     "cfgMinRaid": "Min joueurs (Raid)",
     "cfgMinDungeon": "Min joueurs (Donjon)",
     "cfgScaleLoot": "Scaling du butin",
+    "cfgScaleXP": "Scaling de l'XP",
     "cfgScaleDungeons": "Scaling des donjons",
     "cfgEnabled": "Activé"
   }

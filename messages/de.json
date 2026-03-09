@@ -894,6 +894,7 @@
     "scaled_melee": "Nahkampfschaden — vor der Kampflog-Anzeige reduziert",
     "scaled_spell": "Zauberschaden — vor der Kampflog-Anzeige reduziert",
     "scaled_dot": "DoT / HoT — periodische Effekte proportional reduziert",
+    "scaled_xp": "Erfahrung — XP von Kreatur-Kills proportional reduziert",
     "scaled_lootItems": "Beute-Gegenstände — Ausrüstung und Set-Token reduziert (min 1 behalten)",
     "scaled_lootGold": "Gold — proportional reduziert",
     "notScaledTitle": "Was NICHT skaliert wird",
@@ -909,6 +910,7 @@
     "cfgMinRaid": "Min Spieler (Raid)",
     "cfgMinDungeon": "Min Spieler (Dungeon)",
     "cfgScaleLoot": "Beute-Skalierung",
+    "cfgScaleXP": "XP-Skalierung",
     "cfgScaleDungeons": "Dungeon-Skalierung",
     "cfgEnabled": "Aktiviert"
   }
