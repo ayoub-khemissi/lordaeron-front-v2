@@ -164,6 +164,8 @@
     "crossfactionDesc": "Groupez-vous avec des joueurs de l'Alliance et de la Horde",
     "aoeLoot": "Loot AOE",
     "aoeLootDesc": "Récupérez le butin de tous les cadavres proches en un seul clic",
+    "raidScaling": "Scaling de difficulté",
+    "raidScalingDesc": "Les raids et donjons s'adaptent dynamiquement à la taille de votre groupe. Moins de joueurs signifie des créatures plus faibles et un butin ajusté — jouez avec n'importe quelle taille de groupe.",
     "autolearnSpells": "Apprentissage auto des sorts",
     "autolearnSpellsDesc": "Apprenez automatiquement de nouveaux sorts en montant de niveau"
   },
@@ -750,6 +752,10 @@
     "epicProgression": {
       "title": "Epic Progression — Serveur WoW Lordaeron",
       "description": "Découvrez le système Epic Progression de Lordaeron : terrassez chaque boss final de raid dans l'ordre, de Vanilla à TBC puis WotLK. Progression par personnage, restrictions inter-paliers et quêtes de chefs de faction."
+    },
+    "raidScaling": {
+      "title": "Scaling de difficulté — Serveur WoW Lordaeron",
+      "description": "Comprenez le scaling dynamique de difficulté des raids et donjons de Lordaeron : les stats des créatures et le butin s'ajustent automatiquement selon la taille du groupe. Simulateur interactif inclus."
     }
   },
   "branding": {
@@ -855,5 +861,55 @@
     "weekWins": "Victoires de la semaine",
     "noArenaTeams": "Aucune équipe d'arène",
     "noProfessions": "Aucune profession"
+  },
+  "raidScaling": {
+    "title": "Scaling de difficulté",
+    "subtitle": "Les raids et donjons s'adaptent dynamiquement à la taille de votre groupe — jouez avec n'importe quel nombre de joueurs",
+    "introTitle": "Comment ça marche ?",
+    "introDesc": "Lorsque votre groupe entre dans une instance avec moins de joueurs que la capacité maximale, toutes les créatures sont automatiquement affaiblies. La vie, les dégâts et le butin s'ajustent en temps réel à chaque fois qu'un joueur rejoint, quitte ou se déconnecte. À pleine capacité, tout reste à 100% — aucun scaling appliqué.",
+    "simulatorTitle": "Simulateur interactif",
+    "changeBoss": "Changer de boss",
+    "players": "joueurs",
+    "ofOriginal": "de l'original",
+    "lootPreview": "Aperçu du butin",
+    "playerCount": "Nombre de joueurs",
+    "clampedTo": "Plancher minimum : traité comme {min} joueurs",
+    "curveLabel": "Courbe de scaling",
+    "curveAggressive": "Aggressif",
+    "curveLinear": "Linéaire",
+    "statHP": "Points de vie",
+    "statDamage": "Dégâts",
+    "statLoot": "Butin",
+    "statGold": "Or",
+    "itemsKept": "objets conservés",
+    "formula": "Formule de scaling",
+    "tableTitle": "Table de scaling",
+    "colPlayers": "Joueurs",
+    "colScaling": "Scaling",
+    "colHP": "PV",
+    "colLoot": "Butin",
+    "scaledTitle": "Ce qui est affecté",
+    "scaled_health": "Points de vie — calculés depuis la base, en préservant le % de vie actuel",
+
+    "scaled_melee": "Dégâts de mêlée — réduits avant l'affichage dans le journal de combat",
+    "scaled_spell": "Dégâts de sorts — réduits avant l'affichage dans le journal de combat",
+    "scaled_dot": "DoT / HoT — les effets périodiques sont réduits proportionnellement",
+    "scaled_lootItems": "Objets de butin — équipement et jetons de set réduits (min 1 conservé)",
+    "scaled_lootGold": "Or — réduit proportionnellement",
+    "notScaledTitle": "Ce qui n'est PAS affecté",
+    "notScaled_mana": "Mana et ressources — non affectés par le scaling",
+    "notScaled_pets": "Familiers, totems et invocations de joueurs",
+    "notScaled_triggers": "PNJ déclencheurs — les créatures d'aide invisibles sont ignorées",
+    "notScaled_materials": "Matériaux et composants — Coeur de magma, recettes, etc. tombent toujours",
+    "notScaled_questItems": "Objets de quête — jamais retirés des tables de butin",
+    "configTitle": "Configuration de Lordaeron",
+    "configDesc": "Voici les valeurs réellement utilisées sur le serveur Lordaeron",
+    "cfgCurveRaid": "Courbe Raid",
+    "cfgCurveDungeon": "Courbe Donjon",
+    "cfgMinRaid": "Min joueurs (Raid)",
+    "cfgMinDungeon": "Min joueurs (Donjon)",
+    "cfgScaleLoot": "Scaling du butin",
+    "cfgScaleDungeons": "Scaling des donjons",
+    "cfgEnabled": "Activé"
   }
 }

@@ -21,6 +21,12 @@ const features: {
     link: "/epic-progression",
   },
   {
+    key: "raidScaling",
+    icon: `${WOWHEAD_ICON}/inv_misc_head_dragon_01.jpg`,
+    bg: "/img/World of Warcraft Classic 1920x1080/ClassicLaunch_WoW_Onyxia_1920x1080.jpg",
+    link: "/raid-scaling",
+  },
+  {
     key: "tankAsDps",
     icon: `${WOWHEAD_ICON}/inv_misc_rune_08.jpg`,
     bg: "/img/Wrath of the Lich King Classic Cinematic Stills/Wrath_of_the_Lich_King_Classic_Cinematic_Still__(5).jpg",

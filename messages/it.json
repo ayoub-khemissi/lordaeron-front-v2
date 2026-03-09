@@ -152,6 +152,8 @@
     "transmogDesc": "Personalizza l'aspetto del tuo equipaggiamento con il sistema di transmog",
     "epicProgression": "Epic Progression",
     "epicProgressionDesc": "Sconfiggi il boss finale di ogni raid nell'ordine di uscita — da Vanilla passando per TBC fino a WotLK. Devi completare ogni livello per sbloccare il successivo.",
+    "raidScaling": "Scaling di difficoltà",
+    "raidScalingDesc": "I raid e i dungeon si adattano dinamicamente alla dimensione del tuo gruppo. Meno giocatori significa creature più deboli e bottino adeguato — gioca con qualsiasi dimensione di gruppo.",
     "tankAsDps": "Tank come DPS",
     "tankAsDpsDesc": "Nei dungeon, puoi iscriverti come Tank restando nella tua specializzazione DPS. Troverai un gruppo molto più velocemente e riceverai un bonus automatico a vita e minaccia, ma i tuoi danni saranno ridotti. Non disponibile nei raid.",
     "dungeonNoLock": "Dungeon senza blocco",
@@ -748,6 +750,10 @@
     "epicProgression": {
       "title": "Epic Progression — Server WoW Lordaeron",
       "description": "Scopri il sistema Epic Progression di Lordaeron: sconfiggi ogni boss finale dei raid in ordine, da Vanilla a TBC fino a WotLK. Progressione per personaggio, restrizioni tra livelli e missioni dei capi fazione."
+    },
+    "raidScaling": {
+      "title": "Scaling di difficoltà — Server WoW Lordaeron",
+      "description": "Comprendi lo scaling dinamico di difficoltà dei raid e dungeon di Lordaeron: le statistiche delle creature e il bottino si adattano automaticamente alla dimensione del gruppo. Simulatore interattivo incluso."
     }
   },
   "branding": {
@@ -853,5 +859,55 @@
     "weekWins": "Vittorie settimanali",
     "noArenaTeams": "Nessun team arena",
     "noProfessions": "Nessuna professione"
+  },
+  "raidScaling": {
+    "title": "Scaling di difficoltà",
+    "subtitle": "I raid e i dungeon si adattano dinamicamente alla dimensione del tuo gruppo — gioca con qualsiasi numero di giocatori",
+    "introTitle": "Come funziona?",
+    "introDesc": "Quando il tuo gruppo entra in un'istanza con meno giocatori della capacità massima, tutte le creature vengono automaticamente indebolite. Vita, danni e bottino si adattano in tempo reale ogni volta che qualcuno si unisce, esce o si disconnette. A piena capacità, tutto resta al 100% — nessuno scaling applicato.",
+    "simulatorTitle": "Simulatore interattivo",
+    "changeBoss": "Cambia boss",
+    "players": "giocatori",
+    "ofOriginal": "dell'originale",
+    "lootPreview": "Anteprima bottino",
+    "playerCount": "Numero di giocatori",
+    "clampedTo": "Soglia minima: trattato come {min} giocatori",
+    "curveLabel": "Curva di scaling",
+    "curveAggressive": "Aggressivo",
+    "curveLinear": "Lineare",
+    "statHP": "Vita",
+    "statDamage": "Danni",
+    "statLoot": "Bottino",
+    "statGold": "Oro",
+    "itemsKept": "oggetti conservati",
+    "formula": "Formula di scaling",
+    "tableTitle": "Tabella di scaling",
+    "colPlayers": "Giocatori",
+    "colScaling": "Scaling",
+    "colHP": "PV",
+    "colLoot": "Bottino",
+    "scaledTitle": "Cosa viene scalato",
+    "scaled_health": "Vita — calcolata dalla base, preservando la % di vita attuale",
+
+    "scaled_melee": "Danno da mischia — ridotto prima della visualizzazione nel registro",
+    "scaled_spell": "Danno da incantesimi — ridotto prima della visualizzazione nel registro",
+    "scaled_dot": "DoT / HoT — gli effetti periodici vengono ridotti proporzionalmente",
+    "scaled_lootItems": "Oggetti del bottino — equipaggiamento e gettoni set ridotti (min 1 conservato)",
+    "scaled_lootGold": "Oro — ridotto proporzionalmente",
+    "notScaledTitle": "Cosa NON viene scalato",
+    "notScaled_mana": "Mana e risorse — non influenzati dallo scaling",
+    "notScaled_pets": "Animali domestici, totem e evocazioni dei giocatori",
+    "notScaled_triggers": "NPC trigger — le creature d'aiuto invisibili vengono ignorate",
+    "notScaled_materials": "Materiali e reagenti — Nucleo di fuoco, ricette, etc. droppano sempre",
+    "notScaled_questItems": "Oggetti missione — mai rimossi dalle tabelle di bottino",
+    "configTitle": "Configurazione di Lordaeron",
+    "configDesc": "Questi sono i valori reali usati sul server Lordaeron",
+    "cfgCurveRaid": "Curva Raid",
+    "cfgCurveDungeon": "Curva Dungeon",
+    "cfgMinRaid": "Min giocatori (Raid)",
+    "cfgMinDungeon": "Min giocatori (Dungeon)",
+    "cfgScaleLoot": "Scaling del bottino",
+    "cfgScaleDungeons": "Scaling dei dungeon",
+    "cfgEnabled": "Attivato"
   }
 }

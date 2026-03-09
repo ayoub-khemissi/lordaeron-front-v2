@@ -152,6 +152,8 @@
     "transmogDesc": "Personaliza la apariencia de tu equipo con el sistema de transmog",
     "epicProgression": "Epic Progression",
     "epicProgressionDesc": "Derrota al jefe final de cada raid en orden de lanzamiento — desde Vanilla pasando por TBC hasta WotLK. Debes completar cada nivel para desbloquear el siguiente.",
+    "raidScaling": "Escalado de dificultad",
+    "raidScalingDesc": "Los raids y mazmorras se adaptan dinámicamente al tamaño de tu grupo. Menos jugadores significa criaturas más débiles y botín ajustado — juega con cualquier tamaño de grupo.",
     "tankAsDps": "Tank como DPS",
     "tankAsDpsDesc": "En mazmorras, puedes inscribirte como Tank mientras sigues en especialización DPS. Encontrarás grupo mucho más rápido y recibirás un bonus automático de vida y amenaza, pero tu daño será reducido. No disponible en raids.",
     "dungeonNoLock": "Mazmorras sin bloqueo",
@@ -748,6 +750,10 @@
     "epicProgression": {
       "title": "Epic Progression — Servidor WoW Lordaeron",
       "description": "Descubre el sistema Epic Progression de Lordaeron: derrota a cada jefe final de raid en orden, de Vanilla a TBC y WotLK. Progresión por personaje, restricciones entre niveles y misiones de líderes de facción."
+    },
+    "raidScaling": {
+      "title": "Escalado de dificultad — Servidor WoW Lordaeron",
+      "description": "Entiende el escalado dinámico de dificultad de raids y mazmorras de Lordaeron: las estadísticas de las criaturas y el botín se ajustan automáticamente según el tamaño del grupo. Simulador interactivo incluido."
     }
   },
   "branding": {
@@ -853,5 +859,55 @@
     "weekWins": "Victorias semanales",
     "noArenaTeams": "Sin equipos de arena",
     "noProfessions": "Sin profesiones"
+  },
+  "raidScaling": {
+    "title": "Escalado de dificultad",
+    "subtitle": "Los raids y mazmorras se adaptan dinámicamente al tamaño de tu grupo — juega con cualquier número de jugadores",
+    "introTitle": "¿Cómo funciona?",
+    "introDesc": "Cuando tu grupo entra en una instancia con menos jugadores que la capacidad máxima, todas las criaturas se debilitan automáticamente. La vida, el daño y el botín se ajustan en tiempo real cada vez que alguien se une, se va o se desconecta. A plena capacidad, todo queda al 100% — sin escalado.",
+    "simulatorTitle": "Simulador interactivo",
+    "changeBoss": "Cambiar jefe",
+    "players": "jugadores",
+    "ofOriginal": "del original",
+    "lootPreview": "Vista previa del botín",
+    "playerCount": "Número de jugadores",
+    "clampedTo": "Mínimo: tratado como {min} jugadores",
+    "curveLabel": "Curva de escalado",
+    "curveAggressive": "Agresivo",
+    "curveLinear": "Lineal",
+    "statHP": "Vida",
+    "statDamage": "Daño",
+    "statLoot": "Botín",
+    "statGold": "Oro",
+    "itemsKept": "objetos conservados",
+    "formula": "Fórmula de escalado",
+    "tableTitle": "Tabla de escalado",
+    "colPlayers": "Jugadores",
+    "colScaling": "Escalado",
+    "colHP": "PV",
+    "colLoot": "Botín",
+    "scaledTitle": "Qué se escala",
+    "scaled_health": "Vida — calculada desde la base, preservando el % de vida actual",
+
+    "scaled_melee": "Daño cuerpo a cuerpo — reducido antes del registro de combate",
+    "scaled_spell": "Daño de hechizos — reducido antes del registro de combate",
+    "scaled_dot": "DoT / HoT — los efectos periódicos se reducen proporcionalmente",
+    "scaled_lootItems": "Objetos de botín — equipo y fichas de set reducidos (mín 1 conservado)",
+    "scaled_lootGold": "Oro — reducido proporcionalmente",
+    "notScaledTitle": "Qué NO se escala",
+    "notScaled_mana": "Maná y recursos — no afectados por el escalado",
+    "notScaled_pets": "Mascotas, tótems e invocaciones de jugadores",
+    "notScaled_triggers": "NPCs disparadores — las criaturas invisibles de ayuda se omiten",
+    "notScaled_materials": "Materiales y reactivos — Núcleo de magma, recetas, etc. siempre caen",
+    "notScaled_questItems": "Objetos de misión — nunca eliminados de las tablas de botín",
+    "configTitle": "Configuración de Lordaeron",
+    "configDesc": "Estos son los valores reales usados en el servidor Lordaeron",
+    "cfgCurveRaid": "Curva Raid",
+    "cfgCurveDungeon": "Curva Mazmorra",
+    "cfgMinRaid": "Mín jugadores (Raid)",
+    "cfgMinDungeon": "Mín jugadores (Mazmorra)",
+    "cfgScaleLoot": "Escalado de botín",
+    "cfgScaleDungeons": "Escalado de mazmorras",
+    "cfgEnabled": "Activado"
   }
 }

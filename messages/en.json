@@ -164,6 +164,8 @@
     "crossfactionDesc": "Group up with players from both Alliance and Horde",
     "aoeLoot": "AOE Loot",
     "aoeLootDesc": "Loot all nearby corpses with a single click",
+    "raidScaling": "Difficulty Scaling",
+    "raidScalingDesc": "Raids and dungeons dynamically adapt to your group size. Fewer players means weaker creatures and adjusted loot — play with any group size.",
     "autolearnSpells": "Autolearn Spells",
     "autolearnSpellsDesc": "Automatically learn new spells as you level up"
   },
@@ -856,6 +858,10 @@
     "epicProgression": {
       "title": "Epic Progression — Lordaeron WoW Server",
       "description": "Discover Lordaeron's Epic Progression system: defeat every final raid boss in order from Vanilla through TBC to WotLK. Per-character progression, tier restrictions, and faction leader quests."
+    },
+    "raidScaling": {
+      "title": "Difficulty Scaling — Lordaeron WoW Server",
+      "description": "Understand Lordaeron's dynamic raid and dungeon difficulty scaling: creature stats and loot adjust automatically based on group size. Interactive simulator included."
     }
   },
   "branding": {
@@ -961,5 +967,55 @@
     "weekWins": "Week Wins",
     "noArenaTeams": "No arena teams",
     "noProfessions": "No professions"
+  },
+  "raidScaling": {
+    "title": "Difficulty Scaling",
+    "subtitle": "Raids and dungeons dynamically adapt to your group size — play with any number of players",
+    "introTitle": "How does it work?",
+    "introDesc": "When your group enters an instance with fewer players than the maximum capacity, all creatures are automatically scaled down. Health, damage, and loot adjust in real time whenever someone joins, leaves, or disconnects. At full capacity, everything stays at 100% — no scaling applied.",
+    "simulatorTitle": "Interactive Simulator",
+    "changeBoss": "Change boss",
+    "players": "players",
+    "ofOriginal": "of original",
+    "lootPreview": "Loot preview",
+    "playerCount": "Number of Players",
+    "clampedTo": "Minimum floor: treated as {min} players",
+    "curveLabel": "Scaling Curve",
+    "curveAggressive": "Aggressive",
+    "curveLinear": "Linear",
+    "statHP": "Health",
+    "statDamage": "Damage",
+    "statLoot": "Loot",
+    "statGold": "Gold",
+    "itemsKept": "items kept",
+    "formula": "Scaling Formula",
+    "tableTitle": "Scaling Table",
+    "colPlayers": "Players",
+    "colScaling": "Scaling",
+    "colHP": "HP",
+    "colLoot": "Loot",
+    "scaledTitle": "What Gets Scaled",
+    "scaled_health": "Health — scaled from base, preserving current HP %",
+
+    "scaled_melee": "Melee damage — reduced before combat log display",
+    "scaled_spell": "Spell damage — reduced before combat log display",
+    "scaled_dot": "DoT / HoT ticks — periodic effects scaled proportionally",
+    "scaled_lootItems": "Loot items — equipment and tier tokens reduced (min 1 kept)",
+    "scaled_lootGold": "Gold drops — reduced proportionally",
+    "notScaledTitle": "What Is NOT Scaled",
+    "notScaled_mana": "Mana and resources — not affected by scaling",
+    "notScaled_pets": "Player pets, totems, and player-owned summons",
+    "notScaled_triggers": "Trigger NPCs — invisible helper creatures are skipped",
+    "notScaled_materials": "Materials and reagents — Fiery Core, recipes, etc. always drop",
+    "notScaled_questItems": "Quest items — never removed from loot tables",
+    "configTitle": "Lordaeron Configuration",
+    "configDesc": "These are the actual values used on the Lordaeron server",
+    "cfgCurveRaid": "Raid Curve",
+    "cfgCurveDungeon": "Dungeon Curve",
+    "cfgMinRaid": "Min Players (Raid)",
+    "cfgMinDungeon": "Min Players (Dungeon)",
+    "cfgScaleLoot": "Scale Loot",
+    "cfgScaleDungeons": "Scale Dungeons",
+    "cfgEnabled": "Enabled"
   }
 }
