@@ -150,6 +150,8 @@
     "honor": "Honor",
     "professions": "Professions",
     "reputation": "Reputation",
+    "fourProfessions": "4 Primary Professions",
+    "fourProfessionsDesc": "Learn up to 4 primary professions instead of the usual 2 — master more crafts on a single character",
     "transmog": "Transmogrification",
     "transmogDesc": "Customize your gear appearance with the transmog system",
     "epicProgression": "Epic Progression",

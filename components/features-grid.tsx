@@ -47,6 +47,11 @@ const features: {
     bg: "/img/World of Warcraft Classic 1920x1080/ClassicDungeon.jpg",
   },
   {
+    key: "fourProfessions",
+    icon: `${WOWHEAD_ICON}/inv_misc_note_01.jpg`,
+    bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
+  },
+  {
     key: "transmog",
     icon: `${WOWHEAD_ICON}/inv_misc_armorkit_17.jpg`,
     bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
