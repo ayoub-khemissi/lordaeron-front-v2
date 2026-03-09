@@ -18,9 +18,12 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Strip locale prefix to get the raw path
-  const pathWithoutLocale = pathname.replace(/^\/(fr|en|es|de|it)(\/|$)/, "/");
+  const pathWithoutLocale = pathname.replace(
+    /^\/(fr|en|es|de|it|ru|pl|pt)(\/|$)/,
+    "/",
+  );
 
-  const localeMatch = pathname.match(/^\/(fr|en|es|de|it)(\/|$)/);
+  const localeMatch = pathname.match(/^\/(fr|en|es|de|it|ru|pl|pt)(\/|$)/);
   const locale = localeMatch ? localeMatch[1] : "en";
   const session = request.cookies.get("lordaeron_session");
 
@@ -52,5 +55,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/(fr|en|es|de|it)/:path*"],
+  matcher: ["/", "/(fr|en|es|de|it|ru|pl|pt)/:path*"],
 };
