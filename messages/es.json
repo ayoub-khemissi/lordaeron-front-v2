@@ -164,6 +164,8 @@
     "crossfactionDesc": "Agrúpate con jugadores de la Alianza y la Horda",
     "aoeLoot": "Botín AOE",
     "aoeLootDesc": "Recoge el botín de todos los cadáveres cercanos con un solo clic",
+    "soloQueue": "Solo Queue Mazmorras",
+    "soloQueueDesc": "Sin grupo necesario — haz cola solo para cualquier mazmorra específica o aleatoria y serás teletransportado al instante.",
     "autolearnSpells": "Aprendizaje automático de hechizos",
     "autolearnSpellsDesc": "Aprende automáticamente nuevos hechizos al subir de nivel"
   },

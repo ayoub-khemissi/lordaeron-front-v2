@@ -164,6 +164,8 @@
     "crossfactionDesc": "Raggruppa con giocatori di Alleanza e Orda",
     "aoeLoot": "Bottino AOE",
     "aoeLootDesc": "Raccogli il bottino da tutti i cadaveri vicini con un solo clic",
+    "soloQueue": "Solo Queue Dungeon",
+    "soloQueueDesc": "Nessun gruppo necessario — mettiti in coda da solo per qualsiasi dungeon specifico o casuale e vieni teletrasportato all'interno istantaneamente.",
     "autolearnSpells": "Apprendimento auto incantesimi",
     "autolearnSpellsDesc": "Impara automaticamente nuovi incantesimi salendo di livello"
   },

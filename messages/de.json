@@ -164,6 +164,8 @@
     "crossfactionDesc": "Gruppiere dich mit Spielern von Allianz und Horde",
     "aoeLoot": "AOE-Beute",
     "aoeLootDesc": "Sammle Beute von allen nahen Leichen mit einem Klick",
+    "soloQueue": "Solo-Queue Dungeons",
+    "soloQueueDesc": "Keine Gruppe nötig — allein für jeden bestimmten oder zufälligen Dungeon anmelden und sofort hinein teleportiert werden.",
     "autolearnSpells": "Auto-Zauberlernen",
     "autolearnSpellsDesc": "Lerne automatisch neue Zauber beim Aufleveln"
   },

@@ -32,9 +32,14 @@ const features: {
     bg: "/img/Wrath of the Lich King Classic Cinematic Stills/Wrath_of_the_Lich_King_Classic_Cinematic_Still__(5).jpg",
   },
   {
-    key: "transmog",
-    icon: `${WOWHEAD_ICON}/inv_misc_armorkit_17.jpg`,
-    bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
+    key: "soloQueue",
+    icon: `${WOWHEAD_ICON}/spell_holy_crusade.jpg`,
+    bg: "/img/World of Warcraft Classic 1920x1080/ClassicDungeon.jpg",
+  },
+  {
+    key: "raidReset",
+    icon: `${WOWHEAD_ICON}/inv_misc_idol_02.jpg`,
+    bg: "/img/Wrath of the Lich King Classic Call of the Crusade Screenshots/Wrath_Classic_Call_of_the_Crusade_Trial_of_the_Crusader_003.jpg",
   },
   {
     key: "dungeonNoLock",
@@ -42,9 +47,9 @@ const features: {
     bg: "/img/World of Warcraft Classic 1920x1080/ClassicDungeon.jpg",
   },
   {
-    key: "raidReset",
-    icon: `${WOWHEAD_ICON}/inv_misc_idol_02.jpg`,
-    bg: "/img/Wrath of the Lich King Classic Call of the Crusade Screenshots/Wrath_Classic_Call_of_the_Crusade_Trial_of_the_Crusader_003.jpg",
+    key: "transmog",
+    icon: `${WOWHEAD_ICON}/inv_misc_armorkit_17.jpg`,
+    bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_HowlingFjord_007_1080p_png_jpgcopy.jpg",
   },
   {
     key: "crossfaction",

@@ -166,6 +166,8 @@
     "aoeLootDesc": "Loot all nearby corpses with a single click",
     "raidScaling": "Difficulty Scaling",
     "raidScalingDesc": "Raids and dungeons dynamically adapt to your group size. Fewer players means weaker creatures and adjusted loot — play with any group size.",
+    "soloQueue": "Solo Queue Dungeons",
+    "soloQueueDesc": "No group needed — queue solo for any specific dungeon or random dungeon and get teleported inside instantly.",
     "autolearnSpells": "Autolearn Spells",
     "autolearnSpellsDesc": "Automatically learn new spells as you level up"
   },

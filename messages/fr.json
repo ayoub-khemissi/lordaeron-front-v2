@@ -166,6 +166,8 @@
     "aoeLootDesc": "Récupérez le butin de tous les cadavres proches en un seul clic",
     "raidScaling": "Scaling de difficulté",
     "raidScalingDesc": "Les raids et donjons s'adaptent dynamiquement à la taille de votre groupe. Moins de joueurs signifie des créatures plus faibles et un butin ajusté — jouez avec n'importe quelle taille de groupe.",
+    "soloQueue": "Solo Queue Donjons",
+    "soloQueueDesc": "Pas besoin de groupe — faites la queue seul pour n'importe quel donjon spécifique ou aléatoire et soyez téléporté à l'intérieur instantanément.",
     "autolearnSpells": "Apprentissage auto des sorts",
     "autolearnSpellsDesc": "Apprenez automatiquement de nouveaux sorts en montant de niveau"
   },
