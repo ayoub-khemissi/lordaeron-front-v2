@@ -104,22 +104,114 @@ const LOOT_ICONS = [
 
 /* ── Server defaults from worldserver.init ── */
 const SERVER = {
-  curveRaid: 0.75,
-  curveDungeon: 0.75,
   minPlayersRaid: 5,
   minPlayersDungeon: 1,
+  healthExpRaid: 0.8,
+  healthExpDungeon: 1.1,
+  damageExpRaid: 0.85,
+  damageExpDungeon: 1.25,
+  dungeonSCurveSkew: 1.0,
 };
 
-function computeScaling(
+/* ── Scaling formulas matching raid_difficulty_scaling.cpp ── */
+
+function getEffectiveMaxDPS(maxPlayers: number, isRaid: boolean): number {
+  let tanks: number, healers: number;
+
+  if (isRaid) {
+    tanks = 2;
+    healers = Math.round(maxPlayers * 0.2);
+  } else {
+    tanks = 1;
+    healers = 1;
+  }
+
+  const dps =
+    maxPlayers > tanks + healers ? maxPlayers - tanks - healers : 1;
+
+  return dps + tanks / 3;
+}
+
+function getEffectivePlayerDPS(playerCount: number): number {
+  const tanks = playerCount < 10 ? 1 : 2;
+  const healers = Math.round(playerCount * 0.2);
+
+  if (playerCount <= tanks + healers)
+    return Math.min(tanks, playerCount) / 3;
+
+  const dps = playerCount - tanks - healers;
+
+  return dps + tanks / 3;
+}
+
+function computeScalingRatio(
   playerCount: number,
   maxPlayers: number,
   minPlayers: number,
-  curve: number,
+  isRaid: boolean,
 ): number {
-  const clamped = Math.max(minPlayers, Math.min(playerCount, maxPlayers));
-  const ratio = clamped / maxPlayers;
+  if (maxPlayers <= minPlayers) return 1;
+  if (playerCount >= maxPlayers) return 1;
 
-  return Math.pow(ratio, 1 / curve);
+  const clamped = Math.max(minPlayers, playerCount);
+  const effectiveMax = getEffectiveMaxDPS(maxPlayers, isRaid);
+
+  if (isRaid) {
+    const effPlayer = getEffectivePlayerDPS(clamped);
+
+    return Math.min(1, effPlayer / effectiveMax);
+  } else {
+    const floor = minPlayers / effectiveMax;
+    const x = Math.max(
+      0,
+      Math.min(1, (clamped - minPlayers) / (maxPlayers - minPlayers)),
+    );
+    let s = 3 * x * x - 2 * x * x * x; // smoothstep
+
+    if (SERVER.dungeonSCurveSkew !== 1 && s > 0 && s < 1) {
+      s = Math.pow(s, SERVER.dungeonSCurveSkew);
+    }
+
+    return Math.min(1, floor + (1 - floor) * s);
+  }
+}
+
+function computeHealthFactor(
+  playerCount: number,
+  maxPlayers: number,
+  minPlayers: number,
+  isRaid: boolean,
+): number {
+  const ratio = computeScalingRatio(
+    playerCount,
+    maxPlayers,
+    minPlayers,
+    isRaid,
+  );
+
+  if (ratio >= 1) return 1;
+  const exp = isRaid ? SERVER.healthExpRaid : SERVER.healthExpDungeon;
+
+  return Math.pow(ratio, exp);
+}
+
+function computeDamageFactor(
+  playerCount: number,
+  maxPlayers: number,
+  minPlayers: number,
+  isRaid: boolean,
+): number {
+  const ratio = computeScalingRatio(
+    playerCount,
+    maxPlayers,
+    minPlayers,
+    isRaid,
+  );
+
+  if (ratio >= 1) return 1;
+  const exp = isRaid ? SERVER.damageExpRaid : SERVER.damageExpDungeon;
+
+  return Math.pow(ratio, exp);
 }
 
 function formatHP(hp: number): string {
@@ -166,32 +258,44 @@ export default function RaidScalingContent() {
   const [playerCount, setPlayerCount] = useState(
     Math.ceil(BOSSES[0].maxPlayers / 2),
   );
-  const [curve, setCurve] = useState(SERVER.curveRaid);
 
   useEffect(() => {
     const i = Math.floor(Math.random() * BOSSES.length);
 
     setBossIndex(i);
     setPlayerCount(Math.ceil(BOSSES[i].maxPlayers / 2));
-    const d = BOSSES[i].maxPlayers <= 5;
-
-    setCurve(d ? SERVER.curveDungeon : SERVER.curveRaid);
   }, []);
 
   const boss = BOSSES[bossIndex];
-  const isDungeon = boss.maxPlayers <= 5;
+  const isRaid = boss.maxPlayers > 5;
+  const isDungeon = !isRaid;
   const minPlayers = isDungeon
     ? SERVER.minPlayersDungeon
     : SERVER.minPlayersRaid;
 
-  const scalingFactor = useMemo(
-    () => computeScaling(playerCount, boss.maxPlayers, minPlayers, curve),
-    [playerCount, boss.maxPlayers, minPlayers, curve],
+  const healthFactor = useMemo(
+    () =>
+      computeHealthFactor(playerCount, boss.maxPlayers, minPlayers, isRaid),
+    [playerCount, boss.maxPlayers, minPlayers, isRaid],
   );
 
-  const scaledHP = Math.round(boss.hp * scalingFactor);
-  const lootKept = Math.max(1, Math.round(LOOT_ICONS.length * scalingFactor));
-  const pct = scalingFactor;
+  const damageFactor = useMemo(
+    () =>
+      computeDamageFactor(playerCount, boss.maxPlayers, minPlayers, isRaid),
+    [playerCount, boss.maxPlayers, minPlayers, isRaid],
+  );
+
+  const scalingRatio = useMemo(
+    () =>
+      computeScalingRatio(playerCount, boss.maxPlayers, minPlayers, isRaid),
+    [playerCount, boss.maxPlayers, minPlayers, isRaid],
+  );
+
+  const scaledHP = Math.round(boss.hp * healthFactor);
+  const lootKept = Math.max(
+    1,
+    Math.round(LOOT_ICONS.length * scalingRatio),
+  );
 
   const changeBoss = (delta: number) => {
     const i = (bossIndex + delta + BOSSES.length) % BOSSES.length;
@@ -210,32 +314,50 @@ export default function RaidScalingContent() {
     steps.add(1);
     steps.add(minPlayers);
     steps.add(boss.maxPlayers);
-    for (let p = 5; p < boss.maxPlayers; p += boss.maxPlayers <= 5 ? 1 : 5) {
+    for (
+      let p = 5;
+      p < boss.maxPlayers;
+      p += boss.maxPlayers <= 5 ? 1 : 5
+    ) {
       steps.add(p);
     }
     steps.add(playerCount);
+
+    const bossIsRaid = boss.maxPlayers > 5;
 
     return [...steps]
       .filter((p) => p >= 1 && p <= boss.maxPlayers)
       .sort((a, b) => a - b)
       .map((p) => {
-        const sf = computeScaling(p, boss.maxPlayers, minPlayers, curve);
+        const hf = computeHealthFactor(
+          p,
+          boss.maxPlayers,
+          minPlayers,
+          bossIsRaid,
+        );
+        const df = computeDamageFactor(
+          p,
+          boss.maxPlayers,
+          minPlayers,
+          bossIsRaid,
+        );
+        const sr = computeScalingRatio(
+          p,
+          boss.maxPlayers,
+          minPlayers,
+          bossIsRaid,
+        );
 
         return {
           players: p,
-          factor: sf,
-          hp: Math.round(boss.hp * sf),
-          loot: Math.max(1, Math.round(4 * sf)),
+          healthPct: hf,
+          damagePct: df,
+          hp: Math.round(boss.hp * hf),
+          loot: Math.max(1, Math.round(4 * sr)),
           isCurrent: p === playerCount,
         };
       });
-  }, [boss, minPlayers, curve, playerCount]);
-
-  const clampedValue = Math.max(
-    minPlayers,
-    Math.min(playerCount, boss.maxPlayers),
-  );
-  const ratioValue = clampedValue / boss.maxPlayers;
+  }, [boss, minPlayers, playerCount]);
 
   return (
     <div
@@ -382,8 +504,8 @@ export default function RaidScalingContent() {
                           {/* Health Bar */}
                           <div className="relative h-7 bg-wow-darker/80 rounded-sm border border-gray-700/50 overflow-hidden mb-1.5">
                             <motion.div
-                              animate={{ width: `${pct * 100}%` }}
-                              className={`absolute inset-y-0 left-0 bg-gradient-to-r ${getHealthColor(pct)} rounded-sm`}
+                              animate={{ width: `${healthFactor * 100}%` }}
+                              className={`absolute inset-y-0 left-0 bg-gradient-to-r ${getHealthColor(healthFactor)} rounded-sm`}
                               transition={{
                                 duration: 0.5,
                                 ease: "easeOut",
@@ -400,14 +522,14 @@ export default function RaidScalingContent() {
                           <div className="text-center">
                             <span
                               className={`text-sm font-bold ${
-                                pct > 0.5
+                                healthFactor > 0.5
                                   ? "text-green-400"
-                                  : pct > 0.25
+                                  : healthFactor > 0.25
                                     ? "text-yellow-400"
                                     : "text-red-400"
                               }`}
                             >
-                              {(pct * 100).toFixed(1)}% {t("ofOriginal")}
+                              {(healthFactor * 100).toFixed(1)}% {t("ofOriginal")}
                             </span>
                           </div>
                         </div>
@@ -500,41 +622,6 @@ export default function RaidScalingContent() {
                     )}
                   </div>
 
-                  {/* Curve Slider */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg overflow-hidden border border-wow-gold/30 bg-wow-darker/50 flex-shrink-0">
-                        <img
-                          alt=""
-                          className="w-full h-full object-cover"
-                          src={`${WOWHEAD_ICON}/spell_arcane_arcaneresilience.jpg`}
-                        />
-                      </div>
-                      <label className="text-wow-gold font-bold text-sm">
-                        {t("curveLabel")}
-                      </label>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <input
-                        className="flex-1 h-2 rounded-lg appearance-none cursor-pointer bg-gray-700 accent-[#c79c3e]"
-                        max={100}
-                        min={10}
-                        type="range"
-                        value={Math.round(curve * 100)}
-                        onChange={(e) => setCurve(Number(e.target.value) / 100)}
-                      />
-                      <div className="glass-lite border-wow-gold/20 rounded-lg px-3 py-1.5 min-w-[4.5rem] text-center">
-                        <span className="text-wow-gold font-bold text-lg">
-                          {curve.toFixed(2)}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex justify-between text-[10px] text-gray-500 mt-1 px-1">
-                      <span>{t("curveAggressive")}</span>
-                      <span>{t("curveLinear")}</span>
-                    </div>
-                  </div>
-
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-3 mt-2">
                     <div className="glass-lite border-wow-gold/15 rounded-xl p-4 text-center">
@@ -552,7 +639,7 @@ export default function RaidScalingContent() {
                         {formatHP(scaledHP)}
                       </p>
                       <p className="text-green-400 text-xs">
-                        {(pct * 100).toFixed(1)}%
+                        {(healthFactor * 100).toFixed(1)}%
                       </p>
                     </div>
 
@@ -568,7 +655,7 @@ export default function RaidScalingContent() {
                         {t("statDamage")}
                       </p>
                       <p className="text-white font-bold text-lg">
-                        {(pct * 100).toFixed(1)}%
+                        {(damageFactor * 100).toFixed(1)}%
                       </p>
                       <p className="text-red-400 text-xs">{t("ofOriginal")}</p>
                     </div>
@@ -604,7 +691,7 @@ export default function RaidScalingContent() {
                         {t("statGold")}
                       </p>
                       <p className="text-white font-bold text-lg">
-                        {(pct * 100).toFixed(1)}%
+                        {(scalingRatio * 100).toFixed(1)}%
                       </p>
                       <p className="text-yellow-400 text-xs">
                         {t("ofOriginal")}
@@ -620,17 +707,45 @@ export default function RaidScalingContent() {
                   {t("formula")}
                 </p>
                 <div className="space-y-1">
-                  <p className="text-wow-gold text-sm font-mono">
-                    ratio = clamp({playerCount}, {minPlayers}, {boss.maxPlayers}
-                    ) / {boss.maxPlayers} = {ratioValue.toFixed(3)}
-                  </p>
-                  <p className="text-wow-gold text-sm font-mono">
-                    scaling = {ratioValue.toFixed(3)}
-                    <sup> 1/{curve.toFixed(2)}</sup> ={" "}
-                    <span className="text-white font-bold">
-                      {(pct * 100).toFixed(1)}%
-                    </span>
-                  </p>
+                  {isRaid ? (
+                    <>
+                      <p className="text-wow-gold text-sm font-mono">
+                        ratio = effDPS({Math.max(minPlayers, Math.min(playerCount, boss.maxPlayers))}) / effMaxDPS({boss.maxPlayers}) = {scalingRatio.toFixed(3)}
+                      </p>
+                      <p className="text-wow-gold text-sm font-mono">
+                        HP = {scalingRatio.toFixed(3)}
+                        <sup>{SERVER.healthExpRaid}</sup> ={" "}
+                        <span className="text-white font-bold">
+                          {(healthFactor * 100).toFixed(1)}%
+                        </span>
+                        {" "}&middot;{" "}
+                        DMG = {scalingRatio.toFixed(3)}
+                        <sup>{SERVER.damageExpRaid}</sup> ={" "}
+                        <span className="text-white font-bold">
+                          {(damageFactor * 100).toFixed(1)}%
+                        </span>
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-wow-gold text-sm font-mono">
+                        ratio = S-curve({Math.max(minPlayers, Math.min(playerCount, boss.maxPlayers))}, {boss.maxPlayers}) = {scalingRatio.toFixed(3)}
+                      </p>
+                      <p className="text-wow-gold text-sm font-mono">
+                        HP = {scalingRatio.toFixed(3)}
+                        <sup>{SERVER.healthExpDungeon}</sup> ={" "}
+                        <span className="text-white font-bold">
+                          {(healthFactor * 100).toFixed(1)}%
+                        </span>
+                        {" "}&middot;{" "}
+                        DMG = {scalingRatio.toFixed(3)}
+                        <sup>{SERVER.damageExpDungeon}</sup> ={" "}
+                        <span className="text-white font-bold">
+                          {(damageFactor * 100).toFixed(1)}%
+                        </span>
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -658,10 +773,13 @@ export default function RaidScalingContent() {
                         {t("colPlayers")}
                       </th>
                       <th className="text-wow-gold font-bold py-3 px-4 text-center">
-                        {t("colScaling")}
+                        {t("colHP")}
                       </th>
                       <th className="text-wow-gold font-bold py-3 px-4 text-center">
-                        {t("colHP")}
+                        {t("colDamage")}
+                      </th>
+                      <th className="text-wow-gold font-bold py-3 px-4 text-center">
+                        {t("colScaledHP")}
                       </th>
                       <th className="text-wow-gold font-bold py-3 px-4 text-center">
                         {t("colLoot")}
@@ -693,14 +811,27 @@ export default function RaidScalingContent() {
                         <td className="py-2.5 px-4 text-center">
                           <span
                             className={`font-mono ${
-                              row.factor > 0.5
+                              row.healthPct > 0.5
                                 ? "text-green-400"
-                                : row.factor > 0.25
+                                : row.healthPct > 0.25
                                   ? "text-yellow-400"
                                   : "text-red-400"
                             }`}
                           >
-                            {(row.factor * 100).toFixed(1)}%
+                            {(row.healthPct * 100).toFixed(1)}%
+                          </span>
+                        </td>
+                        <td className="py-2.5 px-4 text-center">
+                          <span
+                            className={`font-mono ${
+                              row.damagePct > 0.5
+                                ? "text-green-400"
+                                : row.damagePct > 0.25
+                                  ? "text-yellow-400"
+                                  : "text-red-400"
+                            }`}
+                          >
+                            {(row.damagePct * 100).toFixed(1)}%
                           </span>
                         </td>
                         <td className="py-2.5 px-4 text-center text-gray-300 font-mono">
@@ -815,20 +946,32 @@ export default function RaidScalingContent() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   {
-                    label: t("cfgCurveRaid"),
-                    value: SERVER.curveRaid.toString(),
-                  },
-                  {
-                    label: t("cfgCurveDungeon"),
-                    value: SERVER.curveDungeon.toString(),
-                  },
-                  {
                     label: t("cfgMinRaid"),
                     value: SERVER.minPlayersRaid.toString(),
                   },
                   {
                     label: t("cfgMinDungeon"),
                     value: SERVER.minPlayersDungeon.toString(),
+                  },
+                  {
+                    label: t("cfgHealthExpRaid"),
+                    value: SERVER.healthExpRaid.toString(),
+                  },
+                  {
+                    label: t("cfgHealthExpDungeon"),
+                    value: SERVER.healthExpDungeon.toString(),
+                  },
+                  {
+                    label: t("cfgDamageExpRaid"),
+                    value: SERVER.damageExpRaid.toString(),
+                  },
+                  {
+                    label: t("cfgDamageExpDungeon"),
+                    value: SERVER.damageExpDungeon.toString(),
+                  },
+                  {
+                    label: t("cfgSCurveSkew"),
+                    value: SERVER.dungeonSCurveSkew.toString(),
                   },
                   { label: t("cfgScaleLoot"), value: t("cfgEnabled") },
                   { label: t("cfgScaleXP"), value: t("cfgEnabled") },
