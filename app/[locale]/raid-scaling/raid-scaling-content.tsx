@@ -7,91 +7,106 @@ import { motion } from "framer-motion";
 const WOWHEAD_ICON = "https://wow.zamimg.com/images/wow/icons/large";
 const IMG = "/img/epic-progressive";
 
-/* ── Boss data (approximate HP from 3.3.5a) ── */
-const BOSSES = [
+/* ── Boss data (HP from creature_template × creature_classlevelstats) ── */
+interface BossDifficulty {
+  label: string;
+  maxPlayers: number;
+  hp: number;
+}
+
+interface Boss {
+  name: string;
+  image: string;
+  instance: string;
+  difficulties: BossDifficulty[];
+}
+
+const BOSSES: Boss[] = [
   {
     name: "Ragnaros",
     image: "ragnaros.jpeg",
-    hp: 1099230,
-    maxPlayers: 40,
     instance: "Molten Core",
+    difficulties: [{ label: "40", maxPlayers: 40, hp: 1099230 }],
   },
   {
     name: "Nefarian",
     image: "nefarian.jpg",
-    hp: 1694900,
-    maxPlayers: 40,
     instance: "Blackwing Lair",
+    difficulties: [{ label: "40", maxPlayers: 40, hp: 2165150 }],
   },
   {
     name: "C'Thun",
     image: "cthun.jpg",
-    hp: 412750,
-    maxPlayers: 40,
     instance: "Ahn'Qiraj",
+    difficulties: [{ label: "40", maxPlayers: 40, hp: 999300 }],
   },
   {
     name: "Onyxia",
     image: "onyxia.jpg",
-    hp: 1068840,
-    maxPlayers: 40,
     instance: "Onyxia's Lair",
+    difficulties: [
+      { label: "10N", maxPlayers: 10, hp: 2032800 },
+      { label: "25N", maxPlayers: 25, hp: 9292800 },
+    ],
   },
   {
     name: "Hakkar",
     image: "hakkar.jpg",
-    hp: 925880,
-    maxPlayers: 20,
     instance: "Zul'Gurub",
+    difficulties: [{ label: "20", maxPlayers: 20, hp: 719550 }],
   },
   {
     name: "Illidan",
     image: "illidan.jpg",
-    hp: 5300000,
-    maxPlayers: 25,
     instance: "Black Temple",
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 2463440 }],
   },
   {
     name: "Kael'thas",
     image: "kaelthas.jpg",
-    hp: 4200000,
-    maxPlayers: 25,
     instance: "Tempest Keep",
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 1477980 }],
   },
   {
     name: "Archimonde",
     image: "archimonde.jpg",
-    hp: 4600000,
-    maxPlayers: 25,
     instance: "Mount Hyjal",
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 1847475 }],
   },
   {
     name: "Kil'jaeden",
     image: "kiljaeden.jpg",
-    hp: 6100000,
-    maxPlayers: 25,
     instance: "Sunwell Plateau",
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 5419260 }],
   },
   {
     name: "Kel'Thuzad",
     image: "kelthuzad.jpg",
-    hp: 15898000,
-    maxPlayers: 25,
     instance: "Naxxramas",
+    difficulties: [
+      { label: "10N", maxPlayers: 10, hp: 1742250 },
+      { label: "25N", maxPlayers: 25, hp: 4878300 },
+    ],
   },
   {
     name: "Yogg-Saron",
     image: "yoggsaron.jpg",
-    hp: 30000000,
-    maxPlayers: 25,
     instance: "Ulduar",
+    difficulties: [
+      { label: "10N", maxPlayers: 10, hp: 4581426 },
+      { label: "25N", maxPlayers: 25, hp: 18325401 },
+    ],
   },
   {
     name: "The Lich King",
     image: "lichking.jpg",
-    hp: 17342575,
-    maxPlayers: 25,
     instance: "Icecrown Citadel",
+    difficulties: [
+      { label: "10N", maxPlayers: 10, hp: 7260000 },
+      { label: "25N", maxPlayers: 25, hp: 25410000 },
+      { label: "10H", maxPlayers: 10, hp: 12269400 },
+      { label: "25H", maxPlayers: 25, hp: 42961776 },
+    ],
   },
 ];
 
@@ -126,8 +141,7 @@ function getEffectiveMaxDPS(maxPlayers: number, isRaid: boolean): number {
     healers = 1;
   }
 
-  const dps =
-    maxPlayers > tanks + healers ? maxPlayers - tanks - healers : 1;
+  const dps = maxPlayers > tanks + healers ? maxPlayers - tanks - healers : 1;
 
   return dps + tanks / 3;
 }
@@ -136,8 +150,7 @@ function getEffectivePlayerDPS(playerCount: number): number {
   const tanks = playerCount < 10 ? 1 : 2;
   const healers = Math.round(playerCount * 0.2);
 
-  if (playerCount <= tanks + healers)
-    return Math.min(tanks, playerCount) / 3;
+  if (playerCount <= tanks + healers) return Math.min(tanks, playerCount) / 3;
 
   const dps = playerCount - tanks - healers;
 
@@ -255,56 +268,61 @@ export default function RaidScalingContent() {
   const t = useTranslations("raidScaling");
 
   const [bossIndex, setBossIndex] = useState(0);
+  const [diffIndex, setDiffIndex] = useState(0);
   const [playerCount, setPlayerCount] = useState(
-    Math.ceil(BOSSES[0].maxPlayers / 2),
+    Math.ceil(BOSSES[0].difficulties[0].maxPlayers / 2),
   );
 
   useEffect(() => {
     const i = Math.floor(Math.random() * BOSSES.length);
 
     setBossIndex(i);
-    setPlayerCount(Math.ceil(BOSSES[i].maxPlayers / 2));
+    setDiffIndex(0);
+    setPlayerCount(Math.ceil(BOSSES[i].difficulties[0].maxPlayers / 2));
   }, []);
 
   const boss = BOSSES[bossIndex];
-  const isRaid = boss.maxPlayers > 5;
+  const diff = boss.difficulties[diffIndex] ?? boss.difficulties[0];
+  const isRaid = diff.maxPlayers > 5;
   const isDungeon = !isRaid;
   const minPlayers = isDungeon
     ? SERVER.minPlayersDungeon
     : SERVER.minPlayersRaid;
 
   const healthFactor = useMemo(
-    () =>
-      computeHealthFactor(playerCount, boss.maxPlayers, minPlayers, isRaid),
-    [playerCount, boss.maxPlayers, minPlayers, isRaid],
+    () => computeHealthFactor(playerCount, diff.maxPlayers, minPlayers, isRaid),
+    [playerCount, diff.maxPlayers, minPlayers, isRaid],
   );
 
   const damageFactor = useMemo(
-    () =>
-      computeDamageFactor(playerCount, boss.maxPlayers, minPlayers, isRaid),
-    [playerCount, boss.maxPlayers, minPlayers, isRaid],
+    () => computeDamageFactor(playerCount, diff.maxPlayers, minPlayers, isRaid),
+    [playerCount, diff.maxPlayers, minPlayers, isRaid],
   );
 
   const scalingRatio = useMemo(
-    () =>
-      computeScalingRatio(playerCount, boss.maxPlayers, minPlayers, isRaid),
-    [playerCount, boss.maxPlayers, minPlayers, isRaid],
+    () => computeScalingRatio(playerCount, diff.maxPlayers, minPlayers, isRaid),
+    [playerCount, diff.maxPlayers, minPlayers, isRaid],
   );
 
-  const scaledHP = Math.round(boss.hp * healthFactor);
-  const lootKept = Math.max(
-    1,
-    Math.round(LOOT_ICONS.length * scalingRatio),
-  );
+  const scaledHP = Math.round(diff.hp * healthFactor);
+  const lootKept = Math.max(1, Math.round(LOOT_ICONS.length * scalingRatio));
 
   const changeBoss = (delta: number) => {
     const i = (bossIndex + delta + BOSSES.length) % BOSSES.length;
 
     setBossIndex(i);
+    setDiffIndex(0);
     const b = BOSSES[i];
-    const ratio = playerCount / boss.maxPlayers;
+    const newMax = b.difficulties[0].maxPlayers;
 
-    setPlayerCount(Math.max(1, Math.round(ratio * b.maxPlayers)));
+    setPlayerCount(Math.max(1, Math.min(playerCount, newMax)));
+  };
+
+  const changeDifficulty = (i: number) => {
+    setDiffIndex(i);
+    const newMax = boss.difficulties[i].maxPlayers;
+
+    if (playerCount > newMax) setPlayerCount(newMax);
   };
 
   /* ── Scaling table rows ── */
@@ -313,37 +331,33 @@ export default function RaidScalingContent() {
 
     steps.add(1);
     steps.add(minPlayers);
-    steps.add(boss.maxPlayers);
-    for (
-      let p = 5;
-      p < boss.maxPlayers;
-      p += boss.maxPlayers <= 5 ? 1 : 5
-    ) {
+    steps.add(diff.maxPlayers);
+    for (let p = 5; p < diff.maxPlayers; p += diff.maxPlayers <= 5 ? 1 : 5) {
       steps.add(p);
     }
     steps.add(playerCount);
 
-    const bossIsRaid = boss.maxPlayers > 5;
+    const bossIsRaid = diff.maxPlayers > 5;
 
     return [...steps]
-      .filter((p) => p >= 1 && p <= boss.maxPlayers)
+      .filter((p) => p >= 1 && p <= diff.maxPlayers)
       .sort((a, b) => a - b)
       .map((p) => {
         const hf = computeHealthFactor(
           p,
-          boss.maxPlayers,
+          diff.maxPlayers,
           minPlayers,
           bossIsRaid,
         );
         const df = computeDamageFactor(
           p,
-          boss.maxPlayers,
+          diff.maxPlayers,
           minPlayers,
           bossIsRaid,
         );
         const sr = computeScalingRatio(
           p,
-          boss.maxPlayers,
+          diff.maxPlayers,
           minPlayers,
           bossIsRaid,
         );
@@ -352,12 +366,12 @@ export default function RaidScalingContent() {
           players: p,
           healthPct: hf,
           damagePct: df,
-          hp: Math.round(boss.hp * hf),
+          hp: Math.round(diff.hp * hf),
           loot: Math.max(1, Math.round(4 * sr)),
           isCurrent: p === playerCount,
         };
       });
-  }, [boss, minPlayers, playerCount]);
+  }, [diff, minPlayers, playerCount]);
 
   return (
     <div
@@ -497,8 +511,25 @@ export default function RaidScalingContent() {
                               {boss.name}
                             </h3>
                             <p className="text-gray-400 text-xs">
-                              {boss.instance} ({boss.maxPlayers} {t("players")})
+                              {boss.instance} ({diff.maxPlayers} {t("players")})
                             </p>
+                            {boss.difficulties.length > 1 && (
+                              <div className="flex gap-1.5 mt-1.5">
+                                {boss.difficulties.map((d, i) => (
+                                  <button
+                                    key={d.label}
+                                    className={`px-2 py-0.5 rounded text-[10px] font-bold transition-colors ${
+                                      i === diffIndex
+                                        ? "bg-wow-gold/20 text-wow-gold border border-wow-gold/40"
+                                        : "bg-wow-darker/50 text-gray-500 border border-gray-700/30 hover:text-gray-300"
+                                    }`}
+                                    onClick={() => changeDifficulty(i)}
+                                  >
+                                    {d.label}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
                           </div>
 
                           {/* Health Bar */}
@@ -513,7 +544,7 @@ export default function RaidScalingContent() {
                             />
                             <div className="absolute inset-0 flex items-center justify-center">
                               <span className="text-white text-xs font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
-                                {formatHP(scaledHP)} / {formatHP(boss.hp)}
+                                {formatHP(scaledHP)} / {formatHP(diff.hp)}
                               </span>
                             </div>
                           </div>
@@ -529,7 +560,8 @@ export default function RaidScalingContent() {
                                     : "text-red-400"
                               }`}
                             >
-                              {(healthFactor * 100).toFixed(1)}% {t("ofOriginal")}
+                              {(healthFactor * 100).toFixed(1)}%{" "}
+                              {t("ofOriginal")}
                             </span>
                           </div>
                         </div>
@@ -600,7 +632,7 @@ export default function RaidScalingContent() {
                     <div className="flex items-center gap-4">
                       <input
                         className="flex-1 h-2 rounded-lg appearance-none cursor-pointer bg-gray-700 accent-[#c79c3e]"
-                        max={boss.maxPlayers}
+                        max={diff.maxPlayers}
                         min={1}
                         type="range"
                         value={playerCount}
@@ -611,7 +643,7 @@ export default function RaidScalingContent() {
                           {playerCount}
                         </span>
                         <span className="text-gray-400 text-xs">
-                          /{boss.maxPlayers}
+                          /{diff.maxPlayers}
                         </span>
                       </div>
                     </div>
@@ -710,16 +742,21 @@ export default function RaidScalingContent() {
                   {isRaid ? (
                     <>
                       <p className="text-wow-gold text-sm font-mono">
-                        ratio = effDPS({Math.max(minPlayers, Math.min(playerCount, boss.maxPlayers))}) / effMaxDPS({boss.maxPlayers}) = {scalingRatio.toFixed(3)}
+                        ratio = effDPS(
+                        {Math.max(
+                          minPlayers,
+                          Math.min(playerCount, diff.maxPlayers),
+                        )}
+                        ) / effMaxDPS({diff.maxPlayers}) ={" "}
+                        {scalingRatio.toFixed(3)}
                       </p>
                       <p className="text-wow-gold text-sm font-mono">
                         HP = {scalingRatio.toFixed(3)}
                         <sup>{SERVER.healthExpRaid}</sup> ={" "}
                         <span className="text-white font-bold">
                           {(healthFactor * 100).toFixed(1)}%
-                        </span>
-                        {" "}&middot;{" "}
-                        DMG = {scalingRatio.toFixed(3)}
+                        </span>{" "}
+                        &middot; DMG = {scalingRatio.toFixed(3)}
                         <sup>{SERVER.damageExpRaid}</sup> ={" "}
                         <span className="text-white font-bold">
                           {(damageFactor * 100).toFixed(1)}%
@@ -729,16 +766,20 @@ export default function RaidScalingContent() {
                   ) : (
                     <>
                       <p className="text-wow-gold text-sm font-mono">
-                        ratio = S-curve({Math.max(minPlayers, Math.min(playerCount, boss.maxPlayers))}, {boss.maxPlayers}) = {scalingRatio.toFixed(3)}
+                        ratio = S-curve(
+                        {Math.max(
+                          minPlayers,
+                          Math.min(playerCount, diff.maxPlayers),
+                        )}
+                        , {diff.maxPlayers}) = {scalingRatio.toFixed(3)}
                       </p>
                       <p className="text-wow-gold text-sm font-mono">
                         HP = {scalingRatio.toFixed(3)}
                         <sup>{SERVER.healthExpDungeon}</sup> ={" "}
                         <span className="text-white font-bold">
                           {(healthFactor * 100).toFixed(1)}%
-                        </span>
-                        {" "}&middot;{" "}
-                        DMG = {scalingRatio.toFixed(3)}
+                        </span>{" "}
+                        &middot; DMG = {scalingRatio.toFixed(3)}
                         <sup>{SERVER.damageExpDungeon}</sup> ={" "}
                         <span className="text-white font-bold">
                           {(damageFactor * 100).toFixed(1)}%
