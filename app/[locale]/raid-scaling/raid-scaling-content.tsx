@@ -45,8 +45,8 @@ const BOSSES: Boss[] = [
     image: "onyxia.jpg",
     instance: "Onyxia's Lair",
     difficulties: [
-      { label: "10N", maxPlayers: 10, hp: 2032800 },
-      { label: "25N", maxPlayers: 25, hp: 9292800 },
+      { label: "10N", maxPlayers: 10, hp: 4880750 },
+      { label: "25N", maxPlayers: 25, hp: 22312000 },
     ],
   },
   {
@@ -59,33 +59,33 @@ const BOSSES: Boss[] = [
     name: "Illidan",
     image: "illidan.jpg",
     instance: "Black Temple",
-    difficulties: [{ label: "25", maxPlayers: 25, hp: 2463440 }],
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 4249280 }],
   },
   {
     name: "Kael'thas",
     image: "kaelthas.jpg",
     instance: "Tempest Keep",
-    difficulties: [{ label: "25", maxPlayers: 25, hp: 1477980 }],
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 2549400 }],
   },
   {
     name: "Archimonde",
     image: "archimonde.jpg",
     instance: "Mount Hyjal",
-    difficulties: [{ label: "25", maxPlayers: 25, hp: 1847475 }],
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 3186750 }],
   },
   {
     name: "Kil'jaeden",
     image: "kiljaeden.jpg",
     instance: "Sunwell Plateau",
-    difficulties: [{ label: "25", maxPlayers: 25, hp: 5419260 }],
+    difficulties: [{ label: "25", maxPlayers: 25, hp: 9347800 }],
   },
   {
     name: "Kel'Thuzad",
     image: "kelthuzad.jpg",
     instance: "Naxxramas",
     difficulties: [
-      { label: "10N", maxPlayers: 10, hp: 1742250 },
-      { label: "25N", maxPlayers: 25, hp: 4878300 },
+      { label: "10N", maxPlayers: 10, hp: 5229375 },
+      { label: "25N", maxPlayers: 25, hp: 14642250 },
     ],
   },
   {
@@ -93,8 +93,8 @@ const BOSSES: Boss[] = [
     image: "yoggsaron.jpg",
     instance: "Ulduar",
     difficulties: [
-      { label: "10N", maxPlayers: 10, hp: 4581426 },
-      { label: "25N", maxPlayers: 25, hp: 18325401 },
+      { label: "10N", maxPlayers: 10, hp: 10999997 },
+      { label: "25N", maxPlayers: 25, hp: 43999263 },
     ],
   },
   {
@@ -102,10 +102,10 @@ const BOSSES: Boss[] = [
     image: "lichking.jpg",
     instance: "Icecrown Citadel",
     difficulties: [
-      { label: "10N", maxPlayers: 10, hp: 7260000 },
-      { label: "25N", maxPlayers: 25, hp: 25410000 },
-      { label: "10H", maxPlayers: 10, hp: 12269400 },
-      { label: "25H", maxPlayers: 25, hp: 42961776 },
+      { label: "10N", maxPlayers: 10, hp: 17431250 },
+      { label: "25N", maxPlayers: 25, hp: 61009375 },
+      { label: "10H", maxPlayers: 10, hp: 29458812 },
+      { label: "25H", maxPlayers: 25, hp: 103151165 },
     ],
   },
 ];
