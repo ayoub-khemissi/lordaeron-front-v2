@@ -264,21 +264,59 @@ const NOT_SCALED = [
   { key: "questItems", icon: `${WOWHEAD_ICON}/inv_misc_map_01.jpg` },
 ];
 
+function resolveDiffIndex(boss: Boss, preferred: string): number {
+  // 1. Exact match
+  const exact = boss.difficulties.findIndex((d) => d.label === preferred);
+
+  if (exact !== -1) return exact;
+
+  const prefSize = parseInt(preferred.match(/(\d+)/)?.[1] ?? "0", 10);
+  const prefHeroic = preferred.includes("H");
+
+  // 2. Heroic fallback → same size normal
+  if (prefHeroic) {
+    const idx = boss.difficulties.findIndex((d) => {
+      const size = parseInt(d.label.match(/(\d+)/)?.[1] ?? "0", 10);
+
+      return size === prefSize && !d.label.includes("H");
+    });
+
+    if (idx !== -1) return idx;
+  }
+
+  // 3. Match just the raid size
+  const sizeIdx = boss.difficulties.findIndex((d) => {
+    const size = parseInt(d.label.match(/(\d+)/)?.[1] ?? "0", 10);
+
+    return size === prefSize;
+  });
+
+  if (sizeIdx !== -1) return sizeIdx;
+
+  // 4. Fallback to first difficulty
+  return 0;
+}
+
 export default function RaidScalingContent() {
   const t = useTranslations("raidScaling");
 
   const [bossIndex, setBossIndex] = useState(0);
   const [diffIndex, setDiffIndex] = useState(0);
+  const [preferredLabel, setPreferredLabel] = useState(
+    BOSSES[0].difficulties[0].label,
+  );
   const [playerCount, setPlayerCount] = useState(
     Math.ceil(BOSSES[0].difficulties[0].maxPlayers / 2),
   );
 
   useEffect(() => {
     const i = Math.floor(Math.random() * BOSSES.length);
+    const firstDiff = BOSSES[i].difficulties[0];
 
     setBossIndex(i);
     setDiffIndex(0);
-    setPlayerCount(Math.ceil(BOSSES[i].difficulties[0].maxPlayers / 2));
+    setPreferredLabel(firstDiff.label);
+    setPlayerCount(Math.ceil(firstDiff.maxPlayers / 2));
   }, []);
 
   const boss = BOSSES[bossIndex];
@@ -309,17 +347,20 @@ export default function RaidScalingContent() {
 
   const changeBoss = (delta: number) => {
     const i = (bossIndex + delta + BOSSES.length) % BOSSES.length;
+    const b = BOSSES[i];
+    const newDiffIndex = resolveDiffIndex(b, preferredLabel);
 
     setBossIndex(i);
-    setDiffIndex(0);
-    const b = BOSSES[i];
-    const newMax = b.difficulties[0].maxPlayers;
+    setDiffIndex(newDiffIndex);
+
+    const newMax = b.difficulties[newDiffIndex].maxPlayers;
 
     setPlayerCount(Math.max(1, Math.min(playerCount, newMax)));
   };
 
   const changeDifficulty = (i: number) => {
     setDiffIndex(i);
+    setPreferredLabel(boss.difficulties[i].label);
     const newMax = boss.difficulties[i].maxPlayers;
 
     if (playerCount > newMax) setPlayerCount(newMax);
