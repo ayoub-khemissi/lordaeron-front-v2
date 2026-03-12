@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import { verifySession } from "@/lib/auth";
 import { getVoteSitesWithStatus } from "@/lib/queries/votes";
 import { findAccountById } from "@/lib/queries/account";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   const session = await verifySession();
 
   if (!session) {
@@ -18,7 +18,12 @@ export async function GET() {
       return NextResponse.json({ error: "accountNotFound" }, { status: 404 });
     }
 
-    const sites = await getVoteSitesWithStatus(session.id);
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      null;
+
+    const sites = await getVoteSitesWithStatus(session.id, ip);
 
     // Append pingUsername to each vote URL
     const sitesWithUsername = sites.map((site) => ({

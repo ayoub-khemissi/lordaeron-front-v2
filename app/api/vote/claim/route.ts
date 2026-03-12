@@ -17,8 +17,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "invalidSiteId" }, { status: 400 });
     }
 
-    // Check cooldown
-    const sites = await getVoteSitesWithStatus(session.id);
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      null;
+
+    // Check cooldown (both per-account and per-IP)
+    const sites = await getVoteSitesWithStatus(session.id, ip);
     const site = sites.find((s) => s.id === siteId);
 
     if (!site) {
@@ -31,11 +36,6 @@ export async function POST(request: NextRequest) {
         { status: 429 },
       );
     }
-
-    const ip =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      request.headers.get("x-real-ip") ||
-      null;
 
     await recordVote(session.id, siteId, ip, true, null);
 

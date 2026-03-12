@@ -16,6 +16,7 @@ export interface VoteSiteWithStatus {
 
 export async function getVoteSitesWithStatus(
   accountId: number,
+  voterIp?: string | null,
 ): Promise<VoteSiteWithStatus[]> {
   const [rows] = await websiteDb.execute<RowDataPacket[]>(
     `SELECT
@@ -38,6 +39,21 @@ export async function getVoteSitesWithStatus(
     [accountId],
   );
 
+  // Check IP-based cooldown: last successful vote from this IP on each site
+  let ipCooldowns: Map<number, Date> = new Map();
+  if (voterIp) {
+    const [ipRows] = await websiteDb.execute<RowDataPacket[]>(
+      `SELECT site_id, MAX(created_at) AS last_ip_vote
+       FROM vote_logs
+       WHERE voter_ip = ? AND success = 1
+       GROUP BY site_id`,
+      [voterIp],
+    );
+    for (const row of ipRows) {
+      ipCooldowns.set(row.site_id, new Date(row.last_ip_vote));
+    }
+  }
+
   const now = Date.now();
 
   return rows.map((row) => {
@@ -46,10 +62,17 @@ export async function getVoteSitesWithStatus(
       : null;
 
     const cooldownMs = row.cooldown_hours * 60 * 60 * 1000;
+
+    // Account-level cooldown
     const lastVoteTime = row.last_voted_at
       ? new Date(row.last_voted_at).getTime()
       : 0;
-    const canVote = !row.last_voted_at || now - lastVoteTime >= cooldownMs;
+    const accountCanVote =
+      !row.last_voted_at || now - lastVoteTime >= cooldownMs;
+
+    // IP-level cooldown
+    const lastIpVote = ipCooldowns.get(row.id);
+    const ipCanVote = !lastIpVote || now - lastIpVote.getTime() >= cooldownMs;
 
     return {
       id: row.id,
@@ -60,7 +83,7 @@ export async function getVoteSitesWithStatus(
       rewardShards: row.reward_shards,
       cooldownHours: row.cooldown_hours,
       lastVotedAt,
-      canVote,
+      canVote: accountCanVote && ipCanVote,
     };
   });
 }
