@@ -195,6 +195,28 @@ export async function isCharacterNameTaken(name: string): Promise<boolean> {
   return rows.length > 0;
 }
 
+/**
+ * TrinityCore at_login flags for character services.
+ * Values are ORed into the existing bitmask.
+ */
+export const AT_LOGIN_FLAGS: Record<string, number> = {
+  name_change: 0x01, // AT_LOGIN_RENAME
+  faction_change: 0x40, // AT_LOGIN_CHANGE_FACTION
+  race_change: 0x80, // AT_LOGIN_CHANGE_RACE
+};
+
+export async function setAtLoginFlag(
+  characterGuid: number,
+  flag: number,
+): Promise<boolean> {
+  const [result] = await charactersDb.execute<RowDataPacket[]>(
+    "UPDATE characters SET at_login = at_login | ? WHERE guid = ? AND online = 0",
+    [flag, characterGuid],
+  );
+
+  return (result as unknown as { affectedRows: number }).affectedRows > 0;
+}
+
 export async function restoreCharacter(
   guid: number,
   name: string,

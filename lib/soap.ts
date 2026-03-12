@@ -2,6 +2,7 @@ import type { ShopPurchase } from "@/types";
 
 import { updatePurchaseStatus } from "@/lib/queries/shop-purchases";
 import { getShopSetItems } from "@/lib/queries/shop-sets";
+import { setAtLoginFlag, AT_LOGIN_FLAGS } from "@/lib/queries/characters";
 import { charactersDb } from "@/lib/db";
 
 const SOAP_HOST = process.env.SOAP_HOST || "127.0.0.1";
@@ -183,6 +184,26 @@ export async function retryPurchaseDelivery(
     }
 
     return result;
+  }
+
+  // Service purchase: apply at_login flag
+  if (purchase.service_type) {
+    const flag = AT_LOGIN_FLAGS[purchase.service_type];
+
+    if (flag) {
+      const applied = await setAtLoginFlag(purchase.character_guid, flag);
+
+      if (applied) {
+        await updatePurchaseStatus(purchase.id, "completed");
+
+        return { success: true, message: "Service applied" };
+      }
+
+      return {
+        success: false,
+        message: "Character is online or not found",
+      };
+    }
   }
 
   // Single item purchase

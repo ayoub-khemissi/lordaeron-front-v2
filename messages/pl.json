@@ -403,6 +403,7 @@
       "giftRecipientClassRestricted": "Przedmiot niedostępny dla klasy odbiorcy",
       "giftRecipientFactionRestricted": "Przedmiot niedostępny dla frakcji odbiorcy",
       "giftNotAvailableForServices": "Prezenty nie są dostępne dla usług",
+      "characterMustBeOffline": "Twoja postać musi być offline, aby kupić tę usługę.",
       "refundExpired": "2-godzinne okno zwrotu wygasło.",
       "characterOnline": "Postać musi być offline, aby przetworzyć zwrot.",
       "itemNotInInventory": "Przedmiot nie znajduje się już w ekwipunku postaci lub poczcie.",

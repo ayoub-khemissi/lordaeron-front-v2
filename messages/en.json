@@ -403,6 +403,7 @@
       "giftRecipientClassRestricted": "Item not available for the recipient's class",
       "giftRecipientFactionRestricted": "Item not available for the recipient's faction",
       "giftNotAvailableForServices": "Gifts are not available for services",
+      "characterMustBeOffline": "Your character must be offline to purchase this service.",
       "refundExpired": "The 2-hour refund window has expired.",
       "characterOnline": "The character must be offline to process a refund.",
       "itemNotInInventory": "The item is no longer in the character's inventory or mail.",

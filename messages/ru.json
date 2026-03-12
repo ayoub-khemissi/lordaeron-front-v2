@@ -403,6 +403,7 @@
       "giftRecipientClassRestricted": "Предмет недоступен для класса получателя",
       "giftRecipientFactionRestricted": "Предмет недоступен для фракции получателя",
       "giftNotAvailableForServices": "Подарки недоступны для услуг",
+      "characterMustBeOffline": "Ваш персонаж должен быть оффлайн для покупки этой услуги.",
       "refundExpired": "2-часовое окно для возврата истекло.",
       "characterOnline": "Персонаж должен быть оффлайн для оформления возврата.",
       "itemNotInInventory": "Предмет больше не находится в инвентаре или почте персонажа.",

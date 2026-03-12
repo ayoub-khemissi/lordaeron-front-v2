@@ -401,6 +401,7 @@
       "giftRecipientClassRestricted": "Artikel nicht verfügbar für die Klasse des Empfängers",
       "giftRecipientFactionRestricted": "Artikel nicht verfügbar für die Fraktion des Empfängers",
       "giftNotAvailableForServices": "Geschenke sind für Dienste nicht verfügbar",
+      "characterMustBeOffline": "Dein Charakter muss offline sein, um diesen Dienst zu kaufen.",
       "refundExpired": "Das 2-Stunden-Erstattungsfenster ist abgelaufen.",
       "characterOnline": "Der Charakter muss offline sein, um eine Erstattung zu verarbeiten.",
       "itemNotInInventory": "Der Gegenstand befindet sich nicht mehr im Inventar oder Postfach des Charakters.",

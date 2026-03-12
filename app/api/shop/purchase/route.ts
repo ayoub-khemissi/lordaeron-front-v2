@@ -13,6 +13,8 @@ import { getActiveBan } from "@/lib/queries/shop-bans";
 import {
   getCharactersByAccount,
   getCharacterByExactName,
+  setAtLoginFlag,
+  AT_LOGIN_FLAGS,
 } from "@/lib/queries/characters";
 import { ALLIANCE_RACES } from "@/lib/shop-utils";
 import { sendItem, sendItems } from "@/lib/soap";
@@ -218,6 +220,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "levelRestricted" }, { status: 400 });
     }
 
+    // Services require the character to be offline
+    if (item.category === "services" && character.online) {
+      return NextResponse.json(
+        { error: "characterMustBeOffline" },
+        { status: 400 },
+      );
+    }
+
     // Gift flow
     if (body.is_gift) {
       // Gifts not available for services
@@ -358,6 +368,26 @@ export async function POST(request: NextRequest) {
 
     if (!result.success) {
       return NextResponse.json({ error: result.error }, { status: 400 });
+    }
+
+    // Apply at_login flag for character services
+    if (item.category === "services" && item.service_type) {
+      const flag = AT_LOGIN_FLAGS[item.service_type];
+
+      if (flag) {
+        const applied = await setAtLoginFlag(body.character_guid, flag);
+
+        if (!applied) {
+          console.error("Failed to apply at_login flag:", item.service_type);
+          await updatePurchaseStatus(result.purchaseId!, "pending_delivery");
+
+          return NextResponse.json({
+            success: true,
+            purchaseId: result.purchaseId,
+            warning: "deliveryPending",
+          });
+        }
+      }
     }
 
     // Send item via SOAP for non-gift item purchases
