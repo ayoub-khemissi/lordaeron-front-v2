@@ -123,7 +123,7 @@ const SERVER = {
   minPlayersDungeon: 1,
   healthExpRaid: 0.8,
   healthExpDungeon: 1.1,
-  damageExpRaid: 0.13,
+  damageExpRaid: 0.21,
   damageExpDungeon: 1.25,
   dungeonSCurveSkew: 1.0,
 };
