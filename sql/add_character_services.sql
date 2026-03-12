@@ -57,6 +57,6 @@ INSERT INTO `shop_items` (
   'Ändere Frisur, Haarfarbe, Gesichtszüge und Hautfarbe deines Charakters. Die Änderung wird beim nächsten Login wirksam.',
   'Cambia acconciatura, colore dei capelli, tratti del viso e colore della pelle del tuo personaggio. La modifica avrà effetto al prossimo accesso.',
   150, 0, NULL, NULL, NULL, 'both',
-  'https://wow.zamimg.com/images/wow/icons/large/inv_misc_mirror_01.jpg',
+  'https://wow.zamimg.com/images/wow/icons/large/ability_rogue_disguise.jpg',
   NULL, 0, 1, 0, 0, 5
 );
