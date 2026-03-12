@@ -201,6 +201,7 @@ export async function isCharacterNameTaken(name: string): Promise<boolean> {
  */
 export const AT_LOGIN_FLAGS: Record<string, number> = {
   name_change: 0x01, // AT_LOGIN_RENAME
+  appearance_change: 0x08, // AT_LOGIN_CUSTOMIZE
   faction_change: 0x40, // AT_LOGIN_CHANGE_FACTION
   race_change: 0x80, // AT_LOGIN_CHANGE_RACE
 };

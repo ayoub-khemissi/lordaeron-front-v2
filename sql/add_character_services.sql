@@ -46,4 +46,17 @@ INSERT INTO `shop_items` (
   400, 0, NULL, NULL, NULL, 'both',
   'https://wow.zamimg.com/images/wow/icons/large/spell_shadow_charm.jpg',
   NULL, 0, 1, 0, 0, 30
+),
+-- Appearance Change
+(
+  'services', 'appearance_change', NULL,
+  'Appearance Change', 'Changement d''apparence', 'Cambio de apariencia', 'Aussehensänderung', 'Cambio aspetto',
+  'Change your character''s hairstyle, hair color, facial features and skin color. The change will take effect at the next login.',
+  'Changez la coiffure, la couleur des cheveux, les traits du visage et la couleur de peau de votre personnage. Le changement prendra effet à la prochaine connexion.',
+  'Cambia el peinado, color de pelo, rasgos faciales y color de piel de tu personaje. El cambio se aplicará en el próximo inicio de sesión.',
+  'Ändere Frisur, Haarfarbe, Gesichtszüge und Hautfarbe deines Charakters. Die Änderung wird beim nächsten Login wirksam.',
+  'Cambia acconciatura, colore dei capelli, tratti del viso e colore della pelle del tuo personaggio. La modifica avrà effetto al prossimo accesso.',
+  150, 0, NULL, NULL, NULL, 'both',
+  'https://wow.zamimg.com/images/wow/icons/large/inv_misc_mirror_01.jpg',
+  NULL, 0, 1, 0, 0, 5
 );
