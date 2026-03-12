@@ -121,9 +121,9 @@ const LOOT_ICONS = [
 const SERVER = {
   minPlayersRaid: 5,
   minPlayersDungeon: 1,
-  healthExpRaid: 0.8,
+  healthExpRaid: 0.55,
   healthExpDungeon: 1.1,
-  damageExpRaid: 0.85,
+  damageExpRaid: 0.13,
   damageExpDungeon: 1.25,
   dungeonSCurveSkew: 1.0,
 };
