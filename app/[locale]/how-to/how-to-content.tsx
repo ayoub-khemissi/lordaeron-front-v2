@@ -29,6 +29,12 @@ const steps = [
   },
   {
     key: "step5",
+    icon: `${WOWHEAD_ICON}/inv_misc_wrench_01.jpg`,
+    bg: "/img/Wrath of the Lich King Classic Reveal Screenshots 1080p/WoW_Wrath_Dalaran_007_1080p_png_jpgcopy.jpg",
+    download: "/patches/patch-Z.MPQ",
+  },
+  {
+    key: "step6",
     icon: `${WOWHEAD_ICON}/inv_misc_horn_02.jpg`,
     bg: "/img/Wrath Classic Fall of the Lich King Launch Screenshots/WoW_WrathClassic_Fall_of_the_Lich_King_(5)_png_jpgcopy.jpg",
   },
@@ -119,6 +125,31 @@ export default function HowToContent() {
                         >
                           {t("realmlist")}
                         </Snippet>
+                      </div>
+                    )}
+
+                    {"download" in step && step.download && (
+                      <div className="mt-5">
+                        <a
+                          className="inline-flex items-center gap-2 glass-gold glow-gold rounded-lg px-5 py-2.5 text-wow-gold font-semibold text-sm hover:brightness-125 transition-all"
+                          download
+                          href={step.download}
+                        >
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 5v14m0 0l-6-6m6 6l6-6M5 19h14"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          {t(`${step.key}Download`)}
+                        </a>
                       </div>
                     )}
                   </div>
